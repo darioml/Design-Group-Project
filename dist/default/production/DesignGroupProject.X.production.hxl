@@ -2,10 +2,14 @@
 ### Memory Usage ###
  Unused memory ranges:
   6h - FF1h
+  1000h - 3FFFh
+  4000h - 400Dh
+  4010h - 403Fh
   
  dist/default/production/DesignGroupProject.X.production.hex ranges:
   0h - 5h
   FF2h - FFFh
+  400Eh - 400Fh
   
 ### Hex Memory Map ###
  Legend:
@@ -21,3 +25,4 @@
   1 = dist/default/production/DesignGroupProject.X.production.hex
 00000000: 111111----------------------------------------------------------
 00000FC0: --------------------------------------------------11111111111111
+00004000: --------------11------------------------------------------------

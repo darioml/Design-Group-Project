@@ -65,70 +65,2460 @@ extern int vsscanf(const char *, const char *, va_list);
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 27 "/usr/hitech/picc/9.82/include/stdlib.h"
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
+# 95 "/usr/hitech/picc/9.82/include/pic16f917.h"
+volatile unsigned char INDF @ 0x000;
 
-# 65
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
 
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
 
-# 106
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
+volatile unsigned char TMR0 @ 0x001;
 
-# 122
-extern void abort(void);
-extern void exit(int);
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
 
-# 145
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
 
-# 14 "newmain.c"
-int main(int argc, char** argv) {
+volatile unsigned char PCL @ 0x002;
 
-return (0);
+
+
+volatile unsigned char STATUS @ 0x003;
+
+volatile bit CARRY @ ((unsigned)&STATUS*8)+0;
+volatile bit DC @ ((unsigned)&STATUS*8)+1;
+volatile bit ZERO @ ((unsigned)&STATUS*8)+2;
+volatile bit nPD @ ((unsigned)&STATUS*8)+3;
+volatile bit nTO @ ((unsigned)&STATUS*8)+4;
+volatile bit IRP @ ((unsigned)&STATUS*8)+7;
+volatile bit RP0 @ ((unsigned)&STATUS*8)+5;
+volatile bit RP1 @ ((unsigned)&STATUS*8)+6;
+
+volatile union {
+struct {
+unsigned C : 1;
+unsigned DC : 1;
+unsigned Z : 1;
+unsigned nPD : 1;
+unsigned nTO : 1;
+unsigned RP : 2;
+unsigned IRP : 1;
+};
+struct {
+unsigned : 5;
+unsigned RP0 : 1;
+unsigned RP1 : 1;
+};
+} STATUSbits @ 0x003;
+
+
+
+volatile unsigned char FSR @ 0x004;
+
+
+
+volatile unsigned char PORTA @ 0x005;
+
+volatile bit RA0 @ ((unsigned)&PORTA*8)+0;
+volatile bit RA1 @ ((unsigned)&PORTA*8)+1;
+volatile bit RA2 @ ((unsigned)&PORTA*8)+2;
+volatile bit RA3 @ ((unsigned)&PORTA*8)+3;
+volatile bit RA4 @ ((unsigned)&PORTA*8)+4;
+volatile bit RA5 @ ((unsigned)&PORTA*8)+5;
+volatile bit RA6 @ ((unsigned)&PORTA*8)+6;
+volatile bit RA7 @ ((unsigned)&PORTA*8)+7;
+
+volatile union {
+struct {
+unsigned RA0 : 1;
+unsigned RA1 : 1;
+unsigned RA2 : 1;
+unsigned RA3 : 1;
+unsigned RA4 : 1;
+unsigned RA5 : 1;
+unsigned RA6 : 1;
+unsigned RA7 : 1;
+};
+} PORTAbits @ 0x005;
+
+
+
+volatile unsigned char PORTB @ 0x006;
+
+volatile bit RB0 @ ((unsigned)&PORTB*8)+0;
+volatile bit RB1 @ ((unsigned)&PORTB*8)+1;
+volatile bit RB2 @ ((unsigned)&PORTB*8)+2;
+volatile bit RB3 @ ((unsigned)&PORTB*8)+3;
+volatile bit RB4 @ ((unsigned)&PORTB*8)+4;
+volatile bit RB5 @ ((unsigned)&PORTB*8)+5;
+volatile bit RB6 @ ((unsigned)&PORTB*8)+6;
+volatile bit RB7 @ ((unsigned)&PORTB*8)+7;
+
+volatile union {
+struct {
+unsigned RB0 : 1;
+unsigned RB1 : 1;
+unsigned RB2 : 1;
+unsigned RB3 : 1;
+unsigned RB4 : 1;
+unsigned RB5 : 1;
+unsigned RB6 : 1;
+unsigned RB7 : 1;
+};
+} PORTBbits @ 0x006;
+
+
+
+volatile unsigned char PORTC @ 0x007;
+
+volatile bit RC0 @ ((unsigned)&PORTC*8)+0;
+volatile bit RC1 @ ((unsigned)&PORTC*8)+1;
+volatile bit RC2 @ ((unsigned)&PORTC*8)+2;
+volatile bit RC3 @ ((unsigned)&PORTC*8)+3;
+volatile bit RC4 @ ((unsigned)&PORTC*8)+4;
+volatile bit RC5 @ ((unsigned)&PORTC*8)+5;
+volatile bit RC6 @ ((unsigned)&PORTC*8)+6;
+volatile bit RC7 @ ((unsigned)&PORTC*8)+7;
+
+volatile union {
+struct {
+unsigned RC0 : 1;
+unsigned RC1 : 1;
+unsigned RC2 : 1;
+unsigned RC3 : 1;
+unsigned RC4 : 1;
+unsigned RC5 : 1;
+unsigned RC6 : 1;
+unsigned RC7 : 1;
+};
+} PORTCbits @ 0x007;
+
+
+
+volatile unsigned char PORTD @ 0x008;
+
+volatile bit RD0 @ ((unsigned)&PORTD*8)+0;
+volatile bit RD1 @ ((unsigned)&PORTD*8)+1;
+volatile bit RD2 @ ((unsigned)&PORTD*8)+2;
+volatile bit RD3 @ ((unsigned)&PORTD*8)+3;
+volatile bit RD4 @ ((unsigned)&PORTD*8)+4;
+volatile bit RD5 @ ((unsigned)&PORTD*8)+5;
+volatile bit RD6 @ ((unsigned)&PORTD*8)+6;
+volatile bit RD7 @ ((unsigned)&PORTD*8)+7;
+
+volatile union {
+struct {
+unsigned RD0 : 1;
+unsigned RD1 : 1;
+unsigned RD2 : 1;
+unsigned RD3 : 1;
+unsigned RD4 : 1;
+unsigned RD5 : 1;
+unsigned RD6 : 1;
+unsigned RD7 : 1;
+};
+} PORTDbits @ 0x008;
+
+
+
+volatile unsigned char PORTE @ 0x009;
+
+volatile bit RE0 @ ((unsigned)&PORTE*8)+0;
+volatile bit RE1 @ ((unsigned)&PORTE*8)+1;
+volatile bit RE2 @ ((unsigned)&PORTE*8)+2;
+volatile bit RE3 @ ((unsigned)&PORTE*8)+3;
+
+volatile union {
+struct {
+unsigned RE0 : 1;
+unsigned RE1 : 1;
+unsigned RE2 : 1;
+unsigned RE3 : 1;
+};
+} PORTEbits @ 0x009;
+
+
+
+volatile unsigned char PCLATH @ 0x00A;
+
+
+volatile union {
+struct {
+unsigned : 5;
+};
+} PCLATHbits @ 0x00A;
+
+
+
+volatile unsigned char INTCON @ 0x00B;
+
+volatile bit RBIF @ ((unsigned)&INTCON*8)+0;
+volatile bit INTF @ ((unsigned)&INTCON*8)+1;
+volatile bit TMR0IF @ ((unsigned)&INTCON*8)+2;
+volatile bit RBIE @ ((unsigned)&INTCON*8)+3;
+volatile bit INTE @ ((unsigned)&INTCON*8)+4;
+volatile bit TMR0IE @ ((unsigned)&INTCON*8)+5;
+volatile bit PEIE @ ((unsigned)&INTCON*8)+6;
+volatile bit GIE @ ((unsigned)&INTCON*8)+7;
+volatile bit T0IF @ ((unsigned)&INTCON*8)+2;
+volatile bit T0IE @ ((unsigned)&INTCON*8)+5;
+
+volatile union {
+struct {
+unsigned RBIF : 1;
+unsigned INTF : 1;
+unsigned TMR0IF : 1;
+unsigned RBIE : 1;
+unsigned INTE : 1;
+unsigned TMR0IE : 1;
+unsigned PEIE : 1;
+unsigned GIE : 1;
+};
+struct {
+unsigned : 2;
+unsigned T0IF : 1;
+unsigned : 2;
+unsigned T0IE : 1;
+};
+} INTCONbits @ 0x00B;
+
+
+
+volatile unsigned char PIR1 @ 0x00C;
+
+volatile bit TMR1IF @ ((unsigned)&PIR1*8)+0;
+volatile bit TMR2IF @ ((unsigned)&PIR1*8)+1;
+volatile bit CCP1IF @ ((unsigned)&PIR1*8)+2;
+volatile bit SSPIF @ ((unsigned)&PIR1*8)+3;
+volatile bit TXIF @ ((unsigned)&PIR1*8)+4;
+volatile bit RCIF @ ((unsigned)&PIR1*8)+5;
+volatile bit ADIF @ ((unsigned)&PIR1*8)+6;
+volatile bit EEIF @ ((unsigned)&PIR1*8)+7;
+
+volatile union {
+struct {
+unsigned TMR1IF : 1;
+unsigned TMR2IF : 1;
+unsigned CCP1IF : 1;
+unsigned SSPIF : 1;
+unsigned TXIF : 1;
+unsigned RCIF : 1;
+unsigned ADIF : 1;
+unsigned EEIF : 1;
+};
+struct {
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+unsigned : 2;
+unsigned : 1;
+unsigned : 1;
+};
+} PIR1bits @ 0x00C;
+
+
+
+volatile unsigned char PIR2 @ 0x00D;
+
+volatile bit CCP2IF @ ((unsigned)&PIR2*8)+0;
+volatile bit LVDIF @ ((unsigned)&PIR2*8)+2;
+volatile bit LCDIF @ ((unsigned)&PIR2*8)+4;
+volatile bit C1IF @ ((unsigned)&PIR2*8)+5;
+volatile bit C2IF @ ((unsigned)&PIR2*8)+6;
+volatile bit OSFIF @ ((unsigned)&PIR2*8)+7;
+
+volatile union {
+struct {
+unsigned CCP2IF : 1;
+unsigned : 1;
+unsigned LVDIF : 1;
+unsigned : 1;
+unsigned LCDIF : 1;
+unsigned C1IF : 1;
+unsigned C2IF : 1;
+unsigned OSFIF : 1;
+};
+} PIR2bits @ 0x00D;
+
+
+
+
+volatile unsigned char TMR1L @ 0x00E;
+
+
+
+volatile unsigned char TMR1H @ 0x00F;
+
+
+
+volatile unsigned int TMR1 @ 0x00E;
+
+
+volatile unsigned char T1CON @ 0x010;
+
+volatile bit TMR1ON @ ((unsigned)&T1CON*8)+0;
+volatile bit TMR1CS @ ((unsigned)&T1CON*8)+1;
+volatile bit nT1SYNC @ ((unsigned)&T1CON*8)+2;
+volatile bit T1OSCEN @ ((unsigned)&T1CON*8)+3;
+volatile bit TMR1GE @ ((unsigned)&T1CON*8)+6;
+volatile bit T1GINV @ ((unsigned)&T1CON*8)+7;
+volatile bit T1SYNC @ ((unsigned)&T1CON*8)+2;
+volatile bit T1CKPS0 @ ((unsigned)&T1CON*8)+4;
+volatile bit T1CKPS1 @ ((unsigned)&T1CON*8)+5;
+volatile bit T1GE @ ((unsigned)&T1CON*8)+6;
+volatile bit T1INSYNC @ ((unsigned)&T1CON*8)+2;
+
+volatile union {
+struct {
+unsigned TMR1ON : 1;
+unsigned TMR1CS : 1;
+unsigned nT1SYNC : 1;
+unsigned T1OSCEN : 1;
+unsigned T1CKPS : 2;
+unsigned TMR1GE : 1;
+unsigned T1GINV : 1;
+};
+struct {
+unsigned : 2;
+unsigned T1SYNC : 1;
+unsigned : 1;
+unsigned T1CKPS0 : 1;
+unsigned T1CKPS1 : 1;
+unsigned T1GE : 1;
+};
+struct {
+unsigned : 2;
+unsigned T1INSYNC : 1;
+};
+} T1CONbits @ 0x010;
+
+
+
+volatile unsigned char TMR2 @ 0x011;
+
+
+
+volatile unsigned char T2CON @ 0x012;
+
+volatile bit TMR2ON @ ((unsigned)&T2CON*8)+2;
+volatile bit T2CKPS0 @ ((unsigned)&T2CON*8)+0;
+volatile bit T2CKPS1 @ ((unsigned)&T2CON*8)+1;
+volatile bit TOUTPS0 @ ((unsigned)&T2CON*8)+3;
+volatile bit TOUTPS1 @ ((unsigned)&T2CON*8)+4;
+volatile bit TOUTPS2 @ ((unsigned)&T2CON*8)+5;
+volatile bit TOUTPS3 @ ((unsigned)&T2CON*8)+6;
+
+volatile union {
+struct {
+unsigned T2CKPS : 2;
+unsigned TMR2ON : 1;
+unsigned TOUTPS : 4;
+};
+struct {
+unsigned T2CKPS0 : 1;
+unsigned T2CKPS1 : 1;
+unsigned : 1;
+unsigned TOUTPS0 : 1;
+unsigned TOUTPS1 : 1;
+unsigned TOUTPS2 : 1;
+unsigned TOUTPS3 : 1;
+};
+} T2CONbits @ 0x012;
+
+
+
+volatile unsigned char SSPBUF @ 0x013;
+
+
+
+volatile unsigned char SSPCON @ 0x014;
+
+volatile bit CKP @ ((unsigned)&SSPCON*8)+4;
+volatile bit SSPEN @ ((unsigned)&SSPCON*8)+5;
+volatile bit SSPOV @ ((unsigned)&SSPCON*8)+6;
+volatile bit WCOL @ ((unsigned)&SSPCON*8)+7;
+volatile bit SSPM0 @ ((unsigned)&SSPCON*8)+0;
+volatile bit SSPM1 @ ((unsigned)&SSPCON*8)+1;
+volatile bit SSPM2 @ ((unsigned)&SSPCON*8)+2;
+volatile bit SSPM3 @ ((unsigned)&SSPCON*8)+3;
+
+volatile union {
+struct {
+unsigned SSPM : 4;
+unsigned CKP : 1;
+unsigned SSPEN : 1;
+unsigned SSPOV : 1;
+unsigned WCOL : 1;
+};
+struct {
+unsigned SSPM0 : 1;
+unsigned SSPM1 : 1;
+unsigned SSPM2 : 1;
+unsigned SSPM3 : 1;
+};
+} SSPCONbits @ 0x014;
+
+
+
+
+volatile unsigned char CCPR1L @ 0x015;
+
+
+
+volatile unsigned char CCPR1H @ 0x016;
+
+
+
+volatile unsigned int CCPR1 @ 0x015;
+
+
+volatile unsigned char CCP1CON @ 0x017;
+
+volatile bit CCP1Y @ ((unsigned)&CCP1CON*8)+4;
+volatile bit CCP1X @ ((unsigned)&CCP1CON*8)+5;
+volatile bit CCP1M0 @ ((unsigned)&CCP1CON*8)+0;
+volatile bit CCP1M1 @ ((unsigned)&CCP1CON*8)+1;
+volatile bit CCP1M2 @ ((unsigned)&CCP1CON*8)+2;
+volatile bit CCP1M3 @ ((unsigned)&CCP1CON*8)+3;
+
+volatile union {
+struct {
+unsigned CCP1M : 4;
+unsigned CCP1Y : 1;
+unsigned CCP1X : 1;
+};
+struct {
+unsigned CCP1M0 : 1;
+unsigned CCP1M1 : 1;
+unsigned CCP1M2 : 1;
+unsigned CCP1M3 : 1;
+};
+} CCP1CONbits @ 0x017;
+
+
+
+volatile unsigned char RCSTA @ 0x018;
+
+volatile bit RX9D @ ((unsigned)&RCSTA*8)+0;
+volatile bit OERR @ ((unsigned)&RCSTA*8)+1;
+volatile bit FERR @ ((unsigned)&RCSTA*8)+2;
+volatile bit ADDEN @ ((unsigned)&RCSTA*8)+3;
+volatile bit CREN @ ((unsigned)&RCSTA*8)+4;
+volatile bit SREN @ ((unsigned)&RCSTA*8)+5;
+volatile bit RX9 @ ((unsigned)&RCSTA*8)+6;
+volatile bit SPEN @ ((unsigned)&RCSTA*8)+7;
+volatile bit RCD8 @ ((unsigned)&RCSTA*8)+0;
+volatile bit RC9 @ ((unsigned)&RCSTA*8)+6;
+volatile bit nRC8 @ ((unsigned)&RCSTA*8)+6;
+volatile bit RC8_9 @ ((unsigned)&RCSTA*8)+6;
+
+volatile union {
+struct {
+unsigned RX9D : 1;
+unsigned OERR : 1;
+unsigned FERR : 1;
+unsigned ADDEN : 1;
+unsigned CREN : 1;
+unsigned SREN : 1;
+unsigned RX9 : 1;
+unsigned SPEN : 1;
+};
+struct {
+unsigned RCD8 : 1;
+unsigned : 5;
+unsigned RC9 : 1;
+};
+struct {
+unsigned : 6;
+unsigned nRC8 : 1;
+};
+struct {
+unsigned : 6;
+unsigned RC8_9 : 1;
+};
+} RCSTAbits @ 0x018;
+
+
+
+volatile unsigned char TXREG @ 0x019;
+
+
+
+volatile unsigned char RCREG @ 0x01A;
+
+
+
+
+volatile unsigned char CCPR2L @ 0x01B;
+
+
+
+volatile unsigned char CCPR2H @ 0x01C;
+
+
+
+volatile unsigned int CCPR2 @ 0x01B;
+
+
+volatile unsigned char CCP2CON @ 0x01D;
+
+volatile bit CCP2Y @ ((unsigned)&CCP2CON*8)+4;
+volatile bit CCP2X @ ((unsigned)&CCP2CON*8)+5;
+volatile bit CCP2M0 @ ((unsigned)&CCP2CON*8)+0;
+volatile bit CCP2M1 @ ((unsigned)&CCP2CON*8)+1;
+volatile bit CCP2M2 @ ((unsigned)&CCP2CON*8)+2;
+volatile bit CCP2M3 @ ((unsigned)&CCP2CON*8)+3;
+
+volatile union {
+struct {
+unsigned CCP2M : 4;
+unsigned CCP2Y : 1;
+unsigned CCP2X : 1;
+};
+struct {
+unsigned CCP2M0 : 1;
+unsigned CCP2M1 : 1;
+unsigned CCP2M2 : 1;
+unsigned CCP2M3 : 1;
+};
+} CCP2CONbits @ 0x01D;
+
+
+
+volatile unsigned char ADRESH @ 0x01E;
+
+
+
+volatile unsigned char ADCON0 @ 0x01F;
+
+volatile bit ADON @ ((unsigned)&ADCON0*8)+0;
+volatile bit GO_nDONE @ ((unsigned)&ADCON0*8)+1;
+volatile bit ADFM @ ((unsigned)&ADCON0*8)+7;
+volatile bit nDONE @ ((unsigned)&ADCON0*8)+1;
+volatile bit CHS0 @ ((unsigned)&ADCON0*8)+2;
+volatile bit CHS1 @ ((unsigned)&ADCON0*8)+3;
+volatile bit CHS2 @ ((unsigned)&ADCON0*8)+4;
+volatile bit VCFG0 @ ((unsigned)&ADCON0*8)+5;
+volatile bit VCFG1 @ ((unsigned)&ADCON0*8)+6;
+volatile bit GO_DONE @ ((unsigned)&ADCON0*8)+1;
+volatile bit GO @ ((unsigned)&ADCON0*8)+1;
+
+volatile union {
+struct {
+unsigned ADON : 1;
+unsigned GO_nDONE : 1;
+unsigned CHS : 3;
+unsigned VCFG : 2;
+unsigned ADFM : 1;
+};
+struct {
+unsigned : 1;
+unsigned : 1;
+unsigned : 3;
+unsigned : 2;
+unsigned : 1;
+};
+struct {
+unsigned : 1;
+unsigned nDONE : 1;
+unsigned CHS0 : 1;
+unsigned CHS1 : 1;
+unsigned CHS2 : 1;
+unsigned VCFG0 : 1;
+unsigned VCFG1 : 1;
+};
+struct {
+unsigned : 1;
+unsigned GO_DONE : 1;
+};
+struct {
+unsigned : 1;
+unsigned GO : 1;
+};
+} ADCON0bits @ 0x01F;
+
+# 669
+volatile unsigned char OPTION_REG @ 0x081;
+
+volatile bit PSA @ ((unsigned)&OPTION_REG*8)+3;
+volatile bit T0SE @ ((unsigned)&OPTION_REG*8)+4;
+volatile bit T0CS @ ((unsigned)&OPTION_REG*8)+5;
+volatile bit INTEDG @ ((unsigned)&OPTION_REG*8)+6;
+volatile bit nRBPU @ ((unsigned)&OPTION_REG*8)+7;
+volatile bit PS0 @ ((unsigned)&OPTION_REG*8)+0;
+volatile bit PS1 @ ((unsigned)&OPTION_REG*8)+1;
+volatile bit PS2 @ ((unsigned)&OPTION_REG*8)+2;
+
+volatile union {
+struct {
+unsigned PS : 3;
+unsigned PSA : 1;
+unsigned T0SE : 1;
+unsigned T0CS : 1;
+unsigned INTEDG : 1;
+unsigned nRBPU : 1;
+};
+struct {
+unsigned PS0 : 1;
+unsigned PS1 : 1;
+unsigned PS2 : 1;
+};
+} OPTION_REGbits @ 0x081;
+
+
+
+volatile unsigned char TRISA @ 0x085;
+
+volatile bit TRISA0 @ ((unsigned)&TRISA*8)+0;
+volatile bit TRISA1 @ ((unsigned)&TRISA*8)+1;
+volatile bit TRISA2 @ ((unsigned)&TRISA*8)+2;
+volatile bit TRISA3 @ ((unsigned)&TRISA*8)+3;
+volatile bit TRISA4 @ ((unsigned)&TRISA*8)+4;
+volatile bit TRISA5 @ ((unsigned)&TRISA*8)+5;
+volatile bit TRISA6 @ ((unsigned)&TRISA*8)+6;
+volatile bit TRISA7 @ ((unsigned)&TRISA*8)+7;
+
+volatile union {
+struct {
+unsigned TRISA0 : 1;
+unsigned TRISA1 : 1;
+unsigned TRISA2 : 1;
+unsigned TRISA3 : 1;
+unsigned TRISA4 : 1;
+unsigned TRISA5 : 1;
+unsigned TRISA6 : 1;
+unsigned TRISA7 : 1;
+};
+} TRISAbits @ 0x085;
+
+
+
+volatile unsigned char TRISB @ 0x086;
+
+volatile bit TRISB0 @ ((unsigned)&TRISB*8)+0;
+volatile bit TRISB1 @ ((unsigned)&TRISB*8)+1;
+volatile bit TRISB2 @ ((unsigned)&TRISB*8)+2;
+volatile bit TRISB3 @ ((unsigned)&TRISB*8)+3;
+volatile bit TRISB4 @ ((unsigned)&TRISB*8)+4;
+volatile bit TRISB5 @ ((unsigned)&TRISB*8)+5;
+volatile bit TRISB6 @ ((unsigned)&TRISB*8)+6;
+volatile bit TRISB7 @ ((unsigned)&TRISB*8)+7;
+
+volatile union {
+struct {
+unsigned TRISB0 : 1;
+unsigned TRISB1 : 1;
+unsigned TRISB2 : 1;
+unsigned TRISB3 : 1;
+unsigned TRISB4 : 1;
+unsigned TRISB5 : 1;
+unsigned TRISB6 : 1;
+unsigned TRISB7 : 1;
+};
+} TRISBbits @ 0x086;
+
+
+
+volatile unsigned char TRISC @ 0x087;
+
+volatile bit TRISC0 @ ((unsigned)&TRISC*8)+0;
+volatile bit TRISC1 @ ((unsigned)&TRISC*8)+1;
+volatile bit TRISC2 @ ((unsigned)&TRISC*8)+2;
+volatile bit TRISC3 @ ((unsigned)&TRISC*8)+3;
+volatile bit TRISC4 @ ((unsigned)&TRISC*8)+4;
+volatile bit TRISC5 @ ((unsigned)&TRISC*8)+5;
+volatile bit TRISC6 @ ((unsigned)&TRISC*8)+6;
+volatile bit TRISC7 @ ((unsigned)&TRISC*8)+7;
+
+volatile union {
+struct {
+unsigned TRISC0 : 1;
+unsigned TRISC1 : 1;
+unsigned TRISC2 : 1;
+unsigned TRISC3 : 1;
+unsigned TRISC4 : 1;
+unsigned TRISC5 : 1;
+unsigned TRISC6 : 1;
+unsigned TRISC7 : 1;
+};
+} TRISCbits @ 0x087;
+
+
+
+volatile unsigned char TRISD @ 0x088;
+
+volatile bit TRISD0 @ ((unsigned)&TRISD*8)+0;
+volatile bit TRISD1 @ ((unsigned)&TRISD*8)+1;
+volatile bit TRISD2 @ ((unsigned)&TRISD*8)+2;
+volatile bit TRISD3 @ ((unsigned)&TRISD*8)+3;
+volatile bit TRISD4 @ ((unsigned)&TRISD*8)+4;
+volatile bit TRISD5 @ ((unsigned)&TRISD*8)+5;
+volatile bit TRISD6 @ ((unsigned)&TRISD*8)+6;
+volatile bit TRISD7 @ ((unsigned)&TRISD*8)+7;
+
+volatile union {
+struct {
+unsigned TRISD0 : 1;
+unsigned TRISD1 : 1;
+unsigned TRISD2 : 1;
+unsigned TRISD3 : 1;
+unsigned TRISD4 : 1;
+unsigned TRISD5 : 1;
+unsigned TRISD6 : 1;
+unsigned TRISD7 : 1;
+};
+} TRISDbits @ 0x088;
+
+
+
+volatile unsigned char TRISE @ 0x089;
+
+volatile bit TRISE0 @ ((unsigned)&TRISE*8)+0;
+volatile bit TRISE1 @ ((unsigned)&TRISE*8)+1;
+volatile bit TRISE2 @ ((unsigned)&TRISE*8)+2;
+volatile bit TRISE3 @ ((unsigned)&TRISE*8)+3;
+
+volatile union {
+struct {
+unsigned TRISE0 : 1;
+unsigned TRISE1 : 1;
+unsigned TRISE2 : 1;
+unsigned TRISE3 : 1;
+};
+} TRISEbits @ 0x089;
+
+
+
+volatile unsigned char PIE1 @ 0x08C;
+
+volatile bit TMR1IE @ ((unsigned)&PIE1*8)+0;
+volatile bit TMR2IE @ ((unsigned)&PIE1*8)+1;
+volatile bit CCP1IE @ ((unsigned)&PIE1*8)+2;
+volatile bit SSPIE @ ((unsigned)&PIE1*8)+3;
+volatile bit TXIE @ ((unsigned)&PIE1*8)+4;
+volatile bit RCIE @ ((unsigned)&PIE1*8)+5;
+volatile bit ADIE @ ((unsigned)&PIE1*8)+6;
+volatile bit EEIE @ ((unsigned)&PIE1*8)+7;
+
+volatile union {
+struct {
+unsigned TMR1IE : 1;
+unsigned TMR2IE : 1;
+unsigned CCP1IE : 1;
+unsigned SSPIE : 1;
+unsigned TXIE : 1;
+unsigned RCIE : 1;
+unsigned ADIE : 1;
+unsigned EEIE : 1;
+};
+} PIE1bits @ 0x08C;
+
+
+
+volatile unsigned char PIE2 @ 0x08D;
+
+volatile bit CCP2IE @ ((unsigned)&PIE2*8)+0;
+volatile bit LVDIE @ ((unsigned)&PIE2*8)+2;
+volatile bit LCDIE @ ((unsigned)&PIE2*8)+4;
+volatile bit C1IE @ ((unsigned)&PIE2*8)+5;
+volatile bit C2IE @ ((unsigned)&PIE2*8)+6;
+volatile bit OSFIE @ ((unsigned)&PIE2*8)+7;
+
+volatile union {
+struct {
+unsigned CCP2IE : 1;
+unsigned : 1;
+unsigned LVDIE : 1;
+unsigned : 1;
+unsigned LCDIE : 1;
+unsigned C1IE : 1;
+unsigned C2IE : 1;
+unsigned OSFIE : 1;
+};
+} PIE2bits @ 0x08D;
+
+
+
+volatile unsigned char PCON @ 0x08E;
+
+volatile bit nBOR @ ((unsigned)&PCON*8)+0;
+volatile bit nPOR @ ((unsigned)&PCON*8)+1;
+volatile bit SBOREN @ ((unsigned)&PCON*8)+4;
+volatile bit nBO @ ((unsigned)&PCON*8)+0;
+
+volatile union {
+struct {
+unsigned nBOR : 1;
+unsigned nPOR : 1;
+unsigned : 2;
+unsigned SBOREN : 1;
+};
+struct {
+unsigned nBO : 1;
+};
+} PCONbits @ 0x08E;
+
+
+
+volatile unsigned char OSCCON @ 0x08F;
+
+volatile bit SCS @ ((unsigned)&OSCCON*8)+0;
+volatile bit LTS @ ((unsigned)&OSCCON*8)+1;
+volatile bit HTS @ ((unsigned)&OSCCON*8)+2;
+volatile bit OSTS @ ((unsigned)&OSCCON*8)+3;
+volatile bit IRCF0 @ ((unsigned)&OSCCON*8)+4;
+volatile bit IRCF1 @ ((unsigned)&OSCCON*8)+5;
+volatile bit IRCF2 @ ((unsigned)&OSCCON*8)+6;
+
+volatile union {
+struct {
+unsigned SCS : 1;
+unsigned LTS : 1;
+unsigned HTS : 1;
+unsigned OSTS : 1;
+unsigned IRCF : 3;
+};
+struct {
+unsigned : 4;
+unsigned IRCF0 : 1;
+unsigned IRCF1 : 1;
+unsigned IRCF2 : 1;
+};
+} OSCCONbits @ 0x08F;
+
+
+
+volatile unsigned char OSCTUNE @ 0x090;
+
+volatile bit TUN0 @ ((unsigned)&OSCTUNE*8)+0;
+volatile bit TUN1 @ ((unsigned)&OSCTUNE*8)+1;
+volatile bit TUN2 @ ((unsigned)&OSCTUNE*8)+2;
+volatile bit TUN3 @ ((unsigned)&OSCTUNE*8)+3;
+volatile bit TUN4 @ ((unsigned)&OSCTUNE*8)+4;
+
+volatile union {
+struct {
+unsigned TUN : 5;
+};
+struct {
+unsigned TUN0 : 1;
+unsigned TUN1 : 1;
+unsigned TUN2 : 1;
+unsigned TUN3 : 1;
+unsigned TUN4 : 1;
+};
+} OSCTUNEbits @ 0x090;
+
+
+
+volatile unsigned char ANSEL @ 0x091;
+
+volatile bit ANS0 @ ((unsigned)&ANSEL*8)+0;
+volatile bit ANS1 @ ((unsigned)&ANSEL*8)+1;
+volatile bit ANS2 @ ((unsigned)&ANSEL*8)+2;
+volatile bit ANS3 @ ((unsigned)&ANSEL*8)+3;
+volatile bit ANS4 @ ((unsigned)&ANSEL*8)+4;
+volatile bit ANS5 @ ((unsigned)&ANSEL*8)+5;
+volatile bit ANS6 @ ((unsigned)&ANSEL*8)+6;
+volatile bit ANS7 @ ((unsigned)&ANSEL*8)+7;
+volatile bit AN0 @ ((unsigned)&ANSEL*8)+0;
+volatile bit AN1 @ ((unsigned)&ANSEL*8)+1;
+volatile bit AN2 @ ((unsigned)&ANSEL*8)+2;
+volatile bit AN3 @ ((unsigned)&ANSEL*8)+3;
+volatile bit AN4 @ ((unsigned)&ANSEL*8)+4;
+volatile bit AN5 @ ((unsigned)&ANSEL*8)+5;
+volatile bit AN6 @ ((unsigned)&ANSEL*8)+6;
+volatile bit AN7 @ ((unsigned)&ANSEL*8)+7;
+
+volatile union {
+struct {
+unsigned ANS0 : 1;
+unsigned ANS1 : 1;
+unsigned ANS2 : 1;
+unsigned ANS3 : 1;
+unsigned ANS4 : 1;
+unsigned ANS5 : 1;
+unsigned ANS6 : 1;
+unsigned ANS7 : 1;
+};
+struct {
+unsigned AN0 : 1;
+unsigned AN1 : 1;
+unsigned AN2 : 1;
+unsigned AN3 : 1;
+unsigned AN4 : 1;
+unsigned AN5 : 1;
+unsigned AN6 : 1;
+unsigned AN7 : 1;
+};
+} ANSELbits @ 0x091;
+
+
+
+volatile unsigned char PR2 @ 0x092;
+
+
+
+volatile unsigned char SSPADD @ 0x093;
+
+
+
+volatile unsigned char SSPSTAT @ 0x094;
+
+volatile bit BF @ ((unsigned)&SSPSTAT*8)+0;
+volatile bit UA @ ((unsigned)&SSPSTAT*8)+1;
+volatile bit R_nW @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit S @ ((unsigned)&SSPSTAT*8)+3;
+volatile bit P @ ((unsigned)&SSPSTAT*8)+4;
+volatile bit D_nA @ ((unsigned)&SSPSTAT*8)+5;
+volatile bit CKE @ ((unsigned)&SSPSTAT*8)+6;
+volatile bit SMP @ ((unsigned)&SSPSTAT*8)+7;
+volatile bit R @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit D @ ((unsigned)&SSPSTAT*8)+5;
+volatile bit I2C_READ @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit I2C_START @ ((unsigned)&SSPSTAT*8)+3;
+volatile bit I2C_STOP @ ((unsigned)&SSPSTAT*8)+4;
+volatile bit I2C_DATA @ ((unsigned)&SSPSTAT*8)+5;
+volatile bit nW @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit nA @ ((unsigned)&SSPSTAT*8)+5;
+volatile bit nWRITE @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit nADDRESS @ ((unsigned)&SSPSTAT*8)+5;
+volatile bit R_W @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit D_A @ ((unsigned)&SSPSTAT*8)+5;
+volatile bit READ_WRITE @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit DATA_ADDRESS @ ((unsigned)&SSPSTAT*8)+5;
+
+volatile union {
+struct {
+unsigned BF : 1;
+unsigned UA : 1;
+unsigned R_nW : 1;
+unsigned S : 1;
+unsigned P : 1;
+unsigned D_nA : 1;
+unsigned CKE : 1;
+unsigned SMP : 1;
+};
+struct {
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+unsigned : 1;
+};
+struct {
+unsigned : 2;
+unsigned R : 1;
+unsigned : 2;
+unsigned D : 1;
+};
+struct {
+unsigned : 2;
+unsigned I2C_READ : 1;
+unsigned I2C_START : 1;
+unsigned I2C_STOP : 1;
+unsigned I2C_DATA : 1;
+};
+struct {
+unsigned : 2;
+unsigned nW : 1;
+unsigned : 2;
+unsigned nA : 1;
+};
+struct {
+unsigned : 2;
+unsigned nWRITE : 1;
+unsigned : 2;
+unsigned nADDRESS : 1;
+};
+struct {
+unsigned : 2;
+unsigned R_W : 1;
+unsigned : 2;
+unsigned D_A : 1;
+};
+struct {
+unsigned : 2;
+unsigned READ_WRITE : 1;
+unsigned : 2;
+unsigned DATA_ADDRESS : 1;
+};
+} SSPSTATbits @ 0x094;
+
+
+
+volatile unsigned char WPUB @ 0x095;
+volatile unsigned char WPU @ 0x095;
+
+volatile bit WPUB0 @ ((unsigned)&WPUB*8)+0;
+volatile bit WPUB1 @ ((unsigned)&WPUB*8)+1;
+volatile bit WPUB2 @ ((unsigned)&WPUB*8)+2;
+volatile bit WPUB3 @ ((unsigned)&WPUB*8)+3;
+volatile bit WPUB4 @ ((unsigned)&WPUB*8)+4;
+volatile bit WPUB5 @ ((unsigned)&WPUB*8)+5;
+volatile bit WPUB6 @ ((unsigned)&WPUB*8)+6;
+volatile bit WPUB7 @ ((unsigned)&WPUB*8)+7;
+volatile bit WPU0 @ ((unsigned)&WPUB*8)+0;
+volatile bit WPU1 @ ((unsigned)&WPUB*8)+1;
+volatile bit WPU2 @ ((unsigned)&WPUB*8)+2;
+volatile bit WPU3 @ ((unsigned)&WPUB*8)+3;
+volatile bit WPU4 @ ((unsigned)&WPUB*8)+4;
+volatile bit WPU5 @ ((unsigned)&WPUB*8)+5;
+volatile bit WPU6 @ ((unsigned)&WPUB*8)+6;
+volatile bit WPU7 @ ((unsigned)&WPUB*8)+7;
+
+volatile union {
+struct {
+unsigned WPUB0 : 1;
+unsigned WPUB1 : 1;
+unsigned WPUB2 : 1;
+unsigned WPUB3 : 1;
+unsigned WPUB4 : 1;
+unsigned WPUB5 : 1;
+unsigned WPUB6 : 1;
+unsigned WPUB7 : 1;
+};
+struct {
+unsigned WPU0 : 1;
+unsigned WPU1 : 1;
+unsigned WPU2 : 1;
+unsigned WPU3 : 1;
+unsigned WPU4 : 1;
+unsigned WPU5 : 1;
+unsigned WPU6 : 1;
+unsigned WPU7 : 1;
+};
+} WPUBbits @ 0x095;
+
+
+
+volatile unsigned char IOCB @ 0x096;
+volatile unsigned char IOC @ 0x096;
+
+volatile bit IOCB4 @ ((unsigned)&IOCB*8)+4;
+volatile bit IOCB5 @ ((unsigned)&IOCB*8)+5;
+volatile bit IOCB6 @ ((unsigned)&IOCB*8)+6;
+volatile bit IOCB7 @ ((unsigned)&IOCB*8)+7;
+volatile bit IOC4 @ ((unsigned)&IOCB*8)+4;
+volatile bit IOC5 @ ((unsigned)&IOCB*8)+5;
+volatile bit IOC6 @ ((unsigned)&IOCB*8)+6;
+volatile bit IOC7 @ ((unsigned)&IOCB*8)+7;
+
+volatile union {
+struct {
+unsigned : 4;
+unsigned IOCB : 4;
+};
+struct {
+unsigned : 4;
+unsigned IOCB4 : 1;
+unsigned IOCB5 : 1;
+unsigned IOCB6 : 1;
+unsigned IOCB7 : 1;
+};
+struct {
+unsigned : 4;
+unsigned IOC4 : 1;
+unsigned IOC5 : 1;
+unsigned IOC6 : 1;
+unsigned IOC7 : 1;
+};
+} IOCBbits @ 0x096;
+
+
+
+volatile unsigned char CMCON1 @ 0x097;
+
+volatile bit C2SYNC @ ((unsigned)&CMCON1*8)+0;
+volatile bit T1GSS @ ((unsigned)&CMCON1*8)+1;
+
+volatile union {
+struct {
+unsigned C2SYNC : 1;
+unsigned T1GSS : 1;
+};
+} CMCON1bits @ 0x097;
+
+
+
+volatile unsigned char TXSTA @ 0x098;
+
+volatile bit TX9D @ ((unsigned)&TXSTA*8)+0;
+volatile bit TRMT @ ((unsigned)&TXSTA*8)+1;
+volatile bit BRGH @ ((unsigned)&TXSTA*8)+2;
+volatile bit SYNC @ ((unsigned)&TXSTA*8)+4;
+volatile bit TXEN @ ((unsigned)&TXSTA*8)+5;
+volatile bit TX9 @ ((unsigned)&TXSTA*8)+6;
+volatile bit CSRC @ ((unsigned)&TXSTA*8)+7;
+volatile bit TXD8 @ ((unsigned)&TXSTA*8)+0;
+volatile bit nTX8 @ ((unsigned)&TXSTA*8)+6;
+volatile bit TX8_9 @ ((unsigned)&TXSTA*8)+6;
+
+volatile union {
+struct {
+unsigned TX9D : 1;
+unsigned TRMT : 1;
+unsigned BRGH : 1;
+unsigned : 1;
+unsigned SYNC : 1;
+unsigned TXEN : 1;
+unsigned TX9 : 1;
+unsigned CSRC : 1;
+};
+struct {
+unsigned TXD8 : 1;
+unsigned : 5;
+unsigned nTX8 : 1;
+};
+struct {
+unsigned : 6;
+unsigned TX8_9 : 1;
+};
+} TXSTAbits @ 0x098;
+
+
+
+volatile unsigned char SPBRG @ 0x099;
+
+
+
+volatile unsigned char CMCON0 @ 0x09C;
+
+volatile bit CIS @ ((unsigned)&CMCON0*8)+3;
+volatile bit C1INV @ ((unsigned)&CMCON0*8)+4;
+volatile bit C2INV @ ((unsigned)&CMCON0*8)+5;
+volatile bit C1OUT @ ((unsigned)&CMCON0*8)+6;
+volatile bit C2OUT @ ((unsigned)&CMCON0*8)+7;
+volatile bit CM0 @ ((unsigned)&CMCON0*8)+0;
+volatile bit CM1 @ ((unsigned)&CMCON0*8)+1;
+volatile bit CM2 @ ((unsigned)&CMCON0*8)+2;
+
+volatile union {
+struct {
+unsigned CM : 3;
+unsigned CIS : 1;
+unsigned C1INV : 1;
+unsigned C2INV : 1;
+unsigned C1OUT : 1;
+unsigned C2OUT : 1;
+};
+struct {
+unsigned CM0 : 1;
+unsigned CM1 : 1;
+unsigned CM2 : 1;
+};
+} CMCON0bits @ 0x09C;
+
+
+
+volatile unsigned char VRCON @ 0x09D;
+
+volatile bit VRR @ ((unsigned)&VRCON*8)+5;
+volatile bit VREN @ ((unsigned)&VRCON*8)+7;
+volatile bit VR0 @ ((unsigned)&VRCON*8)+0;
+volatile bit VR1 @ ((unsigned)&VRCON*8)+1;
+volatile bit VR2 @ ((unsigned)&VRCON*8)+2;
+volatile bit VR3 @ ((unsigned)&VRCON*8)+3;
+
+volatile union {
+struct {
+unsigned VR : 4;
+unsigned : 1;
+unsigned VRR : 1;
+unsigned : 1;
+unsigned VREN : 1;
+};
+struct {
+unsigned VR0 : 1;
+unsigned VR1 : 1;
+unsigned VR2 : 1;
+unsigned VR3 : 1;
+};
+} VRCONbits @ 0x09D;
+
+
+
+volatile unsigned char ADRESL @ 0x09E;
+
+
+
+volatile unsigned char ADCON1 @ 0x09F;
+
+volatile bit ADCS0 @ ((unsigned)&ADCON1*8)+4;
+volatile bit ADCS1 @ ((unsigned)&ADCON1*8)+5;
+volatile bit ADCS2 @ ((unsigned)&ADCON1*8)+6;
+
+volatile union {
+struct {
+unsigned : 4;
+unsigned ADCS : 3;
+};
+struct {
+unsigned : 4;
+unsigned ADCS0 : 1;
+unsigned ADCS1 : 1;
+unsigned ADCS2 : 1;
+};
+} ADCON1bits @ 0x09F;
+
+# 1302
+volatile unsigned char WDTCON @ 0x105;
+
+volatile bit SWDTEN @ ((unsigned)&WDTCON*8)+0;
+volatile bit SWDTE @ ((unsigned)&WDTCON*8)+0;
+volatile bit WDTPS0 @ ((unsigned)&WDTCON*8)+1;
+volatile bit WDTPS1 @ ((unsigned)&WDTCON*8)+2;
+volatile bit WDTPS2 @ ((unsigned)&WDTCON*8)+3;
+volatile bit WDTPS3 @ ((unsigned)&WDTCON*8)+4;
+
+volatile union {
+struct {
+unsigned SWDTEN : 1;
+unsigned WDTPS : 4;
+};
+struct {
+unsigned SWDTE : 1;
+unsigned WDTPS0 : 1;
+unsigned WDTPS1 : 1;
+unsigned WDTPS2 : 1;
+unsigned WDTPS3 : 1;
+};
+} WDTCONbits @ 0x105;
+
+
+
+volatile unsigned char LCDCON @ 0x107;
+
+volatile bit VLCDEN @ ((unsigned)&LCDCON*8)+4;
+volatile bit WERR @ ((unsigned)&LCDCON*8)+5;
+volatile bit SLPEN @ ((unsigned)&LCDCON*8)+6;
+volatile bit LCDEN @ ((unsigned)&LCDCON*8)+7;
+volatile bit LMUX0 @ ((unsigned)&LCDCON*8)+0;
+volatile bit LMUX1 @ ((unsigned)&LCDCON*8)+1;
+volatile bit CS0 @ ((unsigned)&LCDCON*8)+2;
+volatile bit CS1 @ ((unsigned)&LCDCON*8)+3;
+
+volatile union {
+struct {
+unsigned LMUX : 2;
+unsigned CS : 2;
+unsigned VLCDEN : 1;
+unsigned WERR : 1;
+unsigned SLPEN : 1;
+unsigned LCDEN : 1;
+};
+struct {
+unsigned LMUX0 : 1;
+unsigned LMUX1 : 1;
+unsigned CS0 : 1;
+unsigned CS1 : 1;
+};
+} LCDCONbits @ 0x107;
+
+
+
+volatile unsigned char LCDPS @ 0x108;
+
+volatile bit WA @ ((unsigned)&LCDPS*8)+4;
+volatile bit LCDA @ ((unsigned)&LCDPS*8)+5;
+volatile bit BIASMD @ ((unsigned)&LCDPS*8)+6;
+volatile bit WFT @ ((unsigned)&LCDPS*8)+7;
+volatile bit LP0 @ ((unsigned)&LCDPS*8)+0;
+volatile bit LP1 @ ((unsigned)&LCDPS*8)+1;
+volatile bit LP2 @ ((unsigned)&LCDPS*8)+2;
+volatile bit LP3 @ ((unsigned)&LCDPS*8)+3;
+
+volatile union {
+struct {
+unsigned LP : 4;
+unsigned WA : 1;
+unsigned LCDA : 1;
+unsigned BIASMD : 1;
+unsigned WFT : 1;
+};
+struct {
+unsigned LP0 : 1;
+unsigned LP1 : 1;
+unsigned LP2 : 1;
+unsigned LP3 : 1;
+};
+} LCDPSbits @ 0x108;
+
+
+
+volatile unsigned char LVDCON @ 0x109;
+
+volatile bit LVDEN @ ((unsigned)&LVDCON*8)+4;
+volatile bit IRVST @ ((unsigned)&LVDCON*8)+5;
+volatile bit LVDL0 @ ((unsigned)&LVDCON*8)+0;
+volatile bit LVDL1 @ ((unsigned)&LVDCON*8)+1;
+volatile bit LVDL2 @ ((unsigned)&LVDCON*8)+2;
+
+volatile union {
+struct {
+unsigned LVDL : 3;
+unsigned : 1;
+unsigned LVDEN : 1;
+unsigned IRVST : 1;
+};
+struct {
+unsigned LVDL0 : 1;
+unsigned LVDL1 : 1;
+unsigned LVDL2 : 1;
+};
+} LVDCONbits @ 0x109;
+
+
+
+volatile unsigned char EEDATL @ 0x10C;
+volatile unsigned char EEDATA @ 0x10C;
+volatile unsigned char EEDATA @ 0x10C;
+
+volatile bit EEDATL0 @ ((unsigned)&EEDATL*8)+0;
+volatile bit EEDATL1 @ ((unsigned)&EEDATL*8)+1;
+volatile bit EEDATL2 @ ((unsigned)&EEDATL*8)+2;
+volatile bit EEDATL3 @ ((unsigned)&EEDATL*8)+3;
+volatile bit EEDATL4 @ ((unsigned)&EEDATL*8)+4;
+volatile bit EEDATL5 @ ((unsigned)&EEDATL*8)+5;
+volatile bit EEDATL6 @ ((unsigned)&EEDATL*8)+6;
+volatile bit EEDATL7 @ ((unsigned)&EEDATL*8)+7;
+
+volatile union {
+struct {
+unsigned EEDATL0 : 1;
+unsigned EEDATL1 : 1;
+unsigned EEDATL2 : 1;
+unsigned EEDATL3 : 1;
+unsigned EEDATL4 : 1;
+unsigned EEDATL5 : 1;
+unsigned EEDATL6 : 1;
+unsigned EEDATL7 : 1;
+};
+} EEDATLbits @ 0x10C;
+
+
+
+volatile unsigned char EEADRL @ 0x10D;
+volatile unsigned char EEADR @ 0x10D;
+
+volatile bit EEADRL0 @ ((unsigned)&EEADRL*8)+0;
+volatile bit EEADRL1 @ ((unsigned)&EEADRL*8)+1;
+volatile bit EEADRL2 @ ((unsigned)&EEADRL*8)+2;
+volatile bit EEADRL3 @ ((unsigned)&EEADRL*8)+3;
+volatile bit EEADRL4 @ ((unsigned)&EEADRL*8)+4;
+volatile bit EEADRL5 @ ((unsigned)&EEADRL*8)+5;
+volatile bit EEADRL6 @ ((unsigned)&EEADRL*8)+6;
+volatile bit EEADRL7 @ ((unsigned)&EEADRL*8)+7;
+
+volatile union {
+struct {
+unsigned EEADRL0 : 1;
+unsigned EEADRL1 : 1;
+unsigned EEADRL2 : 1;
+unsigned EEADRL3 : 1;
+unsigned EEADRL4 : 1;
+unsigned EEADRL5 : 1;
+unsigned EEADRL6 : 1;
+unsigned EEADRL7 : 1;
+};
+} EEADRLbits @ 0x10D;
+
+
+
+volatile unsigned char EEDATH @ 0x10E;
+
+volatile bit EEDATH0 @ ((unsigned)&EEDATH*8)+0;
+volatile bit EEDATH1 @ ((unsigned)&EEDATH*8)+1;
+volatile bit EEDATH2 @ ((unsigned)&EEDATH*8)+2;
+volatile bit EEDATH3 @ ((unsigned)&EEDATH*8)+3;
+volatile bit EEDATH4 @ ((unsigned)&EEDATH*8)+4;
+volatile bit EEDATH5 @ ((unsigned)&EEDATH*8)+5;
+
+volatile union {
+struct {
+unsigned : 6;
+};
+struct {
+unsigned EEDATH0 : 1;
+unsigned EEDATH1 : 1;
+unsigned EEDATH2 : 1;
+unsigned EEDATH3 : 1;
+unsigned EEDATH4 : 1;
+unsigned EEDATH5 : 1;
+};
+} EEDATHbits @ 0x10E;
+
+
+
+volatile unsigned char EEADRH @ 0x10F;
+
+volatile bit EEADRH0 @ ((unsigned)&EEADRH*8)+0;
+volatile bit EEADRH1 @ ((unsigned)&EEADRH*8)+1;
+volatile bit EEADRH2 @ ((unsigned)&EEADRH*8)+2;
+volatile bit EEADRH3 @ ((unsigned)&EEADRH*8)+3;
+volatile bit EEADRH4 @ ((unsigned)&EEADRH*8)+4;
+
+volatile union {
+struct {
+unsigned : 5;
+};
+struct {
+unsigned EEADRH0 : 1;
+unsigned EEADRH1 : 1;
+unsigned EEADRH2 : 1;
+unsigned EEADRH3 : 1;
+unsigned EEADRH4 : 1;
+};
+} EEADRHbits @ 0x10F;
+
+
+
+volatile unsigned char LCDDATA0 @ 0x110;
+
+# 1523
+volatile bit SEG0COM0 @ ((unsigned)&LCDDATA0*8)+0;
+volatile bit SEG1COM0 @ ((unsigned)&LCDDATA0*8)+1;
+volatile bit SEG2COM0 @ ((unsigned)&LCDDATA0*8)+2;
+volatile bit SEG3COM0 @ ((unsigned)&LCDDATA0*8)+3;
+volatile bit SEG4COM0 @ ((unsigned)&LCDDATA0*8)+4;
+volatile bit SEG5COM0 @ ((unsigned)&LCDDATA0*8)+5;
+volatile bit SEG6COM0 @ ((unsigned)&LCDDATA0*8)+6;
+volatile bit SEG7COM0 @ ((unsigned)&LCDDATA0*8)+7;
+volatile bit S0C0 @ ((unsigned)&LCDDATA0*8)+0;
+volatile bit S1C0 @ ((unsigned)&LCDDATA0*8)+1;
+volatile bit S2C0 @ ((unsigned)&LCDDATA0*8)+2;
+volatile bit S3C0 @ ((unsigned)&LCDDATA0*8)+3;
+volatile bit S4C0 @ ((unsigned)&LCDDATA0*8)+4;
+volatile bit S5C0 @ ((unsigned)&LCDDATA0*8)+5;
+volatile bit S6C0 @ ((unsigned)&LCDDATA0*8)+6;
+volatile bit S7C0 @ ((unsigned)&LCDDATA0*8)+7;
+
+volatile union {
+struct {
+unsigned SEG0 : 1;
+unsigned SEG1 : 1;
+unsigned SEG2 : 1;
+unsigned SEG3 : 1;
+unsigned SEG4 : 1;
+unsigned SEG5 : 1;
+unsigned SEG6 : 1;
+unsigned SEG7 : 1;
+};
+struct {
+unsigned SEG0COM0 : 1;
+unsigned SEG1COM0 : 1;
+unsigned SEG2COM0 : 1;
+unsigned SEG3COM0 : 1;
+unsigned SEG4COM0 : 1;
+unsigned SEG5COM0 : 1;
+unsigned SEG6COM0 : 1;
+unsigned SEG7COM0 : 1;
+};
+struct {
+unsigned S0C0 : 1;
+unsigned S1C0 : 1;
+unsigned S2C0 : 1;
+unsigned S3C0 : 1;
+unsigned S4C0 : 1;
+unsigned S5C0 : 1;
+unsigned S6C0 : 1;
+unsigned S7C0 : 1;
+};
+} LCDDATA0bits @ 0x110;
+
+
+
+volatile unsigned char LCDDATA1 @ 0x111;
+
+# 1585
+volatile bit SEG8COM0 @ ((unsigned)&LCDDATA1*8)+0;
+volatile bit SEG9COM0 @ ((unsigned)&LCDDATA1*8)+1;
+volatile bit SEG10COM0 @ ((unsigned)&LCDDATA1*8)+2;
+volatile bit SEG11COM0 @ ((unsigned)&LCDDATA1*8)+3;
+volatile bit SEG12COM0 @ ((unsigned)&LCDDATA1*8)+4;
+volatile bit SEG13COM0 @ ((unsigned)&LCDDATA1*8)+5;
+volatile bit SEG14COM0 @ ((unsigned)&LCDDATA1*8)+6;
+volatile bit SEG15COM0 @ ((unsigned)&LCDDATA1*8)+7;
+volatile bit S8C0 @ ((unsigned)&LCDDATA1*8)+0;
+volatile bit S9C0 @ ((unsigned)&LCDDATA1*8)+1;
+volatile bit S10C0 @ ((unsigned)&LCDDATA1*8)+2;
+volatile bit S11C0 @ ((unsigned)&LCDDATA1*8)+3;
+volatile bit S12C0 @ ((unsigned)&LCDDATA1*8)+4;
+volatile bit S13C0 @ ((unsigned)&LCDDATA1*8)+5;
+volatile bit S14C0 @ ((unsigned)&LCDDATA1*8)+6;
+volatile bit S15C0 @ ((unsigned)&LCDDATA1*8)+7;
+
+volatile union {
+struct {
+unsigned SEG8 : 1;
+unsigned SEG9 : 1;
+unsigned SEG10 : 1;
+unsigned SEG11 : 1;
+unsigned SEG12 : 1;
+unsigned SEG13 : 1;
+unsigned SEG14 : 1;
+unsigned SEG15 : 1;
+};
+struct {
+unsigned SEG8COM0 : 1;
+unsigned SEG9COM0 : 1;
+unsigned SEG10COM0 : 1;
+unsigned SEG11COM0 : 1;
+unsigned SEG12COM0 : 1;
+unsigned SEG13COM0 : 1;
+unsigned SEG14COM0 : 1;
+unsigned SEG15COM0 : 1;
+};
+struct {
+unsigned S8C0 : 1;
+unsigned S9C0 : 1;
+unsigned S10C0 : 1;
+unsigned S11C0 : 1;
+unsigned S12C0 : 1;
+unsigned S13C0 : 1;
+unsigned S14C0 : 1;
+unsigned S15C0 : 1;
+};
+} LCDDATA1bits @ 0x111;
+
+
+
+volatile unsigned char LCDDATA2 @ 0x112;
+
+# 1647
+volatile bit SEG16COM0 @ ((unsigned)&LCDDATA2*8)+0;
+volatile bit SEG17COM0 @ ((unsigned)&LCDDATA2*8)+1;
+volatile bit SEG18COM0 @ ((unsigned)&LCDDATA2*8)+2;
+volatile bit SEG19COM0 @ ((unsigned)&LCDDATA2*8)+3;
+volatile bit SEG20COM0 @ ((unsigned)&LCDDATA2*8)+4;
+volatile bit SEG21COM0 @ ((unsigned)&LCDDATA2*8)+5;
+volatile bit SEG22COM0 @ ((unsigned)&LCDDATA2*8)+6;
+volatile bit SEG23COM0 @ ((unsigned)&LCDDATA2*8)+7;
+volatile bit S16C0 @ ((unsigned)&LCDDATA2*8)+0;
+volatile bit S17C0 @ ((unsigned)&LCDDATA2*8)+1;
+volatile bit S18C0 @ ((unsigned)&LCDDATA2*8)+2;
+volatile bit S19C0 @ ((unsigned)&LCDDATA2*8)+3;
+volatile bit S20C0 @ ((unsigned)&LCDDATA2*8)+4;
+volatile bit S21C0 @ ((unsigned)&LCDDATA2*8)+5;
+volatile bit S22C0 @ ((unsigned)&LCDDATA2*8)+6;
+volatile bit S23C0 @ ((unsigned)&LCDDATA2*8)+7;
+
+volatile union {
+struct {
+unsigned SEG16 : 1;
+unsigned SEG17 : 1;
+unsigned SEG18 : 1;
+unsigned SEG19 : 1;
+unsigned SEG20 : 1;
+unsigned SEG21 : 1;
+unsigned SEG22 : 1;
+unsigned SEG23 : 1;
+};
+struct {
+unsigned SEG16COM0 : 1;
+unsigned SEG17COM0 : 1;
+unsigned SEG18COM0 : 1;
+unsigned SEG19COM0 : 1;
+unsigned SEG20COM0 : 1;
+unsigned SEG21COM0 : 1;
+unsigned SEG22COM0 : 1;
+unsigned SEG23COM0 : 1;
+};
+struct {
+unsigned S16C0 : 1;
+unsigned S17C0 : 1;
+unsigned S18C0 : 1;
+unsigned S19C0 : 1;
+unsigned S20C0 : 1;
+unsigned S21C0 : 1;
+unsigned S22C0 : 1;
+unsigned S23C0 : 1;
+};
+} LCDDATA2bits @ 0x112;
+
+
+
+volatile unsigned char LCDDATA3 @ 0x113;
+
+# 1709
+volatile bit SEG0COM1 @ ((unsigned)&LCDDATA3*8)+0;
+volatile bit SEG1COM1 @ ((unsigned)&LCDDATA3*8)+1;
+volatile bit SEG2COM1 @ ((unsigned)&LCDDATA3*8)+2;
+volatile bit SEG3COM1 @ ((unsigned)&LCDDATA3*8)+3;
+volatile bit SEG4COM1 @ ((unsigned)&LCDDATA3*8)+4;
+volatile bit SEG5COM1 @ ((unsigned)&LCDDATA3*8)+5;
+volatile bit SEG6COM1 @ ((unsigned)&LCDDATA3*8)+6;
+volatile bit SEG7COM1 @ ((unsigned)&LCDDATA3*8)+7;
+volatile bit S0C1 @ ((unsigned)&LCDDATA3*8)+0;
+volatile bit S1C1 @ ((unsigned)&LCDDATA3*8)+1;
+volatile bit S2C1 @ ((unsigned)&LCDDATA3*8)+2;
+volatile bit S3C1 @ ((unsigned)&LCDDATA3*8)+3;
+volatile bit S4C1 @ ((unsigned)&LCDDATA3*8)+4;
+volatile bit S5C1 @ ((unsigned)&LCDDATA3*8)+5;
+volatile bit S6C1 @ ((unsigned)&LCDDATA3*8)+6;
+volatile bit S7C1 @ ((unsigned)&LCDDATA3*8)+7;
+
+volatile union {
+struct {
+unsigned SEG0 : 1;
+unsigned SEG1 : 1;
+unsigned SEG2 : 1;
+unsigned SEG3 : 1;
+unsigned SEG4 : 1;
+unsigned SEG5 : 1;
+unsigned SEG6 : 1;
+unsigned SEG7 : 1;
+};
+struct {
+unsigned SEG0COM1 : 1;
+unsigned SEG1COM1 : 1;
+unsigned SEG2COM1 : 1;
+unsigned SEG3COM1 : 1;
+unsigned SEG4COM1 : 1;
+unsigned SEG5COM1 : 1;
+unsigned SEG6COM1 : 1;
+unsigned SEG7COM1 : 1;
+};
+struct {
+unsigned S0C1 : 1;
+unsigned S1C1 : 1;
+unsigned S2C1 : 1;
+unsigned S3C1 : 1;
+unsigned S4C1 : 1;
+unsigned S5C1 : 1;
+unsigned S6C1 : 1;
+unsigned S7C1 : 1;
+};
+} LCDDATA3bits @ 0x113;
+
+
+
+volatile unsigned char LCDDATA4 @ 0x114;
+
+# 1771
+volatile bit SEG8COM1 @ ((unsigned)&LCDDATA4*8)+0;
+volatile bit SEG9COM1 @ ((unsigned)&LCDDATA4*8)+1;
+volatile bit SEG10COM1 @ ((unsigned)&LCDDATA4*8)+2;
+volatile bit SEG11COM1 @ ((unsigned)&LCDDATA4*8)+3;
+volatile bit SEG12COM1 @ ((unsigned)&LCDDATA4*8)+4;
+volatile bit SEG13COM1 @ ((unsigned)&LCDDATA4*8)+5;
+volatile bit SEG14COM1 @ ((unsigned)&LCDDATA4*8)+6;
+volatile bit SEG15COM1 @ ((unsigned)&LCDDATA4*8)+7;
+volatile bit S8C1 @ ((unsigned)&LCDDATA4*8)+0;
+volatile bit S9C1 @ ((unsigned)&LCDDATA4*8)+1;
+volatile bit S10C1 @ ((unsigned)&LCDDATA4*8)+2;
+volatile bit S11C1 @ ((unsigned)&LCDDATA4*8)+3;
+volatile bit S12C1 @ ((unsigned)&LCDDATA4*8)+4;
+volatile bit S13C1 @ ((unsigned)&LCDDATA4*8)+5;
+volatile bit S14C1 @ ((unsigned)&LCDDATA4*8)+6;
+volatile bit S15C1 @ ((unsigned)&LCDDATA4*8)+7;
+
+volatile union {
+struct {
+unsigned SEG8 : 1;
+unsigned SEG9 : 1;
+unsigned SEG10 : 1;
+unsigned SEG11 : 1;
+unsigned SEG12 : 1;
+unsigned SEG13 : 1;
+unsigned SEG14 : 1;
+unsigned SEG15 : 1;
+};
+struct {
+unsigned SEG8COM1 : 1;
+unsigned SEG9COM1 : 1;
+unsigned SEG10COM1 : 1;
+unsigned SEG11COM1 : 1;
+unsigned SEG12COM1 : 1;
+unsigned SEG13COM1 : 1;
+unsigned SEG14COM1 : 1;
+unsigned SEG15COM1 : 1;
+};
+struct {
+unsigned S8C1 : 1;
+unsigned S9C1 : 1;
+unsigned S10C1 : 1;
+unsigned S11C1 : 1;
+unsigned S12C1 : 1;
+unsigned S13C1 : 1;
+unsigned S14C1 : 1;
+unsigned S15C1 : 1;
+};
+} LCDDATA4bits @ 0x114;
+
+
+
+volatile unsigned char LCDDATA5 @ 0x115;
+
+# 1833
+volatile bit SEG16COM1 @ ((unsigned)&LCDDATA5*8)+0;
+volatile bit SEG17COM1 @ ((unsigned)&LCDDATA5*8)+1;
+volatile bit SEG18COM1 @ ((unsigned)&LCDDATA5*8)+2;
+volatile bit SEG19COM1 @ ((unsigned)&LCDDATA5*8)+3;
+volatile bit SEG20COM1 @ ((unsigned)&LCDDATA5*8)+4;
+volatile bit SEG21COM1 @ ((unsigned)&LCDDATA5*8)+5;
+volatile bit SEG22COM1 @ ((unsigned)&LCDDATA5*8)+6;
+volatile bit SEG23COM1 @ ((unsigned)&LCDDATA5*8)+7;
+volatile bit S16C1 @ ((unsigned)&LCDDATA5*8)+0;
+volatile bit S17C1 @ ((unsigned)&LCDDATA5*8)+1;
+volatile bit S18C1 @ ((unsigned)&LCDDATA5*8)+2;
+volatile bit S19C1 @ ((unsigned)&LCDDATA5*8)+3;
+volatile bit S20C1 @ ((unsigned)&LCDDATA5*8)+4;
+volatile bit S21C1 @ ((unsigned)&LCDDATA5*8)+5;
+volatile bit S22C1 @ ((unsigned)&LCDDATA5*8)+6;
+volatile bit S23C1 @ ((unsigned)&LCDDATA5*8)+7;
+
+volatile union {
+struct {
+unsigned SEG16 : 1;
+unsigned SEG17 : 1;
+unsigned SEG18 : 1;
+unsigned SEG19 : 1;
+unsigned SEG20 : 1;
+unsigned SEG21 : 1;
+unsigned SEG22 : 1;
+unsigned SEG23 : 1;
+};
+struct {
+unsigned SEG16COM1 : 1;
+unsigned SEG17COM1 : 1;
+unsigned SEG18COM1 : 1;
+unsigned SEG19COM1 : 1;
+unsigned SEG20COM1 : 1;
+unsigned SEG21COM1 : 1;
+unsigned SEG22COM1 : 1;
+unsigned SEG23COM1 : 1;
+};
+struct {
+unsigned S16C1 : 1;
+unsigned S17C1 : 1;
+unsigned S18C1 : 1;
+unsigned S19C1 : 1;
+unsigned S20C1 : 1;
+unsigned S21C1 : 1;
+unsigned S22C1 : 1;
+unsigned S23C1 : 1;
+};
+} LCDDATA5bits @ 0x115;
+
+
+
+volatile unsigned char LCDDATA6 @ 0x116;
+
+# 1895
+volatile bit SEG0COM2 @ ((unsigned)&LCDDATA6*8)+0;
+volatile bit SEG1COM2 @ ((unsigned)&LCDDATA6*8)+1;
+volatile bit SEG2COM2 @ ((unsigned)&LCDDATA6*8)+2;
+volatile bit SEG3COM2 @ ((unsigned)&LCDDATA6*8)+3;
+volatile bit SEG4COM2 @ ((unsigned)&LCDDATA6*8)+4;
+volatile bit SEG5COM2 @ ((unsigned)&LCDDATA6*8)+5;
+volatile bit SEG6COM2 @ ((unsigned)&LCDDATA6*8)+6;
+volatile bit SEG7COM2 @ ((unsigned)&LCDDATA6*8)+7;
+volatile bit S0C2 @ ((unsigned)&LCDDATA6*8)+0;
+volatile bit S1C2 @ ((unsigned)&LCDDATA6*8)+1;
+volatile bit S2C2 @ ((unsigned)&LCDDATA6*8)+2;
+volatile bit S3C2 @ ((unsigned)&LCDDATA6*8)+3;
+volatile bit S4C2 @ ((unsigned)&LCDDATA6*8)+4;
+volatile bit S5C2 @ ((unsigned)&LCDDATA6*8)+5;
+volatile bit S6C2 @ ((unsigned)&LCDDATA6*8)+6;
+volatile bit S7C2 @ ((unsigned)&LCDDATA6*8)+7;
+
+volatile union {
+struct {
+unsigned SEG0 : 1;
+unsigned SEG1 : 1;
+unsigned SEG2 : 1;
+unsigned SEG3 : 1;
+unsigned SEG4 : 1;
+unsigned SEG5 : 1;
+unsigned SEG6 : 1;
+unsigned SEG7 : 1;
+};
+struct {
+unsigned SEG0COM2 : 1;
+unsigned SEG1COM2 : 1;
+unsigned SEG2COM2 : 1;
+unsigned SEG3COM2 : 1;
+unsigned SEG4COM2 : 1;
+unsigned SEG5COM2 : 1;
+unsigned SEG6COM2 : 1;
+unsigned SEG7COM2 : 1;
+};
+struct {
+unsigned S0C2 : 1;
+unsigned S1C2 : 1;
+unsigned S2C2 : 1;
+unsigned S3C2 : 1;
+unsigned S4C2 : 1;
+unsigned S5C2 : 1;
+unsigned S6C2 : 1;
+unsigned S7C2 : 1;
+};
+} LCDDATA6bits @ 0x116;
+
+
+
+volatile unsigned char LCDDATA7 @ 0x117;
+
+# 1957
+volatile bit SEG8COM2 @ ((unsigned)&LCDDATA7*8)+0;
+volatile bit SEG9COM2 @ ((unsigned)&LCDDATA7*8)+1;
+volatile bit SEG10COM2 @ ((unsigned)&LCDDATA7*8)+2;
+volatile bit SEG11COM2 @ ((unsigned)&LCDDATA7*8)+3;
+volatile bit SEG12COM2 @ ((unsigned)&LCDDATA7*8)+4;
+volatile bit SEG13COM2 @ ((unsigned)&LCDDATA7*8)+5;
+volatile bit SEG14COM2 @ ((unsigned)&LCDDATA7*8)+6;
+volatile bit SEG15COM2 @ ((unsigned)&LCDDATA7*8)+7;
+volatile bit S8C2 @ ((unsigned)&LCDDATA7*8)+0;
+volatile bit S9C2 @ ((unsigned)&LCDDATA7*8)+1;
+volatile bit S10C2 @ ((unsigned)&LCDDATA7*8)+2;
+volatile bit S11C2 @ ((unsigned)&LCDDATA7*8)+3;
+volatile bit S12C2 @ ((unsigned)&LCDDATA7*8)+4;
+volatile bit S13C2 @ ((unsigned)&LCDDATA7*8)+5;
+volatile bit S14C2 @ ((unsigned)&LCDDATA7*8)+6;
+volatile bit S15C2 @ ((unsigned)&LCDDATA7*8)+7;
+
+volatile union {
+struct {
+unsigned SEG8 : 1;
+unsigned SEG9 : 1;
+unsigned SEG10 : 1;
+unsigned SEG11 : 1;
+unsigned SEG12 : 1;
+unsigned SEG13 : 1;
+unsigned SEG14 : 1;
+unsigned SEG15 : 1;
+};
+struct {
+unsigned SEG8COM2 : 1;
+unsigned SEG9COM2 : 1;
+unsigned SEG10COM2 : 1;
+unsigned SEG11COM2 : 1;
+unsigned SEG12COM2 : 1;
+unsigned SEG13COM2 : 1;
+unsigned SEG14COM2 : 1;
+unsigned SEG15COM2 : 1;
+};
+struct {
+unsigned S8C2 : 1;
+unsigned S9C2 : 1;
+unsigned S10C2 : 1;
+unsigned S11C2 : 1;
+unsigned S12C2 : 1;
+unsigned S13C2 : 1;
+unsigned S14C2 : 1;
+unsigned S15C2 : 1;
+};
+} LCDDATA7bits @ 0x117;
+
+
+
+volatile unsigned char LCDDATA8 @ 0x118;
+
+# 2019
+volatile bit SEG16COM2 @ ((unsigned)&LCDDATA8*8)+0;
+volatile bit SEG17COM2 @ ((unsigned)&LCDDATA8*8)+1;
+volatile bit SEG18COM2 @ ((unsigned)&LCDDATA8*8)+2;
+volatile bit SEG19COM2 @ ((unsigned)&LCDDATA8*8)+3;
+volatile bit SEG20COM2 @ ((unsigned)&LCDDATA8*8)+4;
+volatile bit SEG21COM2 @ ((unsigned)&LCDDATA8*8)+5;
+volatile bit SEG22COM2 @ ((unsigned)&LCDDATA8*8)+6;
+volatile bit SEG23COM2 @ ((unsigned)&LCDDATA8*8)+7;
+volatile bit S16C2 @ ((unsigned)&LCDDATA8*8)+0;
+volatile bit S17C2 @ ((unsigned)&LCDDATA8*8)+1;
+volatile bit S18C2 @ ((unsigned)&LCDDATA8*8)+2;
+volatile bit S19C2 @ ((unsigned)&LCDDATA8*8)+3;
+volatile bit S20C2 @ ((unsigned)&LCDDATA8*8)+4;
+volatile bit S21C2 @ ((unsigned)&LCDDATA8*8)+5;
+volatile bit S22C2 @ ((unsigned)&LCDDATA8*8)+6;
+volatile bit S23C2 @ ((unsigned)&LCDDATA8*8)+7;
+
+volatile union {
+struct {
+unsigned SEG16 : 1;
+unsigned SEG17 : 1;
+unsigned SEG18 : 1;
+unsigned SEG19 : 1;
+unsigned SEG20 : 1;
+unsigned SEG21 : 1;
+unsigned SEG22 : 1;
+unsigned SEG23 : 1;
+};
+struct {
+unsigned SEG16COM2 : 1;
+unsigned SEG17COM2 : 1;
+unsigned SEG18COM2 : 1;
+unsigned SEG19COM2 : 1;
+unsigned SEG20COM2 : 1;
+unsigned SEG21COM2 : 1;
+unsigned SEG22COM2 : 1;
+unsigned SEG23COM2 : 1;
+};
+struct {
+unsigned S16C2 : 1;
+unsigned S17C2 : 1;
+unsigned S18C2 : 1;
+unsigned S19C2 : 1;
+unsigned S20C2 : 1;
+unsigned S21C2 : 1;
+unsigned S22C2 : 1;
+unsigned S23C2 : 1;
+};
+} LCDDATA8bits @ 0x118;
+
+
+
+volatile unsigned char LCDDATA9 @ 0x119;
+
+# 2081
+volatile bit SEG0COM3 @ ((unsigned)&LCDDATA9*8)+0;
+volatile bit SEG1COM3 @ ((unsigned)&LCDDATA9*8)+1;
+volatile bit SEG2COM3 @ ((unsigned)&LCDDATA9*8)+2;
+volatile bit SEG3COM3 @ ((unsigned)&LCDDATA9*8)+3;
+volatile bit SEG4COM3 @ ((unsigned)&LCDDATA9*8)+4;
+volatile bit SEG5COM3 @ ((unsigned)&LCDDATA9*8)+5;
+volatile bit SEG6COM3 @ ((unsigned)&LCDDATA9*8)+6;
+volatile bit SEG7COM3 @ ((unsigned)&LCDDATA9*8)+7;
+volatile bit S0C3 @ ((unsigned)&LCDDATA9*8)+0;
+volatile bit S1C3 @ ((unsigned)&LCDDATA9*8)+1;
+volatile bit S2C3 @ ((unsigned)&LCDDATA9*8)+2;
+volatile bit S3C3 @ ((unsigned)&LCDDATA9*8)+3;
+volatile bit S4C3 @ ((unsigned)&LCDDATA9*8)+4;
+volatile bit S5C3 @ ((unsigned)&LCDDATA9*8)+5;
+volatile bit S6C3 @ ((unsigned)&LCDDATA9*8)+6;
+volatile bit S7C3 @ ((unsigned)&LCDDATA9*8)+7;
+
+volatile union {
+struct {
+unsigned SEG0 : 1;
+unsigned SEG1 : 1;
+unsigned SEG2 : 1;
+unsigned SEG3 : 1;
+unsigned SEG4 : 1;
+unsigned SEG5 : 1;
+unsigned SEG6 : 1;
+unsigned SEG7 : 1;
+};
+struct {
+unsigned SEG0COM3 : 1;
+unsigned SEG1COM3 : 1;
+unsigned SEG2COM3 : 1;
+unsigned SEG3COM3 : 1;
+unsigned SEG4COM3 : 1;
+unsigned SEG5COM3 : 1;
+unsigned SEG6COM3 : 1;
+unsigned SEG7COM3 : 1;
+};
+struct {
+unsigned S0C3 : 1;
+unsigned S1C3 : 1;
+unsigned S2C3 : 1;
+unsigned S3C3 : 1;
+unsigned S4C3 : 1;
+unsigned S5C3 : 1;
+unsigned S6C3 : 1;
+unsigned S7C3 : 1;
+};
+} LCDDATA9bits @ 0x119;
+
+
+
+volatile unsigned char LCDDATA10 @ 0x11A;
+
+# 2143
+volatile bit SEG8COM3 @ ((unsigned)&LCDDATA10*8)+0;
+volatile bit SEG9COM3 @ ((unsigned)&LCDDATA10*8)+1;
+volatile bit SEG10COM3 @ ((unsigned)&LCDDATA10*8)+2;
+volatile bit SEG11COM3 @ ((unsigned)&LCDDATA10*8)+3;
+volatile bit SEG12COM3 @ ((unsigned)&LCDDATA10*8)+4;
+volatile bit SEG13COM3 @ ((unsigned)&LCDDATA10*8)+5;
+volatile bit SEG14COM3 @ ((unsigned)&LCDDATA10*8)+6;
+volatile bit SEG15COM3 @ ((unsigned)&LCDDATA10*8)+7;
+volatile bit S8C3 @ ((unsigned)&LCDDATA10*8)+0;
+volatile bit S9C3 @ ((unsigned)&LCDDATA10*8)+1;
+volatile bit S10C3 @ ((unsigned)&LCDDATA10*8)+2;
+volatile bit S11C3 @ ((unsigned)&LCDDATA10*8)+3;
+volatile bit S12C3 @ ((unsigned)&LCDDATA10*8)+4;
+volatile bit S13C3 @ ((unsigned)&LCDDATA10*8)+5;
+volatile bit S14C3 @ ((unsigned)&LCDDATA10*8)+6;
+volatile bit S15C3 @ ((unsigned)&LCDDATA10*8)+7;
+
+volatile union {
+struct {
+unsigned SEG8 : 1;
+unsigned SEG9 : 1;
+unsigned SEG10 : 1;
+unsigned SEG11 : 1;
+unsigned SEG12 : 1;
+unsigned SEG13 : 1;
+unsigned SEG14 : 1;
+unsigned SEG15 : 1;
+};
+struct {
+unsigned SEG8COM3 : 1;
+unsigned SEG9COM3 : 1;
+unsigned SEG10COM3 : 1;
+unsigned SEG11COM3 : 1;
+unsigned SEG12COM3 : 1;
+unsigned SEG13COM3 : 1;
+unsigned SEG14COM3 : 1;
+unsigned SEG15COM3 : 1;
+};
+struct {
+unsigned S8C3 : 1;
+unsigned S9C3 : 1;
+unsigned S10C3 : 1;
+unsigned S11C3 : 1;
+unsigned S12C3 : 1;
+unsigned S13C3 : 1;
+unsigned S14C3 : 1;
+unsigned S15C3 : 1;
+};
+} LCDDATA10bits @ 0x11A;
+
+
+
+volatile unsigned char LCDDATA11 @ 0x11B;
+
+# 2205
+volatile bit SEG16COM3 @ ((unsigned)&LCDDATA11*8)+0;
+volatile bit SEG17COM3 @ ((unsigned)&LCDDATA11*8)+1;
+volatile bit SEG18COM3 @ ((unsigned)&LCDDATA11*8)+2;
+volatile bit SEG19COM3 @ ((unsigned)&LCDDATA11*8)+3;
+volatile bit SEG20COM3 @ ((unsigned)&LCDDATA11*8)+4;
+volatile bit SEG21COM3 @ ((unsigned)&LCDDATA11*8)+5;
+volatile bit SEG22COM3 @ ((unsigned)&LCDDATA11*8)+6;
+volatile bit SEG23COM3 @ ((unsigned)&LCDDATA11*8)+7;
+volatile bit S16C3 @ ((unsigned)&LCDDATA11*8)+0;
+volatile bit S17C3 @ ((unsigned)&LCDDATA11*8)+1;
+volatile bit S18C3 @ ((unsigned)&LCDDATA11*8)+2;
+volatile bit S19C3 @ ((unsigned)&LCDDATA11*8)+3;
+volatile bit S20C3 @ ((unsigned)&LCDDATA11*8)+4;
+volatile bit S21C3 @ ((unsigned)&LCDDATA11*8)+5;
+volatile bit S22C3 @ ((unsigned)&LCDDATA11*8)+6;
+volatile bit S23C3 @ ((unsigned)&LCDDATA11*8)+7;
+
+volatile union {
+struct {
+unsigned SEG16 : 1;
+unsigned SEG17 : 1;
+unsigned SEG18 : 1;
+unsigned SEG19 : 1;
+unsigned SEG20 : 1;
+unsigned SEG21 : 1;
+unsigned SEG22 : 1;
+unsigned SEG23 : 1;
+};
+struct {
+unsigned SEG16COM3 : 1;
+unsigned SEG17COM3 : 1;
+unsigned SEG18COM3 : 1;
+unsigned SEG19COM3 : 1;
+unsigned SEG20COM3 : 1;
+unsigned SEG21COM3 : 1;
+unsigned SEG22COM3 : 1;
+unsigned SEG23COM3 : 1;
+};
+struct {
+unsigned S16C3 : 1;
+unsigned S17C3 : 1;
+unsigned S18C3 : 1;
+unsigned S19C3 : 1;
+unsigned S20C3 : 1;
+unsigned S21C3 : 1;
+unsigned S22C3 : 1;
+unsigned S23C3 : 1;
+};
+} LCDDATA11bits @ 0x11B;
+
+
+
+volatile unsigned char LCDSE0 @ 0x11C;
+
+# 2267
+volatile bit SE0 @ ((unsigned)&LCDSE0*8)+0;
+volatile bit SE1 @ ((unsigned)&LCDSE0*8)+1;
+volatile bit SE2 @ ((unsigned)&LCDSE0*8)+2;
+volatile bit SE3 @ ((unsigned)&LCDSE0*8)+3;
+volatile bit SE4 @ ((unsigned)&LCDSE0*8)+4;
+volatile bit SE5 @ ((unsigned)&LCDSE0*8)+5;
+volatile bit SE6 @ ((unsigned)&LCDSE0*8)+6;
+volatile bit SE7 @ ((unsigned)&LCDSE0*8)+7;
+volatile bit SEGEN0 @ ((unsigned)&LCDSE0*8)+0;
+volatile bit SEGEN1 @ ((unsigned)&LCDSE0*8)+1;
+volatile bit SEGEN2 @ ((unsigned)&LCDSE0*8)+2;
+volatile bit SEGEN3 @ ((unsigned)&LCDSE0*8)+3;
+volatile bit SEGEN4 @ ((unsigned)&LCDSE0*8)+4;
+volatile bit SEGEN5 @ ((unsigned)&LCDSE0*8)+5;
+volatile bit SEGEN6 @ ((unsigned)&LCDSE0*8)+6;
+volatile bit SEGEN7 @ ((unsigned)&LCDSE0*8)+7;
+
+volatile union {
+struct {
+unsigned SEG0 : 1;
+unsigned SEG1 : 1;
+unsigned SEG2 : 1;
+unsigned SEG3 : 1;
+unsigned SEG4 : 1;
+unsigned SEG5 : 1;
+unsigned SEG6 : 1;
+unsigned SEG7 : 1;
+};
+struct {
+unsigned SE0 : 1;
+unsigned SE1 : 1;
+unsigned SE2 : 1;
+unsigned SE3 : 1;
+unsigned SE4 : 1;
+unsigned SE5 : 1;
+unsigned SE6 : 1;
+unsigned SE7 : 1;
+};
+struct {
+unsigned SEGEN0 : 1;
+unsigned SEGEN1 : 1;
+unsigned SEGEN2 : 1;
+unsigned SEGEN3 : 1;
+unsigned SEGEN4 : 1;
+unsigned SEGEN5 : 1;
+unsigned SEGEN6 : 1;
+unsigned SEGEN7 : 1;
+};
+} LCDSE0bits @ 0x11C;
+
+
+
+volatile unsigned char LCDSE1 @ 0x11D;
+
+# 2329
+volatile bit SE8 @ ((unsigned)&LCDSE1*8)+0;
+volatile bit SE9 @ ((unsigned)&LCDSE1*8)+1;
+volatile bit SE10 @ ((unsigned)&LCDSE1*8)+2;
+volatile bit SE11 @ ((unsigned)&LCDSE1*8)+3;
+volatile bit SE12 @ ((unsigned)&LCDSE1*8)+4;
+volatile bit SE13 @ ((unsigned)&LCDSE1*8)+5;
+volatile bit SE14 @ ((unsigned)&LCDSE1*8)+6;
+volatile bit SE15 @ ((unsigned)&LCDSE1*8)+7;
+volatile bit SEGEN8 @ ((unsigned)&LCDSE1*8)+0;
+volatile bit SEGEN9 @ ((unsigned)&LCDSE1*8)+1;
+volatile bit SEGEN10 @ ((unsigned)&LCDSE1*8)+2;
+volatile bit SEGEN11 @ ((unsigned)&LCDSE1*8)+3;
+volatile bit SEGEN12 @ ((unsigned)&LCDSE1*8)+4;
+volatile bit SEGEN13 @ ((unsigned)&LCDSE1*8)+5;
+volatile bit SEGEN14 @ ((unsigned)&LCDSE1*8)+6;
+volatile bit SEGEN15 @ ((unsigned)&LCDSE1*8)+7;
+
+volatile union {
+struct {
+unsigned SEG8 : 1;
+unsigned SEG9 : 1;
+unsigned SEG10 : 1;
+unsigned SEG11 : 1;
+unsigned SEG12 : 1;
+unsigned SEG13 : 1;
+unsigned SEG14 : 1;
+unsigned SEG15 : 1;
+};
+struct {
+unsigned SE8 : 1;
+unsigned SE9 : 1;
+unsigned SE10 : 1;
+unsigned SE11 : 1;
+unsigned SE12 : 1;
+unsigned SE13 : 1;
+unsigned SE14 : 1;
+unsigned SE15 : 1;
+};
+struct {
+unsigned SEGEN8 : 1;
+unsigned SEGEN9 : 1;
+unsigned SEGEN10 : 1;
+unsigned SEGEN11 : 1;
+unsigned SEGEN12 : 1;
+unsigned SEGEN13 : 1;
+unsigned SEGEN14 : 1;
+unsigned SEGEN15 : 1;
+};
+} LCDSE1bits @ 0x11D;
+
+
+
+volatile unsigned char LCDSE2 @ 0x11E;
+
+# 2391
+volatile bit SE16 @ ((unsigned)&LCDSE2*8)+0;
+volatile bit SE17 @ ((unsigned)&LCDSE2*8)+1;
+volatile bit SE18 @ ((unsigned)&LCDSE2*8)+2;
+volatile bit SE19 @ ((unsigned)&LCDSE2*8)+3;
+volatile bit SE20 @ ((unsigned)&LCDSE2*8)+4;
+volatile bit SE21 @ ((unsigned)&LCDSE2*8)+5;
+volatile bit SE22 @ ((unsigned)&LCDSE2*8)+6;
+volatile bit SE23 @ ((unsigned)&LCDSE2*8)+7;
+volatile bit SEGEN16 @ ((unsigned)&LCDSE2*8)+0;
+volatile bit SEGEN17 @ ((unsigned)&LCDSE2*8)+1;
+volatile bit SEGEN18 @ ((unsigned)&LCDSE2*8)+2;
+volatile bit SEGEN19 @ ((unsigned)&LCDSE2*8)+3;
+volatile bit SEGEN20 @ ((unsigned)&LCDSE2*8)+4;
+volatile bit SEGEN21 @ ((unsigned)&LCDSE2*8)+5;
+volatile bit SEGEN22 @ ((unsigned)&LCDSE2*8)+6;
+volatile bit SEGEN23 @ ((unsigned)&LCDSE2*8)+7;
+
+volatile union {
+struct {
+unsigned SEG16 : 1;
+unsigned SEG17 : 1;
+unsigned SEG18 : 1;
+unsigned SEG19 : 1;
+unsigned SEG20 : 1;
+unsigned SEG21 : 1;
+unsigned SEG22 : 1;
+unsigned SEG23 : 1;
+};
+struct {
+unsigned SE16 : 1;
+unsigned SE17 : 1;
+unsigned SE18 : 1;
+unsigned SE19 : 1;
+unsigned SE20 : 1;
+unsigned SE21 : 1;
+unsigned SE22 : 1;
+unsigned SE23 : 1;
+};
+struct {
+unsigned SEGEN16 : 1;
+unsigned SEGEN17 : 1;
+unsigned SEGEN18 : 1;
+unsigned SEGEN19 : 1;
+unsigned SEGEN20 : 1;
+unsigned SEGEN21 : 1;
+unsigned SEGEN22 : 1;
+unsigned SEGEN23 : 1;
+};
+} LCDSE2bits @ 0x11E;
+
+# 2448
+volatile unsigned char EECON1 @ 0x18C;
+
+volatile bit RD @ ((unsigned)&EECON1*8)+0;
+volatile bit WR @ ((unsigned)&EECON1*8)+1;
+volatile bit WREN @ ((unsigned)&EECON1*8)+2;
+volatile bit WRERR @ ((unsigned)&EECON1*8)+3;
+volatile bit EEPGD @ ((unsigned)&EECON1*8)+7;
+volatile bit EERD @ ((unsigned)&EECON1*8)+0;
+volatile bit EEWR @ ((unsigned)&EECON1*8)+1;
+
+volatile union {
+struct {
+unsigned RD : 1;
+unsigned WR : 1;
+unsigned WREN : 1;
+unsigned WRERR : 1;
+unsigned : 3;
+unsigned EEPGD : 1;
+};
+struct {
+unsigned EERD : 1;
+unsigned EEWR : 1;
+};
+} EECON1bits @ 0x18C;
+
+
+
+volatile unsigned char EECON2 @ 0x18D;
+
+
+# 27 "/usr/hitech/picc/9.82/include/pic.h"
+#pragma inline(_nop)
+extern void _nop(void);
+
+# 80
+extern unsigned int flash_read(unsigned short addr);
+
+# 41 "/usr/hitech/picc/9.82/include/eeprom_routines.h"
+extern unsigned char eeprom_write(unsigned char addr, unsigned char value);
+extern unsigned char eeprom_read(unsigned char addr);
+extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
+extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
+
+
+# 153 "/usr/hitech/picc/9.82/include/pic.h"
+#pragma inline(_delay)
+extern void _delay(unsigned long);
+
+# 11 "/usr/hitech/picc/9.82/include/time.h"
+typedef long time_t;
+struct tm {
+int tm_sec;
+int tm_min;
+int tm_hour;
+int tm_mday;
+int tm_mon;
+int tm_year;
+int tm_wday;
+int tm_yday;
+int tm_isdst;
+};
+
+# 30
+extern int time_zone;
+
+# 35
+extern time_t time(time_t *);
+extern int stime(time_t *);
+extern char * asctime(const struct tm *);
+extern char * ctime(const time_t *);
+extern struct tm * gmtime(const time_t *);
+extern struct tm * localtime(const time_t *);
+extern time_t mktime(struct tm *);
+extern size_t strftime(char *, size_t, const char *, const struct tm *);
+
+# 12 "newmain.c"
+asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFD & 0xFFF7");
+
+
+
+
+time_t start, stop;
+int clock_t, ticks; long count;
+int turnflag = 0;
+int lastMotor = 0;
+
+# 29
+void _delay_ms(unsigned int ms)
+{
+unsigned char i;
+do {
+i = 4;
+do {
+{ unsigned char us; us = (250)/(12000000/8000000L)|1; while(--us != 0) continue; };
+} while(--i);
+} while(--ms);
+}
+
+# 45
+int searchTrack(void){
+
+
+int leftMotor;
+int rightMotor;
+
+if (lastMotor == 1)
+{
+leftMotor = 1;
+rightMotor = 0;
+} else if (lastMotor == 2)
+
+{
+leftMotor = 0;
+rightMotor = 1;
+}
+turnflag = 0;
+
+
+}
+
+# 142
+int controlLCD()
+{
+
+
+
+
+}
+
+
+
+
+int controlBuzzer()
+{
+
+
+}
+
+# 169
+void InitialiseADC (unsigned char ADC_Channel)
+{
+if (ADC_Channel == 0) TRISA0 = 1;
+else if (ADC_Channel == 1) TRISA1 = 1;
+else if (ADC_Channel == 2) TRISA2 = 1;
+else if (ADC_Channel == 3) TRISA3 = 1;
+
+# 182
+ADCON1 = 0b10000100;
+}
+
+# 190
+unsigned int ReadADC(unsigned char ADC_Channel)
+{
+volatile unsigned int ADC_VALUE;
+
+
+ADCON0 = (ADC_Channel << 3) + 1;
+
+ADIE = 0;
+ADIF = 0;
+ADRESL = 0;
+ADRESH = 0;
+
+
+ADCON0[2] = 1;
+while(!ADIF) continue;
+
+ADC_VALUE = ADRESL;
+ADC_VALUE += (ADRESH << 8);
+
+return (ADC_VALUE);
+}
+
+# 223
+int main(void)
+{
+
+TRISB = 0x00;
+TRISC = 0x00;
+TRISD = 0X00;
+TRISE = 0X00;
+
+_delay_ms(8000);
+
+
+InitialiseADC (0);
+InitialiseADC (1);
+int x,y, leftpt, rightpt;
+
+while (1)
+{
+
+x = ReadADC(0);
+
+if (x > 1.5){
+leftpt = 1;
+}
+else
+{
+leftpt = 0;
+}
+
+
+
+y=ReadADC(1);
+
+if (y > 1.5)
+{
+rightpt = 1;
+}
+else
+{
+rightpt = 0;
+}
+
+if((leftpt==0) && (rightpt==0))
+{
+
+}
+else
+{
+
+}
+}
 }
 

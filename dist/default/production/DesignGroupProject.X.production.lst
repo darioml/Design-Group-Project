@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
-                                                                                               Tue Feb 28 16:16:55 2012
+                                                                                               Tue Feb 28 18:05:12 2012
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
@@ -45,208 +45,212 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
     39  0001                     c	equ	1
     40  0000                     z	equ	0
     41  000A                     pclath	equ	10
-    42                           	FNROOT	_main
-    43                           	global	_CARRY
-    44                           psect	maintext,global,class=CODE,delta=2
-    45                           global __pmaintext
-    46  07F9                     __pmaintext:
-    47  0018                     _CARRY	set	24
-    48                           	global	_GIE
-    49  005F                     _GIE	set	95
-    50                           	global	_EEADR
-    51  010D                     _EEADR	set	269
-    52                           	global	_EEDATA
-    53  010C                     _EEDATA	set	268
-    54                           	global	_EECON1
-    55  018C                     _EECON1	set	396
-    56                           	global	_EECON2
-    57  018D                     _EECON2	set	397
-    58                           	global	_RD
-    59  0C60                     _RD	set	3168
-    60                           	global	_WR
-    61  0C61                     _WR	set	3169
-    62                           	global	_WREN
-    63  0C62                     _WREN	set	3170
-    64                           	file	"/tmp/cgtcTvuDh"
-    65                           	line	#
-    66                           psect cinit,class=CODE,delta=2
-    67                           global start_initialization
-    68  07FC                     start_initialization:
-    69                           
+    42                           # 12 "newmain.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 12 "newmain.c"
+    45  2007  FFF5               	dw 0xFFFD & 0xFFF7 ;#
+    46                           	FNROOT	_main
+    47                           	global	_CARRY
+    48                           psect	maintext,global,class=CODE,delta=2
+    49                           global __pmaintext
+    50  07F9                     __pmaintext:
+    51  0018                     _CARRY	set	24
+    52                           	global	_GIE
+    53  005F                     _GIE	set	95
+    54                           	global	_EEADR
+    55  010D                     _EEADR	set	269
+    56                           	global	_EEDATA
+    57  010C                     _EEDATA	set	268
+    58                           	global	_EECON1
+    59  018C                     _EECON1	set	396
+    60                           	global	_EECON2
+    61  018D                     _EECON2	set	397
+    62                           	global	_RD
+    63  0C60                     _RD	set	3168
+    64                           	global	_WR
+    65  0C61                     _WR	set	3169
+    66                           	global	_WREN
+    67  0C62                     _WREN	set	3170
+    68                           	file	"/tmp/cgt84G9uy"
+    69                           	line	#
     70                           psect cinit,class=CODE,delta=2
-    71                           global end_of_initialization
-    72                           
-    73                           ;End of C runtime variable initialization code
-    74                           
-    75  07FC                     end_of_initialization:
-    76  07FC  0183               clrf status
-    77  07FD  120A  118A  2FF9   ljmp _main	;jump to C main() function
-    78                           psect	cstackCOMMON,class=COMMON,space=1
-    79                           global __pcstackCOMMON
-    80  0070                     __pcstackCOMMON:
-    81                           	global	?_main
-    82  0070                     ?_main:	; 2 bytes @ 0x0
-    83                           	global	main@argc
-    84  0070                     main@argc:	; 2 bytes @ 0x0
-    85  0070                     	ds	2
-    86                           	global	main@argv
-    87  0072                     main@argv:	; 2 bytes @ 0x2
-    88  0072                     	ds	2
-    89                           	global	??_main
-    90  0074                     ??_main:	; 0 bytes @ 0x4
-    91 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
-    92 ;;Auto spaces:   Size  Autos    Used
-    93 ;; COMMON          14      4       4
-    94 ;; BANK0           80      0       0
-    95 ;; BANK1           80      0       0
-    96 ;; BANK3           96      0       0
-    97 ;; BANK2           80      0       0
-    98                           
-    99 ;;
-   100 ;; Pointer list with targets:
-   101                           
+    71                           global start_initialization
+    72  07FC                     start_initialization:
+    73                           
+    74                           psect cinit,class=CODE,delta=2
+    75                           global end_of_initialization
+    76                           
+    77                           ;End of C runtime variable initialization code
+    78                           
+    79  07FC                     end_of_initialization:
+    80  07FC  0183               clrf status
+    81  07FD  120A  118A  2FF9   ljmp _main	;jump to C main() function
+    82                           psect	cstackCOMMON,class=COMMON,space=1
+    83                           global __pcstackCOMMON
+    84  0070                     __pcstackCOMMON:
+    85                           	global	?_main
+    86  0070                     ?_main:	; 2 bytes @ 0x0
+    87                           	global	main@argc
+    88  0070                     main@argc:	; 2 bytes @ 0x0
+    89  0070                     	ds	2
+    90                           	global	main@argv
+    91  0072                     main@argv:	; 2 bytes @ 0x2
+    92  0072                     	ds	2
+    93                           	global	??_main
+    94  0074                     ??_main:	; 0 bytes @ 0x4
+    95 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    96 ;;Auto spaces:   Size  Autos    Used
+    97 ;; COMMON          14      4       4
+    98 ;; BANK0           80      0       0
+    99 ;; BANK1           80      0       0
+   100 ;; BANK3           96      0       0
+   101 ;; BANK2           80      0       0
    102                           
-   103                           
-   104 ;;
-   105 ;; Critical Paths under _main in COMMON
-   106 ;;
-   107 ;;   None.
+   103 ;;
+   104 ;; Pointer list with targets:
+   105                           
+   106                           
+   107                           
    108 ;;
-   109 ;; Critical Paths under _main in BANK0
+   109 ;; Critical Paths under _main in COMMON
    110 ;;
    111 ;;   None.
    112 ;;
-   113 ;; Critical Paths under _main in BANK1
+   113 ;; Critical Paths under _main in BANK0
    114 ;;
    115 ;;   None.
    116 ;;
-   117 ;; Critical Paths under _main in BANK3
+   117 ;; Critical Paths under _main in BANK1
    118 ;;
    119 ;;   None.
    120 ;;
-   121 ;; Critical Paths under _main in BANK2
+   121 ;; Critical Paths under _main in BANK3
    122 ;;
    123 ;;   None.
-   124                           
-   125 ;;
-   126 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   127 ;;
+   124 ;;
+   125 ;; Critical Paths under _main in BANK2
+   126 ;;
+   127 ;;   None.
    128                           
    129 ;;
-   130 ;;Call Graph Tables:
+   130 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
    131 ;;
-   132 ;; ---------------------------------------------------------------------------------
-   133 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
-   134 ;; ---------------------------------------------------------------------------------
-   135 ;; (0) _main                                                 4     0      4       0
-   136 ;;                                              0 COMMON     4     0      4
-   137 ;; ---------------------------------------------------------------------------------
-   138 ;; Estimated maximum stack depth 0
-   139 ;; ---------------------------------------------------------------------------------
-   140                           
-   141 ;; Call Graph Graphs:
-   142                           
-   143 ;; _main (ROOT)
-   144 ;;
-   145                           
-   146 ;; Address spaces:
-   147                           
-   148 ;;Name               Size   Autos  Total    Cost      Usage
-   149 ;;BITCOMMON            E      0       0       0        0.0%
-   150 ;;EEDATA             100      0       0       0        0.0%
-   151 ;;NULL                 0      0       0       0        0.0%
-   152 ;;CODE                 0      0       0       0        0.0%
-   153 ;;COMMON               E      4       4       1       28.6%
-   154 ;;BITSFR0              0      0       0       1        0.0%
-   155 ;;SFR0                 0      0       0       1        0.0%
-   156 ;;BITSFR1              0      0       0       2        0.0%
-   157 ;;SFR1                 0      0       0       2        0.0%
-   158 ;;STACK                0      0       0       2        0.0%
-   159 ;;BITBANK0            50      0       0       3        0.0%
-   160 ;;BANK0               50      0       0       4        0.0%
-   161 ;;BITSFR3              0      0       0       4        0.0%
-   162 ;;SFR3                 0      0       0       4        0.0%
-   163 ;;BITBANK1            50      0       0       5        0.0%
-   164 ;;BITSFR2              0      0       0       5        0.0%
-   165 ;;SFR2                 0      0       0       5        0.0%
-   166 ;;BANK1               50      0       0       6        0.0%
-   167 ;;BITBANK3            60      0       0       7        0.0%
-   168 ;;BANK3               60      0       0       8        0.0%
-   169 ;;BANK2               50      0       0       9        0.0%
-   170 ;;ABS                  0      0       0      10        0.0%
-   171 ;;BITBANK2            50      0       0      11        0.0%
-   172 ;;DATA                 0      0       0      12        0.0%
-   173                           
-   174                           	global	_main
-   175                           psect	maintext
-   176                           
-   177 ;; *************** function _main *****************
-   178 ;; Defined at:
-   179 ;;		line 14 in file "newmain.c"
-   180 ;; Parameters:    Size  Location     Type
-   181 ;;  argc            2    0[COMMON] int 
-   182 ;;  argv            2    2[COMMON] PTR PTR unsigned char 
-   183 ;; Auto vars:     Size  Location     Type
-   184 ;;		None
-   185 ;; Return value:  Size  Location     Type
-   186 ;;                  2    0[COMMON] int 
-   187 ;; Registers used:
+   132                           
+   133 ;;
+   134 ;;Call Graph Tables:
+   135 ;;
+   136 ;; ---------------------------------------------------------------------------------
+   137 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   138 ;; ---------------------------------------------------------------------------------
+   139 ;; (0) _main                                                 4     0      4       0
+   140 ;;                                              0 COMMON     4     0      4
+   141 ;; ---------------------------------------------------------------------------------
+   142 ;; Estimated maximum stack depth 0
+   143 ;; ---------------------------------------------------------------------------------
+   144                           
+   145 ;; Call Graph Graphs:
+   146                           
+   147 ;; _main (ROOT)
+   148 ;;
+   149                           
+   150 ;; Address spaces:
+   151                           
+   152 ;;Name               Size   Autos  Total    Cost      Usage
+   153 ;;BITCOMMON            E      0       0       0        0.0%
+   154 ;;EEDATA             100      0       0       0        0.0%
+   155 ;;NULL                 0      0       0       0        0.0%
+   156 ;;CODE                 0      0       0       0        0.0%
+   157 ;;COMMON               E      4       4       1       28.6%
+   158 ;;BITSFR0              0      0       0       1        0.0%
+   159 ;;SFR0                 0      0       0       1        0.0%
+   160 ;;BITSFR1              0      0       0       2        0.0%
+   161 ;;SFR1                 0      0       0       2        0.0%
+   162 ;;STACK                0      0       0       2        0.0%
+   163 ;;BITBANK0            50      0       0       3        0.0%
+   164 ;;BANK0               50      0       0       4        0.0%
+   165 ;;BITSFR3              0      0       0       4        0.0%
+   166 ;;SFR3                 0      0       0       4        0.0%
+   167 ;;BITBANK1            50      0       0       5        0.0%
+   168 ;;BITSFR2              0      0       0       5        0.0%
+   169 ;;SFR2                 0      0       0       5        0.0%
+   170 ;;BANK1               50      0       0       6        0.0%
+   171 ;;BITBANK3            60      0       0       7        0.0%
+   172 ;;BANK3               60      0       0       8        0.0%
+   173 ;;BANK2               50      0       0       9        0.0%
+   174 ;;ABS                  0      0       0      10        0.0%
+   175 ;;BITBANK2            50      0       0      11        0.0%
+   176 ;;DATA                 0      0       0      12        0.0%
+   177                           
+   178                           	global	_main
+   179                           psect	maintext
+   180                           
+   181 ;; *************** function _main *****************
+   182 ;; Defined at:
+   183 ;;		line 17 in file "newmain.c"
+   184 ;; Parameters:    Size  Location     Type
+   185 ;;  argc            2    0[COMMON] int 
+   186 ;;  argv            2    2[COMMON] PTR PTR unsigned char 
+   187 ;; Auto vars:     Size  Location     Type
    188 ;;		None
-   189 ;; Tracked objects:
-   190 ;;		On entry : 17F/0
-   191 ;;		On exit  : 0/0
-   192 ;;		Unchanged: 0/0
-   193 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   194 ;;      Params:         4       0       0       0       0
-   195 ;;      Locals:         0       0       0       0       0
-   196 ;;      Temps:          0       0       0       0       0
-   197 ;;      Totals:         4       0       0       0       0
-   198 ;;Total ram usage:        4 bytes
-   199 ;; This function calls:
-   200 ;;		Nothing
-   201 ;; This function is called by:
-   202 ;;		Startup code after reset
-   203 ;; This function uses a non-reentrant model
-   204 ;;
-   205                           psect	maintext
-   206                           	file	"newmain.c"
-   207                           	line	14
-   208                           	global	__size_of_main
-   209  0003                     	__size_of_main	equ	__end_of_main-_main
-   210                           	
-   211  07F9                     _main:	
-   212                           	opt	stack 8
-   213                           ; Regs used in _main: []
-   214                           	line	16
-   215                           	
-   216  07F9                     l1804:	
-   217                           	line	17
-   218                           ;newmain.c: 16: return (0);
-   219                           ;	Return value of _main is never used
-   220                           	
-   221  07F9                     l3:	
-   222                           	global	start
-   223  07F9  120A  118A  2800   	ljmp	start
-   224                           	opt stack 0
-   225                           GLOBAL	__end_of_main
-   226  07FC                     	__end_of_main:
-   227 ;; =============== function _main ends ============
-   228                           
-   229                           	signat	_main,8314
-   230                           psect	maintext
-   231                           	global	btemp
-   232  007E                     	btemp set 07Eh
-   233                           
-   234                           	DABS	1,126,2	;btemp
-   235                           	global	wtemp0
-   236  007E                     	wtemp0 set btemp
+   189 ;; Return value:  Size  Location     Type
+   190 ;;                  2    0[COMMON] int 
+   191 ;; Registers used:
+   192 ;;		None
+   193 ;; Tracked objects:
+   194 ;;		On entry : 17F/0
+   195 ;;		On exit  : 0/0
+   196 ;;		Unchanged: 0/0
+   197 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   198 ;;      Params:         4       0       0       0       0
+   199 ;;      Locals:         0       0       0       0       0
+   200 ;;      Temps:          0       0       0       0       0
+   201 ;;      Totals:         4       0       0       0       0
+   202 ;;Total ram usage:        4 bytes
+   203 ;; This function calls:
+   204 ;;		Nothing
+   205 ;; This function is called by:
+   206 ;;		Startup code after reset
+   207 ;; This function uses a non-reentrant model
+   208 ;;
+   209                           psect	maintext
+   210                           	file	"newmain.c"
+   211                           	line	17
+   212                           	global	__size_of_main
+   213  0003                     	__size_of_main	equ	__end_of_main-_main
+   214                           	
+   215  07F9                     _main:	
+   216                           	opt	stack 8
+   217                           ; Regs used in _main: []
+   218                           	line	19
+   219                           	
+   220  07F9                     l3292:	
+   221                           	line	20
+   222                           ;newmain.c: 19: return (0);
+   223                           ;	Return value of _main is never used
+   224                           	
+   225  07F9                     l1491:	
+   226                           	global	start
+   227  07F9  120A  118A  2800   	ljmp	start
+   228                           	opt stack 0
+   229                           GLOBAL	__end_of_main
+   230  07FC                     	__end_of_main:
+   231 ;; =============== function _main ends ============
+   232                           
+   233                           	signat	_main,8314
+   234                           psect	maintext
+   235                           	global	btemp
+   236  007E                     	btemp set 07Eh
+   237                           
+   238                           	DABS	1,126,2	;btemp
+   239                           	global	wtemp0
+   240  007E                     	wtemp0 set btemp
 
 
 HI-TECH Software PICC Macro Assembler V9.82 build 9453 
-Symbol Table                                                                                   Tue Feb 28 16:16:55 2012
+Symbol Table                                                                                   Tue Feb 28 18:05:12 2012
 
-                   l3 07F9                    _RD 0C60                    _WR 0C61                   _GIE 005F  
-                l1804 07F9                  _WREN 0C62                  _main 07F9                  btemp 007E  
+                  _RD 0C60                    _WR 0C61                   _GIE 005F                  l1491 07F9  
+                l3292 07F9                  _WREN 0C62                  _main 07F9                  btemp 007E  
                 start 0000                 ?_main 0070                 _EEADR 010D                 _CARRY 0018  
                status 0003                 wtemp0 007E          __end_of_main 07FC                ??_main 0074  
               _EEDATA 010C                _EECON1 018C                _EECON2 018D        __pcstackCOMMON 0070  

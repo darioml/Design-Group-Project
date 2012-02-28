@@ -1,6 +1,6 @@
 _RD C60 0 ABS
 _WR C61 0 ABS
-__S0 800 0 ABS
+__S0 2008 0 ABS
 __S1 74 0 ABS
 __S2 0 0 ABS
 _GIE 5F 0 ABS
@@ -16,8 +16,8 @@ reset_vec 0 0 CODE
 _EEADR 10D 0 ABS
 wtemp0 7E 0 ABS
 _CARRY 18 0 ABS
-__Hconfig 0 0 CONFIG
-__Lconfig 0 0 CONFIG
+__Hconfig 2008 0 CONFIG
+__Lconfig 2007 0 CONFIG
 __Hram 0 0 ABS
 __Lram 0 0 ABS
 ?_main 70 0 COMMON
@@ -88,13 +88,15 @@ __Lmaintext 0 0 ABS
 __pmaintext 7F9 0 CODE
 %segments
 reset_vec 0 5 CODE 0
+config 400E 400F CONFIG 400E
 cstackCOMMON 70 73 COMMON 70
 cinit FF8 FFF CODE FF8
 maintext FF2 FF7 CODE FF2
 %locals
 dist/default/production/DesignGroupProject.X.production.obj
 newmain.c
-17 7F9 0 CODE
-/tmp/cgtcTvuDh
-76 7FC 0 CODE
-77 7FD 0 CODE
+12 2007 0 CONFIG
+20 7F9 0 CODE
+/tmp/cgt84G9uy
+80 7FC 0 CODE
+81 7FD 0 CODE
