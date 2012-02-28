@@ -16,7 +16,7 @@ Linker command line:
   -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
   -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
   -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  /tmp/cgtJRHKa9.obj \
+  /tmp/cgtp5LeWr.obj \
   dist/default/production/DesignGroupProject.X.production.obj 
 
 Object code version is 3.10
@@ -26,7 +26,7 @@ Machine type is 16F917
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtJRHKa9.obj
+/tmp/cgtp5LeWr.obj
                 end_init                              0        0        3        0       0
 dist/default/production/DesignGroupProject.X.production.obj
                 cstackCOMMON                         70       70        4       70       1
