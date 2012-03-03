@@ -19,7 +19,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>newmain.c</itemPath>
-      <itemPath>newfile.c</itemPath>
+      <itemPath>lcd.c</itemPath>
+      <itemPath>lcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -59,16 +60,16 @@
         <property key="what-to-do" value="ignore"/>
         <property key="define-macros" value=""/>
         <property key="what-to-do-ex" value="ignore"/>
-        <property key="optimization-assembler-files" value="false"/>
         <property key="warning-level" value="0"/>
+        <property key="optimization-assembler-files" value="false"/>
         <property key="verbose" value="false"/>
-        <property key="optimization-level" value="9"/>
         <property key="optimization-debug" value="false"/>
+        <property key="optimization-level" value="9"/>
         <property key="preprocess-assembler" value="false"/>
-        <property key="optimization-global" value="true"/>
         <property key="identifier-length" value="31"/>
-        <property key="optimization-set" value="default"/>
+        <property key="optimization-global" value="true"/>
         <property key="undefine-macros" value=""/>
+        <property key="optimization-set" value="default"/>
         <property key="optimization-speed" value="false"/>
         <property key="optimization-assembler" value="true"/>
         <property key="operation-mode" value="lite"/>
@@ -93,8 +94,8 @@
         <property key="programoptions.preserveprogramrange.start" value="0x0"/>
         <property key="voltagevalue" value="5.0"/>
         <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="programoptions.eraseb4program" value="true"/>
         <property key="memories.programmemory.start" value="0x0"/>
+        <property key="programoptions.eraseb4program" value="true"/>
         <property key="memories.programmemory.end" value="0x1fff"/>
         <property key="poweroptions.powerenable" value="true"/>
       </ICD3PlatformTool>

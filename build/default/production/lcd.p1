@@ -23,14 +23,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RP0 `Vb  1 e@29 ]
 "116 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RP1 `Vb  1 e@30 ]
-[s S3 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S3 . C DC Z nPD nTO RP IRP ]
-[s S4 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S4 . . RP0 RP1 ]
-[u S2 `S3 1 `S4 1 ]
-[n S2 . . . ]
+[s S2 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S2 . C DC Z nPD nTO RP IRP ]
+[s S3 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3 . . RP0 RP1 ]
+[u S1 `S2 1 `S3 1 ]
+[n S1 . . . ]
 "133 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _STATUSbits `VS2  1 e@3 ]
+[v _STATUSbits `VS1  1 e@3 ]
 "137 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _FSR `Vuc  1 e@4 ]
 "141 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -51,12 +51,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RA6 `Vb  1 e@46 ]
 "150 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RA7 `Vb  1 e@47 ]
-[s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S6 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-[u S5 `S6 1 ]
-[n S5 . . ]
+[s S5 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S5 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+[u S4 `S5 1 ]
+[n S4 . . ]
 "163 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PORTAbits `VS5  1 e@5 ]
+[v _PORTAbits `VS4  1 e@5 ]
 "167 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PORTB `Vuc  1 e@6 ]
 "169 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -75,12 +75,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RB6 `Vb  1 e@54 ]
 "176 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RB7 `Vb  1 e@55 ]
-[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-[u S7 `S8 1 ]
-[n S7 . . ]
+[s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S7 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+[u S6 `S7 1 ]
+[n S6 . . ]
 "189 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PORTBbits `VS7  1 e@6 ]
+[v _PORTBbits `VS6  1 e@6 ]
 "193 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PORTC `Vuc  1 e@7 ]
 "195 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -99,12 +99,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RC6 `Vb  1 e@62 ]
 "202 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RC7 `Vb  1 e@63 ]
-[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S10 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-[u S9 `S10 1 ]
-[n S9 . . ]
+[s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S9 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+[u S8 `S9 1 ]
+[n S8 . . ]
 "215 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PORTCbits `VS9  1 e@7 ]
+[v _PORTCbits `VS8  1 e@7 ]
 "219 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PORTD `Vuc  1 e@8 ]
 "221 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -123,12 +123,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RD6 `Vb  1 e@70 ]
 "228 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RD7 `Vb  1 e@71 ]
-[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-[u S11 `S12 1 ]
-[n S11 . . ]
+[s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S11 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[u S10 `S11 1 ]
+[n S10 . . ]
 "241 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PORTDbits `VS11  1 e@8 ]
+[v _PORTDbits `VS10  1 e@8 ]
 "245 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PORTE `Vuc  1 e@9 ]
 "247 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -139,20 +139,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RE2 `Vb  1 e@74 ]
 "250 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RE3 `Vb  1 e@75 ]
-[s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S14 . RE0 RE1 RE2 RE3 ]
-[u S13 `S14 1 ]
-[n S13 . . ]
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . RE0 RE1 RE2 RE3 ]
+[u S12 `S13 1 ]
+[n S12 . . ]
 "259 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PORTEbits `VS13  1 e@9 ]
+[v _PORTEbits `VS12  1 e@9 ]
 "263 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PCLATH `Vuc  1 e@10 ]
-[s S16 :5 `uc 1 ]
-[n S16 . . ]
-[u S15 `S16 1 ]
+[s S15 :5 `uc 1 ]
 [n S15 . . ]
+[u S14 `S15 1 ]
+[n S14 . . ]
 "270 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PCLATHbits `VS15  1 e@10 ]
+[v _PCLATHbits `VS14  1 e@10 ]
 "274 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _INTCON `Vuc  1 e@11 ]
 "276 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -175,14 +175,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T0IF `Vb  1 e@90 ]
 "285 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _T0IE `Vb  1 e@93 ]
-[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S18 . RBIF INTF TMR0IF RBIE INTE TMR0IE PEIE GIE ]
-[s S19 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S19 . . T0IF . T0IE ]
-[u S17 `S18 1 `S19 1 ]
-[n S17 . . . ]
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S17 . RBIF INTF TMR0IF RBIE INTE TMR0IE PEIE GIE ]
+[s S18 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S18 . . T0IF . T0IE ]
+[u S16 `S17 1 `S18 1 ]
+[n S16 . . . ]
 "304 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _INTCONbits `VS17  1 e@11 ]
+[v _INTCONbits `VS16  1 e@11 ]
 "308 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PIR1 `Vuc  1 e@12 ]
 "310 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -201,14 +201,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADIF `Vb  1 e@102 ]
 "317 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEIF `Vb  1 e@103 ]
-[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S21 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF EEIF ]
-[s S22 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S22 . . . . . . . . ]
-[u S20 `S21 1 `S22 1 ]
-[n S20 . . . ]
+[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF EEIF ]
+[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S21 . . . . . . . . ]
+[u S19 `S20 1 `S21 1 ]
+[n S19 . . . ]
 "339 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PIR1bits `VS20  1 e@12 ]
+[v _PIR1bits `VS19  1 e@12 ]
 "343 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PIR2 `Vuc  1 e@13 ]
 "345 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -223,12 +223,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _C2IF `Vb  1 e@110 ]
 "350 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _OSFIF `Vb  1 e@111 ]
-[s S24 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S24 . CCP2IF . LVDIF . LCDIF C1IF C2IF OSFIF ]
-[u S23 `S24 1 ]
-[n S23 . . ]
+[s S23 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S23 . CCP2IF . LVDIF . LCDIF C1IF C2IF OSFIF ]
+[u S22 `S23 1 ]
+[n S22 . . ]
 "363 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PIR2bits `VS23  1 e@13 ]
+[v _PIR2bits `VS22  1 e@13 ]
 "368 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TMR1L `Vuc  1 e@14 ]
 "372 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -259,16 +259,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T1GE `Vb  1 e@134 ]
 "391 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _T1INSYNC `Vb  1 e@130 ]
-[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S26 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS TMR1GE T1GINV ]
-[s S27 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S27 . . T1SYNC . T1CKPS0 T1CKPS1 T1GE ]
-[s S28 :2 `uc 1 :1 `uc 1 ]
-[n S28 . . T1INSYNC ]
-[u S25 `S26 1 `S27 1 `S28 1 ]
-[n S25 . . . . ]
+[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S25 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS TMR1GE T1GINV ]
+[s S26 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . . T1SYNC . T1CKPS0 T1CKPS1 T1GE ]
+[s S27 :2 `uc 1 :1 `uc 1 ]
+[n S27 . . T1INSYNC ]
+[u S24 `S25 1 `S26 1 `S27 1 ]
+[n S24 . . . . ]
 "415 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _T1CONbits `VS25  1 e@16 ]
+[v _T1CONbits `VS24  1 e@16 ]
 "419 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TMR2 `Vuc  1 e@17 ]
 "423 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -287,14 +287,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TOUTPS2 `Vb  1 e@149 ]
 "431 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TOUTPS3 `Vb  1 e@150 ]
-[s S30 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S30 . T2CKPS TMR2ON TOUTPS ]
-[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S31 . T2CKPS0 T2CKPS1 . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
-[u S29 `S30 1 `S31 1 ]
-[n S29 . . . ]
+[s S29 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S29 . T2CKPS TMR2ON TOUTPS ]
+[s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S30 . T2CKPS0 T2CKPS1 . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
+[u S28 `S29 1 `S30 1 ]
+[n S28 . . . ]
 "448 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _T2CONbits `VS29  1 e@18 ]
+[v _T2CONbits `VS28  1 e@18 ]
 "452 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _SSPBUF `Vuc  1 e@19 ]
 "456 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -315,14 +315,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSPM2 `Vb  1 e@162 ]
 "465 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _SSPM3 `Vb  1 e@163 ]
-[s S33 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S33 . SSPM CKP SSPEN SSPOV WCOL ]
-[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S34 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-[u S32 `S33 1 `S34 1 ]
-[n S32 . . . ]
+[s S32 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S32 . SSPM CKP SSPEN SSPOV WCOL ]
+[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+[u S31 `S32 1 `S33 1 ]
+[n S31 . . . ]
 "481 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _SSPCONbits `VS32  1 e@20 ]
+[v _SSPCONbits `VS31  1 e@20 ]
 "486 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _CCPR1L `Vuc  1 e@21 ]
 "490 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -343,14 +343,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CCP1M2 `Vb  1 e@186 ]
 "504 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _CCP1M3 `Vb  1 e@187 ]
-[s S36 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S36 . CCP1M CCP1Y CCP1X ]
-[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S37 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 ]
-[u S35 `S36 1 `S37 1 ]
-[n S35 . . . ]
+[s S35 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . CCP1M CCP1Y CCP1X ]
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 ]
+[u S34 `S35 1 `S36 1 ]
+[n S34 . . . ]
 "518 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _CCP1CONbits `VS35  1 e@23 ]
+[v _CCP1CONbits `VS34  1 e@23 ]
 "522 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RCSTA `Vuc  1 e@24 ]
 "524 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -377,18 +377,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _nRC8 `Vb  1 e@198 ]
 "535 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _RC8_9 `Vb  1 e@198 ]
-[s S39 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S39 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-[s S40 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S40 . RCD8 . RC9 ]
+[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S38 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+[s S39 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S39 . RCD8 . RC9 ]
+[s S40 :6 `uc 1 :1 `uc 1 ]
+[n S40 . . nRC8 ]
 [s S41 :6 `uc 1 :1 `uc 1 ]
-[n S41 . . nRC8 ]
-[s S42 :6 `uc 1 :1 `uc 1 ]
-[n S42 . . RC8_9 ]
-[u S38 `S39 1 `S40 1 `S41 1 `S42 1 ]
-[n S38 . . . . . ]
+[n S41 . . RC8_9 ]
+[u S37 `S38 1 `S39 1 `S40 1 `S41 1 ]
+[n S37 . . . . . ]
 "561 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _RCSTAbits `VS38  1 e@24 ]
+[v _RCSTAbits `VS37  1 e@24 ]
 "565 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TXREG `Vuc  1 e@25 ]
 "569 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -413,14 +413,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CCP2M2 `Vb  1 e@234 ]
 "592 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _CCP2M3 `Vb  1 e@235 ]
-[s S44 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S44 . CCP2M CCP2Y CCP2X ]
-[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S45 . CCP2M0 CCP2M1 CCP2M2 CCP2M3 ]
-[u S43 `S44 1 `S45 1 ]
-[n S43 . . . ]
+[s S43 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S43 . CCP2M CCP2Y CCP2X ]
+[s S44 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S44 . CCP2M0 CCP2M1 CCP2M2 CCP2M3 ]
+[u S42 `S43 1 `S44 1 ]
+[n S42 . . . ]
 "606 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _CCP2CONbits `VS43  1 e@29 ]
+[v _CCP2CONbits `VS42  1 e@29 ]
 "610 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _ADRESH `Vuc  1 e@30 ]
 "614 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -447,20 +447,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GO_DONE `Vb  1 e@249 ]
 "626 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _GO `Vb  1 e@249 ]
+[s S46 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S46 . ADON GO_nDONE CHS VCFG ADFM ]
 [s S47 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S47 . ADON GO_nDONE CHS VCFG ADFM ]
-[s S48 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S48 . . . . . . ]
-[s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S49 . . nDONE CHS0 CHS1 CHS2 VCFG0 VCFG1 ]
+[n S47 . . . . . . ]
+[s S48 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S48 . . nDONE CHS0 CHS1 CHS2 VCFG0 VCFG1 ]
+[s S49 :1 `uc 1 :1 `uc 1 ]
+[n S49 . . GO_DONE ]
 [s S50 :1 `uc 1 :1 `uc 1 ]
-[n S50 . . GO_DONE ]
-[s S51 :1 `uc 1 :1 `uc 1 ]
-[n S51 . . GO ]
-[u S46 `S47 1 `S48 1 `S49 1 `S50 1 `S51 1 ]
-[n S46 . . . . . . ]
+[n S50 . . GO ]
+[u S45 `S46 1 `S47 1 `S48 1 `S49 1 `S50 1 ]
+[n S45 . . . . . . ]
 "660 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _ADCON0bits `VS46  1 e@31 ]
+[v _ADCON0bits `VS45  1 e@31 ]
 "669 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _OPTION_REG `Vuc  1 e@129 ]
 "671 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -479,14 +479,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PS1 `Vb  1 e@1033 ]
 "678 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PS2 `Vb  1 e@1034 ]
-[s S53 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S53 . PS PSA T0SE T0CS INTEDG nRBPU ]
-[s S54 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S54 . PS0 PS1 PS2 ]
-[u S52 `S53 1 `S54 1 ]
-[n S52 . . . ]
+[s S52 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S52 . PS PSA T0SE T0CS INTEDG nRBPU ]
+[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S53 . PS0 PS1 PS2 ]
+[u S51 `S52 1 `S53 1 ]
+[n S51 . . . ]
 "694 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _OPTION_REGbits `VS52  1 e@129 ]
+[v _OPTION_REGbits `VS51  1 e@129 ]
 "698 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISA `Vuc  1 e@133 ]
 "700 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -505,12 +505,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISA6 `Vb  1 e@1070 ]
 "707 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISA7 `Vb  1 e@1071 ]
-[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S56 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-[u S55 `S56 1 ]
-[n S55 . . ]
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+[u S54 `S55 1 ]
+[n S54 . . ]
 "720 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _TRISAbits `VS55  1 e@133 ]
+[v _TRISAbits `VS54  1 e@133 ]
 "724 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISB `Vuc  1 e@134 ]
 "726 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -529,12 +529,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISB6 `Vb  1 e@1078 ]
 "733 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISB7 `Vb  1 e@1079 ]
-[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S58 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-[u S57 `S58 1 ]
-[n S57 . . ]
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+[u S56 `S57 1 ]
+[n S56 . . ]
 "746 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _TRISBbits `VS57  1 e@134 ]
+[v _TRISBbits `VS56  1 e@134 ]
 "750 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISC `Vuc  1 e@135 ]
 "752 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -553,12 +553,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISC6 `Vb  1 e@1086 ]
 "759 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISC7 `Vb  1 e@1087 ]
-[s S60 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S60 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-[u S59 `S60 1 ]
-[n S59 . . ]
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+[u S58 `S59 1 ]
+[n S58 . . ]
 "772 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _TRISCbits `VS59  1 e@135 ]
+[v _TRISCbits `VS58  1 e@135 ]
 "776 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISD `Vuc  1 e@136 ]
 "778 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -577,12 +577,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISD6 `Vb  1 e@1094 ]
 "785 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISD7 `Vb  1 e@1095 ]
-[s S62 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S62 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-[u S61 `S62 1 ]
-[n S61 . . ]
+[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S61 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+[u S60 `S61 1 ]
+[n S60 . . ]
 "798 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _TRISDbits `VS61  1 e@136 ]
+[v _TRISDbits `VS60  1 e@136 ]
 "802 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISE `Vuc  1 e@137 ]
 "804 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -593,12 +593,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISE2 `Vb  1 e@1098 ]
 "807 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TRISE3 `Vb  1 e@1099 ]
-[s S64 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S64 . TRISE0 TRISE1 TRISE2 TRISE3 ]
-[u S63 `S64 1 ]
-[n S63 . . ]
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TRISE0 TRISE1 TRISE2 TRISE3 ]
+[u S62 `S63 1 ]
+[n S62 . . ]
 "816 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _TRISEbits `VS63  1 e@137 ]
+[v _TRISEbits `VS62  1 e@137 ]
 "820 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PIE1 `Vuc  1 e@140 ]
 "822 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -617,12 +617,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADIE `Vb  1 e@1126 ]
 "829 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEIE `Vb  1 e@1127 ]
-[s S66 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S66 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE EEIE ]
-[u S65 `S66 1 ]
-[n S65 . . ]
+[s S65 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S65 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE EEIE ]
+[u S64 `S65 1 ]
+[n S64 . . ]
 "842 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PIE1bits `VS65  1 e@140 ]
+[v _PIE1bits `VS64  1 e@140 ]
 "846 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PIE2 `Vuc  1 e@141 ]
 "848 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -637,12 +637,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _C2IE `Vb  1 e@1134 ]
 "853 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _OSFIE `Vb  1 e@1135 ]
-[s S68 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S68 . CCP2IE . LVDIE . LCDIE C1IE C2IE OSFIE ]
-[u S67 `S68 1 ]
-[n S67 . . ]
+[s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S67 . CCP2IE . LVDIE . LCDIE C1IE C2IE OSFIE ]
+[u S66 `S67 1 ]
+[n S66 . . ]
 "866 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PIE2bits `VS67  1 e@141 ]
+[v _PIE2bits `VS66  1 e@141 ]
 "870 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PCON `Vuc  1 e@142 ]
 "872 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -653,14 +653,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SBOREN `Vb  1 e@1140 ]
 "875 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _nBO `Vb  1 e@1136 ]
-[s S70 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S70 . nBOR nPOR . SBOREN ]
-[s S71 :1 `uc 1 ]
-[n S71 . nBO ]
-[u S69 `S70 1 `S71 1 ]
-[n S69 . . . ]
+[s S69 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S69 . nBOR nPOR . SBOREN ]
+[s S70 :1 `uc 1 ]
+[n S70 . nBO ]
+[u S68 `S69 1 `S70 1 ]
+[n S68 . . . ]
 "887 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _PCONbits `VS69  1 e@142 ]
+[v _PCONbits `VS68  1 e@142 ]
 "891 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _OSCCON `Vuc  1 e@143 ]
 "893 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -677,14 +677,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IRCF1 `Vb  1 e@1149 ]
 "899 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _IRCF2 `Vb  1 e@1150 ]
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S73 . SCS LTS HTS OSTS IRCF ]
-[s S74 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S74 . . IRCF0 IRCF1 IRCF2 ]
-[u S72 `S73 1 `S74 1 ]
-[n S72 . . . ]
+[s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S72 . SCS LTS HTS OSTS IRCF ]
+[s S73 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S73 . . IRCF0 IRCF1 IRCF2 ]
+[u S71 `S72 1 `S73 1 ]
+[n S71 . . . ]
 "915 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _OSCCONbits `VS72  1 e@143 ]
+[v _OSCCONbits `VS71  1 e@143 ]
 "919 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _OSCTUNE `Vuc  1 e@144 ]
 "921 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -697,14 +697,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TUN3 `Vb  1 e@1155 ]
 "925 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TUN4 `Vb  1 e@1156 ]
-[s S76 :5 `uc 1 ]
-[n S76 . TUN ]
-[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S77 . TUN0 TUN1 TUN2 TUN3 TUN4 ]
-[u S75 `S76 1 `S77 1 ]
-[n S75 . . . ]
+[s S75 :5 `uc 1 ]
+[n S75 . TUN ]
+[s S76 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S76 . TUN0 TUN1 TUN2 TUN3 TUN4 ]
+[u S74 `S75 1 `S76 1 ]
+[n S74 . . . ]
 "938 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _OSCTUNEbits `VS75  1 e@144 ]
+[v _OSCTUNEbits `VS74  1 e@144 ]
 "942 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _ANSEL `Vuc  1 e@145 ]
 "944 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -739,14 +739,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _AN6 `Vb  1 e@1166 ]
 "959 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _AN7 `Vb  1 e@1167 ]
+[s S78 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S78 . ANS0 ANS1 ANS2 ANS3 ANS4 ANS5 ANS6 ANS7 ]
 [s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S79 . ANS0 ANS1 ANS2 ANS3 ANS4 ANS5 ANS6 ANS7 ]
-[s S80 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S80 . AN0 AN1 AN2 AN3 AN4 AN5 AN6 AN7 ]
-[u S78 `S79 1 `S80 1 ]
-[n S78 . . . ]
+[n S79 . AN0 AN1 AN2 AN3 AN4 AN5 AN6 AN7 ]
+[u S77 `S78 1 `S79 1 ]
+[n S77 . . . ]
 "982 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _ANSELbits `VS78  1 e@145 ]
+[v _ANSELbits `VS77  1 e@145 ]
 "986 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _PR2 `Vuc  1 e@146 ]
 "990 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -797,26 +797,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _READ_WRITE `Vb  1 e@1186 ]
 "1017 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _DATA_ADDRESS `Vb  1 e@1189 ]
+[s S81 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S81 . BF UA R_nW S P D_nA CKE SMP ]
 [s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S82 . BF UA R_nW S P D_nA CKE SMP ]
-[s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S83 . . . . . . . . . ]
-[s S84 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S84 . . R . D ]
-[s S85 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S85 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
+[n S82 . . . . . . . . . ]
+[s S83 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S83 . . R . D ]
+[s S84 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S84 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
+[s S85 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S85 . . nW . nA ]
 [s S86 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S86 . . nW . nA ]
+[n S86 . . nWRITE . nADDRESS ]
 [s S87 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S87 . . nWRITE . nADDRESS ]
+[n S87 . . R_W . D_A ]
 [s S88 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S88 . . R_W . D_A ]
-[s S89 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S89 . . READ_WRITE . DATA_ADDRESS ]
-[u S81 `S82 1 `S83 1 `S84 1 `S85 1 `S86 1 `S87 1 `S88 1 `S89 1 ]
-[n S81 . . . . . . . . . ]
+[n S88 . . READ_WRITE . DATA_ADDRESS ]
+[u S80 `S81 1 `S82 1 `S83 1 `S84 1 `S85 1 `S86 1 `S87 1 `S88 1 ]
+[n S80 . . . . . . . . . ]
 "1077 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _SSPSTATbits `VS81  1 e@148 ]
+[v _SSPSTATbits `VS80  1 e@148 ]
 "1081 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _WPUB `Vuc  1 e@149 ]
 "1082 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -853,14 +853,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _WPU6 `Vb  1 e@1198 ]
 "1099 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _WPU7 `Vb  1 e@1199 ]
+[s S90 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S90 . WPUB0 WPUB1 WPUB2 WPUB3 WPUB4 WPUB5 WPUB6 WPUB7 ]
 [s S91 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S91 . WPUB0 WPUB1 WPUB2 WPUB3 WPUB4 WPUB5 WPUB6 WPUB7 ]
-[s S92 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S92 . WPU0 WPU1 WPU2 WPU3 WPU4 WPU5 WPU6 WPU7 ]
-[u S90 `S91 1 `S92 1 ]
-[n S90 . . . ]
+[n S91 . WPU0 WPU1 WPU2 WPU3 WPU4 WPU5 WPU6 WPU7 ]
+[u S89 `S90 1 `S91 1 ]
+[n S89 . . . ]
 "1122 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _WPUBbits `VS90  1 e@149 ]
+[v _WPUBbits `VS89  1 e@149 ]
 "1126 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _IOCB `Vuc  1 e@150 ]
 "1127 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -881,28 +881,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IOC6 `Vb  1 e@1206 ]
 "1136 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _IOC7 `Vb  1 e@1207 ]
-[s S94 :4 `uc 1 :4 `uc 1 ]
-[n S94 . . IOCB ]
+[s S93 :4 `uc 1 :4 `uc 1 ]
+[n S93 . . IOCB ]
+[s S94 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S94 . . IOCB4 IOCB5 IOCB6 IOCB7 ]
 [s S95 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S95 . . IOCB4 IOCB5 IOCB6 IOCB7 ]
-[s S96 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S96 . . IOC4 IOC5 IOC6 IOC7 ]
-[u S93 `S94 1 `S95 1 `S96 1 ]
-[n S93 . . . . ]
+[n S95 . . IOC4 IOC5 IOC6 IOC7 ]
+[u S92 `S93 1 `S94 1 `S95 1 ]
+[n S92 . . . . ]
 "1157 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _IOCBbits `VS93  1 e@150 ]
+[v _IOCBbits `VS92  1 e@150 ]
 "1161 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _CMCON1 `Vuc  1 e@151 ]
 "1163 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _C2SYNC `Vb  1 e@1208 ]
 "1164 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _T1GSS `Vb  1 e@1209 ]
-[s S98 :1 `uc 1 :1 `uc 1 ]
-[n S98 . C2SYNC T1GSS ]
-[u S97 `S98 1 ]
-[n S97 . . ]
+[s S97 :1 `uc 1 :1 `uc 1 ]
+[n S97 . C2SYNC T1GSS ]
+[u S96 `S97 1 ]
+[n S96 . . ]
 "1171 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _CMCON1bits `VS97  1 e@151 ]
+[v _CMCON1bits `VS96  1 e@151 ]
 "1175 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TXSTA `Vuc  1 e@152 ]
 "1177 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -925,16 +925,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _nTX8 `Vb  1 e@1222 ]
 "1186 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _TX8_9 `Vb  1 e@1222 ]
-[s S100 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S100 . TX9D TRMT BRGH . SYNC TXEN TX9 CSRC ]
-[s S101 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
-[n S101 . TXD8 . nTX8 ]
-[s S102 :6 `uc 1 :1 `uc 1 ]
-[n S102 . . TX8_9 ]
-[u S99 `S100 1 `S101 1 `S102 1 ]
-[n S99 . . . . ]
+[s S99 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S99 . TX9D TRMT BRGH . SYNC TXEN TX9 CSRC ]
+[s S100 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S100 . TXD8 . nTX8 ]
+[s S101 :6 `uc 1 :1 `uc 1 ]
+[n S101 . . TX8_9 ]
+[u S98 `S99 1 `S100 1 `S101 1 ]
+[n S98 . . . . ]
 "1208 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _TXSTAbits `VS99  1 e@152 ]
+[v _TXSTAbits `VS98  1 e@152 ]
 "1212 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _SPBRG `Vuc  1 e@153 ]
 "1216 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -955,14 +955,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CM1 `Vb  1 e@1249 ]
 "1225 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _CM2 `Vb  1 e@1250 ]
-[s S104 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S104 . CM CIS C1INV C2INV C1OUT C2OUT ]
-[s S105 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S105 . CM0 CM1 CM2 ]
-[u S103 `S104 1 `S105 1 ]
-[n S103 . . . ]
+[s S103 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S103 . CM CIS C1INV C2INV C1OUT C2OUT ]
+[s S104 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S104 . CM0 CM1 CM2 ]
+[u S102 `S103 1 `S104 1 ]
+[n S102 . . . ]
 "1241 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _CMCON0bits `VS103  1 e@156 ]
+[v _CMCON0bits `VS102  1 e@156 ]
 "1245 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _VRCON `Vuc  1 e@157 ]
 "1247 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -977,14 +977,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _VR2 `Vb  1 e@1258 ]
 "1252 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _VR3 `Vb  1 e@1259 ]
-[s S107 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S107 . VR . VRR . VREN ]
-[s S108 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S108 . VR0 VR1 VR2 VR3 ]
-[u S106 `S107 1 `S108 1 ]
-[n S106 . . . ]
+[s S106 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S106 . VR . VRR . VREN ]
+[s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S107 . VR0 VR1 VR2 VR3 ]
+[u S105 `S106 1 `S107 1 ]
+[n S105 . . . ]
 "1268 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _VRCONbits `VS106  1 e@157 ]
+[v _VRCONbits `VS105  1 e@157 ]
 "1272 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _ADRESL `Vuc  1 e@158 ]
 "1276 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -995,14 +995,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADCS1 `Vb  1 e@1277 ]
 "1280 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _ADCS2 `Vb  1 e@1278 ]
-[s S110 :4 `uc 1 :3 `uc 1 ]
-[n S110 . . ADCS ]
-[s S111 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S111 . . ADCS0 ADCS1 ADCS2 ]
-[u S109 `S110 1 `S111 1 ]
-[n S109 . . . ]
+[s S109 :4 `uc 1 :3 `uc 1 ]
+[n S109 . . ADCS ]
+[s S110 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S110 . . ADCS0 ADCS1 ADCS2 ]
+[u S108 `S109 1 `S110 1 ]
+[n S108 . . . ]
 "1293 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _ADCON1bits `VS109  1 e@159 ]
+[v _ADCON1bits `VS108  1 e@159 ]
 "1302 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _WDTCON `Vuc  1 e@261 ]
 "1304 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1017,14 +1017,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _WDTPS2 `Vb  1 e@2091 ]
 "1309 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _WDTPS3 `Vb  1 e@2092 ]
-[s S113 :1 `uc 1 :4 `uc 1 ]
-[n S113 . SWDTEN WDTPS ]
-[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S114 . SWDTE WDTPS0 WDTPS1 WDTPS2 WDTPS3 ]
-[u S112 `S113 1 `S114 1 ]
-[n S112 . . . ]
+[s S112 :1 `uc 1 :4 `uc 1 ]
+[n S112 . SWDTEN WDTPS ]
+[s S113 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S113 . SWDTE WDTPS0 WDTPS1 WDTPS2 WDTPS3 ]
+[u S111 `S112 1 `S113 1 ]
+[n S111 . . . ]
 "1323 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _WDTCONbits `VS112  1 e@261 ]
+[v _WDTCONbits `VS111  1 e@261 ]
 "1327 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDCON `Vuc  1 e@263 ]
 "1329 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1043,14 +1043,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CS0 `Vb  1 e@2106 ]
 "1336 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _CS1 `Vb  1 e@2107 ]
-[s S116 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S116 . LMUX CS VLCDEN WERR SLPEN LCDEN ]
-[s S117 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S117 . LMUX0 LMUX1 CS0 CS1 ]
-[u S115 `S116 1 `S117 1 ]
-[n S115 . . . ]
+[s S115 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S115 . LMUX CS VLCDEN WERR SLPEN LCDEN ]
+[s S116 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S116 . LMUX0 LMUX1 CS0 CS1 ]
+[u S114 `S115 1 `S116 1 ]
+[n S114 . . . ]
 "1353 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDCONbits `VS115  1 e@263 ]
+[v _LCDCONbits `VS114  1 e@263 ]
 "1357 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDPS `Vuc  1 e@264 ]
 "1359 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1069,14 +1069,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LP2 `Vb  1 e@2114 ]
 "1366 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LP3 `Vb  1 e@2115 ]
-[s S119 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S119 . LP WA LCDA BIASMD WFT ]
-[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S120 . LP0 LP1 LP2 LP3 ]
-[u S118 `S119 1 `S120 1 ]
-[n S118 . . . ]
+[s S118 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S118 . LP WA LCDA BIASMD WFT ]
+[s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S119 . LP0 LP1 LP2 LP3 ]
+[u S117 `S118 1 `S119 1 ]
+[n S117 . . . ]
 "1382 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDPSbits `VS118  1 e@264 ]
+[v _LCDPSbits `VS117  1 e@264 ]
 "1386 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LVDCON `Vuc  1 e@265 ]
 "1388 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1089,14 +1089,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LVDL1 `Vb  1 e@2121 ]
 "1392 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LVDL2 `Vb  1 e@2122 ]
-[s S122 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S122 . LVDL . LVDEN IRVST ]
-[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S123 . LVDL0 LVDL1 LVDL2 ]
-[u S121 `S122 1 `S123 1 ]
-[n S121 . . . ]
+[s S121 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . LVDL . LVDEN IRVST ]
+[s S122 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S122 . LVDL0 LVDL1 LVDL2 ]
+[u S120 `S121 1 `S122 1 ]
+[n S120 . . . ]
 "1406 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LVDCONbits `VS121  1 e@265 ]
+[v _LVDCONbits `VS120  1 e@265 ]
 "1410 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEDATL `Vuc  1 e@268 ]
 "1411 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1117,12 +1117,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EEDATL6 `Vb  1 e@2150 ]
 "1421 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEDATL7 `Vb  1 e@2151 ]
-[s S125 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S125 . EEDATL0 EEDATL1 EEDATL2 EEDATL3 EEDATL4 EEDATL5 EEDATL6 EEDATL7 ]
-[u S124 `S125 1 ]
-[n S124 . . ]
+[s S124 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S124 . EEDATL0 EEDATL1 EEDATL2 EEDATL3 EEDATL4 EEDATL5 EEDATL6 EEDATL7 ]
+[u S123 `S124 1 ]
+[n S123 . . ]
 "1434 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _EEDATLbits `VS124  1 e@268 ]
+[v _EEDATLbits `VS123  1 e@268 ]
 "1438 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEADRL `Vuc  1 e@269 ]
 "1439 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1143,12 +1143,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EEADRL6 `Vb  1 e@2158 ]
 "1448 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEADRL7 `Vb  1 e@2159 ]
-[s S127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S127 . EEADRL0 EEADRL1 EEADRL2 EEADRL3 EEADRL4 EEADRL5 EEADRL6 EEADRL7 ]
-[u S126 `S127 1 ]
-[n S126 . . ]
+[s S126 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S126 . EEADRL0 EEADRL1 EEADRL2 EEADRL3 EEADRL4 EEADRL5 EEADRL6 EEADRL7 ]
+[u S125 `S126 1 ]
+[n S125 . . ]
 "1461 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _EEADRLbits `VS126  1 e@269 ]
+[v _EEADRLbits `VS125  1 e@269 ]
 "1465 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEDATH `Vuc  1 e@270 ]
 "1467 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1163,14 +1163,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EEDATH4 `Vb  1 e@2164 ]
 "1472 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEDATH5 `Vb  1 e@2165 ]
-[s S129 :6 `uc 1 ]
-[n S129 . . ]
-[s S130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S130 . EEDATH0 EEDATH1 EEDATH2 EEDATH3 EEDATH4 EEDATH5 ]
-[u S128 `S129 1 `S130 1 ]
-[n S128 . . . ]
+[s S128 :6 `uc 1 ]
+[n S128 . . ]
+[s S129 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S129 . EEDATH0 EEDATH1 EEDATH2 EEDATH3 EEDATH4 EEDATH5 ]
+[u S127 `S128 1 `S129 1 ]
+[n S127 . . . ]
 "1486 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _EEDATHbits `VS128  1 e@270 ]
+[v _EEDATHbits `VS127  1 e@270 ]
 "1490 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEADRH `Vuc  1 e@271 ]
 "1492 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1183,14 +1183,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EEADRH3 `Vb  1 e@2171 ]
 "1496 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEADRH4 `Vb  1 e@2172 ]
-[s S132 :5 `uc 1 ]
-[n S132 . . ]
-[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S133 . EEADRH0 EEADRH1 EEADRH2 EEADRH3 EEADRH4 ]
-[u S131 `S132 1 `S133 1 ]
-[n S131 . . . ]
+[s S131 :5 `uc 1 ]
+[n S131 . . ]
+[s S132 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S132 . EEADRH0 EEADRH1 EEADRH2 EEADRH3 EEADRH4 ]
+[u S130 `S131 1 `S132 1 ]
+[n S130 . . . ]
 "1509 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _EEADRHbits `VS131  1 e@271 ]
+[v _EEADRHbits `VS130  1 e@271 ]
 "1513 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA0 `Vuc  1 e@272 ]
 "1523 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1225,16 +1225,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S6C0 `Vb  1 e@2182 ]
 "1538 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S7C0 `Vb  1 e@2183 ]
+[s S134 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S134 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
 [s S135 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S135 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
+[n S135 . SEG0COM0 SEG1COM0 SEG2COM0 SEG3COM0 SEG4COM0 SEG5COM0 SEG6COM0 SEG7COM0 ]
 [s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S136 . SEG0COM0 SEG1COM0 SEG2COM0 SEG3COM0 SEG4COM0 SEG5COM0 SEG6COM0 SEG7COM0 ]
-[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S137 . S0C0 S1C0 S2C0 S3C0 S4C0 S5C0 S6C0 S7C0 ]
-[u S134 `S135 1 `S136 1 `S137 1 ]
-[n S134 . . . . ]
+[n S136 . S0C0 S1C0 S2C0 S3C0 S4C0 S5C0 S6C0 S7C0 ]
+[u S133 `S134 1 `S135 1 `S136 1 ]
+[n S133 . . . . ]
 "1571 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA0bits `VS134  1 e@272 ]
+[v _LCDDATA0bits `VS133  1 e@272 ]
 "1575 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA1 `Vuc  1 e@273 ]
 "1585 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1269,16 +1269,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S14C0 `Vb  1 e@2190 ]
 "1600 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S15C0 `Vb  1 e@2191 ]
+[s S138 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S138 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
 [s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S139 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
+[n S139 . SEG8COM0 SEG9COM0 SEG10COM0 SEG11COM0 SEG12COM0 SEG13COM0 SEG14COM0 SEG15COM0 ]
 [s S140 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S140 . SEG8COM0 SEG9COM0 SEG10COM0 SEG11COM0 SEG12COM0 SEG13COM0 SEG14COM0 SEG15COM0 ]
-[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S141 . S8C0 S9C0 S10C0 S11C0 S12C0 S13C0 S14C0 S15C0 ]
-[u S138 `S139 1 `S140 1 `S141 1 ]
-[n S138 . . . . ]
+[n S140 . S8C0 S9C0 S10C0 S11C0 S12C0 S13C0 S14C0 S15C0 ]
+[u S137 `S138 1 `S139 1 `S140 1 ]
+[n S137 . . . . ]
 "1633 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA1bits `VS138  1 e@273 ]
+[v _LCDDATA1bits `VS137  1 e@273 ]
 "1637 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA2 `Vuc  1 e@274 ]
 "1647 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1313,16 +1313,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S22C0 `Vb  1 e@2198 ]
 "1662 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S23C0 `Vb  1 e@2199 ]
+[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S142 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
 [s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S143 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
+[n S143 . SEG16COM0 SEG17COM0 SEG18COM0 SEG19COM0 SEG20COM0 SEG21COM0 SEG22COM0 SEG23COM0 ]
 [s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . SEG16COM0 SEG17COM0 SEG18COM0 SEG19COM0 SEG20COM0 SEG21COM0 SEG22COM0 SEG23COM0 ]
-[s S145 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S145 . S16C0 S17C0 S18C0 S19C0 S20C0 S21C0 S22C0 S23C0 ]
-[u S142 `S143 1 `S144 1 `S145 1 ]
-[n S142 . . . . ]
+[n S144 . S16C0 S17C0 S18C0 S19C0 S20C0 S21C0 S22C0 S23C0 ]
+[u S141 `S142 1 `S143 1 `S144 1 ]
+[n S141 . . . . ]
 "1695 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA2bits `VS142  1 e@274 ]
+[v _LCDDATA2bits `VS141  1 e@274 ]
 "1699 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA3 `Vuc  1 e@275 ]
 "1709 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1357,16 +1357,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S6C1 `Vb  1 e@2206 ]
 "1724 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S7C1 `Vb  1 e@2207 ]
+[s S146 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S146 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
 [s S147 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S147 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
+[n S147 . SEG0COM1 SEG1COM1 SEG2COM1 SEG3COM1 SEG4COM1 SEG5COM1 SEG6COM1 SEG7COM1 ]
 [s S148 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S148 . SEG0COM1 SEG1COM1 SEG2COM1 SEG3COM1 SEG4COM1 SEG5COM1 SEG6COM1 SEG7COM1 ]
-[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S149 . S0C1 S1C1 S2C1 S3C1 S4C1 S5C1 S6C1 S7C1 ]
-[u S146 `S147 1 `S148 1 `S149 1 ]
-[n S146 . . . . ]
+[n S148 . S0C1 S1C1 S2C1 S3C1 S4C1 S5C1 S6C1 S7C1 ]
+[u S145 `S146 1 `S147 1 `S148 1 ]
+[n S145 . . . . ]
 "1757 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA3bits `VS146  1 e@275 ]
+[v _LCDDATA3bits `VS145  1 e@275 ]
 "1761 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA4 `Vuc  1 e@276 ]
 "1771 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1401,16 +1401,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S14C1 `Vb  1 e@2214 ]
 "1786 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S15C1 `Vb  1 e@2215 ]
+[s S150 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S150 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
 [s S151 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S151 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
+[n S151 . SEG8COM1 SEG9COM1 SEG10COM1 SEG11COM1 SEG12COM1 SEG13COM1 SEG14COM1 SEG15COM1 ]
 [s S152 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S152 . SEG8COM1 SEG9COM1 SEG10COM1 SEG11COM1 SEG12COM1 SEG13COM1 SEG14COM1 SEG15COM1 ]
-[s S153 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S153 . S8C1 S9C1 S10C1 S11C1 S12C1 S13C1 S14C1 S15C1 ]
-[u S150 `S151 1 `S152 1 `S153 1 ]
-[n S150 . . . . ]
+[n S152 . S8C1 S9C1 S10C1 S11C1 S12C1 S13C1 S14C1 S15C1 ]
+[u S149 `S150 1 `S151 1 `S152 1 ]
+[n S149 . . . . ]
 "1819 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA4bits `VS150  1 e@276 ]
+[v _LCDDATA4bits `VS149  1 e@276 ]
 "1823 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA5 `Vuc  1 e@277 ]
 "1833 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1445,16 +1445,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S22C1 `Vb  1 e@2222 ]
 "1848 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S23C1 `Vb  1 e@2223 ]
+[s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S154 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
 [s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S155 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
+[n S155 . SEG16COM1 SEG17COM1 SEG18COM1 SEG19COM1 SEG20COM1 SEG21COM1 SEG22COM1 SEG23COM1 ]
 [s S156 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S156 . SEG16COM1 SEG17COM1 SEG18COM1 SEG19COM1 SEG20COM1 SEG21COM1 SEG22COM1 SEG23COM1 ]
-[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S157 . S16C1 S17C1 S18C1 S19C1 S20C1 S21C1 S22C1 S23C1 ]
-[u S154 `S155 1 `S156 1 `S157 1 ]
-[n S154 . . . . ]
+[n S156 . S16C1 S17C1 S18C1 S19C1 S20C1 S21C1 S22C1 S23C1 ]
+[u S153 `S154 1 `S155 1 `S156 1 ]
+[n S153 . . . . ]
 "1881 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA5bits `VS154  1 e@277 ]
+[v _LCDDATA5bits `VS153  1 e@277 ]
 "1885 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA6 `Vuc  1 e@278 ]
 "1895 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1489,16 +1489,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S6C2 `Vb  1 e@2230 ]
 "1910 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S7C2 `Vb  1 e@2231 ]
+[s S158 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S158 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
 [s S159 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S159 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
+[n S159 . SEG0COM2 SEG1COM2 SEG2COM2 SEG3COM2 SEG4COM2 SEG5COM2 SEG6COM2 SEG7COM2 ]
 [s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S160 . SEG0COM2 SEG1COM2 SEG2COM2 SEG3COM2 SEG4COM2 SEG5COM2 SEG6COM2 SEG7COM2 ]
-[s S161 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S161 . S0C2 S1C2 S2C2 S3C2 S4C2 S5C2 S6C2 S7C2 ]
-[u S158 `S159 1 `S160 1 `S161 1 ]
-[n S158 . . . . ]
+[n S160 . S0C2 S1C2 S2C2 S3C2 S4C2 S5C2 S6C2 S7C2 ]
+[u S157 `S158 1 `S159 1 `S160 1 ]
+[n S157 . . . . ]
 "1943 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA6bits `VS158  1 e@278 ]
+[v _LCDDATA6bits `VS157  1 e@278 ]
 "1947 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA7 `Vuc  1 e@279 ]
 "1957 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1533,16 +1533,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S14C2 `Vb  1 e@2238 ]
 "1972 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S15C2 `Vb  1 e@2239 ]
+[s S162 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S162 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
 [s S163 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S163 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
+[n S163 . SEG8COM2 SEG9COM2 SEG10COM2 SEG11COM2 SEG12COM2 SEG13COM2 SEG14COM2 SEG15COM2 ]
 [s S164 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S164 . SEG8COM2 SEG9COM2 SEG10COM2 SEG11COM2 SEG12COM2 SEG13COM2 SEG14COM2 SEG15COM2 ]
-[s S165 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S165 . S8C2 S9C2 S10C2 S11C2 S12C2 S13C2 S14C2 S15C2 ]
-[u S162 `S163 1 `S164 1 `S165 1 ]
-[n S162 . . . . ]
+[n S164 . S8C2 S9C2 S10C2 S11C2 S12C2 S13C2 S14C2 S15C2 ]
+[u S161 `S162 1 `S163 1 `S164 1 ]
+[n S161 . . . . ]
 "2005 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA7bits `VS162  1 e@279 ]
+[v _LCDDATA7bits `VS161  1 e@279 ]
 "2009 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA8 `Vuc  1 e@280 ]
 "2019 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1577,16 +1577,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S22C2 `Vb  1 e@2246 ]
 "2034 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S23C2 `Vb  1 e@2247 ]
+[s S166 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S166 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
 [s S167 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S167 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
+[n S167 . SEG16COM2 SEG17COM2 SEG18COM2 SEG19COM2 SEG20COM2 SEG21COM2 SEG22COM2 SEG23COM2 ]
 [s S168 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S168 . SEG16COM2 SEG17COM2 SEG18COM2 SEG19COM2 SEG20COM2 SEG21COM2 SEG22COM2 SEG23COM2 ]
-[s S169 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S169 . S16C2 S17C2 S18C2 S19C2 S20C2 S21C2 S22C2 S23C2 ]
-[u S166 `S167 1 `S168 1 `S169 1 ]
-[n S166 . . . . ]
+[n S168 . S16C2 S17C2 S18C2 S19C2 S20C2 S21C2 S22C2 S23C2 ]
+[u S165 `S166 1 `S167 1 `S168 1 ]
+[n S165 . . . . ]
 "2067 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA8bits `VS166  1 e@280 ]
+[v _LCDDATA8bits `VS165  1 e@280 ]
 "2071 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA9 `Vuc  1 e@281 ]
 "2081 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1621,16 +1621,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S6C3 `Vb  1 e@2254 ]
 "2096 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S7C3 `Vb  1 e@2255 ]
+[s S170 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S170 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
 [s S171 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S171 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
+[n S171 . SEG0COM3 SEG1COM3 SEG2COM3 SEG3COM3 SEG4COM3 SEG5COM3 SEG6COM3 SEG7COM3 ]
 [s S172 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S172 . SEG0COM3 SEG1COM3 SEG2COM3 SEG3COM3 SEG4COM3 SEG5COM3 SEG6COM3 SEG7COM3 ]
-[s S173 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S173 . S0C3 S1C3 S2C3 S3C3 S4C3 S5C3 S6C3 S7C3 ]
-[u S170 `S171 1 `S172 1 `S173 1 ]
-[n S170 . . . . ]
+[n S172 . S0C3 S1C3 S2C3 S3C3 S4C3 S5C3 S6C3 S7C3 ]
+[u S169 `S170 1 `S171 1 `S172 1 ]
+[n S169 . . . . ]
 "2129 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA9bits `VS170  1 e@281 ]
+[v _LCDDATA9bits `VS169  1 e@281 ]
 "2133 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA10 `Vuc  1 e@282 ]
 "2143 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1665,16 +1665,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S14C3 `Vb  1 e@2262 ]
 "2158 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S15C3 `Vb  1 e@2263 ]
+[s S174 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S174 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
 [s S175 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S175 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
+[n S175 . SEG8COM3 SEG9COM3 SEG10COM3 SEG11COM3 SEG12COM3 SEG13COM3 SEG14COM3 SEG15COM3 ]
 [s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S176 . SEG8COM3 SEG9COM3 SEG10COM3 SEG11COM3 SEG12COM3 SEG13COM3 SEG14COM3 SEG15COM3 ]
-[s S177 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S177 . S8C3 S9C3 S10C3 S11C3 S12C3 S13C3 S14C3 S15C3 ]
-[u S174 `S175 1 `S176 1 `S177 1 ]
-[n S174 . . . . ]
+[n S176 . S8C3 S9C3 S10C3 S11C3 S12C3 S13C3 S14C3 S15C3 ]
+[u S173 `S174 1 `S175 1 `S176 1 ]
+[n S173 . . . . ]
 "2191 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA10bits `VS174  1 e@282 ]
+[v _LCDDATA10bits `VS173  1 e@282 ]
 "2195 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDDATA11 `Vuc  1 e@283 ]
 "2205 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1709,16 +1709,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _S22C3 `Vb  1 e@2270 ]
 "2220 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _S23C3 `Vb  1 e@2271 ]
+[s S178 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S178 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
 [s S179 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S179 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
+[n S179 . SEG16COM3 SEG17COM3 SEG18COM3 SEG19COM3 SEG20COM3 SEG21COM3 SEG22COM3 SEG23COM3 ]
 [s S180 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S180 . SEG16COM3 SEG17COM3 SEG18COM3 SEG19COM3 SEG20COM3 SEG21COM3 SEG22COM3 SEG23COM3 ]
-[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S181 . S16C3 S17C3 S18C3 S19C3 S20C3 S21C3 S22C3 S23C3 ]
-[u S178 `S179 1 `S180 1 `S181 1 ]
-[n S178 . . . . ]
+[n S180 . S16C3 S17C3 S18C3 S19C3 S20C3 S21C3 S22C3 S23C3 ]
+[u S177 `S178 1 `S179 1 `S180 1 ]
+[n S177 . . . . ]
 "2253 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDDATA11bits `VS178  1 e@283 ]
+[v _LCDDATA11bits `VS177  1 e@283 ]
 "2257 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDSE0 `Vuc  1 e@284 ]
 "2267 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1753,16 +1753,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SEGEN6 `Vb  1 e@2278 ]
 "2282 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _SEGEN7 `Vb  1 e@2279 ]
+[s S182 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S182 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
 [s S183 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S183 . SEG0 SEG1 SEG2 SEG3 SEG4 SEG5 SEG6 SEG7 ]
+[n S183 . SE0 SE1 SE2 SE3 SE4 SE5 SE6 SE7 ]
 [s S184 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S184 . SE0 SE1 SE2 SE3 SE4 SE5 SE6 SE7 ]
-[s S185 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S185 . SEGEN0 SEGEN1 SEGEN2 SEGEN3 SEGEN4 SEGEN5 SEGEN6 SEGEN7 ]
-[u S182 `S183 1 `S184 1 `S185 1 ]
-[n S182 . . . . ]
+[n S184 . SEGEN0 SEGEN1 SEGEN2 SEGEN3 SEGEN4 SEGEN5 SEGEN6 SEGEN7 ]
+[u S181 `S182 1 `S183 1 `S184 1 ]
+[n S181 . . . . ]
 "2315 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDSE0bits `VS182  1 e@284 ]
+[v _LCDSE0bits `VS181  1 e@284 ]
 "2319 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDSE1 `Vuc  1 e@285 ]
 "2329 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1797,16 +1797,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SEGEN14 `Vb  1 e@2286 ]
 "2344 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _SEGEN15 `Vb  1 e@2287 ]
+[s S186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S186 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
 [s S187 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S187 . SEG8 SEG9 SEG10 SEG11 SEG12 SEG13 SEG14 SEG15 ]
+[n S187 . SE8 SE9 SE10 SE11 SE12 SE13 SE14 SE15 ]
 [s S188 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S188 . SE8 SE9 SE10 SE11 SE12 SE13 SE14 SE15 ]
-[s S189 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S189 . SEGEN8 SEGEN9 SEGEN10 SEGEN11 SEGEN12 SEGEN13 SEGEN14 SEGEN15 ]
-[u S186 `S187 1 `S188 1 `S189 1 ]
-[n S186 . . . . ]
+[n S188 . SEGEN8 SEGEN9 SEGEN10 SEGEN11 SEGEN12 SEGEN13 SEGEN14 SEGEN15 ]
+[u S185 `S186 1 `S187 1 `S188 1 ]
+[n S185 . . . . ]
 "2377 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDSE1bits `VS186  1 e@285 ]
+[v _LCDSE1bits `VS185  1 e@285 ]
 "2381 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _LCDSE2 `Vuc  1 e@286 ]
 "2391 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1841,16 +1841,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SEGEN22 `Vb  1 e@2294 ]
 "2406 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _SEGEN23 `Vb  1 e@2295 ]
+[s S190 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S190 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
 [s S191 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S191 . SEG16 SEG17 SEG18 SEG19 SEG20 SEG21 SEG22 SEG23 ]
+[n S191 . SE16 SE17 SE18 SE19 SE20 SE21 SE22 SE23 ]
 [s S192 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S192 . SE16 SE17 SE18 SE19 SE20 SE21 SE22 SE23 ]
-[s S193 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S193 . SEGEN16 SEGEN17 SEGEN18 SEGEN19 SEGEN20 SEGEN21 SEGEN22 SEGEN23 ]
-[u S190 `S191 1 `S192 1 `S193 1 ]
-[n S190 . . . . ]
+[n S192 . SEGEN16 SEGEN17 SEGEN18 SEGEN19 SEGEN20 SEGEN21 SEGEN22 SEGEN23 ]
+[u S189 `S190 1 `S191 1 `S192 1 ]
+[n S189 . . . . ]
 "2439 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _LCDSE2bits `VS190  1 e@286 ]
+[v _LCDSE2bits `VS189  1 e@286 ]
 "2448 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EECON1 `Vuc  1 e@396 ]
 "2450 /usr/hitech/picc/9.82/include/pic16f917.h
@@ -1867,72 +1867,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EERD `Vb  1 e@3168 ]
 "2456 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EEWR `Vb  1 e@3169 ]
-[s S195 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S195 . RD WR WREN WRERR . EEPGD ]
-[s S196 :1 `uc 1 :1 `uc 1 ]
-[n S196 . EERD EEWR ]
-[u S194 `S195 1 `S196 1 ]
-[n S194 . . . ]
+[s S194 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S194 . RD WR WREN WRERR . EEPGD ]
+[s S195 :1 `uc 1 :1 `uc 1 ]
+[n S195 . EERD EEWR ]
+[u S193 `S194 1 `S195 1 ]
+[n S193 . . . ]
 "2471 /usr/hitech/picc/9.82/include/pic16f917.h
-[v _EECON1bits `VS194  1 e@396 ]
+[v _EECON1bits `VS193  1 e@396 ]
 "2475 /usr/hitech/picc/9.82/include/pic16f917.h
 [v _EECON2 `Vuc  1 e@397 ]
-"18 newmain.c
-[v _start `l  1 e ]
-"18 newmain.c
-[v _stop `l  1 e ]
-"19 newmain.c
-[v _clock_t `i  1 e ]
-"19 newmain.c
-[v _ticks `i  1 e ]
-"19 newmain.c
-[v _count `l  1 e ]
-"20 newmain.c
-[v _lastMotor `i  1 e ]
-"36 newmain.c
-[v _lcdCountdown `(v  0 ef1`uc ]
-"20 lcd.h
-[v _lcd_goto `(v  0 ef1`uc ]
-"16 lcd.h
-[v _lcd_puts `(v  0 ef1`*Cuc ]
-"26 lcd.h
-[v _lcd_putch `(v  0 ef1`uc ]
-[p mainexit ]
-"24 lcd.h
-[v _lcd_init `(v  0 ef ]
-[; ;stdio.h: 12: typedef int ptrdiff_t;
-[; ;stdio.h: 13: typedef unsigned size_t;
-[; ;stdio.h: 14: typedef unsigned short wchar_t;
-[; ;stdarg.h: 31: typedef void * va_list[1];
-[; ;stdarg.h: 34: extern void * __va_start(void);
-[; ;stdarg.h: 37: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 27: extern int errno;
-[; ;stdio.h: 58: struct __prbuf
-[; ;stdio.h: 59: {
-[; ;stdio.h: 60: char * ptr;
-[; ;stdio.h: 61: void (* func)(char);
-[; ;stdio.h: 62: };
-[; ;conio.h: 17: extern int errno;
-[; ;conio.h: 20: extern void init_uart(void);
-[; ;conio.h: 22: extern char getch(void);
-[; ;conio.h: 23: extern char getche(void);
-[; ;conio.h: 24: extern void putch(char);
-[; ;conio.h: 25: extern void ungetch(char);
-[; ;conio.h: 27: extern bit kbhit(void);
-[; ;conio.h: 31: extern char * cgets(char *);
-[; ;conio.h: 32: extern void cputs(const char *);
-[; ;stdio.h: 103: extern int cprintf(char *, ...);
-[; ;stdio.h: 108: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 195: extern char * gets(char *);
-[; ;stdio.h: 196: extern int puts(const char *);
-[; ;stdio.h: 197: extern int scanf(const char *, ...);
-[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...);
-[; ;stdio.h: 199: extern int vprintf(const char *, va_list);
-[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list);
-[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap);
-[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list);
-[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 207: extern int printf(const char *, ...);
+"154 /usr/hitech/picc/9.82/include/pic.h
+[v __delay `(v  0 ef1`ul ]
+[p i __delay ]
 [; ;pic16f917.h: 95: volatile unsigned char INDF @ 0x000;
 [; ;pic16f917.h: 99: volatile unsigned char TMR0 @ 0x001;
 [; ;pic16f917.h: 103: volatile unsigned char PCL @ 0x002;
@@ -3815,661 +3762,201 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern void _delay(unsigned long);
-[; ;time.h: 11: typedef long time_t;
-[; ;time.h: 12: struct tm {
-[; ;time.h: 13: int tm_sec;
-[; ;time.h: 14: int tm_min;
-[; ;time.h: 15: int tm_hour;
-[; ;time.h: 16: int tm_mday;
-[; ;time.h: 17: int tm_mon;
-[; ;time.h: 18: int tm_year;
-[; ;time.h: 19: int tm_wday;
-[; ;time.h: 20: int tm_yday;
-[; ;time.h: 21: int tm_isdst;
-[; ;time.h: 22: };
-[; ;time.h: 30: extern int time_zone;
-[; ;time.h: 35: extern time_t time(time_t *);
-[; ;time.h: 36: extern int stime(time_t *);
-[; ;time.h: 37: extern char * asctime(const struct tm *);
-[; ;time.h: 38: extern char * ctime(const time_t *);
-[; ;time.h: 39: extern struct tm * gmtime(const time_t *);
-[; ;time.h: 40: extern struct tm * localtime(const time_t *);
-[; ;time.h: 41: extern time_t mktime(struct tm *);
-[; ;time.h: 42: extern size_t strftime(char *, size_t, const char *, const struct tm *);
 [; ;lcd.h: 8: extern void lcd_write(unsigned char);
 [; ;lcd.h: 12: extern void lcd_clear(void);
 [; ;lcd.h: 16: extern void lcd_puts(const char * s);
 [; ;lcd.h: 20: extern void lcd_goto(unsigned char pos);
 [; ;lcd.h: 24: extern void lcd_init(void);
 [; ;lcd.h: 26: extern void lcd_putch(char);
-"13 newmain.c
-[; ;newmain.c: 13: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFD & 0xFFF7");
-[; 	psect config,class=CONFIG,delta=2 ;#
-[; 	dw 0xFFFD & 0xFFF7 ;#
-[; ;newmain.c: 18: time_t start, stop;
-[; ;newmain.c: 19: int clock_t, ticks; long count;
-[; ;newmain.c: 20: int lastMotor;
-[; ;newmain.c: 25: void _delay_ms(unsigned int ms);
-[; ;newmain.c: 26: void outputHighPin (bit pin);
-[; ;newmain.c: 27: void outputLowPin (bit pin);
-[; ;newmain.c: 28: void controlMotor(int Leftpt, int Rightpt);
-[; ;newmain.c: 29: int searchTrack(void);
-[; ;newmain.c: 30: int controlLCD();
-[; ;newmain.c: 31: int controlBuzzer();
-[; ;newmain.c: 32: void ADCInit(int ADC_Channel);
-[; ;newmain.c: 33: unsigned int ADCRead(unsigned char ch);
-[; ;newmain.c: 34: void InitialiseADC (unsigned char ADC_Channel);
-[; ;newmain.c: 35: unsigned int ReadADC(unsigned char ADC_Channel);
-[; ;newmain.c: 36: void lcdCountdown(char t);
-"48
-[v __delay_ms `(v  1 ef1`ui ]
+"39 lcd.c
+[v _lcd_write `(v  1 ef1`uc ]
 {
-[; ;newmain.c: 47: void _delay_ms(unsigned int ms)
-[; ;newmain.c: 48: {
-[e :U __delay_ms ]
-[v _ms `ui  1 r1 ]
+[; ;lcd.c: 37: void
+[; ;lcd.c: 38: lcd_write(unsigned char c)
+[; ;lcd.c: 39: {
+[e :U _lcd_write ]
+[v _c `uc  1 r1 ]
 [f ]
-"49
-[v _i `uc  1 a ]
-[; ;newmain.c: 49: unsigned char i;
-[; ;newmain.c: 50: do
-"50
-[e :U 201 ]
-[; ;newmain.c: 51: {
-"51
-{
-[; ;newmain.c: 52: i = 4;
-"52
-[e = _i -> -> 4 `i `uc ]
-[; ;newmain.c: 53: do
+[; ;lcd.c: 40: _delay((unsigned long)((40)*(4000000/4000000.0)));
+"40
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 41: PORTD = ( ( c >> 4 ) & 0x0F );
+"41
+[e = _PORTD -> & >> -> _c `i -> 4 `i -> 15 `i `uc ]
+[; ;lcd.c: 42: ((RA1 = 1),(RA1=0));
+"42
+[e ; -> = _RA1 -> -> 1 `i `b `i -> = _RA1 -> -> 0 `i `b `i ]
+[; ;lcd.c: 43: PORTD = ( c & 0x0F );
+"43
+[e = _PORTD -> & -> _c `i -> 15 `i `uc ]
+[; ;lcd.c: 44: ((RA1 = 1),(RA1=0));
+"44
+[e ; -> = _RA1 -> -> 1 `i `b `i -> = _RA1 -> -> 0 `i `b `i ]
+[; ;lcd.c: 45: }
+"45
+[e :UE 196 ]
+}
 "53
-[e :U 204 ]
-[; ;newmain.c: 54: {
+[v _lcd_clear `(v  1 ef ]
+{
+[; ;lcd.c: 51: void
+[; ;lcd.c: 52: lcd_clear(void)
+[; ;lcd.c: 53: {
+[e :U _lcd_clear ]
+[f ]
+[; ;lcd.c: 54: RA3 = 0;
 "54
-{
-[; ;newmain.c: 55: { unsigned char us; us = (250)/(12000000/8000000L)|1; while(--us != 0) continue; };
+[e = _RA3 -> -> 0 `i `b ]
+[; ;lcd.c: 55: lcd_write(0x1);
 "55
-{
-[v _us `uc  1 a ]
-[e = _us -> | / -> -> 250 `i `l / -> 12000000 `l -> 8000000 `l -> -> 1 `i `l `uc ]
-[e $U 205  ]
-[e :U 206 ]
-[e $U 205  ]
-[e :U 205 ]
-[e $ != -> =- _us -> -> 1 `i `uc `i -> 0 `i 206  ]
-[e :U 207 ]
-}
+[e ( _lcd_write (1 -> -> 1 `i `uc ]
+[; ;lcd.c: 56: _delay((unsigned long)((2)*(4000000/4000.0)));
 "56
-}
-[; ;newmain.c: 56: } while(--i);
-[e $ != -> =- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 204  ]
-[e :U 203 ]
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;lcd.c: 57: }
 "57
+[e :UE 197 ]
 }
-[; ;newmain.c: 57: } while(--ms);
-[e $ != =- _ms -> -> 1 `i `ui -> -> 0 `i `ui 201  ]
+"63
+[v _lcd_puts `(v  1 ef1`*Cuc ]
+{
+[; ;lcd.c: 61: void
+[; ;lcd.c: 62: lcd_puts(const char * s)
+[; ;lcd.c: 63: {
+[e :U _lcd_puts ]
+[v _s `*Cuc  1 r1 ]
+[f ]
+[; ;lcd.c: 64: RA3 = 1;
+"64
+[e = _RA3 -> -> 1 `i `b ]
+[; ;lcd.c: 65: while(*s)
+"65
+[e $U 199  ]
 [e :U 200 ]
-[; ;newmain.c: 58: }
-"58
+[; ;lcd.c: 66: lcd_write(*s++);
+"66
+[e ( _lcd_write (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
+[e :U 199 ]
+"65
+[e $ != -> *U _s `i -> -> -> 0 `i `Cuc `i 200  ]
+[e :U 201 ]
+[; ;lcd.c: 67: }
+"67
 [e :UE 198 ]
 }
+"73
+[v _lcd_putch `(v  1 ef1`uc ]
+{
+[; ;lcd.c: 71: void
+[; ;lcd.c: 72: lcd_putch(char c)
+[; ;lcd.c: 73: {
+[e :U _lcd_putch ]
+[v _c `uc  1 r1 ]
+[f ]
+[; ;lcd.c: 74: RA3 = 1;
+"74
+[e = _RA3 -> -> 1 `i `b ]
+[; ;lcd.c: 75: lcd_write( c );
+"75
+[e ( _lcd_write (1 _c ]
+[; ;lcd.c: 76: }
 "76
-[v _controlMotor `(v  1 ef2`i`i ]
-{
-[; ;newmain.c: 75: void controlMotor(int Leftpt, int Rightpt)
-[; ;newmain.c: 76: {
-[e :U _controlMotor ]
-[v _Leftpt `i  1 r1 ]
-[v _Rightpt `i  1 r2 ]
-[f ]
-[; ;newmain.c: 77: if (Leftpt == 1)
-"77
-[e $ ! == _Leftpt -> 1 `i 209  ]
-[; ;newmain.c: 78: {
-"78
-{
-[; ;newmain.c: 80: RC1 = 1;
-"80
-[e = _RC1 -> -> 1 `i `b ]
-"81
+[e :UE 202 ]
 }
-[; ;newmain.c: 81: }
-[e $U 210  ]
-"82
-[e :U 209 ]
-[; ;newmain.c: 82: else
-[; ;newmain.c: 83: {
-"83
-{
-[; ;newmain.c: 85: RC1 = 0;
 "85
-[e = _RC1 -> -> 0 `i `b ]
-[; ;newmain.c: 86: lastMotor = 2;
+[v _lcd_goto `(v  1 ef1`uc ]
+{
+[; ;lcd.c: 83: void
+[; ;lcd.c: 84: lcd_goto(unsigned char pos)
+[; ;lcd.c: 85: {
+[e :U _lcd_goto ]
+[v _pos `uc  1 r1 ]
+[f ]
+[; ;lcd.c: 86: RA3 = 0;
 "86
-[e = _lastMotor -> 2 `i ]
+[e = _RA3 -> -> 0 `i `b ]
+[; ;lcd.c: 87: lcd_write(0x80+pos);
 "87
+[e ( _lcd_write (1 -> + -> 128 `i -> _pos `i `uc ]
+[; ;lcd.c: 88: }
+"88
+[e :UE 203 ]
 }
-[e :U 210 ]
-[; ;newmain.c: 87: }
-[; ;newmain.c: 90: if (Rightpt == 1)
-"90
-[e $ ! == _Rightpt -> 1 `i 211  ]
-[; ;newmain.c: 91: {
-"91
-{
-[; ;newmain.c: 93: RA0 = 1;
 "93
-[e = _RA0 -> -> 1 `i `b ]
+[v _lcd_init `(v  1 ef ]
+{
+[; ;lcd.c: 91: void
+[; ;lcd.c: 92: lcd_init()
+[; ;lcd.c: 93: {
+[e :U _lcd_init ]
+[f ]
 "94
-}
-[; ;newmain.c: 94: }
-[e $U 212  ]
-"95
-[e :U 211 ]
-[; ;newmain.c: 95: else
-[; ;newmain.c: 96: {
+[v _init_value `uc  1 a ]
+[; ;lcd.c: 94: char init_value;
+[; ;lcd.c: 96: ADCON1 = 0x06;
 "96
-{
-[; ;newmain.c: 98: RA0 = 0;
+[e = _ADCON1 -> -> 6 `i `uc ]
+[; ;lcd.c: 98: init_value = 0x3;
 "98
-[e = _RA0 -> -> 0 `i `b ]
-[; ;newmain.c: 99: lastMotor = 1;
+[e = _init_value -> -> 3 `i `uc ]
+[; ;lcd.c: 99: TRISA=0;
 "99
-[e = _lastMotor -> 1 `i ]
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;lcd.c: 100: TRISD=0;
 "100
-}
-[e :U 212 ]
-[; ;newmain.c: 100: }
-[; ;newmain.c: 101: }
-"101
-[e :UE 208 ]
-}
-"109
-[v _searchTrack `(i  1 ef ]
-{
-[; ;newmain.c: 108: int searchTrack(void)
-[; ;newmain.c: 109: {
-[e :U _searchTrack ]
-[f ]
-[; ;newmain.c: 110: if (lastMotor == 1)
-"110
-[e $ ! == _lastMotor -> 1 `i 214  ]
-[; ;newmain.c: 111: {
-"111
-{
-[; ;newmain.c: 112: controlMotor(1, 0);
-"112
-[e ( _controlMotor (2 , -> 1 `i -> 0 `i ]
-"113
-}
-[; ;newmain.c: 113: }
-[e $U 215  ]
-"114
-[e :U 214 ]
-[; ;newmain.c: 114: else if (lastMotor == 2)
-[e $ ! == _lastMotor -> 2 `i 216  ]
-[; ;newmain.c: 115: {
-"115
-{
-[; ;newmain.c: 116: controlMotor(0, 1);
-"116
-[e ( _controlMotor (2 , -> 0 `i -> 1 `i ]
-"117
-}
-[e :U 216 ]
-"118
-[e :U 215 ]
-[; ;newmain.c: 117: }
-[; ;newmain.c: 118: }
-[e :UE 213 ]
-}
-"128
-[v _controlLCD `(i  1 ef ]
-{
-[; ;newmain.c: 127: int controlLCD()
-[; ;newmain.c: 128: {
-[e :U _controlLCD ]
-[f ]
-[; ;newmain.c: 133: }
-"133
-[e :UE 217 ]
-}
-"146
-[v _controlBuzzer `(i  1 ef ]
-{
-[; ;newmain.c: 145: int controlBuzzer()
-[; ;newmain.c: 146: {
-[e :U _controlBuzzer ]
-[f ]
-[; ;newmain.c: 148: RC3 = 1;
-"148
-[e = _RC3 -> -> 1 `i `b ]
-[; ;newmain.c: 149: _delay_ms(200);
-"149
-[e ( __delay_ms (1 -> -> 200 `i `ui ]
-[; ;newmain.c: 150: RC3 = 0;
-"150
-[e = _RC3 -> -> 0 `i `b ]
-[; ;newmain.c: 151: _delay_ms(700);
-"151
-[e ( __delay_ms (1 -> -> 700 `i `ui ]
-[; ;newmain.c: 153: RC3 = 1;
-"153
-[e = _RC3 -> -> 1 `i `b ]
-[; ;newmain.c: 154: _delay_ms(700);
-"154
-[e ( __delay_ms (1 -> -> 700 `i `ui ]
-[; ;newmain.c: 155: RC3 = 0;
-"155
-[e = _RC3 -> -> 0 `i `b ]
-[; ;newmain.c: 156: _delay_ms(700);
-"156
-[e ( __delay_ms (1 -> -> 700 `i `ui ]
-[; ;newmain.c: 158: RC3 = 1;
-"158
-[e = _RC3 -> -> 1 `i `b ]
-[; ;newmain.c: 159: _delay_ms(200);
-"159
-[e ( __delay_ms (1 -> -> 200 `i `ui ]
-[; ;newmain.c: 160: RC3 = 0;
-"160
-[e = _RC3 -> -> 0 `i `b ]
-[; ;newmain.c: 161: _delay_ms(700);
-"161
-[e ( __delay_ms (1 -> -> 700 `i `ui ]
-[; ;newmain.c: 163: RC4 = 1;
-"163
-[e = _RC4 -> -> 1 `i `b ]
-[; ;newmain.c: 164: _delay_ms(300);
-"164
-[e ( __delay_ms (1 -> -> 300 `i `ui ]
-[; ;newmain.c: 165: RC3 = 0;
-"165
-[e = _RC3 -> -> 0 `i `b ]
-[; ;newmain.c: 167: }
-"167
-[e :UE 218 ]
-}
-"170
-[v _doDelay `(v  1 ef ]
-{
-[; ;newmain.c: 169: void doDelay()
-[; ;newmain.c: 170: {
-[e :U _doDelay ]
-[f ]
-[; ;newmain.c: 171: lcdCountdown('8');
-"171
-[e ( _lcdCountdown (1 -> -> 56 `ui `uc ]
-[; ;newmain.c: 172: _delay_ms(1000);
-"172
-[e ( __delay_ms (1 -> -> 1000 `i `ui ]
-[; ;newmain.c: 174: lcdCountdown('7');
-"174
-[e ( _lcdCountdown (1 -> -> 55 `ui `uc ]
-[; ;newmain.c: 175: _delay_ms(1000);
-"175
-[e ( __delay_ms (1 -> -> 1000 `i `ui ]
-[; ;newmain.c: 177: lcdCountdown('6');
-"177
-[e ( _lcdCountdown (1 -> -> 54 `ui `uc ]
-[; ;newmain.c: 178: _delay_ms(1000);
-"178
-[e ( __delay_ms (1 -> -> 1000 `i `ui ]
-[; ;newmain.c: 180: lcdCountdown('5');
-"180
-[e ( _lcdCountdown (1 -> -> 53 `ui `uc ]
-[; ;newmain.c: 181: _delay_ms(1000);
-"181
-[e ( __delay_ms (1 -> -> 1000 `i `ui ]
-[; ;newmain.c: 183: lcdCountdown('4');
-"183
-[e ( _lcdCountdown (1 -> -> 52 `ui `uc ]
-[; ;newmain.c: 184: _delay_ms(1000);
-"184
-[e ( __delay_ms (1 -> -> 1000 `i `ui ]
-[; ;newmain.c: 189: lcdCountdown('3');
-"189
-[e ( _lcdCountdown (1 -> -> 51 `ui `uc ]
-[; ;newmain.c: 190: RC3 = 1;
-"190
-[e = _RC3 -> -> 1 `i `b ]
-[; ;newmain.c: 191: _delay_ms(200);
-"191
-[e ( __delay_ms (1 -> -> 200 `i `ui ]
-[; ;newmain.c: 192: RC3 = 0;
-"192
-[e = _RC3 -> -> 0 `i `b ]
-[; ;newmain.c: 193: _delay_ms(700);
-"193
-[e ( __delay_ms (1 -> -> 700 `i `ui ]
-[; ;newmain.c: 195: RC3 = 1;
-"195
-[e = _RC3 -> -> 1 `i `b ]
-[; ;newmain.c: 196: _delay_ms(100);
-"196
-[e ( __delay_ms (1 -> -> 100 `i `ui ]
-[; ;newmain.c: 197: lcdCountdown('2');
-"197
-[e ( _lcdCountdown (1 -> -> 50 `ui `uc ]
-[; ;newmain.c: 198: _delay_ms(100);
-"198
-[e ( __delay_ms (1 -> -> 100 `i `ui ]
-[; ;newmain.c: 199: RC3 = 0;
-"199
-[e = _RC3 -> -> 0 `i `b ]
-[; ;newmain.c: 200: _delay_ms(700);
-"200
-[e ( __delay_ms (1 -> -> 700 `i `ui ]
-[; ;newmain.c: 202: RC3 = 1;
-"202
-[e = _RC3 -> -> 1 `i `b ]
-[; ;newmain.c: 203: _delay_ms(200);
-"203
-[e ( __delay_ms (1 -> -> 200 `i `ui ]
-[; ;newmain.c: 204: lcdCountdown('1');
-"204
-[e ( _lcdCountdown (1 -> -> 49 `ui `uc ]
-[; ;newmain.c: 205: RC3 = 0;
-"205
-[e = _RC3 -> -> 0 `i `b ]
-[; ;newmain.c: 206: _delay_ms(700);
-"206
-[e ( __delay_ms (1 -> -> 700 `i `ui ]
-[; ;newmain.c: 208: RC4 = 1;
-"208
-[e = _RC4 -> -> 1 `i `b ]
-[; ;newmain.c: 209: _delay_ms(300);
-"209
-[e ( __delay_ms (1 -> -> 300 `i `ui ]
-[; ;newmain.c: 211: lcd_goto(0);
-"211
-[e ( _lcd_goto (1 -> -> 0 `i `uc ]
-[; ;newmain.c: 212: lcd_puts("Start!");
-"212
-[e ( _lcd_puts (1 :s 1C ]
-[; ;newmain.c: 214: }
-"214
-[e :UE 219 ]
-}
-"217
-[v _lcdCountdown `(v  1 ef1`uc ]
-{
-[; ;newmain.c: 216: void lcdCountdown(char t)
-[; ;newmain.c: 217: {
-[e :U _lcdCountdown ]
-[v _t `uc  1 r1 ]
-[f ]
-[; ;newmain.c: 218: lcd_goto(0);
-"218
-[e ( _lcd_goto (1 -> -> 0 `i `uc ]
-[; ;newmain.c: 219: lcd_putch(t);
-"219
-[e ( _lcd_putch (1 _t ]
-[; ;newmain.c: 220: }
-"220
-[e :UE 220 ]
-}
-"225
-[v _ADCInit `(v  1 ef1`i ]
-{
-[; ;newmain.c: 224: void ADCInit(int ADC_Channel)
-[; ;newmain.c: 225: {
-[e :U _ADCInit ]
-[v _ADC_Channel `i  1 r1 ]
-[f ]
-[; ;newmain.c: 226: if (ADC_Channel == 0) TRISA0 = 1;
-"226
-[e $ ! == _ADC_Channel -> 0 `i 222  ]
-[e = _TRISA0 -> -> 1 `i `b ]
-[e $U 223  ]
-"227
-[e :U 222 ]
-[; ;newmain.c: 227: else if (ADC_Channel == 1) TRISA1 = 1;
-[e $ ! == _ADC_Channel -> 1 `i 224  ]
-[e = _TRISA1 -> -> 1 `i `b ]
-[e $U 225  ]
-"228
-[e :U 224 ]
-[; ;newmain.c: 228: else if (ADC_Channel == 2) TRISA2 = 1;
-[e $ ! == _ADC_Channel -> 2 `i 226  ]
-[e = _TRISA2 -> -> 1 `i `b ]
-[e $U 227  ]
-"229
-[e :U 226 ]
-[; ;newmain.c: 229: else if (ADC_Channel == 3) TRISA3 = 1;
-[e $ ! == _ADC_Channel -> 3 `i 228  ]
-[e = _TRISA3 -> -> 1 `i `b ]
-[e :U 228 ]
-"231
-[e :U 227 ]
-[e :U 225 ]
-[e :U 223 ]
-[; ;newmain.c: 231: ADCON1 = 0b10000100;
-[e = _ADCON1 -> -> 132 `i `uc ]
-[; ;newmain.c: 232: }
-"232
-[e :UE 221 ]
-}
-"236
-[v _ADCRead `(ui  1 ef1`uc ]
-{
-[; ;newmain.c: 235: unsigned int ADCRead(unsigned char ch)
-[; ;newmain.c: 236: {
-[e :U _ADCRead ]
-[v _ch `uc  1 r1 ]
-[f ]
-[; ;newmain.c: 237: ADCON0 = 0x00;
-"237
-[e = _ADCON0 -> -> 0 `i `uc ]
-[; ;newmain.c: 238: ADCON0 = (ch<<2);
-"238
-[e = _ADCON0 -> << -> _ch `i -> 2 `i `uc ]
-[; ;newmain.c: 240: ADON=1;
-"240
-[e = _ADON -> -> 1 `i `b ]
-[; ;newmain.c: 242: GO_DONE=1;
-"242
-[e = _GO_DONE -> -> 1 `i `b ]
-[; ;newmain.c: 243: while(GO_DONE);
-"243
-[e $U 230  ]
-[e :U 231 ]
-[e :U 230 ]
-[e $ _GO_DONE 231  ]
-[e :U 232 ]
-[; ;newmain.c: 245: ADON=0;
-"245
-[e = _ADON -> -> 0 `i `b ]
-[; ;newmain.c: 247: return (ADRESH<8)|ADRESL;
-"247
-[e ) -> | -> < -> _ADRESH `i -> 8 `i `i -> _ADRESL `i `ui ]
-[e $UE 229  ]
-[; ;newmain.c: 249: }
-"249
-[e :UE 229 ]
-}
-"256
-[v _InitialiseADC `(v  1 ef1`uc ]
-{
-[; ;newmain.c: 255: void InitialiseADC (unsigned char ADC_Channel)
-[; ;newmain.c: 256: {
-[e :U _InitialiseADC ]
-[v _ADC_Channel `uc  1 r1 ]
-[f ]
-[; ;newmain.c: 257: if (ADC_Channel == 0) TRISA0 = 1;
-"257
-[e $ ! == -> _ADC_Channel `i -> 0 `i 234  ]
-[e = _TRISA0 -> -> 1 `i `b ]
-[e $U 235  ]
-"258
-[e :U 234 ]
-[; ;newmain.c: 258: else if (ADC_Channel == 1) TRISA1 = 1;
-[e $ ! == -> _ADC_Channel `i -> 1 `i 236  ]
-[e = _TRISA1 -> -> 1 `i `b ]
-[e $U 237  ]
-"259
-[e :U 236 ]
-[; ;newmain.c: 259: else if (ADC_Channel == 2) TRISA2 = 1;
-[e $ ! == -> _ADC_Channel `i -> 2 `i 238  ]
-[e = _TRISA2 -> -> 1 `i `b ]
-[e $U 239  ]
-"260
-[e :U 238 ]
-[; ;newmain.c: 260: else if (ADC_Channel == 3) TRISA3 = 1;
-[e $ ! == -> _ADC_Channel `i -> 3 `i 240  ]
-[e = _TRISA3 -> -> 1 `i `b ]
-[e :U 240 ]
-"268
-[e :U 239 ]
-[e :U 237 ]
-[e :U 235 ]
-[; ;newmain.c: 268: ADCON1 = 0b10000100;
-[e = _ADCON1 -> -> 132 `i `uc ]
-[; ;newmain.c: 269: }
-"269
-[e :UE 233 ]
-}
-"277
-[v _ReadADC `(ui  1 ef1`uc ]
-{
-[; ;newmain.c: 276: unsigned int ReadADC(unsigned char ADC_Channel)
-[; ;newmain.c: 277: {
-[e :U _ReadADC ]
-[v _ADC_Channel `uc  1 r1 ]
-[f ]
-"278
-[v _ADC_VALUE `Vui  1 a ]
-[; ;newmain.c: 278: volatile unsigned int ADC_VALUE;
-[; ;newmain.c: 280: ADON = 1;
-"280
-[e = _ADON -> -> 1 `i `b ]
-[; ;newmain.c: 282: ADCON0 = (ADC_Channel << 3) + 1;
-"282
-[e = _ADCON0 -> + << -> _ADC_Channel `i -> 3 `i -> 1 `i `uc ]
-[; ;newmain.c: 284: ADIE = 0;
-"284
-[e = _ADIE -> -> 0 `i `b ]
-[; ;newmain.c: 285: ADIF = 0;
-"285
-[e = _ADIF -> -> 0 `i `b ]
-[; ;newmain.c: 286: ADRESL = 0;
-"286
-[e = _ADRESL -> -> 0 `i `uc ]
-[; ;newmain.c: 287: ADRESH = 0;
-"287
-[e = _ADRESH -> -> 0 `i `uc ]
-[; ;newmain.c: 291: while(!ADIF) continue;
-"291
-[e $U 242  ]
-[e :U 243 ]
-[e $U 242  ]
-[e :U 242 ]
-[e $ ! _ADIF 243  ]
-[e :U 244 ]
-[; ;newmain.c: 293: ADC_VALUE = ADRESL;
-"293
-[e = _ADC_VALUE -> _ADRESL `ui ]
-[; ;newmain.c: 294: ADC_VALUE += (ADRESH << 8);
-"294
-[e =+ _ADC_VALUE -> << -> _ADRESH `i -> 8 `i `ui ]
-[; ;newmain.c: 296: return (ADC_VALUE);
-"296
-[e ) _ADC_VALUE ]
-[e $UE 241  ]
-[; ;newmain.c: 297: }
-"297
-[e :UE 241 ]
-}
-"307
-[v _main `(i  1 ef ]
-{
-[; ;newmain.c: 306: int main(void)
-[; ;newmain.c: 307: {
-[e :U _main ]
-[f ]
-[; ;newmain.c: 309: TRISB = 0x00;
-"309
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;newmain.c: 310: TRISC = 0x00;
-"310
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;newmain.c: 311: TRISD = 0X00;
-"311
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;newmain.c: 312: TRISE = 0X00;
-"312
-[e = _TRISE -> -> 0 `i `uc ]
-[; ;newmain.c: 314: lcd_init();
-"314
-[e ( _lcd_init ..  ]
-[; ;newmain.c: 318: doDelay();
-"318
-[e ( _doDelay ..  ]
-[; ;newmain.c: 320: InitialiseADC (0);
-"320
-[e ( _InitialiseADC (1 -> -> 0 `i `uc ]
-[; ;newmain.c: 321: InitialiseADC (1);
-"321
-[e ( _InitialiseADC (1 -> -> 1 `i `uc ]
-"322
-[v _read `i  1 a ]
-[v _leftpt `i  1 a ]
-[v _rightpt `i  1 a ]
-[; ;newmain.c: 322: int read, leftpt, rightpt;
-[; ;newmain.c: 324: while (1)
-"324
-[e :U 247 ]
-[; ;newmain.c: 325: {
-"325
-{
-[; ;newmain.c: 327: read = ReadADC(0);
-"327
-[e = _read -> ( _ReadADC (1 -> -> 0 `i `uc `i ]
-[; ;newmain.c: 328: leftpt = (read > 1.5) ? 1 : 0;
-"328
-[e = _leftpt ? > -> _read `d .1.5 : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 331: read = ReadADC(1);
-"331
-[e = _read -> ( _ReadADC (1 -> -> 1 `i `uc `i ]
-[; ;newmain.c: 332: rightpt = (read > 1.5) ? 1 : 0;
-"332
-[e = _rightpt ? > -> _read `d .1.5 : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 334: if((leftpt==0) && (rightpt==0))
-"334
-[e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 249  ]
-[; ;newmain.c: 335: {
-"335
-{
-[; ;newmain.c: 336: searchTrack();
-"336
-[e ( _searchTrack ..  ]
-"337
+[; ;lcd.c: 101: RA3 = 0;
+"101
+[e = _RA3 -> -> 0 `i `b ]
+[; ;lcd.c: 102: RA1 = 0;
+"102
+[e = _RA1 -> -> 0 `i `b ]
+[; ;lcd.c: 103: RA2 = 0;
+"103
+[e = _RA2 -> -> 0 `i `b ]
+[; ;lcd.c: 105: _delay((unsigned long)((15)*(4000000/4000.0)));
+"105
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;lcd.c: 106: PORTD = init_value;
+"106
+[e = _PORTD _init_value ]
+[; ;lcd.c: 107: ((RA1 = 1),(RA1=0));
+"107
+[e ; -> = _RA1 -> -> 1 `i `b `i -> = _RA1 -> -> 0 `i `b `i ]
+[; ;lcd.c: 108: _delay((unsigned long)((5)*(4000000/4000.0)));
+"108
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;lcd.c: 109: ((RA1 = 1),(RA1=0));
+"109
+[e ; -> = _RA1 -> -> 1 `i `b `i -> = _RA1 -> -> 0 `i `b `i ]
+[; ;lcd.c: 110: _delay((unsigned long)((200)*(4000000/4000000.0)));
+"110
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 111: ((RA1 = 1),(RA1=0));
+"111
+[e ; -> = _RA1 -> -> 1 `i `b `i -> = _RA1 -> -> 0 `i `b `i ]
+[; ;lcd.c: 112: _delay((unsigned long)((200)*(4000000/4000000.0)));
+"112
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 113: PORTD = 2;
+"113
+[e = _PORTD -> -> 2 `i `uc ]
+[; ;lcd.c: 114: ((RA1 = 1),(RA1=0));
+"114
+[e ; -> = _RA1 -> -> 1 `i `b `i -> = _RA1 -> -> 0 `i `b `i ]
+[; ;lcd.c: 116: lcd_write(0x28);
+"116
+[e ( _lcd_write (1 -> -> 40 `i `uc ]
+[; ;lcd.c: 117: lcd_write(0xF);
+"117
+[e ( _lcd_write (1 -> -> 15 `i `uc ]
+[; ;lcd.c: 118: lcd_clear();
+"118
+[e ( _lcd_clear ..  ]
+[; ;lcd.c: 119: lcd_write(0x6);
+"119
+[e ( _lcd_write (1 -> -> 6 `i `uc ]
+[; ;lcd.c: 120: }
+"120
+[e :UE 204 ]
 }
-[; ;newmain.c: 337: }
-[e $U 250  ]
-"338
-[e :U 249 ]
-[; ;newmain.c: 338: else
-[; ;newmain.c: 339: {
-"339
-{
-[; ;newmain.c: 340: controlMotor(leftpt, rightpt);
-"340
-[e ( _controlMotor (2 , _leftpt _rightpt ]
-"341
-}
-[e :U 250 ]
-"342
-}
-[e :U 246 ]
-"324
-[e $U 247  ]
-[e :U 248 ]
-[; ;newmain.c: 341: }
-[; ;newmain.c: 342: }
-[; ;newmain.c: 343: }
-"343
-[e :UE 245 ]
-}
-[a 1C 83 116 97 114 116 33 0 ]
-

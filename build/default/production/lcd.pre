@@ -1,69 +1,5 @@
 
-# 1 "newmain.c"
-
-# 12 "/usr/hitech/picc/9.82/include/stdio.h"
-typedef int ptrdiff_t;
-typedef unsigned size_t;
-typedef unsigned short wchar_t;
-
-# 31 "/usr/hitech/picc/9.82/include/stdarg.h"
-typedef void * va_list[1];
-
-#pragma inline(__va_start)
-extern void * __va_start(void);
-
-#pragma inline(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 27 "/usr/hitech/picc/9.82/include/stdio.h"
-extern int errno;
-
-# 58
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 17 "/usr/hitech/picc/9.82/include/conio.h"
-extern int errno;
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 103 "/usr/hitech/picc/9.82/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-# 195
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...);
-extern int sscanf(const char *, const char *, ...);
-extern int vprintf(const char *, va_list);
-extern int vsprintf(char *, const char *, va_list);
-extern int vscanf(const char *, va_list ap);
-extern int vsscanf(const char *, const char *, va_list);
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
+# 1 "lcd.c"
 
 # 95 "/usr/hitech/picc/9.82/include/pic16f917.h"
 volatile unsigned char INDF @ 0x000;
@@ -2344,33 +2280,6 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 11 "/usr/hitech/picc/9.82/include/time.h"
-typedef long time_t;
-struct tm {
-int tm_sec;
-int tm_min;
-int tm_hour;
-int tm_mday;
-int tm_mon;
-int tm_year;
-int tm_wday;
-int tm_yday;
-int tm_isdst;
-};
-
-# 30
-extern int time_zone;
-
-# 35
-extern time_t time(time_t *);
-extern int stime(time_t *);
-extern char * asctime(const struct tm *);
-extern char * ctime(const time_t *);
-extern struct tm * gmtime(const time_t *);
-extern struct tm * localtime(const time_t *);
-extern time_t mktime(struct tm *);
-extern size_t strftime(char *, size_t, const char *, const struct tm *);
-
 # 8 "lcd.h"
 extern void lcd_write(unsigned char);
 
@@ -2392,275 +2301,81 @@ extern void lcd_init(void);
 
 extern void lcd_putch(char);
 
-# 13 "newmain.c"
-asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFD & 0xFFF7");
-
-
-
-
-time_t start, stop;
-int clock_t, ticks; long count;
-int lastMotor;
-
-# 25
-void _delay_ms(unsigned int ms);
-void outputHighPin (bit pin);
-void outputLowPin (bit pin);
-void controlMotor(int Leftpt, int Rightpt);
-int searchTrack(void);
-int controlLCD();
-int controlBuzzer();
-void ADCInit(int ADC_Channel);
-unsigned int ADCRead(unsigned char ch);
-void InitialiseADC (unsigned char ADC_Channel);
-unsigned int ReadADC(unsigned char ADC_Channel);
-void lcdCountdown(char t);
-
-# 47
-void _delay_ms(unsigned int ms)
+# 37 "lcd.c"
+void
+lcd_write(unsigned char c)
 {
-unsigned char i;
-do
-{
-i = 4;
-do
-{
-{ unsigned char us; us = (250)/(12000000/8000000L)|1; while(--us != 0) continue; };
-} while(--i);
-} while(--ms);
+_delay((unsigned long)((40)*(4000000/4000000.0)));
+PORTD = ( ( c >> 4 ) & 0x0F );
+((RA1 = 1),(RA1=0));
+PORTD = ( c & 0x0F );
+((RA1 = 1),(RA1=0));
 }
 
-# 75
-void controlMotor(int Leftpt, int Rightpt)
+# 51
+void
+lcd_clear(void)
 {
-if (Leftpt == 1)
-{
-
-RC1 = 1;
-}
-else
-{
-
-RC1 = 0;
-lastMotor = 2;
-}
-
-
-if (Rightpt == 1)
-{
-
-RA0 = 1;
-}
-else
-{
-
-RA0 = 0;
-lastMotor = 1;
-}
-}
-
-# 108
-int searchTrack(void)
-{
-if (lastMotor == 1)
-{
-controlMotor(1, 0);
-}
-else if (lastMotor == 2)
-{
-controlMotor(0, 1);
-}
-}
-
-# 127
-int controlLCD()
-{
-
-
-
-
-}
-
-# 145
-int controlBuzzer()
-{
-
-RC3 = 1;
-_delay_ms(200);
-RC3 = 0;
-_delay_ms(700);
-
-RC3 = 1;
-_delay_ms(700);
-RC3 = 0;
-_delay_ms(700);
-
-RC3 = 1;
-_delay_ms(200);
-RC3 = 0;
-_delay_ms(700);
-
-RC4 = 1;
-_delay_ms(300);
-RC3 = 0;
-
-}
-
-void doDelay()
-{
-lcdCountdown('8');
-_delay_ms(1000);
-
-lcdCountdown('7');
-_delay_ms(1000);
-
-lcdCountdown('6');
-_delay_ms(1000);
-
-lcdCountdown('5');
-_delay_ms(1000);
-
-lcdCountdown('4');
-_delay_ms(1000);
-
-
-
-
-lcdCountdown('3');
-RC3 = 1;
-_delay_ms(200);
-RC3 = 0;
-_delay_ms(700);
-
-RC3 = 1;
-_delay_ms(100);
-lcdCountdown('2');
-_delay_ms(100);
-RC3 = 0;
-_delay_ms(700);
-
-RC3 = 1;
-_delay_ms(200);
-lcdCountdown('1');
-RC3 = 0;
-_delay_ms(700);
-
-RC4 = 1;
-_delay_ms(300);
-
-lcd_goto(0);
-lcd_puts("Start!");
-
-}
-
-void lcdCountdown(char t)
-{
-lcd_goto(0);
-lcd_putch(t);
+RA3 = 0;
+lcd_write(0x1);
+_delay((unsigned long)((2)*(4000000/4000.0)));
 }
 
 
 
-void ADCInit(int ADC_Channel)
+void
+lcd_puts(const char * s)
 {
-if (ADC_Channel == 0) TRISA0 = 1;
-else if (ADC_Channel == 1) TRISA1 = 1;
-else if (ADC_Channel == 2) TRISA2 = 1;
-else if (ADC_Channel == 3) TRISA3 = 1;
-
-ADCON1 = 0b10000100;
+RA3 = 1;
+while(*s)
+lcd_write(*s++);
 }
 
 
-unsigned int ADCRead(unsigned char ch)
+
+void
+lcd_putch(char c)
 {
-ADCON0 = 0x00;
-ADCON0 = (ch<<2);
-
-ADON=1;
-
-GO_DONE=1;
-while(GO_DONE);
-
-ADON=0;
-
-return (ADRESH<8)|ADRESL;
-
+RA3 = 1;
+lcd_write( c );
 }
 
-# 255
-void InitialiseADC (unsigned char ADC_Channel)
+# 83
+void
+lcd_goto(unsigned char pos)
 {
-if (ADC_Channel == 0) TRISA0 = 1;
-else if (ADC_Channel == 1) TRISA1 = 1;
-else if (ADC_Channel == 2) TRISA2 = 1;
-else if (ADC_Channel == 3) TRISA3 = 1;
-
-# 268
-ADCON1 = 0b10000100;
+RA3 = 0;
+lcd_write(0x80+pos);
 }
 
-# 276
-unsigned int ReadADC(unsigned char ADC_Channel)
+
+void
+lcd_init()
 {
-volatile unsigned int ADC_VALUE;
+char init_value;
 
-ADON = 1;
+ADCON1 = 0x06;
 
-ADCON0 = (ADC_Channel << 3) + 1;
+init_value = 0x3;
+TRISA=0;
+TRISD=0;
+RA3 = 0;
+RA1 = 0;
+RA2 = 0;
 
-ADIE = 0;
-ADIF = 0;
-ADRESL = 0;
-ADRESH = 0;
+_delay((unsigned long)((15)*(4000000/4000.0)));
+PORTD = init_value;
+((RA1 = 1),(RA1=0));
+_delay((unsigned long)((5)*(4000000/4000.0)));
+((RA1 = 1),(RA1=0));
+_delay((unsigned long)((200)*(4000000/4000000.0)));
+((RA1 = 1),(RA1=0));
+_delay((unsigned long)((200)*(4000000/4000000.0)));
+PORTD = 2;
+((RA1 = 1),(RA1=0));
 
-
-
-while(!ADIF) continue;
-
-ADC_VALUE = ADRESL;
-ADC_VALUE += (ADRESH << 8);
-
-return (ADC_VALUE);
+lcd_write(0x28);
+lcd_write(0xF);
+lcd_clear();
+lcd_write(0x6);
 }
-
-# 306
-int main(void)
-{
-
-TRISB = 0x00;
-TRISC = 0x00;
-TRISD = 0X00;
-TRISE = 0X00;
-
-lcd_init();
-
-
-
-doDelay();
-
-InitialiseADC (0);
-InitialiseADC (1);
-int read, leftpt, rightpt;
-
-while (1)
-{
-
-read = ReadADC(0);
-leftpt = (read > 1.5) ? 1 : 0;
-
-
-read = ReadADC(1);
-rightpt = (read > 1.5) ? 1 : 0;
-
-if((leftpt==0) && (rightpt==0))
-{
-searchTrack();
-}
-else
-{
-controlMotor(leftpt, rightpt);
-}
-}
-}
-
