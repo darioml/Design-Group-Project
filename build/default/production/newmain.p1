@@ -3928,9 +3928,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 75: {
 "75
 {
-[; ;newmain.c: 78: RC1 = 1;
+[; ;newmain.c: 78: RC0 = 1;
 "78
-[e = _RC1 -> -> 1 `i `b ]
+[e = _RC0 -> -> 1 `i `b ]
 "79
 }
 [; ;newmain.c: 79: }
@@ -3941,12 +3941,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 81: {
 "81
 {
-[; ;newmain.c: 84: RC1 = 0;
+[; ;newmain.c: 84: RC0 = 0;
 "84
-[e = _RC1 -> -> 0 `i `b ]
-[; ;newmain.c: 85: lastMotor = 2;
+[e = _RC0 -> -> 0 `i `b ]
+[; ;newmain.c: 85: lastMotor = 1;
 "85
-[e = _lastMotor -> 2 `i ]
+[e = _lastMotor -> 1 `i ]
 "86
 }
 [e :U 210 ]
@@ -3957,9 +3957,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 90: {
 "90
 {
-[; ;newmain.c: 93: RA0 = 1;
+[; ;newmain.c: 93: RC1 = 1;
 "93
-[e = _RA0 -> -> 1 `i `b ]
+[e = _RC1 -> -> 1 `i `b ]
 "94
 }
 [; ;newmain.c: 94: }
@@ -3970,12 +3970,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 96: {
 "96
 {
-[; ;newmain.c: 98: RA0 = 0;
+[; ;newmain.c: 98: RC1 = 0;
 "98
-[e = _RA0 -> -> 0 `i `b ]
-[; ;newmain.c: 99: lastMotor = 1;
+[e = _RC1 -> -> 0 `i `b ]
+[; ;newmain.c: 99: lastMotor = 2;
 "99
-[e = _lastMotor -> 1 `i ]
+[e = _lastMotor -> 2 `i ]
 "100
 }
 [e :U 212 ]
@@ -4181,205 +4181,208 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 206: _delay_ms(300);
 "206
 [e ( __delay_ms (1 -> -> 300 `i `ui ]
-[; ;newmain.c: 208: lcd_goto(0);
-"208
-[e ( _lcd_goto (1 -> -> 0 `i `uc ]
-[; ;newmain.c: 209: lcd_puts("Start!");
+[; ;newmain.c: 207: RC4 = 0;
+"207
+[e = _RC4 -> -> 0 `i `b ]
+[; ;newmain.c: 209: lcd_goto(0);
 "209
+[e ( _lcd_goto (1 -> -> 0 `i `uc ]
+[; ;newmain.c: 210: lcd_puts("Start!");
+"210
 [e ( _lcd_puts (1 :s 1C ]
-[; ;newmain.c: 211: }
-"211
+[; ;newmain.c: 212: }
+"212
 [e :UE 219 ]
 }
-"214
+"215
 [v _lcdCountdown `(v  1 ef1`uc ]
 {
-[; ;newmain.c: 213: void lcdCountdown(char t)
-[; ;newmain.c: 214: {
+[; ;newmain.c: 214: void lcdCountdown(char t)
+[; ;newmain.c: 215: {
 [e :U _lcdCountdown ]
 [v _t `uc  1 r1 ]
 [f ]
-[; ;newmain.c: 215: lcd_goto(0);
-"215
-[e ( _lcd_goto (1 -> -> 0 `i `uc ]
-[; ;newmain.c: 216: lcd_putch(t);
+[; ;newmain.c: 216: lcd_goto(0);
 "216
-[e ( _lcd_putch (1 _t ]
-[; ;newmain.c: 217: }
+[e ( _lcd_goto (1 -> -> 0 `i `uc ]
+[; ;newmain.c: 217: lcd_putch(t);
 "217
+[e ( _lcd_putch (1 _t ]
+[; ;newmain.c: 218: }
+"218
 [e :UE 220 ]
 }
-"222
+"223
 [v _ADCInit `(v  1 ef1`i ]
 {
-[; ;newmain.c: 221: void ADCInit(int ADC_Channel)
-[; ;newmain.c: 222: {
+[; ;newmain.c: 222: void ADCInit(int ADC_Channel)
+[; ;newmain.c: 223: {
 [e :U _ADCInit ]
 [v _ADC_Channel `i  1 r1 ]
 [f ]
-[; ;newmain.c: 223: if (ADC_Channel == 0) TRISA0 = 1;
-"223
-[e $ ! == _ADC_Channel -> 0 `i 222  ]
-[e = _TRISA0 -> -> 1 `i `b ]
-[e $U 223  ]
+[; ;newmain.c: 224: if (ADC_Channel == 0) TRISD0 = 1;
 "224
-[e :U 222 ]
-[; ;newmain.c: 224: else if (ADC_Channel == 1) TRISA1 = 1;
-[e $ ! == _ADC_Channel -> 1 `i 224  ]
-[e = _TRISA1 -> -> 1 `i `b ]
-[e $U 225  ]
+[e $ ! == _ADC_Channel -> 0 `i 222  ]
+[e = _TRISD0 -> -> 1 `i `b ]
+[e $U 223  ]
 "225
-[e :U 224 ]
-[; ;newmain.c: 225: else if (ADC_Channel == 2) TRISA2 = 1;
-[e $ ! == _ADC_Channel -> 2 `i 226  ]
-[e = _TRISA2 -> -> 1 `i `b ]
-[e $U 227  ]
+[e :U 222 ]
+[; ;newmain.c: 225: else if (ADC_Channel == 1) TRISD1 = 1;
+[e $ ! == _ADC_Channel -> 1 `i 224  ]
+[e = _TRISD1 -> -> 1 `i `b ]
+[e $U 225  ]
 "226
+[e :U 224 ]
+[; ;newmain.c: 226: else if (ADC_Channel == 2) TRISD2 = 1;
+[e $ ! == _ADC_Channel -> 2 `i 226  ]
+[e = _TRISD2 -> -> 1 `i `b ]
+[e $U 227  ]
+"227
 [e :U 226 ]
-[; ;newmain.c: 226: else if (ADC_Channel == 3) TRISA3 = 1;
+[; ;newmain.c: 227: else if (ADC_Channel == 3) TRISD3 = 1;
 [e $ ! == _ADC_Channel -> 3 `i 228  ]
-[e = _TRISA3 -> -> 1 `i `b ]
+[e = _TRISD3 -> -> 1 `i `b ]
 [e :U 228 ]
-"228
+"229
 [e :U 227 ]
 [e :U 225 ]
 [e :U 223 ]
-[; ;newmain.c: 228: ADCON1 = 0b10000100;
+[; ;newmain.c: 229: ADCON1 = 0b10000100;
 [e = _ADCON1 -> -> 132 `i `uc ]
-[; ;newmain.c: 229: }
-"229
+[; ;newmain.c: 230: }
+"230
 [e :UE 221 ]
 }
-"233
+"234
 [v _ADCRead `(ui  1 ef1`uc ]
 {
-[; ;newmain.c: 232: unsigned int ADCRead(unsigned char ch)
-[; ;newmain.c: 233: {
+[; ;newmain.c: 233: unsigned int ADCRead(unsigned char ch)
+[; ;newmain.c: 234: {
 [e :U _ADCRead ]
 [v _ch `uc  1 r1 ]
 [f ]
-[; ;newmain.c: 234: ADCON0 = 0x00;
-"234
-[e = _ADCON0 -> -> 0 `i `uc ]
-[; ;newmain.c: 235: ADCON0 = (ch<<2);
+[; ;newmain.c: 235: ADCON0 = 0x00;
 "235
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;newmain.c: 236: ADCON0 = (ch<<2);
+"236
 [e = _ADCON0 -> << -> _ch `i -> 2 `i `uc ]
-[; ;newmain.c: 237: ADON=1;
-"237
+[; ;newmain.c: 238: ADON=1;
+"238
 [e = _ADON -> -> 1 `i `b ]
-[; ;newmain.c: 239: GO_DONE=1;
-"239
-[e = _GO_DONE -> -> 1 `i `b ]
-[; ;newmain.c: 240: while(GO_DONE);
+[; ;newmain.c: 240: GO_DONE=1;
 "240
+[e = _GO_DONE -> -> 1 `i `b ]
+[; ;newmain.c: 241: while(GO_DONE);
+"241
 [e $U 230  ]
 [e :U 231 ]
 [e :U 230 ]
 [e $ _GO_DONE 231  ]
 [e :U 232 ]
-[; ;newmain.c: 242: ADON=0;
-"242
+[; ;newmain.c: 243: ADON=0;
+"243
 [e = _ADON -> -> 0 `i `b ]
-[; ;newmain.c: 244: return (ADRESH<8)|ADRESL;
-"244
+[; ;newmain.c: 245: return (ADRESH<8)|ADRESL;
+"245
 [e ) -> | -> < -> _ADRESH `i -> 8 `i `i -> _ADRESL `i `ui ]
 [e $UE 229  ]
-[; ;newmain.c: 246: }
-"246
+[; ;newmain.c: 247: }
+"247
 [e :UE 229 ]
 }
-"311
+"312
 [v _main `(i  1 ef ]
 {
-[; ;newmain.c: 310: int main(void)
-[; ;newmain.c: 311: {
+[; ;newmain.c: 311: int main(void)
+[; ;newmain.c: 312: {
 [e :U _main ]
 [f ]
-[; ;newmain.c: 313: TRISA = 0x00;
-"313
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;newmain.c: 314: TRISB = 0x00;
+[; ;newmain.c: 314: TRISA = 0x00;
 "314
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;newmain.c: 315: TRISC = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;newmain.c: 315: TRISB = 0x00;
 "315
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;newmain.c: 316: TRISD = 0X00;
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;newmain.c: 316: TRISC = 0x00;
 "316
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;newmain.c: 317: TRISE = 0X00;
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;newmain.c: 317: TRISD = 0X00;
 "317
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;newmain.c: 318: TRISE = 0X00;
+"318
 [e = _TRISE -> -> 0 `i `uc ]
-[; ;newmain.c: 319: lcd_init();
-"319
+[; ;newmain.c: 320: lcd_init();
+"320
 [e ( _lcd_init ..  ]
-[; ;newmain.c: 323: doDelay();
-"323
+[; ;newmain.c: 324: doDelay();
+"324
 [e ( _doDelay ..  ]
-[; ;newmain.c: 325: ADCInit (0);
-"325
-[e ( _ADCInit (1 -> 0 `i ]
-[; ;newmain.c: 326: ADCInit (1);
+[; ;newmain.c: 326: ADCInit (0);
 "326
-[e ( _ADCInit (1 -> 1 `i ]
+[e ( _ADCInit (1 -> 0 `i ]
+[; ;newmain.c: 327: ADCInit (1);
 "327
+[e ( _ADCInit (1 -> 1 `i ]
+"328
 [v _read `i  1 a ]
 [v _leftpt `i  1 a ]
 [v _rightpt `i  1 a ]
-[; ;newmain.c: 327: int read, leftpt, rightpt;
-[; ;newmain.c: 329: while (1)
-"329
-[e :U 235 ]
-[; ;newmain.c: 330: {
+[; ;newmain.c: 328: int read, leftpt, rightpt;
+[; ;newmain.c: 330: while (1)
 "330
+[e :U 235 ]
+[; ;newmain.c: 331: {
+"331
 {
-[; ;newmain.c: 332: read = ADCRead(0);
-"332
-[e = _read -> ( _ADCRead (1 -> -> 0 `i `uc `i ]
-[; ;newmain.c: 333: leftpt = (read > 1.5) ? 1 : 0;
+[; ;newmain.c: 333: read = ADCRead(0);
 "333
-[e = _leftpt ? > -> _read `d .1.5 : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 336: read = ADCRead(1);
-"336
-[e = _read -> ( _ADCRead (1 -> -> 1 `i `uc `i ]
-[; ;newmain.c: 337: rightpt = (read > 1.5) ? 1 : 0;
+[e = _read -> ( _ADCRead (1 -> -> 0 `i `uc `i ]
+[; ;newmain.c: 334: leftpt = (read > 2.2) ? 1 : 0;
+"334
+[e = _leftpt ? > -> _read `d .2.2 : -> 1 `i -> 0 `i ]
+[; ;newmain.c: 337: read = ADCRead(1);
 "337
-[e = _rightpt ? > -> _read `d .1.5 : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 339: if((leftpt==0) && (rightpt==0))
-"339
-[e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 237  ]
-[; ;newmain.c: 340: {
+[e = _read -> ( _ADCRead (1 -> -> 1 `i `uc `i ]
+[; ;newmain.c: 338: rightpt = (read > 2.2) ? 1 : 0;
+"338
+[e = _rightpt ? > -> _read `d .2.2 : -> 1 `i -> 0 `i ]
+[; ;newmain.c: 340: if((leftpt==0) && (rightpt==0))
 "340
-{
-[; ;newmain.c: 341: searchTrack();
+[e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 237  ]
+[; ;newmain.c: 341: {
 "341
-[e ( _searchTrack ..  ]
-"342
-}
-[; ;newmain.c: 342: }
-[e $U 238  ]
-"343
-[e :U 237 ]
-[; ;newmain.c: 343: else
-[; ;newmain.c: 344: {
-"344
 {
-[; ;newmain.c: 345: controlMotor(leftpt, rightpt);
-"345
-[e ( _controlMotor (2 , _leftpt _rightpt ]
-"346
+[; ;newmain.c: 342: searchTrack();
+"342
+[e ( _searchTrack ..  ]
+"343
 }
-[e :U 238 ]
+[; ;newmain.c: 343: }
+[e $U 238  ]
+"344
+[e :U 237 ]
+[; ;newmain.c: 344: else
+[; ;newmain.c: 345: {
+"345
+{
+[; ;newmain.c: 346: controlMotor(leftpt, rightpt);
+"346
+[e ( _controlMotor (2 , _leftpt _rightpt ]
 "347
 }
+[e :U 238 ]
+"348
+}
 [e :U 234 ]
-"329
+"330
 [e $U 235  ]
 [e :U 236 ]
-[; ;newmain.c: 346: }
 [; ;newmain.c: 347: }
-[; ;newmain.c: 349: }
-"349
+[; ;newmain.c: 348: }
+[; ;newmain.c: 350: }
+"350
 [e :UE 233 ]
 }
 [a 1C 83 116 97 114 116 33 0 ]
