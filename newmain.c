@@ -75,14 +75,14 @@ void controlMotor(int Leftpt, int Rightpt)
     {
         //if left sensor is on track, turn on right motor
         //outputHighPin (RC1); // RC1 is right motor
-        RC1 = 1;
+        RC0 = 1;
     }
     else
     {
         //if left sensor is off track, switch off right motor
         //outputLowPin (RC1);
-        RC1 = 0;
-        lastMotor = 2;
+        RC0 = 0;
+        lastMotor = 1; //1 = right motor, sorry for the confusion!
     }
 
 
@@ -90,13 +90,13 @@ void controlMotor(int Leftpt, int Rightpt)
     {
         //similarly, we do the same for the right motor
         //outputHighPin (RC0); //RC0 is left motor
-        RA0 = 1;
+        RC1 = 1;
     }
     else
     {
         //outputLowPin (RC0);
-        RA0 = 0;
-        lastMotor = 1;
+        RC1 = 0;
+        lastMotor = 2;
     }
 }
 
@@ -204,6 +204,7 @@ void doDelay()
 
     RC4 = 1; //this is the higher pitch sound
     _delay_ms(300);
+    RC4 = 0;
 
     lcd_goto(0);	// select first line
     lcd_puts("Start!");
@@ -220,10 +221,10 @@ void lcdCountdown(char t)
 //Function to Initialise the ADC Module
 void ADCInit(int ADC_Channel)
 {
-    if          (ADC_Channel == 0) 	TRISA0 = 1;
-    else if     (ADC_Channel == 1) 	TRISA1 = 1;
-    else if     (ADC_Channel == 2) 	TRISA2 = 1;
-    else if	(ADC_Channel == 3) 	TRISA3 = 1;
+    if          (ADC_Channel == 0) 	TRISD0 = 1;
+    else if     (ADC_Channel == 1) 	TRISD1 = 1;
+    else if     (ADC_Channel == 2) 	TRISD2 = 1;
+    else if	(ADC_Channel == 3) 	TRISD3 = 1;
 
     ADCON1	= 0b10000100;
 }
@@ -330,11 +331,11 @@ int main(void)
     {
         /*test for left phototransistor*/
         read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
-        leftpt = (read > 1.5) ? 1 : 0;
+        leftpt = (read > 2.2) ? 1 : 0;
 
         /*test for right phototransistor */
         read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
-        rightpt = (read > 1.5) ? 1 : 0;
+        rightpt = (read > 2.2) ? 1 : 0;
 
         if((leftpt==0) && (rightpt==0))
         {
