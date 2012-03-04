@@ -2392,7 +2392,7 @@ extern void lcd_init(void);
 
 extern void lcd_putch(char);
 
-# 13 "newmain.c"
+# 10 "newmain.c"
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFD & 0xFFF7");
 
 
@@ -2402,7 +2402,7 @@ time_t start, stop;
 int clock_t, ticks; long count;
 int lastMotor;
 
-# 25
+# 22
 void _delay_ms(unsigned int ms);
 void outputHighPin (bit pin);
 void outputLowPin (bit pin);
@@ -2416,7 +2416,7 @@ void InitialiseADC (unsigned char ADC_Channel);
 unsigned int ReadADC(unsigned char ADC_Channel);
 void lcdCountdown(char t);
 
-# 47
+# 44
 void _delay_ms(unsigned int ms)
 {
 unsigned char i;
@@ -2430,16 +2430,18 @@ do
 } while(--ms);
 }
 
-# 75
+# 72
 void controlMotor(int Leftpt, int Rightpt)
 {
 if (Leftpt == 1)
 {
 
+
 RC1 = 1;
 }
 else
 {
+
 
 RC1 = 0;
 lastMotor = 2;
@@ -2448,6 +2450,7 @@ lastMotor = 2;
 
 if (Rightpt == 1)
 {
+
 
 RA0 = 1;
 }
@@ -2476,12 +2479,9 @@ controlMotor(0, 1);
 int controlLCD()
 {
 
-
-
-
 }
 
-# 145
+# 142
 int controlBuzzer()
 {
 
@@ -2588,46 +2588,11 @@ return (ADRESH<8)|ADRESL;
 
 }
 
-# 255
-void InitialiseADC (unsigned char ADC_Channel)
-{
-if (ADC_Channel == 0) TRISA0 = 1;
-else if (ADC_Channel == 1) TRISA1 = 1;
-else if (ADC_Channel == 2) TRISA2 = 1;
-else if (ADC_Channel == 3) TRISA3 = 1;
-
-# 268
-ADCON1 = 0b10000100;
-}
-
-# 276
-unsigned int ReadADC(unsigned char ADC_Channel)
-{
-volatile unsigned int ADC_VALUE;
-
-ADON = 1;
-
-ADCON0 = (ADC_Channel << 3) + 1;
-
-ADIE = 0;
-ADIF = 0;
-ADRESL = 0;
-ADRESH = 0;
-
-
-
-while(!ADIF) continue;
-
-ADC_VALUE = ADRESL;
-ADC_VALUE += (ADRESH << 8);
-
-return (ADC_VALUE);
-}
-
-# 306
+# 310
 int main(void)
 {
 
+TRISA = 0x00;
 TRISB = 0x00;
 TRISC = 0x00;
 TRISD = 0X00;
@@ -2639,18 +2604,18 @@ lcd_init();
 
 doDelay();
 
-InitialiseADC (0);
-InitialiseADC (1);
+ADCInit (0);
+ADCInit (1);
 int read, leftpt, rightpt;
 
 while (1)
 {
 
-read = ReadADC(0);
+read = ADCRead(0);
 leftpt = (read > 1.5) ? 1 : 0;
 
 
-read = ReadADC(1);
+read = ADCRead(1);
 rightpt = (read > 1.5) ? 1 : 0;
 
 if((leftpt==0) && (rightpt==0))
@@ -2662,5 +2627,6 @@ else
 controlMotor(leftpt, rightpt);
 }
 }
+
 }
 

@@ -9,4 +9,3 @@ build/default/production/newmain.p1:	\
 	/usr/hitech/picc/9.82/include/pic16f917.h	\
 	/usr/hitech/picc/9.82/include/pic.h	\
 	/usr/hitech/picc/9.82/include/chip_select.h	\
-	newfile.c	\

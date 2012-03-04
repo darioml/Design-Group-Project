@@ -1,18 +1,18 @@
-_searchTrack: CODE, 1233 0 48
-_lcd_puts: CODE, 1067 0 36
-_lcd_putch: CODE, 938 0 11
-___ftpack: CODE, 1544 0 123
-_main: CODE, 1667 0 182
+_searchTrack: CODE, 1240 0 48
+_lcd_puts: CODE, 1077 0 36
+_lcd_putch: CODE, 948 0 11
+_ADCInit: CODE, 1288 0 51
+___ftpack: CODE, 1537 0 123
+_main: CODE, 1660 0 189
 _doDelay: CODE, 1849 0 199
-_controlMotor: CODE, 1033 0 34
-_lcd_clear: CODE, 988 0 19
-_lcdCountdown: CODE, 974 0 14
-_InitialiseADC: CODE, 1185 0 48
-_lcd_goto: CODE, 949 0 12
-__delay_ms: CODE, 1103 0 38
-_ReadADC: CODE, 1281 0 65
-_lcd_write: CODE, 1007 0 26
-___awtoft: CODE, 1141 0 44
-___ftge: CODE, 1432 0 112
-_lcd_init: CODE, 1346 0 86
-Total: 1097
+_controlMotor: CODE, 1043 0 34
+_lcd_clear: CODE, 998 0 19
+_lcdCountdown: CODE, 984 0 14
+_lcd_goto: CODE, 959 0 12
+__delay_ms: CODE, 1113 0 38
+_ADCRead: CODE, 1195 0 45
+_lcd_write: CODE, 1017 0 26
+___awtoft: CODE, 1151 0 44
+___ftge: CODE, 1425 0 112
+_lcd_init: CODE, 1339 0 86
+Total: 1087

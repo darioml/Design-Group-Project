@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <pic.h>
-//#include <as16f917.h>
 #include <htc.h>
 #include <time.h>
-#include "newfile.c"
 #include "lcd.h"
-//#include <>
 // Using Internal Clock of 8 Mhz
 #define FOSC 8000000L
 
@@ -313,6 +310,7 @@ unsigned int ReadADC(unsigned char ADC_Channel)
 int main(void)
 {
     //OSCCON=0x70;         // Select 8 Mhz internal clock
+    TRISA = 0x00;
     TRISB = 0x00;
     TRISC = 0x00;
     TRISD = 0X00;
@@ -324,18 +322,18 @@ int main(void)
     //controlBuzzer();
     doDelay(); //does LCD and Buzzer at the same time..
 
-    InitialiseADC (0);   // initialise channel   left transistor  /* Analogue-RA0/RA1/RA3 Digital-RA2/RA5	*/
-    InitialiseADC (1);
+    ADCInit (0);   // initialise channel   left transistor  /* Analogue-RA0/RA1/RA3 Digital-RA2/RA5	*/
+    ADCInit (1);
     int read, leftpt, rightpt;
 
     while (1) //let's continuously loop this, since it's controling our motor!
     {
         /*test for left phototransistor*/
-        read = ReadADC(0);// get the input of analoge and return digital value of 10 bits, A2
+        read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
         leftpt = (read > 1.5) ? 1 : 0;
 
         /*test for right phototransistor */
-        read = ReadADC(1);  // get the input of analoge and return digital value of 10 bits, A2D
+        read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
         rightpt = (read > 1.5) ? 1 : 0;
 
         if((leftpt==0) && (rightpt==0))
