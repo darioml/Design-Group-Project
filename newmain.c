@@ -3,8 +3,8 @@
 #include <htc.h>
 #include <time.h>
 #include "lcd.h"
-// Using Internal Clock of 8 Mhz
-#define FOSC 8000000L
+// Using Internal Clock of 20 Mhz
+#define FOSC 1500000L
 
 
 __CONFIG(FOSC_INTOSCCLK & WDTE_OFF);
@@ -165,6 +165,8 @@ int controlBuzzer()
 
 void doDelay()
 {
+    RC3 = 0;
+    RC4 = 0;
     lcdCountdown('8');
     _delay_ms(1000); //sleep for 1 second
 
@@ -182,7 +184,6 @@ void doDelay()
 
     //From here on, we need to do the buzzer s in a nice timespace, while keeping 1 seconds
     //for each LCD countdown.
-
     lcdCountdown('3');
     RC3 = 1;
     _delay_ms(200);
@@ -221,10 +222,10 @@ void lcdCountdown(char t)
 //Function to Initialise the ADC Module
 void ADCInit(int ADC_Channel)
 {
-    if          (ADC_Channel == 0) 	TRISD0 = 1;
-    else if     (ADC_Channel == 1) 	TRISD1 = 1;
-    else if     (ADC_Channel == 2) 	TRISD2 = 1;
-    else if	(ADC_Channel == 3) 	TRISD3 = 1;
+    if          (ADC_Channel == 0) 	TRISE0 = 1;
+    else if     (ADC_Channel == 1) 	TRISE1 = 1;
+    else if     (ADC_Channel == 2) 	TRISE2 = 1;
+    else if	(ADC_Channel == 3) 	TRISE3 = 1;
 
     ADCON1	= 0b10000100;
 }
@@ -318,7 +319,6 @@ int main(void)
     TRISE = 0X00;    // Set All on PORT B,C,D,E  as Output
 
     lcd_init();
-
     //_delay_ms(5000); //Stop 5 seconds, and then do the buzzer
     //controlBuzzer();
     doDelay(); //does LCD and Buzzer at the same time..

@@ -2240,13 +2240,13 @@
 [v _controlBuzzer `(i  1 e 2 0 ]
 "167
 [v _doDelay `(v  1 e 0 0 ]
-"215
+"216
 [v _lcdCountdown `(v  1 e 0 0 ]
-"223
+"224
 [v _ADCInit `(v  1 e 0 0 ]
-"234
+"235
 [v _ADCRead `(ui  1 e 2 0 ]
-"312
+"313
 [v _main `(i  1 e 2 0 ]
 "95 /hitech/products/compilers/pic/pro/9.82/dist/linux/include/pic16f917.h
 [v _INDF `VEuc  1 e 1 @0 ]
@@ -3745,7 +3745,7 @@
 [v _count `l  1 e 4 0 ]
 "17
 [v _lastMotor `i  1 e 2 0 ]
-"312
+"313
 [v _main `(i  1 e 2 0 ]
 {
 "328
@@ -3757,7 +3757,7 @@
 "167
 [v _doDelay `(v  1 e 0 0 ]
 {
-"212
+"213
 } 0
 "93 lcd.c
 [v _lcd_init `(v  1 e 0 0 ]
@@ -3766,12 +3766,12 @@
 [v lcd_init@init_value `uc  1 a 1 6 ]
 "120
 } 0
-"215 newmain.c
+"216 newmain.c
 [v _lcdCountdown `(v  1 e 0 0 ]
 {
 [v lcdCountdown@t `uc  1 a 1 wreg ]
 [v lcdCountdown@t `uc  1 a 1 wreg ]
-"218
+"219
 } 0
 "53 lcd.c
 [v _lcd_clear `(v  1 e 0 0 ]
@@ -3835,18 +3835,18 @@
 [v ___ftpack@sign `uc  1 p 1 4 ]
 "86
 } 0
-"234 newmain.c
+"235 newmain.c
 [v _ADCRead `(ui  1 e 2 0 ]
 {
 [v ADCRead@ch `uc  1 a 1 wreg ]
 [v ADCRead@ch `uc  1 a 1 wreg ]
-"247
+"248
 } 0
-"223
+"224
 [v _ADCInit `(v  1 e 0 0 ]
 {
 [v ADCInit@ADC_Channel `i  1 p 2 0 ]
-"230
+"231
 } 0
 "73
 [v _controlMotor `(v  1 e 0 0 ]
