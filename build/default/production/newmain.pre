@@ -2425,7 +2425,7 @@ do
 i = 4;
 do
 {
-{ unsigned char us; us = (250)/(12000000/1500000L)|1; while(--us != 0) continue; };
+{ unsigned char us; us = (250)/(12000000/1700000L)|1; while(--us != 0) continue; };
 } while(--i);
 } while(--ms);
 }
@@ -2437,13 +2437,13 @@ if (Leftpt == 1)
 {
 
 
-RC0 = 1;
+RC6 = 1;
 }
 else
 {
 
 
-RC0 = 0;
+RC6 = 0;
 lastMotor = 1;
 }
 
@@ -2452,12 +2452,12 @@ if (Rightpt == 1)
 {
 
 
-RC1 = 1;
+RC7 = 1;
 }
 else
 {
 
-RC1 = 0;
+RC7 = 0;
 lastMotor = 2;
 }
 }
@@ -2510,6 +2510,7 @@ void doDelay()
 {
 RC3 = 0;
 RC4 = 0;
+
 lcdCountdown('8');
 _delay_ms(1000);
 
@@ -2590,20 +2591,29 @@ return (ADRESH<8)|ADRESL;
 
 }
 
-# 312
+# 313
 int main(void)
 {
 
-TRISA = 0x00;
+
 TRISB = 0x00;
 TRISC = 0x00;
-TRISD = 0X00;
+
 TRISE = 0X00;
+
+_delay_ms(1000);
 
 lcd_init();
 
 
+
+lcd_puts("test");
+_delay_ms(5000);
+
+while (1)
+{
 doDelay();
+}
 
 ADCInit (0);
 ADCInit (1);
@@ -2612,19 +2622,28 @@ int read, leftpt, rightpt;
 while (1)
 {
 
+
 read = ADCRead(0);
-leftpt = (read > 2.2) ? 1 : 0;
+leftpt = (read > 0.9) ? 1 : 0;
 
 
 read = ADCRead(1);
-rightpt = (read > 2.2) ? 1 : 0;
+rightpt = (read > 0.9) ? 1 : 0;
 
 if((leftpt==0) && (rightpt==0))
 {
+RC3 = 1;
+_delay_ms(3000);
+RC3 = 0;
+_delay_ms(1000);
 searchTrack();
 }
 else
 {
+RC3 = 1;
+_delay_ms(1000);
+RC3 = 0;
+_delay_ms(1000);
 controlMotor(leftpt, rightpt);
 }
 }

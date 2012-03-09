@@ -4,7 +4,7 @@
 #include <time.h>
 #include "lcd.h"
 // Using Internal Clock of 20 Mhz
-#define FOSC 1500000L
+#define FOSC 1700000L
 
 
 __CONFIG(FOSC_INTOSCCLK & WDTE_OFF);
@@ -74,14 +74,14 @@ void controlMotor(int Leftpt, int Rightpt)
     if (Leftpt == 1)
     {
         //if left sensor is on track, turn on right motor
-        //outputHighPin (RC1); // RC1 is right motor
-        RC0 = 1;
+        //outputHighPin (RC6); // RC6 is right motor
+        RC6 = 1;
     }
     else
     {
         //if left sensor is off track, switch off right motor
-        //outputLowPin (RC1);
-        RC0 = 0;
+        //outputLowPin (RC6);
+        RC6 = 0;
         lastMotor = 1; //1 = right motor, sorry for the confusion!
     }
 
@@ -89,13 +89,13 @@ void controlMotor(int Leftpt, int Rightpt)
     if (Rightpt == 1)
     {
         //similarly, we do the same for the right motor
-        //outputHighPin (RC0); //RC0 is left motor
-        RC1 = 1;
+        //outputHighPin (RC7); //RC7 is left motor
+        RC7 = 1;
     }
     else
     {
-        //outputLowPin (RC0);
-        RC1 = 0;
+        //outputLowPin (RC7);
+        RC7 = 0;
         lastMotor = 2;
     }
 }
@@ -167,6 +167,7 @@ void doDelay()
 {
     RC3 = 0;
     RC4 = 0;
+
     lcdCountdown('8');
     _delay_ms(1000); //sleep for 1 second
 
@@ -312,37 +313,55 @@ unsigned int ReadADC(unsigned char ADC_Channel)
 int main(void)
 {
     //OSCCON=0x70;         // Select 8 Mhz internal clock
-    TRISA = 0x00;
+    //TRISA = 0x00;
     TRISB = 0x00;
     TRISC = 0x00;
-    TRISD = 0X00;
+    //TRISD = 0X00;
     TRISE = 0X00;    // Set All on PORT B,C,D,E  as Output
+
+    _delay_ms(1000);
 
     lcd_init();
     //_delay_ms(5000); //Stop 5 seconds, and then do the buzzer
     //controlBuzzer();
-    doDelay(); //does LCD and Buzzer at the same time..
 
+    lcd_puts("test");
+    _delay_ms(5000);
+
+    while (1)
+    {
+        doDelay(); //does LCD and Buzzer at the same time..
+    }
+    
     ADCInit (0);   // initialise channel   left transistor  /* Analogue-RA0/RA1/RA3 Digital-RA2/RA5	*/
     ADCInit (1);
     int read, leftpt, rightpt;
 
     while (1) //let's continuously loop this, since it's controling our motor!
     {
-        /*test for left phototransistor*/
+        
+        //test for left phototransistor
         read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
-        leftpt = (read > 2.2) ? 1 : 0;
+        leftpt = (read > 0.9) ? 1 : 0;
 
-        /*test for right phototransistor */
+        //test for right phototransistor
         read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
-        rightpt = (read > 2.2) ? 1 : 0;
+        rightpt = (read > 0.9) ? 1 : 0;
 
         if((leftpt==0) && (rightpt==0))
         {
+            RC3 = 1;
+            _delay_ms(3000);
+            RC3 = 0;
+            _delay_ms(1000);
             searchTrack();
         }
         else
         {
+            RC3 = 1;
+            _delay_ms(1000);
+            RC3 = 0;
+            _delay_ms(1000);
             controlMotor(leftpt, rightpt);
         }
     }
