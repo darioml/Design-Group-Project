@@ -342,12 +342,18 @@ int main(void)
     TRISB = 0x00;
     TRISC = 0x00;
     //TRISD = 0X00;
-    TRISE = 0b11000000;    // Set All on PORT B,C,D,E  as Output
+    TRISE = 0b11111111;    // Set All on PORT B,C,D,E  as Output
                             // 0 and 1 on E are inputs
 
     PORTA = 0b00000000; ///LCD DATA
     PORTB = 0b00000000;
-    PORTC = 0b00000000;
+
+    RC6 = 1;
+    _delay_ms(1000);
+    RC6 = 0;
+    RC7 = 1;
+    _delay_ms(1000);
+    RC7 = 0;
 
     //AD CONV
     
@@ -374,25 +380,23 @@ int main(void)
 
         //test for left phototransistor
         //read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
-        read = readchannel(0);
-        leftpt = (read > 150) ? 1 : 0;
+        read = readchannel(1);
+        leftpt = (read > 170) ? 1 : 0;
 
         //test for right phototransistor
         //read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
-        read = readchannel(1);
-        rightpt = (read > 150) ? 1 : 0;
+        read = readchannel(0);
+        rightpt = (read > 170) ? 1 : 0;
 
 
         //_delay_ms(3000);
 
         if((leftpt==0) && (rightpt==0))
         {
-            RC3 = 1;
             searchTrack();
         }
         else
         {
-            RC3 = 0;
             controlMotor(leftpt, rightpt);
         }
     }

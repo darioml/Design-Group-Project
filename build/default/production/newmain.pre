@@ -2627,14 +2627,20 @@ TRISA = 0x00;
 TRISB = 0x00;
 TRISC = 0x00;
 
-TRISE = 0b11000000;
+TRISE = 0b11111111;
 
 
 PORTA = 0b00000000;
 PORTB = 0b00000000;
-PORTC = 0b00000000;
 
-# 368
+RC6 = 1;
+_delay_ms(1000);
+RC6 = 0;
+RC7 = 1;
+_delay_ms(1000);
+RC7 = 0;
+
+# 374
 ADCInit ();
 int leftpt, rightpt;
 int read;
@@ -2644,25 +2650,23 @@ while (1)
 
 
 
-read = readchannel(0);
-leftpt = (read > 150) ? 1 : 0;
-
-
-
 read = readchannel(1);
-rightpt = (read > 150) ? 1 : 0;
+leftpt = (read > 170) ? 1 : 0;
+
+
+
+read = readchannel(0);
+rightpt = (read > 170) ? 1 : 0;
 
 
 
 
 if((leftpt==0) && (rightpt==0))
 {
-RC3 = 1;
 searchTrack();
 }
 else
 {
-RC3 = 0;
 controlMotor(leftpt, rightpt);
 }
 }

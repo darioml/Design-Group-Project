@@ -11,6 +11,8 @@
     </logicalFolder>
     <logicalFolder name="f1" displayName="New Folder 1" projectFiles="true">
     </logicalFolder>
+    <logicalFolder name="f2" displayName="New Folder 2" projectFiles="true">
+    </logicalFolder>
     <logicalFolder name="ObjectFiles"
                    displayName="Object Files"
                    projectFiles="true">
@@ -56,48 +58,48 @@
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
       </makeCustomizationType>
       <HI-TECH-COMP>
-        <property key="extra-include-directories" value=""/>
-        <property key="what-to-do" value="ignore"/>
         <property key="define-macros" value=""/>
-        <property key="what-to-do-ex" value="ignore"/>
-        <property key="warning-level" value="0"/>
-        <property key="optimization-assembler-files" value="false"/>
-        <property key="verbose" value="false"/>
-        <property key="optimization-debug" value="false"/>
-        <property key="optimization-level" value="9"/>
-        <property key="preprocess-assembler" value="false"/>
+        <property key="extra-include-directories" value=""/>
         <property key="identifier-length" value="31"/>
+        <property key="operation-mode" value="lite"/>
+        <property key="optimization-assembler" value="true"/>
+        <property key="optimization-assembler-files" value="false"/>
+        <property key="optimization-debug" value="false"/>
         <property key="optimization-global" value="true"/>
-        <property key="undefine-macros" value=""/>
+        <property key="optimization-level" value="9"/>
         <property key="optimization-set" value="default"/>
         <property key="optimization-speed" value="false"/>
-        <property key="optimization-assembler" value="true"/>
-        <property key="operation-mode" value="lite"/>
+        <property key="preprocess-assembler" value="false"/>
+        <property key="undefine-macros" value=""/>
+        <property key="verbose" value="false"/>
+        <property key="warning-level" value="0"/>
+        <property key="what-to-do" value="ignore"/>
+        <property key="what-to-do-ex" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
       </HI-TECH-LINK>
       <ICD3PlatformTool>
-        <property key="programoptions.preserveprogramrange.end" value="0x7"/>
-        <property key="memories.id" value="true"/>
-        <property key="Freeze Peripherals" value="false"/>
-        <property key="programoptions.preserveeeprom" value="false"/>
-        <property key="memories.programmemory" value="true"/>
-        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="AutoSelectMemRanges" value="manual"/>
-        <property key="hwtoolclock.frcindebug" value="false"/>
-        <property key="programoptions.usehighvoltageonmclr" value="false"/>
-        <property key="memories.eeprom" value="true"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="Freeze Peripherals" value="false"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="programoptions.preserveprogramrange.start" value="0x0"/>
-        <property key="voltagevalue" value="5.0"/>
-        <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="memories.programmemory.start" value="0x0"/>
-        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="hwtoolclock.frcindebug" value="false"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x1fff"/>
+        <property key="memories.programmemory.start" value="0x0"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveprogramrange.end" value="0x7"/>
+        <property key="programoptions.preserveprogramrange.start" value="0x0"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="voltagevalue" value="5.0"/>
       </ICD3PlatformTool>
     </conf>
   </confs>
