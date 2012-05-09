@@ -19,8 +19,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>newmain.c</itemPath>
-      <itemPath>lcd.c</itemPath>
-      <itemPath>lcd.h</itemPath>
+      <itemPath>lcd2.c</itemPath>
+      <itemPath>lcd2.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

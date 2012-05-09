@@ -2,7 +2,8 @@
 #include <pic.h>
 #include <htc.h>
 #include <time.h>
-#include "lcd.h"
+//#include "lcd.h"
+#include "lcd2.h"
 // Using Internal Clock of 20 Mhz
 #define FOSC 1700000L
 
@@ -26,9 +27,10 @@ void controlMotor(int Leftpt, int Rightpt);
 int searchTrack(void);
 int controlLCD();
 int controlBuzzer();
-void ADCInit(int ADC_Channel);
+void ADCInit();
 unsigned int ADCRead(unsigned char ch);
 void InitialiseADC (unsigned char ADC_Channel);
+int readchannel(int chan);
 unsigned int ReadADC(unsigned char ADC_Channel);
 void lcdCountdown(char t);
 
@@ -208,32 +210,29 @@ void doDelay()
     _delay_ms(300);
     RC4 = 0;
 
-    lcd_goto(0);	// select first line
-    lcd_puts("Start!");
+    //lcd_goto(0);	// select first line
+    //lcd_puts("Start!");
 
 }
 
 void lcdCountdown(char t)
 {
-    lcd_goto(0); //go to the first field
-    lcd_putch(t);
+    //lcd_goto(0); //go to the first field
+    //lcd_putch(t);
 }
 
 
 //Function to Initialise the ADC Module
-void ADCInit(int ADC_Channel)
+void ADCInit()
 {
-    if          (ADC_Channel == 0) 	TRISE0 = 1;
-    else if     (ADC_Channel == 1) 	TRISE1 = 1;
-    else if     (ADC_Channel == 2) 	TRISE2 = 1;
-    else if	(ADC_Channel == 3) 	TRISE3 = 1;
-
-    ADCON1	= 0b10000100;
+    ANSEL = 0b11111111;
+    //ADCON1	= 0b10000100;
 }
 
 //Function to Read given ADC channel (0-13) (Written with basebone of online code, and pic16f917 datasheet)
 unsigned int ADCRead(unsigned char ch)
 {
+
    ADCON0 = 0x00; //reset adcon, which is the main settings of the "A/D" conversion
    ADCON0 = (ch<<2);   //Select ADC Channel
 
@@ -244,7 +243,7 @@ unsigned int ADCRead(unsigned char ch)
 
    ADON=0;  //switch off adc
 
-   return (ADRESH<8)|ADRESL; //10 bits are given back over two memories - This will give us our stuff, I think.
+   return ADRESH; //10 bits are given back over two memories - This will give us our stuff, I think.
    //Will c turn the bits into an int? should do..
 }
 
@@ -268,7 +267,7 @@ void InitialiseADC (unsigned char ADC_Channel)
 	Please refer to Page 118 from PIC manual for other configurations.
  ------	*/
 
-	/* Analogue-RA0/RA1/RA3 Digital-RA2/RA5	
+	/* Analogue-RA0/RA1/RA3 Digital-RA2/RA5
 	ADCON1	= 0b10000100;
 }*/
 
@@ -285,7 +284,7 @@ unsigned int ReadADC(unsigned char ADC_Channel)
     volatile unsigned int ADC_VALUE;
 
     ADON = 1;*/
-    /* Selecting ADC channel 
+    /* Selecting ADC channel
     ADCON0 = (ADC_Channel << 3) + 1;	// Enable ADC, Fosc/2
 
     ADIE     =	0;		 	// Masking the interrupt
@@ -300,7 +299,7 @@ unsigned int ReadADC(unsigned char ADC_Channel)
 	ADC_VALUE	=	 ADRESL;			// Getting HSB of CCP1
 	ADC_VALUE	+= (ADRESH << 8);			  // Getting LSB of CCP1
 
-  return (ADC_VALUE);     /* Return the value of the ADC process 
+  return (ADC_VALUE);     /* Return the value of the ADC process
 }
 */
 
@@ -310,58 +309,90 @@ unsigned int ReadADC(unsigned char ADC_Channel)
 // Call functions to searchTrack or controlMotor
 // *************************************************
 
+int readchannel(int chan)
+{
+    if (chan == 0) //A/D AN5 RE0
+    {
+        ADCON0 = 0b00010101;
+
+        GO_DONE=1;//Start conversion
+        while(GO_DONE); //wait for the conversion to finish
+
+        ADON=0;  //switch off adc
+
+        return ADRESH;
+    }
+    else if (chan == 1) //A/D AN6 RE1
+    {
+        ADCON0 = 0b00011001;
+
+        GO_DONE=1;//Start conversion
+        while(GO_DONE); //wait for the conversion to finish
+
+        ADON=0;  //switch off adc
+
+        return ADRESH;
+    }
+}
+
 int main(void)
 {
     //OSCCON=0x70;         // Select 8 Mhz internal clock
-    //TRISA = 0x00;
+    TRISA = 0x00;
     TRISB = 0x00;
     TRISC = 0x00;
     //TRISD = 0X00;
-    TRISE = 0X00;    // Set All on PORT B,C,D,E  as Output
+    TRISE = 0b11000000;    // Set All on PORT B,C,D,E  as Output
+                            // 0 and 1 on E are inputs
 
-    _delay_ms(1000);
+    PORTA = 0b00000000; ///LCD DATA
+    PORTB = 0b00000000;
+    PORTC = 0b00000000;
 
-    lcd_init();
-    //_delay_ms(5000); //Stop 5 seconds, and then do the buzzer
+    //AD CONV
+    
+    //Which ones are analogue? ANSEL = 0b01100000;
+
+    //lcd_init();
+    //_delay_ms(1000); //Stop 5 seconds, and then do the buzzer
     //controlBuzzer();
 
-    lcd_puts("test");
-    _delay_ms(5000);
+    //SendDat(0b0111);
+    //SendDat(0b0011);
+    //_delay_ms(5000);
 
-    while (1)
-    {
-        doDelay(); //does LCD and Buzzer at the same time..
-    }
+
+    //doDelay(); //does LCD and Buzzer at the same time..
     
-    ADCInit (0);   // initialise channel   left transistor  /* Analogue-RA0/RA1/RA3 Digital-RA2/RA5	*/
-    ADCInit (1);
-    int read, leftpt, rightpt;
+
+    ADCInit ();   // initialise channel   left transistor  /* Analogue-RA0/RA1/RA3 Digital-RA2/RA5	*/
+    int leftpt, rightpt;
+    int read;
 
     while (1) //let's continuously loop this, since it's controling our motor!
     {
-        
+
         //test for left phototransistor
-        read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
-        leftpt = (read > 0.9) ? 1 : 0;
+        //read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
+        read = readchannel(0);
+        leftpt = (read > 150) ? 1 : 0;
 
         //test for right phototransistor
-        read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
-        rightpt = (read > 0.9) ? 1 : 0;
+        //read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
+        read = readchannel(1);
+        rightpt = (read > 150) ? 1 : 0;
+
+
+        //_delay_ms(3000);
 
         if((leftpt==0) && (rightpt==0))
         {
             RC3 = 1;
-            _delay_ms(3000);
-            RC3 = 0;
-            _delay_ms(1000);
             searchTrack();
         }
         else
         {
-            RC3 = 1;
-            _delay_ms(1000);
             RC3 = 0;
-            _delay_ms(1000);
             controlMotor(leftpt, rightpt);
         }
     }

@@ -1,5 +1,5 @@
 
-# 1 "lcd.c"
+# 1 "lcd2.c"
 
 # 95 "/usr/hitech/picc/9.82/include/pic16f917.h"
 volatile unsigned char INDF @ 0x000;
@@ -2280,7 +2280,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 8 "lcd.h"
+# 8 "lcd2.h"
 extern void lcd_write(unsigned char);
 
 
@@ -2301,24 +2301,67 @@ extern void lcd_init(void);
 
 extern void lcd_putch(char);
 
-# 37 "lcd.c"
+# 32
+void SendDat(unsigned char c);
+void SendIns(unsigned char c);
+
+# 41 "lcd2.c"
+void ___delay_ms(unsigned int ms)
+{
+unsigned char i;
+do
+{
+i = 4;
+do
+{
+{ unsigned char us; us = (250)/(12000000/1700000L)|1; while(--us != 0) continue; };
+} while(--i);
+} while(--ms);
+}
+
 void
 lcd_write(unsigned char c)
 {
-_delay((unsigned long)((40)*(4000000/4000000.0)));
-PORTD = ( ( c >> 4 ) & 0x0F );
-((RA1 = 1),(RA1=0));
-PORTD = ( c & 0x0F );
-((RA1 = 1),(RA1=0));
+{ unsigned char us; us = (40)/(12000000/1700000L)|1; while(--us != 0) continue; };
+PORTA = ( ( (c<<4) | 0x00 ) & PORTA );
+((RB4 = 1),(RB4=0));
 }
 
-# 51
+# 66
+void SendIns(unsigned char c)
+{
+PORTA = ( c );
+RB6 = 0;
+{ unsigned char us; us = (40)/(12000000/1700000L)|1; while(--us != 0) continue; };
+RB4 = 1;
+{ unsigned char us; us = (40)/(12000000/1700000L)|1; while(--us != 0) continue; };
+RB4 = 0;
+{ unsigned char us; us = (40)/(12000000/1700000L)|1; while(--us != 0) continue; };
+}
+
+void SendDat(unsigned char c)
+{
+PORTA = ( c );
+RB6 = 1;
+{ unsigned char us; us = (40)/(12000000/1700000L)|1; while(--us != 0) continue; };
+RB4 = 1;
+{ unsigned char us; us = (40)/(12000000/1700000L)|1; while(--us != 0) continue; };
+RB4 = 0;
+RB6 = 0;
+{ unsigned char us; us = (40)/(12000000/1700000L)|1; while(--us != 0) continue; };
+}
+
+void initial()
+{
+
+}
+
 void
 lcd_clear(void)
 {
-RA3 = 0;
+RB6 = 0;
 lcd_write(0x1);
-_delay((unsigned long)((2)*(4000000/4000.0)));
+___delay_ms(2);
 }
 
 
@@ -2326,7 +2369,7 @@ _delay((unsigned long)((2)*(4000000/4000.0)));
 void
 lcd_puts(const char * s)
 {
-RA3 = 1;
+RB6 = 1;
 while(*s)
 lcd_write(*s++);
 }
@@ -2336,15 +2379,15 @@ lcd_write(*s++);
 void
 lcd_putch(char c)
 {
-RA3 = 1;
+RB6 = 1;
 lcd_write( c );
 }
 
-# 83
+# 126
 void
 lcd_goto(unsigned char pos)
 {
-RA3 = 0;
+RB6 = 0;
 lcd_write(0x80+pos);
 }
 
@@ -2352,30 +2395,41 @@ lcd_write(0x80+pos);
 void
 lcd_init()
 {
-char init_value;
+RB6 = 0;
+RB4 = 0;
+RB5 = 0;
 
-ADCON1 = 0x06;
+___delay_ms(15);
+SendIns(0b0011);
+{ unsigned char us; us = (800)/(12000000/1700000L)|1; while(--us != 0) continue; };
 
-init_value = 0x3;
-TRISA=0;
-TRISD=0;
-RA3 = 0;
-RA1 = 0;
-RA2 = 0;
 
-_delay((unsigned long)((15)*(4000000/4000.0)));
-PORTD = init_value;
-((RA1 = 1),(RA1=0));
-_delay((unsigned long)((5)*(4000000/4000.0)));
-((RA1 = 1),(RA1=0));
-_delay((unsigned long)((200)*(4000000/4000000.0)));
-((RA1 = 1),(RA1=0));
-_delay((unsigned long)((200)*(4000000/4000000.0)));
-PORTD = 2;
-((RA1 = 1),(RA1=0));
+SendIns(0b0010);
+{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+SendIns(0b1100);
+{ unsigned char us; us = (800)/(12000000/1700000L)|1; while(--us != 0) continue; };
 
-lcd_write(0x28);
-lcd_write(0xF);
-lcd_clear();
-lcd_write(0x6);
+
+SendIns(0b0010);
+{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+SendIns(0b1100);
+{ unsigned char us; us = (800)/(12000000/1700000L)|1; while(--us != 0) continue; };
+
+
+SendIns(0b0000);
+{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+SendIns(0b1111);
+{ unsigned char us; us = (800)/(12000000/1700000L)|1; while(--us != 0) continue; };
+
+
+SendIns(0b0000);
+{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+SendIns(0b0001);
+___delay_ms(2);
+
+
+SendIns(0b0000);
+{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+SendIns(0b0101);
+{ unsigned char us; us = (800)/(12000000/1700000L)|1; while(--us != 0) continue; };
 }
