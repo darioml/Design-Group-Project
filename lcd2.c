@@ -137,7 +137,9 @@ lcd_init()
 	LCD_RS = 0;
 	LCD_EN = 0;
 	LCD_RW = 0;
-	
+
+        //this needs to be made into 8 bits!
+
 	___delay_ms(15);	// wait 15mSec after power applied,
 	SendIns(0b0011);
         ___delay_us(800);
