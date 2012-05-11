@@ -24,11 +24,11 @@
 #include	<htc.h>
 #include	"lcd2.h"
 
-#define	LCD_RS RB6
-#define	LCD_RW RB5
-#define LCD_EN RB4
+#define	LCD_RS RA0
+#define	LCD_RW RA1
+#define LCD_EN RA2
 
-#define LCD_DATA	PORTA
+#define LCD_DATA	PORTB
 
 #define	LCD_STROBE()	((LCD_EN = 1),(LCD_EN=0))
 
@@ -65,25 +65,27 @@ lcd_write(unsigned char c)
 
 void SendIns(unsigned char c)
 {
-    LCD_DATA = ( c );
+    LCD_RW = 0;
     LCD_RS = 0;
-    ___delay_us(40);
+    LCD_DATA = ( c );
+    ___delay_us(10);
     LCD_EN = 1;
-    ___delay_us(40);
+    ___delay_us(10);
     LCD_EN = 0;
-    ___delay_us(40);
+    ___delay_us(10);
 }
 
 void SendDat(unsigned char c)
 {
-    LCD_DATA = ( c );
+    LCD_RW = 0;
     LCD_RS = 1;
-    ___delay_us(40);
+    LCD_DATA = ( c );
+    ___delay_us(10);
     LCD_EN = 1;
-    ___delay_us(40);
+    ___delay_us(10);
     LCD_EN = 0;
     LCD_RS = 0;
-    ___delay_us(40);
+    ___delay_us(10);
 }
 
 void initial()
@@ -134,43 +136,26 @@ lcd_goto(unsigned char pos)
 void
 lcd_init()
 {
+        ___delay_ms(40);
+        
 	LCD_RS = 0;
 	LCD_EN = 0;
 	LCD_RW = 0;
 
-        //this needs to be made into 8 bits!
-
-	___delay_ms(15);	// wait 15mSec after power applied,
-	SendIns(0b0011);
-        ___delay_us(800);
-
         //function set
-	SendIns(0b0010);	// Four bit mode
-	___delay_us(10);
-        SendIns(0b1100);	// Four bit mode
-	___delay_us(800);
+	SendIns(0b00111000);
+        ___delay_us(100);
+	SendIns(0b00111000);
+	___delay_us(100);
 
-        //function set
-        SendIns(0b0010);	// Four bit mode
-	___delay_us(10);
-        SendIns(0b1100);	// Four bit mode
-	___delay_us(800);
+        //Display ON/OFF
+        SendIns(0b00001111);
+	___delay_us(100);
 
-        //Display On
-        SendIns(0b0000);	// Four bit mode
-	___delay_us(10);
-        SendIns(0b1111);	// Four bit mode
-	___delay_us(800);
+        //Display CLEAR
+        SendIns(0b00000001);
+	___delay_ms(5);
 
-        //Display Clear
-        SendIns(0b0000);	// Four bit mode
-	___delay_us(10);
-        SendIns(0b0001);	// Four bit mode
-	___delay_ms(2);
-
-        //Display Clear
-        SendIns(0b0000);	// Four bit mode
-	___delay_us(10);
-        SendIns(0b0101);	// Four bit mode
-	___delay_us(800);
+        //Entry Mode Set
+        SendIns(0b00000100);
 }

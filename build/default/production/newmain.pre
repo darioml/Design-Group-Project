@@ -2646,9 +2646,10 @@ PORTB = 0x00;
 PORTC = 0x00;
 
 
+lcd_init();
+SendDat(0b00010011);
 
 
-doDelay();
 
 ADCInit ();
 

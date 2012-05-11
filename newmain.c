@@ -361,9 +361,10 @@ int main(void)
     PORTC = 0x00;
 
 
-    //lcd_init();
+    lcd_init();
+    SendDat(0b00010011);
 
-    doDelay();      //does LCD and Buzzer at the same time..
+    //doDelay();      //does LCD and Buzzer at the same time..
     
     ADCInit ();     //Let's fire up the ADC!
 
