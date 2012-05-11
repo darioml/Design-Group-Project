@@ -4396,9 +4396,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 361: PORTC = 0x00;
 "361
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;newmain.c: 366: doDelay();
-"366
-[e ( _doDelay ..  ]
 [; ;newmain.c: 368: ADCInit ();
 "368
 [e ( _ADCInit ..  ]
@@ -4416,15 +4413,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 375: read = readchannel(1);
 "375
 [e = _read ( _readchannel (1 -> 1 `i ]
-[; ;newmain.c: 376: leftpt = (read > 170) ? 1 : 0;
+[; ;newmain.c: 376: leftpt = (read > 105) ? 1 : 0;
 "376
-[e = _leftpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
+[e = _leftpt ? > _read -> 105 `i : -> 1 `i -> 0 `i ]
 [; ;newmain.c: 380: read = readchannel(0);
 "380
 [e = _read ( _readchannel (1 -> 0 `i ]
-[; ;newmain.c: 381: rightpt = (read > 170) ? 1 : 0;
+[; ;newmain.c: 381: rightpt = (read > 105) ? 1 : 0;
 "381
-[e = _rightpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
+[e = _rightpt ? > _read -> 105 `i : -> 1 `i -> 0 `i ]
 [; ;newmain.c: 386: if((leftpt==0) && (rightpt==0))
 "386
 [e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 244  ]

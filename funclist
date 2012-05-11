@@ -1,9 +1,6 @@
-_searchTrack: CODE, 1647 0 75
-_ADCInit: CODE, 1477 0 7
-_main: CODE, 1722 0 132
-_doDelay: CODE, 1854 0 194
-_controlMotor: CODE, 1543 0 48
-_lcdCountdown: CODE, 1476 0 1
-__delay_ms: CODE, 1505 0 38
-_readchannel: CODE, 1591 0 56
-Total: 551
+_searchTrack: CODE, 1850 0 71
+_ADCInit: CODE, 1716 0 7
+_main: CODE, 1921 0 127
+_controlMotor: CODE, 1746 0 48
+_readchannel: CODE, 1794 0 56
+Total: 309

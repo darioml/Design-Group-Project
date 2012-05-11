@@ -2645,11 +2645,7 @@ PORTA = 0x00;
 PORTB = 0x00;
 PORTC = 0x00;
 
-
-
-
-doDelay();
-
+# 368
 ADCInit ();
 
 int leftpt, rightpt, read;
@@ -2658,12 +2654,12 @@ while (1)
 
 
 read = readchannel(1);
-leftpt = (read > 170) ? 1 : 0;
+leftpt = (read > 105) ? 1 : 0;
 
 
 
 read = readchannel(0);
-rightpt = (read > 170) ? 1 : 0;
+rightpt = (read > 105) ? 1 : 0;
 
 
 

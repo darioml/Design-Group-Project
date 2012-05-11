@@ -16,7 +16,7 @@ Linker command line:
   -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
   -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
   -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  /tmp/cgtV4ixFg.obj \
+  /tmp/cgtZK0Clb.obj \
   dist/default/production/DesignGroupProject.X.production.obj 
 
 Object code version is 3.10
@@ -26,38 +26,33 @@ Machine type is 16F917
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtV4ixFg.obj
+/tmp/cgtZK0Clb.obj
                 end_init                              0        0        3        0       0
 dist/default/production/DesignGroupProject.X.production.obj
                 config                             2007     2007        1     400E       0
-                text246                             5E1      5E1       26      BC2       0
-                text245                             607      607       30      C0E       0
-                text244                             5C4      5C4        1      B88       0
-                text243                             5C5      5C5        7      B8A       0
-                text242                             637      637       38      C6E       0
-                text241                             66F      66F       4B      CDE       0
-                text240                             73E      73E       C2      E7C       0
-                maintext                            6BA      6BA       84      D74       0
-                cstackCOMMON                         70       70        D       70       1
-                clrtext                             5CC      5CC        8      B98       0
-                bssBANK0                             20       20       14       20       1
-                cinit                               5D4      5D4        D      BA8       0
+                text197                             6D2      6D2       30      DA4       0
+                text196                             6B4      6B4        7      D68       0
+                text195                             702      702       38      E04       0
+                text194                             73A      73A       47      E74       0
+                maintext                            781      781       7F      F02       0
+                cstackCOMMON                         70       70        C       70       1
+                clrtext                             6BB      6BB        8      D76       0
+                bssBANK0                             20       20       12       20       1
+                bssCOMMON                            7C       7C        2       70       1
+                cinit                               6C3      6C3        F      D86       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CONST          
 
         CLASS   CODE           
                 end_init                              0        0        3         0
-                text246                             5E1      5E1       26         0
-                text245                             607      607       30         0
-                text244                             5C4      5C4        1         0
-                text243                             5C5      5C5        7         0
-                text242                             637      637       38         0
-                text241                             66F      66F       4B         0
-                text240                             73E      73E       C2         0
-                maintext                            6BA      6BA       84         0
-                clrtext                             5CC      5CC        8         0
-                cinit                               5D4      5D4        D         0
+                text197                             6D2      6D2       30         0
+                text196                             6B4      6B4        7         0
+                text195                             702      702       38         0
+                text194                             73A      73A       47         0
+                maintext                            781      781       7F         0
+                clrtext                             6BB      6BB        8         0
+                cinit                               6C3      6C3        F         0
 
         CLASS   STRCODE        
 
@@ -66,7 +61,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRING         
 
         CLASS   BANK0          
-                bssBANK0                             20       20       14         1
+                bssBANK0                             20       20       12         1
 
         CLASS   BANK1          
 
@@ -80,7 +75,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 abs_s1                               7E       7E        2         1
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        D         1
+                cstackCOMMON                         70       70        C         1
+                bssCOMMON                            7C       7C        2         1
 
         CLASS   SFR0           
 
@@ -102,38 +98,34 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                bssBANK0                       000020  000014  000034        20       1  BANK0       1
-                cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
-                text244                        0005C4  000001  0005C5       B88       0  CODE        2
-                text243                        0005C5  000007  0005CC       B8A       0  CODE        2
-                clrtext                        0005CC  000008  0005D4       B98       0  CODE        2
-                cinit                          0005D4  00000D  0005E1       BA8       0  CODE        2
-                text246                        0005E1  000026  000607       BC2       0  CODE        2
-                text245                        000607  000030  000637       C0E       0  CODE        2
-                text242                        000637  000038  00066F       C6E       0  CODE        2
-                text241                        00066F  00004B  0006BA       CDE       0  CODE        2
-                maintext                       0006BA  000084  00073E       D74       0  CODE        2
-                text240                        00073E  0000C2  000800       E7C       0  CODE        2
+                bssBANK0                       000020  000012  000032        20       1  BANK0       1
+                cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
+                text196                        0006B4  000007  0006BB       D68       0  CODE        2
+                clrtext                        0006BB  000008  0006C3       D76       0  CODE        2
+                cinit                          0006C3  00000F  0006D2       D86       0  CODE        2
+                text197                        0006D2  000030  000702       DA4       0  CODE        2
+                text195                        000702  000038  00073A       E04       0  CODE        2
+                text194                        00073A  000047  000781       E74       0  CODE        2
+                maintext                       000781  00007F  000800       F02       0  CODE        2
                 config                         002007  000001  002008      400E       0  CONFIG      2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0034-006F             3C           1
+        BANK0            0032-006F             3E           1
         BANK1            00A0-00EF             50           1
         BANK2            0120-016F             50           1
         BANK3            0190-01EF             60           1
-        CODE             0003-05C3            5C1           2
+        CODE             0003-06B3            6B1           2
                          0800-1FFF            800
-        COMMON           007D-007D              1           1
-        CONST            0003-05C3            100           2
+        CONST            0003-06B3            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-05C3            100           2
+        ENTRY            0003-06B3            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              0034-006F             3C           1
+        RAM              0032-006F             3E           1
                          00A0-00EF             50
                          0120-016F             50
                          0190-01EF             60
@@ -141,30 +133,24 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-011F             20           1
         SFR3             0180-018F             10           1
-        STRCODE          0003-05C3            5C1           2
+        STRCODE          0003-06B3            6B1           2
                          0800-1FFF           1800
-        STRING           0003-05C3            100           2
+        STRING           0003-06B3            100           2
                          0800-1FFF            100
 
                                   Symbol Table
 
 ??_ADCInit             cstackCOMMON 0070
-??__delay_ms           cstackCOMMON 0072
 ??_controlMotor        cstackCOMMON 0074
-??_doDelay             cstackCOMMON 0075
-??_lcdCountdown        cstackCOMMON 0070
-??_main                cstackCOMMON 0075
+??_main                cstackCOMMON 0074
 ??_readchannel         cstackCOMMON 0072
 ??_searchTrack         cstackCOMMON 0074
 ?_ADCInit              cstackCOMMON 0070
-?__delay_ms            cstackCOMMON 0070
 ?_controlMotor         cstackCOMMON 0070
-?_doDelay              cstackCOMMON 0070
-?_lcdCountdown         cstackCOMMON 0070
 ?_main                 cstackCOMMON 0070
 ?_readchannel          cstackCOMMON 0070
 ?_searchTrack          cstackCOMMON 0070
-_ADCInit               text243      05C5
+_ADCInit               text196      06B4
 _ADCON0                (abs)        001F
 _ADON                  (abs)        00F8
 _ADRESH                (abs)        001E
@@ -199,6 +185,7 @@ __Hbank1               bank1        0000
 __Hbank2               bank2        0000
 __Hbank3               bank3        0000
 __HbssBANK0            bssBANK0     0000
+__HbssCOMMON           bssCOMMON    0000
 __Hcinit               cinit        0000
 __Hclrtext             clrtext      0000
 __Hcode                code         0000
@@ -227,6 +214,7 @@ __Lbank1               bank1        0000
 __Lbank2               bank2        0000
 __Lbank3               bank3        0000
 __LbssBANK0            bssBANK0     0000
+__LbssCOMMON           bssCOMMON    0000
 __Lcinit               cinit        0000
 __Lclrtext             clrtext      0000
 __Lcode                code         0000
@@ -250,70 +238,56 @@ __Lsfr3                sfr3         0000
 __Lstrings             strings      0000
 __Ltext                text         0000
 __S0                   (abs)        2008
-__S1                   (abs)        007D
+__S1                   (abs)        007E
 __S2                   (abs)        0000
-__delay_ms             text246      05E1
-__delay_ms@i           cstackCOMMON 0073
-__delay_ms@ms          cstackCOMMON 0070
-__delay_ms@us          cstackCOMMON 0074
-__end_of_ADCInit       text243      05CC
-__end_of__delay_ms     text246      0607
-__end_of_controlMotor  text245      0637
-__end_of_doDelay       text240      0800
-__end_of_lcdCountdown  text244      05C5
-__end_of_main          maintext     073E
-__end_of_readchannel   text242      066F
-__end_of_searchTrack   text241      06BA
+__end_of_ADCInit       text196      06BB
+__end_of_controlMotor  text197      0702
+__end_of_main          maintext     0800
+__end_of_readchannel   text195      073A
+__end_of_searchTrack   text194      0781
 __pbssBANK0            bssBANK0     0020
+__pbssCOMMON           bssCOMMON    007C
 __pcstackCOMMON        cstackCOMMON 0070
-__pmaintext            maintext     06BA
-__ptext239             text239      0000
-__ptext240             text240      073E
-__ptext241             text241      066F
-__ptext242             text242      0637
-__ptext243             text243      05C5
-__ptext244             text244      05C4
-__ptext245             text245      0607
-__ptext246             text246      05E1
-__ptext247             text247      0000
+__pmaintext            maintext     0781
+__ptext193             text193      0000
+__ptext194             text194      073A
+__ptext195             text195      0702
+__ptext196             text196      06B4
+__ptext197             text197      06D2
+__ptext198             text198      0000
 __size_of_ADCInit      (abs)        0000
-__size_of__delay_ms    (abs)        0000
 __size_of_controlMotor (abs)        0000
-__size_of_doDelay      (abs)        0000
-__size_of_lcdCountdown (abs)        0000
 __size_of_main         (abs)        0000
 __size_of_readchannel  (abs)        0000
 __size_of_searchTrack  (abs)        0000
 _clock_t               bssBANK0     002C
-_controlMotor          text245      0607
+_controlMotor          text197      06D2
 _count                 bssBANK0     0020
-_doDelay               text240      073E
 _exit                  init         0000
 _ignore                bssBANK0     002E
-_lastMotor             bssBANK0     0030
-_lcdCountdown          text244      05C4
-_main                  maintext     06BA
-_readchannel           text242      0637
-_searchTrack           text241      066F
+_lastMotor             bssCOMMON    007C
+_main                  maintext     0781
+_readchannel           text195      0702
+_searchTrack           text194      073A
 _start                 bssBANK0     0024
 _stop                  bssBANK0     0028
-_ticks                 bssBANK0     0032
+_ticks                 bssBANK0     0030
 btemp                  (abs)        007E
-clear_ram              clrtext      05CC
+clear_ram              clrtext      06BB
 controlMotor@Leftpt    cstackCOMMON 0070
 controlMotor@Rightpt   cstackCOMMON 0072
-end_of_initialization  cinit        05DD
+end_of_initialization  cinit        06CE
 intlevel0              functab      0000
 intlevel1              functab      0000
 intlevel2              functab      0000
 intlevel3              functab      0000
 intlevel4              functab      0000
 intlevel5              functab      0000
-main@leftpt            cstackCOMMON 0077
-main@read              cstackCOMMON 007B
-main@rightpt           cstackCOMMON 0079
+main@leftpt            cstackCOMMON 0076
+main@read              cstackCOMMON 007A
+main@rightpt           cstackCOMMON 0078
 readchannel@chan       cstackCOMMON 0070
 reset_vec              reset_vec    0000
 start                  init         0000
-start_initialization   cinit        05D4
+start_initialization   cinit        06C3
 wtemp0                 (abs)        007E

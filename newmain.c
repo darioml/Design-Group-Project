@@ -363,7 +363,7 @@ int main(void)
 
     //lcd_init();
 
-    doDelay();      //does LCD and Buzzer at the same time..
+    //doDelay();      //does LCD and Buzzer at the same time..
     
     ADCInit ();     //Let's fire up the ADC!
 
@@ -373,12 +373,12 @@ int main(void)
         //test for left phototransistor
         //read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
         read = readchannel(1);
-        leftpt = (read > 170) ? 1 : 0;
+        leftpt = (read > 105) ? 1 : 0;
 
         //test for right phototransistor
         //read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
         read = readchannel(0);
-        rightpt = (read > 170) ? 1 : 0;
+        rightpt = (read > 105) ? 1 : 0;
 
 
         //_delay_ms(3000);
