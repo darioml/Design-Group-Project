@@ -16,6 +16,7 @@ __CONFIG(FOSC_INTOSCCLK & WDTE_OFF);
 time_t start, stop;
 int clock_t, ticks; long count;
 int lastMotor;
+int ignore;
 
 /*
  function declerations
@@ -84,7 +85,10 @@ void controlMotor(int Leftpt, int Rightpt)
         //if left sensor is off track, switch off right motor
         //outputLowPin (RC6);
         RC6 = 0;
-        lastMotor = 1; //1 = right motor, sorry for the confusion!
+        if (ignore == 0)
+        {
+            lastMotor = 1;
+        }
     }
 
 
@@ -98,7 +102,10 @@ void controlMotor(int Leftpt, int Rightpt)
     {
         //outputLowPin (RC7);
         RC7 = 0;
-        lastMotor = 2;
+        if (ignore == 0)
+        {
+            lastMotor = 2;
+        }
     }
 }
 
@@ -109,13 +116,14 @@ void controlMotor(int Leftpt, int Rightpt)
 // *************************************************
 int searchTrack(void)
 {
-    if (lastMotor == 1)
-    {
-        controlMotor(0, 1);
-    }
-    else if (lastMotor == 2)
+    ignore = 1;
+    if (lastMotor == 2)
     {
         controlMotor(1, 0);
+    }
+    else if (lastMotor == 1)
+    {
+        controlMotor(0, 1);
     }
     else if (lastMotor == 0)
     {
@@ -362,7 +370,6 @@ int main(void)
     int leftpt, rightpt, read;
     while (1) //let's continuously loop this, since it's controling our motor!
     {
-
         //test for left phototransistor
         //read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
         read = readchannel(1);
@@ -382,6 +389,7 @@ int main(void)
         }
         else
         {
+            ignore = 0;
             controlMotor(leftpt, rightpt);
         }
     }
