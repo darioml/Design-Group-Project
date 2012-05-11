@@ -2405,8 +2405,9 @@ asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFD & 0xFFF7");
 time_t start, stop;
 int clock_t, ticks; long count;
 int lastMotor;
+int ignore;
 
-# 23
+# 24
 void _delay_ms(unsigned int ms);
 void outputHighPin (bit pin);
 void outputLowPin (bit pin);
@@ -2421,7 +2422,7 @@ int readchannel(int chan);
 unsigned int ReadADC(unsigned char ADC_Channel);
 void lcdCountdown(char t);
 
-# 46
+# 47
 void _delay_ms(unsigned int ms)
 {
 unsigned char i;
@@ -2435,7 +2436,7 @@ do
 } while(--ms);
 }
 
-# 74
+# 75
 void controlMotor(int Leftpt, int Rightpt)
 {
 if (Leftpt == 1)
@@ -2449,7 +2450,10 @@ else
 
 
 RC6 = 0;
+if (ignore == 0)
+{
 lastMotor = 1;
+}
 }
 
 
@@ -2463,30 +2467,38 @@ else
 {
 
 RC7 = 0;
+if (ignore == 0)
+{
 lastMotor = 2;
 }
 }
+}
 
-# 110
+# 117
 int searchTrack(void)
 {
-if (lastMotor == 1)
+ignore = 1;
+if (lastMotor == 2)
 {
 controlMotor(1, 0);
 }
-else if (lastMotor == 2)
+else if (lastMotor == 1)
 {
 controlMotor(0, 1);
 }
+else if (lastMotor == 0)
+{
+controlMotor(1,1);
+}
 }
 
-# 129
+# 141
 int controlLCD()
 {
 
 }
 
-# 144
+# 156
 int controlBuzzer()
 {
 
@@ -2571,7 +2583,9 @@ void lcdCountdown(char t)
 
 void ADCInit()
 {
+TRISE = 0xFF;
 ANSEL = 0b11111111;
+
 
 }
 
@@ -2593,7 +2607,7 @@ return ADRESH;
 
 }
 
-# 312
+# 326
 int readchannel(int chan)
 {
 if (chan == 0)
@@ -2627,27 +2641,20 @@ TRISA = 0x00;
 TRISB = 0x00;
 TRISC = 0x00;
 
-TRISE = 0b11111111;
+PORTA = 0x00;
+PORTB = 0x00;
+PORTC = 0x00;
 
 
-PORTA = 0b00000000;
-PORTB = 0b00000000;
 
-RC6 = 1;
-_delay_ms(1000);
-RC6 = 0;
-RC7 = 1;
-_delay_ms(1000);
-RC7 = 0;
 
-# 374
+doDelay();
+
 ADCInit ();
-int leftpt, rightpt;
-int read;
 
+int leftpt, rightpt, read;
 while (1)
 {
-
 
 
 read = readchannel(1);
@@ -2667,6 +2674,7 @@ searchTrack();
 }
 else
 {
+ignore = 0;
 controlMotor(leftpt, rightpt);
 }
 }
