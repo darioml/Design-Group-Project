@@ -360,9 +360,24 @@ int main(void)
     PORTB = 0x00;
     PORTC = 0x00;
 
-
     lcd_init();
-    SendDat(0b00010011);
+
+    SendIns(0b01000000);
+    _delay_ms(5);
+    SendIns(0b10000000);
+    _delay_ms(2000);
+
+    RA2 = 0;
+    PORTB = 0b00010100;
+    RA1 = 0;
+    RA0 = 1;
+    _delay_ms(5);
+    RA2 = 1;
+    _delay_ms(5);
+    RA2 = 0;
+    RA0 = 0;
+    _delay_ms(5);
+
 
     //doDelay();      //does LCD and Buzzer at the same time..
     

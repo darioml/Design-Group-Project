@@ -2333,11 +2333,11 @@ void SendIns(unsigned char c)
 RA1 = 0;
 RA0 = 0;
 PORTB = ( c );
-{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+___delay_ms(5);
 RA2 = 1;
-{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+___delay_ms(5);
 RA2 = 0;
-{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+___delay_ms(5);
 }
 
 void SendDat(unsigned char c)
@@ -2345,12 +2345,12 @@ void SendDat(unsigned char c)
 RA1 = 0;
 RA0 = 1;
 PORTB = ( c );
-{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+___delay_ms(5);
 RA2 = 1;
-{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+___delay_ms(5);
 RA2 = 0;
 RA0 = 0;
-{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
+___delay_ms(5);
 }
 
 void initial()
@@ -2404,8 +2404,10 @@ RA2 = 0;
 RA1 = 0;
 
 
-SendIns(0b00111000);
+SendIns(0b00001000);
 { unsigned char us; us = (100)/(12000000/1700000L)|1; while(--us != 0) continue; };
+
+
 SendIns(0b00111000);
 { unsigned char us; us = (100)/(12000000/1700000L)|1; while(--us != 0) continue; };
 
@@ -2418,5 +2420,8 @@ SendIns(0b00000001);
 ___delay_ms(5);
 
 
-SendIns(0b00000100);
+SendIns(0b00000111);
+___delay_ms(5);
+
+# 192
 }

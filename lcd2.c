@@ -68,11 +68,11 @@ void SendIns(unsigned char c)
     LCD_RW = 0;
     LCD_RS = 0;
     LCD_DATA = ( c );
-    ___delay_us(10);
+    ___delay_ms(5);
     LCD_EN = 1;
-    ___delay_us(10);
+    ___delay_ms(5);
     LCD_EN = 0;
-    ___delay_us(10);
+    ___delay_ms(5);
 }
 
 void SendDat(unsigned char c)
@@ -80,12 +80,12 @@ void SendDat(unsigned char c)
     LCD_RW = 0;
     LCD_RS = 1;
     LCD_DATA = ( c );
-    ___delay_us(10);
+    ___delay_ms(5);
     LCD_EN = 1;
-    ___delay_us(10);
+    ___delay_ms(5);
     LCD_EN = 0;
     LCD_RS = 0;
-    ___delay_us(10);
+    ___delay_ms(5);
 }
 
 void initial()
@@ -137,6 +137,32 @@ void
 lcd_init()
 {
         ___delay_ms(40);
+
+	LCD_RS = 0;
+	LCD_EN = 0;
+	LCD_RW = 0;
+
+        //Display ON/OFF
+        SendIns(0b00001000);
+	___delay_us(100);
+
+        //function set - 8 bit and 2 line
+	SendIns(0b00111000);
+        ___delay_us(100);
+
+        //Display ON/OFF, blink on
+        SendIns(0b00001111);
+	___delay_us(100);
+
+        //Display CLEAR
+        SendIns(0b00000001);
+	___delay_ms(5);
+
+        //Entry Mode Set
+        SendIns(0b00000111);
+	___delay_ms(5);
+        
+        /*___delay_ms(40);
         
 	LCD_RS = 0;
 	LCD_EN = 0;
@@ -157,5 +183,10 @@ lcd_init()
 	___delay_ms(5);
 
         //Entry Mode Set
-        SendIns(0b00000100);
+        SendIns(0b00000110);
+	___delay_ms(5);
+
+        //Go Home
+        SendIns(0b00000010);
+	___delay_ms(5);*/
 }

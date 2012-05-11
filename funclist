@@ -1,10 +1,10 @@
-_searchTrack: CODE, 1738 0 71
-____delay_ms: CODE, 1499 0 38
-_ADCInit: CODE, 1469 0 7
-_main: CODE, 1902 0 146
-_SendDat: CODE, 1633 0 49
-_controlMotor: CODE, 1537 0 48
-_readchannel: CODE, 1682 0 56
-_lcd_init: CODE, 1809 0 93
-_SendIns: CODE, 1585 0 48
-Total: 556
+_searchTrack: CODE, 1664 0 71
+____delay_ms: CODE, 1481 0 38
+_ADCInit: CODE, 1413 0 7
+_main: CODE, 1837 0 211
+_controlMotor: CODE, 1560 0 48
+__delay_ms: CODE, 1443 0 38
+_readchannel: CODE, 1608 0 56
+_lcd_init: CODE, 1735 0 102
+_SendIns: CODE, 1519 0 41
+Total: 612
