@@ -1894,6 +1894,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "36 newmain.c
 [v _lcdCountdown `(v  0 ef1`uc ]
 [p mainexit ]
+"24 lcd2.h
+[v _lcd_init `(v  0 ef ]
+"32 lcd2.h
+[v _SendDat `(v  0 ef1`uc ]
 [; ;stdio.h: 12: typedef int ptrdiff_t;
 [; ;stdio.h: 13: typedef unsigned size_t;
 [; ;stdio.h: 14: typedef unsigned short wchar_t;
@@ -4396,23 +4400,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 361: PORTC = 0x00;
 "361
 [e = _PORTC -> -> 0 `i `uc ]
+<<<<<<< HEAD
 [; ;newmain.c: 368: ADCInit ();
 "368
+=======
+[; ;newmain.c: 363: CMCON0 = 0x07;
+"363
+[e = _CMCON0 -> -> 7 `i `uc ]
+[; ;newmain.c: 364: LCDCON = 0x00;
+"364
+[e = _LCDCON -> -> 0 `i `uc ]
+[; ;newmain.c: 365: ANSEL = 0x00;
+"365
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;newmain.c: 367: lcd_init();
+"367
+[e ( _lcd_init ..  ]
+[; ;newmain.c: 369: SendDat(0b010000001);
+"369
+[e ( _SendDat (1 -> -> 129 `i `uc ]
+[; ;newmain.c: 372: ADCInit ();
+"372
 [e ( _ADCInit ..  ]
-"370
+[; ;newmain.c: 394: ADCInit ();
+"394
+>>>>>>> LCD
+[e ( _ADCInit ..  ]
+"396
 [v _leftpt `i  1 a ]
 [v _rightpt `i  1 a ]
 [v _read `i  1 a ]
-[; ;newmain.c: 370: int leftpt, rightpt, read;
-[; ;newmain.c: 371: while (1)
-"371
+[; ;newmain.c: 396: int leftpt, rightpt, read;
+[; ;newmain.c: 397: while (1)
+"397
 [e :U 242 ]
-[; ;newmain.c: 372: {
-"372
+[; ;newmain.c: 398: {
+"398
 {
-[; ;newmain.c: 375: read = readchannel(1);
-"375
+[; ;newmain.c: 401: read = readchannel(1);
+"401
 [e = _read ( _readchannel (1 -> 1 `i ]
+<<<<<<< HEAD
 [; ;newmain.c: 376: leftpt = (read > 105) ? 1 : 0;
 "376
 [e = _leftpt ? > _read -> 105 `i : -> 1 `i -> 0 `i ]
@@ -4424,41 +4452,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _rightpt ? > _read -> 105 `i : -> 1 `i -> 0 `i ]
 [; ;newmain.c: 386: if((leftpt==0) && (rightpt==0))
 "386
+=======
+[; ;newmain.c: 402: leftpt = (read > 170) ? 1 : 0;
+"402
+[e = _leftpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
+[; ;newmain.c: 406: read = readchannel(0);
+"406
+[e = _read ( _readchannel (1 -> 0 `i ]
+[; ;newmain.c: 407: rightpt = (read > 170) ? 1 : 0;
+"407
+[e = _rightpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
+[; ;newmain.c: 412: if((leftpt==0) && (rightpt==0))
+"412
+>>>>>>> LCD
 [e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 244  ]
-[; ;newmain.c: 387: {
-"387
+[; ;newmain.c: 413: {
+"413
 {
-[; ;newmain.c: 388: searchTrack();
-"388
+[; ;newmain.c: 414: searchTrack();
+"414
 [e ( _searchTrack ..  ]
-"389
+"415
 }
-[; ;newmain.c: 389: }
+[; ;newmain.c: 415: }
 [e $U 245  ]
-"390
+"416
 [e :U 244 ]
-[; ;newmain.c: 390: else
-[; ;newmain.c: 391: {
-"391
+[; ;newmain.c: 416: else
+[; ;newmain.c: 417: {
+"417
 {
-[; ;newmain.c: 392: ignore = 0;
-"392
+[; ;newmain.c: 418: ignore = 0;
+"418
 [e = _ignore -> 0 `i ]
-[; ;newmain.c: 393: controlMotor(leftpt, rightpt);
-"393
+[; ;newmain.c: 419: controlMotor(leftpt, rightpt);
+"419
 [e ( _controlMotor (2 , _leftpt _rightpt ]
-"394
+"420
 }
 [e :U 245 ]
-"395
+"421
 }
 [e :U 241 ]
-"371
+"397
 [e $U 242  ]
 [e :U 243 ]
-[; ;newmain.c: 394: }
-[; ;newmain.c: 395: }
-[; ;newmain.c: 397: }
-"397
+[; ;newmain.c: 420: }
+[; ;newmain.c: 421: }
+[; ;newmain.c: 423: }
+"423
 [e :UE 240 ]
 }

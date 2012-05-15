@@ -360,9 +360,38 @@ int main(void)
     PORTB = 0x00;
     PORTC = 0x00;
 
+    CMCON0 = 0x07;
+    LCDCON = 0x00;
+    ANSEL = 0x00;
 
-    //lcd_init();
+    lcd_init();
 
+<<<<<<< HEAD
+=======
+    SendDat(0b010000001);
+
+
+    ADCInit ();     //Let's fire up the ADC!
+
+    //CGRAM and DDRAM
+    //SendIns(0b01000000);
+    //_delay_ms(5);
+    //SendIns(0b10000000);
+    //_delay_ms(2000);
+
+    //RA2 = 0;
+    //PORTB = 0b00010100; //shift cursor to the right
+    //RA1 = 0;
+    //RA0 = 1;
+    //_delay_ms(5);
+    //RA2 = 1;
+    //_delay_ms(5);
+    //RA2 = 0;
+    //RA0 = 0;
+    //_delay_ms(5);
+
+
+>>>>>>> LCD
     //doDelay();      //does LCD and Buzzer at the same time..
     
     ADCInit ();     //Let's fire up the ADC!

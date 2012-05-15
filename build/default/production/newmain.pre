@@ -2645,7 +2645,22 @@ PORTA = 0x00;
 PORTB = 0x00;
 PORTC = 0x00;
 
+<<<<<<< HEAD
 # 368
+=======
+CMCON0 = 0x07;
+LCDCON = 0x00;
+ANSEL = 0x00;
+
+lcd_init();
+
+SendDat(0b010000001);
+
+
+>>>>>>> LCD
+ADCInit ();
+
+# 394
 ADCInit ();
 
 int leftpt, rightpt, read;
