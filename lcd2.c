@@ -78,9 +78,9 @@ void SendIns(unsigned char c)
 void SendDat(unsigned char c)
 {
     LCD_RW = 0;
+    LCD_DATA = ( c ); 
     LCD_RS = 1;
-    LCD_DATA = ( c );
-    ___delay_ms(5);
+    ___delay_us(10);
     LCD_EN = 1;
     ___delay_ms(5);
     LCD_EN = 0;

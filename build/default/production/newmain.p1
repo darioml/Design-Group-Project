@@ -1896,8 +1896,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "24 lcd2.h
 [v _lcd_init `(v  0 ef ]
-"33 lcd2.h
-[v _SendIns `(v  0 ef1`uc ]
+"32 lcd2.h
+[v _SendDat `(v  0 ef1`uc ]
 [; ;stdio.h: 12: typedef int ptrdiff_t;
 [; ;stdio.h: 13: typedef unsigned size_t;
 [; ;stdio.h: 14: typedef unsigned short wchar_t;
@@ -4400,114 +4400,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 361: PORTC = 0x00;
 "361
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;newmain.c: 363: lcd_init();
+[; ;newmain.c: 363: CMCON0 = 0x07;
 "363
-[e ( _lcd_init ..  ]
-[; ;newmain.c: 365: SendIns(0b01000000);
+[e = _CMCON0 -> -> 7 `i `uc ]
+[; ;newmain.c: 364: LCDCON = 0x00;
+"364
+[e = _LCDCON -> -> 0 `i `uc ]
+[; ;newmain.c: 365: ANSEL = 0x00;
 "365
-[e ( _SendIns (1 -> -> 64 `i `uc ]
-[; ;newmain.c: 366: _delay_ms(5);
-"366
-[e ( __delay_ms (1 -> -> 5 `i `ui ]
-[; ;newmain.c: 367: SendIns(0b10000000);
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;newmain.c: 367: lcd_init();
 "367
-[e ( _SendIns (1 -> -> 128 `i `uc ]
-[; ;newmain.c: 368: _delay_ms(2000);
-"368
-[e ( __delay_ms (1 -> -> 2000 `i `ui ]
-[; ;newmain.c: 370: RA2 = 0;
-"370
-[e = _RA2 -> -> 0 `i `b ]
-[; ;newmain.c: 371: PORTB = 0b00010100;
-"371
-[e = _PORTB -> -> 20 `i `uc ]
-[; ;newmain.c: 372: RA1 = 0;
+[e ( _lcd_init ..  ]
+[; ;newmain.c: 369: SendDat(0b010000001);
+"369
+[e ( _SendDat (1 -> -> 129 `i `uc ]
+[; ;newmain.c: 372: ADCInit ();
 "372
-[e = _RA1 -> -> 0 `i `b ]
-[; ;newmain.c: 373: RA0 = 1;
-"373
-[e = _RA0 -> -> 1 `i `b ]
-[; ;newmain.c: 374: _delay_ms(5);
-"374
-[e ( __delay_ms (1 -> -> 5 `i `ui ]
-[; ;newmain.c: 375: RA2 = 1;
-"375
-[e = _RA2 -> -> 1 `i `b ]
-[; ;newmain.c: 376: _delay_ms(5);
-"376
-[e ( __delay_ms (1 -> -> 5 `i `ui ]
-[; ;newmain.c: 377: RA2 = 0;
-"377
-[e = _RA2 -> -> 0 `i `b ]
-[; ;newmain.c: 378: RA0 = 0;
-"378
-[e = _RA0 -> -> 0 `i `b ]
-[; ;newmain.c: 379: _delay_ms(5);
-"379
-[e ( __delay_ms (1 -> -> 5 `i `ui ]
-[; ;newmain.c: 384: ADCInit ();
-"384
 [e ( _ADCInit ..  ]
-"386
+[; ;newmain.c: 394: ADCInit ();
+"394
+[e ( _ADCInit ..  ]
+"396
 [v _leftpt `i  1 a ]
 [v _rightpt `i  1 a ]
 [v _read `i  1 a ]
-[; ;newmain.c: 386: int leftpt, rightpt, read;
-[; ;newmain.c: 387: while (1)
-"387
-[e :U 242 ]
-[; ;newmain.c: 388: {
-"388
-{
-[; ;newmain.c: 391: read = readchannel(1);
-"391
-[e = _read ( _readchannel (1 -> 1 `i ]
-[; ;newmain.c: 392: leftpt = (read > 170) ? 1 : 0;
-"392
-[e = _leftpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 396: read = readchannel(0);
-"396
-[e = _read ( _readchannel (1 -> 0 `i ]
-[; ;newmain.c: 397: rightpt = (read > 170) ? 1 : 0;
+[; ;newmain.c: 396: int leftpt, rightpt, read;
+[; ;newmain.c: 397: while (1)
 "397
-[e = _rightpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 402: if((leftpt==0) && (rightpt==0))
+[e :U 242 ]
+[; ;newmain.c: 398: {
+"398
+{
+[; ;newmain.c: 401: read = readchannel(1);
+"401
+[e = _read ( _readchannel (1 -> 1 `i ]
+[; ;newmain.c: 402: leftpt = (read > 170) ? 1 : 0;
 "402
-[e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 244  ]
-[; ;newmain.c: 403: {
-"403
-{
-[; ;newmain.c: 404: searchTrack();
-"404
-[e ( _searchTrack ..  ]
-"405
-}
-[; ;newmain.c: 405: }
-[e $U 245  ]
+[e = _leftpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
+[; ;newmain.c: 406: read = readchannel(0);
 "406
-[e :U 244 ]
-[; ;newmain.c: 406: else
-[; ;newmain.c: 407: {
+[e = _read ( _readchannel (1 -> 0 `i ]
+[; ;newmain.c: 407: rightpt = (read > 170) ? 1 : 0;
 "407
+[e = _rightpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
+[; ;newmain.c: 412: if((leftpt==0) && (rightpt==0))
+"412
+[e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 244  ]
+[; ;newmain.c: 413: {
+"413
 {
-[; ;newmain.c: 408: ignore = 0;
-"408
+[; ;newmain.c: 414: searchTrack();
+"414
+[e ( _searchTrack ..  ]
+"415
+}
+[; ;newmain.c: 415: }
+[e $U 245  ]
+"416
+[e :U 244 ]
+[; ;newmain.c: 416: else
+[; ;newmain.c: 417: {
+"417
+{
+[; ;newmain.c: 418: ignore = 0;
+"418
 [e = _ignore -> 0 `i ]
-[; ;newmain.c: 409: controlMotor(leftpt, rightpt);
-"409
+[; ;newmain.c: 419: controlMotor(leftpt, rightpt);
+"419
 [e ( _controlMotor (2 , _leftpt _rightpt ]
-"410
+"420
 }
 [e :U 245 ]
-"411
+"421
 }
 [e :U 241 ]
-"387
+"397
 [e $U 242  ]
 [e :U 243 ]
-[; ;newmain.c: 410: }
-[; ;newmain.c: 411: }
-[; ;newmain.c: 413: }
-"413
+[; ;newmain.c: 420: }
+[; ;newmain.c: 421: }
+[; ;newmain.c: 423: }
+"423
 [e :UE 240 ]
 }

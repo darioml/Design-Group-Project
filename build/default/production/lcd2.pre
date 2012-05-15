@@ -2343,9 +2343,9 @@ ___delay_ms(5);
 void SendDat(unsigned char c)
 {
 RA1 = 0;
-RA0 = 1;
 PORTB = ( c );
-___delay_ms(5);
+RA0 = 1;
+{ unsigned char us; us = (10)/(12000000/1700000L)|1; while(--us != 0) continue; };
 RA2 = 1;
 ___delay_ms(5);
 RA2 = 0;
