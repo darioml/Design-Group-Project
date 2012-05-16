@@ -5,10 +5,18 @@
 //#include "lcd.h"
 #include "lcd2.h"
 // Using Internal Clock of 20 Mhz
-#define FOSC 1700000L
+#define FOSC 50000L
+
+//Bug variables
+#define	BUGMOTOR_R RC6
+#define	BUGMOTOR_L RC7
+
+#define	BUGSENSOR_R RC4
+#define	BUGSENSOR_L RC5
 
 
-__CONFIG(FOSC_INTOSCCLK & WDTE_OFF);
+
+__CONFIG(FOSC_INTOSC & WDTE_OFF);
 
 // *************************************************
 // Global Variables
@@ -78,13 +86,13 @@ void controlMotor(int Leftpt, int Rightpt)
     {
         //if left sensor is on track, turn on right motor
         //outputHighPin (RC6); // RC6 is right motor
-        RC2 = 1;
+        BUGMOTOR_R = 1;
     }
     else
     {
         //if left sensor is off track, switch off right motor
         //outputLowPin (RC6);
-        RC2 = 0;
+        BUGMOTOR_R = 0;
         if (ignore == 0)
         {
             lastMotor = 1;
@@ -96,12 +104,12 @@ void controlMotor(int Leftpt, int Rightpt)
     {
         //similarly, we do the same for the right motor
         //outputHighPin (RC7); //RC7 is left motor
-        RC3 = 1;
+        BUGMOTOR_L = 1;
     }
     else
     {
         //outputLowPin (RC7);
-        RC3 = 0;
+        BUGMOTOR_L = 0;
         if (ignore == 0)
         {
             lastMotor = 2;
@@ -236,7 +244,7 @@ void lcdCountdown(char t)
 //Function to Initialise the ADC Module
 void ADCInit()
 {
-    ANSELC = 0b00001100;
+    ANSELC = 0b00110000;
     ADCON1 = 0x00;
     //ANSEL = 0b11111111; //Make all analogue inputs accept analogue
                         //We only use inputs for the phototransistors, so nothing else is affected
@@ -252,8 +260,8 @@ unsigned int ADCRead(unsigned char ch)
 
    ADON=1;  //switch on the adc module
 
-   GO_DONE=1;//Start conversion
-   while(GO_DONE); //wait for the conversion to finish
+   GO_nDONE=1;//Start conversion
+   while(GO_nDONE); //wait for the conversion to finish
 
    ADON=0;  //switch off adc
 
@@ -327,10 +335,10 @@ int readchannel(int chan)
 {
     if (chan == 0) //A/D AN5 RE0
     {
-        ADCON0 = 0b00010101; // Read AN5
+        ADCON0 = 0b01000001; // Read RC4 AN16
 
-        GO_DONE=1;//Start conversion
-        while(GO_DONE); //wait for the conversion to finish
+        GO_nDONE=1;//Start conversion
+        while(GO_nDONE); //wait for the conversion to finish
 
         ADON=0;  //switch off adc
 
@@ -338,10 +346,10 @@ int readchannel(int chan)
     }
     else if (chan == 1) //A/D AN6 RE1
     {
-        ADCON0 = 0b00011001; //Read AN6
+        ADCON0 = 0b01000101; // Read RC5 AN17
 
-        GO_DONE=1;//Start conversion
-        while(GO_DONE); //wait for the conversion to finish
+        GO_nDONE=1;//Start conversion
+        while(GO_nDONE); //wait for the conversion to finish
 
         ADON=0;  //switch off adc
 
@@ -354,19 +362,19 @@ int main(void)
     //OSCCON=0x70;         // Select 8 Mhz internal clock
     TRISA = 0x00;    //This is for the LCD EN, RW and RS bits
     TRISB = 0x00;    //This is for the LCD Data!
-    TRISC = 0b00001100;    //This is buzzer & Motor outputs, and inputs for a/D
+    TRISC = 0b00110000;    //This is buzzer & Motor outputs, and inputs for a/D
 
     PORTA = 0x00; //Clear all pins.
     PORTB = 0x00;
     PORTC = 0x00;
 
-    LATA = 0x00;
+    //LATA = 0x00;
     //CMCON0 = 0x07;
     //LCDCON = 0x00;
-    ANSEL = 0x00;
+    //ANSELA = 0x00;
 
-    lcd_init();
-    SendDat(0b010000001);
+    //lcd_init();
+    //SendDat(0b010000001);
 
 
     //doDelay();      //does LCD and Buzzer at the same time..
@@ -398,12 +406,12 @@ int main(void)
         //test for left phototransistor
         //read = ADCRead(0);// get the input of analoge and return digital value of 10 bits, A2
         read = readchannel(1);
-        leftpt = (read > 105) ? 1 : 0;
+        leftpt = (read > 125) ? 1 : 0;
 
         //test for right phototransistor
         //read = ADCRead(1);  // get the input of analoge and return digital value of 10 bits, A2D
         read = readchannel(0);
-        rightpt = (read > 105) ? 1 : 0;
+        rightpt = (read > 125) ? 1 : 0;
 
 
         //_delay_ms(3000);
