@@ -78,13 +78,13 @@ void controlMotor(int Leftpt, int Rightpt)
     {
         //if left sensor is on track, turn on right motor
         //outputHighPin (RC6); // RC6 is right motor
-        RC6 = 1;
+        RC2 = 1;
     }
     else
     {
         //if left sensor is off track, switch off right motor
         //outputLowPin (RC6);
-        RC6 = 0;
+        RC2 = 0;
         if (ignore == 0)
         {
             lastMotor = 1;
@@ -96,12 +96,12 @@ void controlMotor(int Leftpt, int Rightpt)
     {
         //similarly, we do the same for the right motor
         //outputHighPin (RC7); //RC7 is left motor
-        RC7 = 1;
+        RC3 = 1;
     }
     else
     {
         //outputLowPin (RC7);
-        RC7 = 0;
+        RC3 = 0;
         if (ignore == 0)
         {
             lastMotor = 2;
@@ -156,31 +156,31 @@ int controlLCD()
 int controlBuzzer()
 {
     //how many buzzers do we want? I'll say we have two, since we can always change that
-    RC3 = 1;
+    RC4 = 1;
     _delay_ms(200); //sleep for .2 seconds
-    RC3 = 0;
-    _delay_ms(700); //sleep for .7 seconds
-
-    RC3 = 1;
-    _delay_ms(700); //sleep for .2 seconds
-    RC3 = 0;
-    _delay_ms(700); //sleep for .7 seconds
-
-    RC3 = 1;
-    _delay_ms(200); //sleep for .2 seconds
-    RC3 = 0;
+    RC4 = 0;
     _delay_ms(700); //sleep for .7 seconds
 
     RC4 = 1;
+    _delay_ms(700); //sleep for .2 seconds
+    RC4 = 0;
+    _delay_ms(700); //sleep for .7 seconds
+
+    RC4 = 1;
+    _delay_ms(200); //sleep for .2 seconds
+    RC4 = 0;
+    _delay_ms(700); //sleep for .7 seconds
+
+    RC5 = 1;
     _delay_ms(300); //sleep for .3 seconds
-    RC3 = 0;
+    RC5 = 0;
 
 }
 
 void doDelay()
 {
-    RC3 = 0;
     RC4 = 0;
+    RC5 = 0;
 
     lcdCountdown('8');
     _delay_ms(1000); //sleep for 1 second
@@ -200,31 +200,30 @@ void doDelay()
     //From here on, we need to do the buzzer s in a nice timespace, while keeping 1 seconds
     //for each LCD countdown.
     lcdCountdown('3');
-    RC3 = 1;
+    RC4 = 1;
     _delay_ms(200);
-    RC3 = 0;
+    RC4 = 0;
     _delay_ms(700);
 
-    RC3 = 1;
+    RC4 = 1;
     _delay_ms(100);
     lcdCountdown('2');
     _delay_ms(100);
-    RC3 = 0;
+    RC4 = 0;
     _delay_ms(700);
 
-    RC3 = 1;
+    RC4 = 1;
     _delay_ms(200);
     lcdCountdown('1');
-    RC3 = 0;
+    RC4 = 0;
     _delay_ms(700);
 
-    RC4 = 1; //this is the higher pitch sound
+    RC5 = 1; //this is the higher pitch sound
     _delay_ms(300);
-    RC4 = 0;
+    RC5 = 0;
 
     //lcd_goto(0);	// select first line
     //lcd_puts("Start!");
-
 }
 
 void lcdCountdown(char t)
@@ -237,8 +236,9 @@ void lcdCountdown(char t)
 //Function to Initialise the ADC Module
 void ADCInit()
 {
-    TRISE = 0xFF;       //Make them all outputs
-    ANSEL = 0b11111111; //Make all analogue inputs accept analogue
+    ANSELC = 0b00001100;
+    ADCON1 = 0x00;
+    //ANSEL = 0b11111111; //Make all analogue inputs accept analogue
                         //We only use inputs for the phototransistors, so nothing else is affected
     //ADCON1	= 0b10000100; this is for the clock, but it's fine as it is per default!
 }
@@ -354,23 +354,23 @@ int main(void)
     //OSCCON=0x70;         // Select 8 Mhz internal clock
     TRISA = 0x00;    //This is for the LCD EN, RW and RS bits
     TRISB = 0x00;    //This is for the LCD Data!
-    TRISC = 0x00;    //This is buzzer & Motor outputs!
+    TRISC = 0b00001100;    //This is buzzer & Motor outputs, and inputs for a/D
 
     PORTA = 0x00; //Clear all pins.
     PORTB = 0x00;
     PORTC = 0x00;
 
-    CMCON0 = 0x07;
-    LCDCON = 0x00;
+    LATA = 0x00;
+    //CMCON0 = 0x07;
+    //LCDCON = 0x00;
     ANSEL = 0x00;
 
     lcd_init();
-
-<<<<<<< HEAD
-=======
     SendDat(0b010000001);
 
 
+    //doDelay();      //does LCD and Buzzer at the same time..
+    
     ADCInit ();     //Let's fire up the ADC!
 
     //CGRAM and DDRAM
@@ -390,11 +390,7 @@ int main(void)
     //RA0 = 0;
     //_delay_ms(5);
 
-
->>>>>>> LCD
-    //doDelay();      //does LCD and Buzzer at the same time..
     
-    ADCInit ();     //Let's fire up the ADC!
 
     int leftpt, rightpt, read;
     while (1) //let's continuously loop this, since it's controling our motor!

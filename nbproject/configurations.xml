@@ -35,7 +35,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC16F917</targetDevice>
+        <targetDevice>PIC16LF1516</targetDevice>
         <targetHeader></targetHeader>
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>hi-tech-picc</languageToolchain>
@@ -98,8 +98,10 @@
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveprogramrange.end" value="0x7"/>
         <property key="programoptions.preserveprogramrange.start" value="0x0"/>
+        <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
-        <property key="voltagevalue" value="5.0"/>
+        <property key="programoptions.uselvpprogramming" value="false"/>
+        <property key="voltagevalue" value="3.0"/>
       </ICD3PlatformTool>
     </conf>
   </confs>
