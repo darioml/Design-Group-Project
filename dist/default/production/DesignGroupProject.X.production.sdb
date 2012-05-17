@@ -3760,11 +3760,11 @@
 "353
 [v _main `(i  1 e 2 0 ]
 {
-"396
+"399
 [v main@read `i  1 a 2 4 ]
 [v main@rightpt `i  1 a 2 2 ]
 [v main@leftpt `i  1 a 2 0 ]
-"423
+"426
 } 0
 "138 lcd2.c
 [v _lcd_init `(v  1 e 0 0 ]

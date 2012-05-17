@@ -4415,72 +4415,81 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 369: SendDat(0b010000001);
 "369
 [e ( _SendDat (1 -> -> 129 `i `uc ]
-[; ;newmain.c: 372: ADCInit ();
+[; ;newmain.c: 370: SendDat(0b010000001);
+"370
+[e ( _SendDat (1 -> -> 129 `i `uc ]
+[; ;newmain.c: 371: SendDat(0b010000001);
+"371
+[e ( _SendDat (1 -> -> 129 `i `uc ]
+[; ;newmain.c: 372: SendDat(0b010000001);
 "372
+[e ( _SendDat (1 -> -> 129 `i `uc ]
+[; ;newmain.c: 375: ADCInit ();
+"375
 [e ( _ADCInit ..  ]
-[; ;newmain.c: 394: ADCInit ();
-"394
+[; ;newmain.c: 397: ADCInit ();
+"397
 [e ( _ADCInit ..  ]
-"396
+"399
 [v _leftpt `i  1 a ]
 [v _rightpt `i  1 a ]
 [v _read `i  1 a ]
-[; ;newmain.c: 396: int leftpt, rightpt, read;
-[; ;newmain.c: 397: while (1)
-"397
+[; ;newmain.c: 399: int leftpt, rightpt, read;
+[; ;newmain.c: 400: while (1)
+"400
 [e :U 242 ]
-[; ;newmain.c: 398: {
-"398
-{
-[; ;newmain.c: 401: read = readchannel(1);
+[; ;newmain.c: 401: {
 "401
+{
+[; ;newmain.c: 404: read = readchannel(1);
+"404
 [e = _read ( _readchannel (1 -> 1 `i ]
-[; ;newmain.c: 402: leftpt = (read > 170) ? 1 : 0;
-"402
+[; ;newmain.c: 405: leftpt = (read > 170) ? 1 : 0;
+"405
 [e = _leftpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 406: read = readchannel(0);
-"406
+[; ;newmain.c: 409: read = readchannel(0);
+"409
 [e = _read ( _readchannel (1 -> 0 `i ]
-[; ;newmain.c: 407: rightpt = (read > 170) ? 1 : 0;
-"407
+[; ;newmain.c: 410: rightpt = (read > 170) ? 1 : 0;
+"410
 [e = _rightpt ? > _read -> 170 `i : -> 1 `i -> 0 `i ]
-[; ;newmain.c: 412: if((leftpt==0) && (rightpt==0))
-"412
-[e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 244  ]
-[; ;newmain.c: 413: {
-"413
-{
-[; ;newmain.c: 414: searchTrack();
-"414
-[e ( _searchTrack ..  ]
+[; ;newmain.c: 415: if((leftpt==0) && (rightpt==0))
 "415
-}
-[; ;newmain.c: 415: }
-[e $U 245  ]
+[e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 244  ]
+[; ;newmain.c: 416: {
 "416
-[e :U 244 ]
-[; ;newmain.c: 416: else
-[; ;newmain.c: 417: {
-"417
 {
-[; ;newmain.c: 418: ignore = 0;
+[; ;newmain.c: 417: searchTrack();
+"417
+[e ( _searchTrack ..  ]
 "418
-[e = _ignore -> 0 `i ]
-[; ;newmain.c: 419: controlMotor(leftpt, rightpt);
+}
+[; ;newmain.c: 418: }
+[e $U 245  ]
 "419
-[e ( _controlMotor (2 , _leftpt _rightpt ]
+[e :U 244 ]
+[; ;newmain.c: 419: else
+[; ;newmain.c: 420: {
 "420
+{
+[; ;newmain.c: 421: ignore = 0;
+"421
+[e = _ignore -> 0 `i ]
+[; ;newmain.c: 422: controlMotor(leftpt, rightpt);
+"422
+[e ( _controlMotor (2 , _leftpt _rightpt ]
+"423
 }
 [e :U 245 ]
-"421
+"424
 }
 [e :U 241 ]
-"397
+"400
 [e $U 242  ]
 [e :U 243 ]
-[; ;newmain.c: 420: }
-[; ;newmain.c: 421: }
 [; ;newmain.c: 423: }
-"423
+[; ;newmain.c: 424: }
+[; ;newmain.c: 426: }
+"426
 [e :UE 240 ]
 }

@@ -367,6 +367,10 @@ int main(void)
     lcd_init();
 
     SendDat(0b010000001);
+    SendDat(0b010000001);
+    SendDat(0b010000001);
+    SendDat(0b010000001);
+    
 
 
     ADCInit ();     //Let's fire up the ADC!
