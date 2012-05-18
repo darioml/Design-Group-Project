@@ -16,7 +16,7 @@ Linker command line:
   -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
   -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
   -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  /tmp/cgtYqufwo.obj \
+  /tmp/cgtZFukfO.obj \
   dist/default/production/DesignGroupProject.X.production.obj 
 
 Object code version is 3.10
@@ -26,42 +26,42 @@ Machine type is 16F917
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtYqufwo.obj
+/tmp/cgtZFukfO.obj
                 end_init                              0        0        3        0       0
 dist/default/production/DesignGroupProject.X.production.obj
                 config                             2007     2007        1     400E       0
-                text280                             638      638       30      C70       0
-                text279                             59F      59F        7      B3E       0
-                text278                             668      668       38      CD0       0
-                text277                             5BD      5BD       26      B7A       0
-                text276                             6A0      6A0       47      D40       0
-                text275                             60C      60C       2C      C18       0
-                text274                             5E3      5E3       29      BC6       0
-                text273                             6E7      6E7       66      DCE       0
-                maintext                            74D      74D       B3      E9A       0
+                text280                             63F      63F       30      C7E       0
+                text279                             5A6      5A6        7      B4C       0
+                text278                             66F      66F       38      CDE       0
+                text277                             5C4      5C4       26      B88       0
+                text276                             6A7      6A7       47      D4E       0
+                text275                             5EA      5EA       29      BD4       0
+                text274                             613      613       2C      C26       0
+                text273                             6EE      6EE       53      DDC       0
+                maintext                            741      741       BF      E82       0
                 cstackBANK0                          32       32        6       20       1
-                cstackCOMMON                         70       70        C       70       1
-                clrtext                             5A6      5A6        8      B4C       0
+                cstackCOMMON                         70       70        B       70       1
+                clrtext                             5AD      5AD        8      B5A       0
                 bssBANK0                             20       20       12       20       1
-                bssCOMMON                            7C       7C        2       70       1
-                cinit                               5AE      5AE        F      B5C       0
+                bssCOMMON                            7B       7B        2       70       1
+                cinit                               5B5      5B5        F      B6A       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CONST          
 
         CLASS   CODE           
                 end_init                              0        0        3         0
-                text280                             638      638       30         0
-                text279                             59F      59F        7         0
-                text278                             668      668       38         0
-                text277                             5BD      5BD       26         0
-                text276                             6A0      6A0       47         0
-                text275                             60C      60C       2C         0
-                text274                             5E3      5E3       29         0
-                text273                             6E7      6E7       66         0
-                maintext                            74D      74D       B3         0
-                clrtext                             5A6      5A6        8         0
-                cinit                               5AE      5AE        F         0
+                text280                             63F      63F       30         0
+                text279                             5A6      5A6        7         0
+                text278                             66F      66F       38         0
+                text277                             5C4      5C4       26         0
+                text276                             6A7      6A7       47         0
+                text275                             5EA      5EA       29         0
+                text274                             613      613       2C         0
+                text273                             6EE      6EE       53         0
+                maintext                            741      741       BF         0
+                clrtext                             5AD      5AD        8         0
+                cinit                               5B5      5B5        F         0
 
         CLASS   STRCODE        
 
@@ -85,8 +85,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 abs_s1                               7E       7E        2         1
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        C         1
-                bssCOMMON                            7C       7C        2         1
+                cstackCOMMON                         70       70        B         1
+                bssCOMMON                            7B       7B        2         1
 
         CLASS   SFR0           
 
@@ -109,18 +109,18 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 bssBANK0                       000020  000018  000038        20       1  BANK0       1
-                cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                text279                        00059F  000007  0005A6       B3E       0  CODE        2
-                clrtext                        0005A6  000008  0005AE       B4C       0  CODE        2
-                cinit                          0005AE  00000F  0005BD       B5C       0  CODE        2
-                text277                        0005BD  000026  0005E3       B7A       0  CODE        2
-                text274                        0005E3  000029  00060C       BC6       0  CODE        2
-                text275                        00060C  00002C  000638       C18       0  CODE        2
-                text280                        000638  000030  000668       C70       0  CODE        2
-                text278                        000668  000038  0006A0       CD0       0  CODE        2
-                text276                        0006A0  000047  0006E7       D40       0  CODE        2
-                text273                        0006E7  000066  00074D       DCE       0  CODE        2
-                maintext                       00074D  0000B3  000800       E9A       0  CODE        2
+                cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
+                text279                        0005A6  000007  0005AD       B4C       0  CODE        2
+                clrtext                        0005AD  000008  0005B5       B5A       0  CODE        2
+                cinit                          0005B5  00000F  0005C4       B6A       0  CODE        2
+                text277                        0005C4  000026  0005EA       B88       0  CODE        2
+                text275                        0005EA  000029  000613       BD4       0  CODE        2
+                text274                        000613  00002C  00063F       C26       0  CODE        2
+                text280                        00063F  000030  00066F       C7E       0  CODE        2
+                text278                        00066F  000038  0006A7       CDE       0  CODE        2
+                text276                        0006A7  000047  0006EE       D4E       0  CODE        2
+                text273                        0006EE  000053  000741       DDC       0  CODE        2
+                maintext                       000741  0000BF  000800       E82       0  CODE        2
                 config                         002007  000001  002008      400E       0  CONFIG      2
 
 
@@ -131,12 +131,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0120-016F             50           1
         BANK3            0190-01EF             60           1
-        CODE             0003-059E            59C           2
+        CODE             0003-05A5            5A3           2
                          0800-1FFF            800
-        CONST            0003-059E            100           2
+        COMMON           007D-007D              1           1
+        CONST            0003-05A5            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-059E            100           2
+        ENTRY            0003-05A5            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0038-006F             38           1
@@ -147,9 +148,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-011F             20           1
         SFR3             0180-018F             10           1
-        STRCODE          0003-059E            59C           2
+        STRCODE          0003-05A5            5A3           2
                          0800-1FFF           1800
-        STRING           0003-059E            100           2
+        STRING           0003-05A5            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -160,7 +161,7 @@ UNUSED ADDRESS RANGES
 ??____delay_ms         cstackCOMMON 0072
 ??_controlMotor        cstackCOMMON 0074
 ??_lcd_init            cstackCOMMON 0076
-??_main                cstackCOMMON 007A
+??_main                cstackCOMMON 0079
 ??_readchannel         cstackCOMMON 0072
 ??_searchTrack         cstackCOMMON 0074
 ?_ADCInit              cstackCOMMON 0070
@@ -175,7 +176,7 @@ UNUSED ADDRESS RANGES
 SendDat@c              cstackCOMMON 0075
 SendDat@us             cstackCOMMON 0076
 SendIns@c              cstackCOMMON 0075
-_ADCInit               text279      059F
+_ADCInit               text279      05A6
 _ADCON0                (abs)        001F
 _ADON                  (abs)        00F8
 _ADRESH                (abs)        001E
@@ -200,8 +201,8 @@ _RC4                   (abs)        003C
 _RC6                   (abs)        003E
 _RC7                   (abs)        003F
 _RD                    (abs)        0C60
-_SendDat               text275      060C
-_SendIns               text274      05E3
+_SendDat               text274      0613
+_SendIns               text275      05EA
 _TRISA                 (abs)        0085
 _TRISB                 (abs)        0086
 _TRISC                 (abs)        0087
@@ -269,35 +270,35 @@ __Lsfr3                sfr3         0000
 __Lstrings             strings      0000
 __Ltext                text         0000
 __S0                   (abs)        2008
-__S1                   (abs)        007E
+__S1                   (abs)        007D
 __S2                   (abs)        0000
-____delay_ms           text277      05BD
+____delay_ms           text277      05C4
 ____delay_ms@i         cstackCOMMON 0073
 ____delay_ms@ms        cstackCOMMON 0070
 ____delay_ms@us        cstackCOMMON 0074
-__end_of_ADCInit       text279      05A6
-__end_of_SendDat       text275      0638
-__end_of_SendIns       text274      060C
-__end_of____delay_ms   text277      05E3
-__end_of_controlMotor  text280      0668
-__end_of_lcd_init      text273      074D
+__end_of_ADCInit       text279      05AD
+__end_of_SendDat       text274      063F
+__end_of_SendIns       text275      0613
+__end_of____delay_ms   text277      05EA
+__end_of_controlMotor  text280      066F
+__end_of_lcd_init      text273      0741
 __end_of_main          maintext     0800
-__end_of_readchannel   text278      06A0
-__end_of_searchTrack   text276      06E7
+__end_of_readchannel   text278      06A7
+__end_of_searchTrack   text276      06EE
 __pbssBANK0            bssBANK0     0020
-__pbssCOMMON           bssCOMMON    007C
+__pbssCOMMON           bssCOMMON    007B
 __pcstackBANK0         cstackBANK0  0032
 __pcstackCOMMON        cstackCOMMON 0070
-__pmaintext            maintext     074D
+__pmaintext            maintext     0741
 __ptext272             text272      0000
-__ptext273             text273      06E7
-__ptext274             text274      05E3
-__ptext275             text275      060C
-__ptext276             text276      06A0
-__ptext277             text277      05BD
-__ptext278             text278      0668
-__ptext279             text279      059F
-__ptext280             text280      0638
+__ptext273             text273      06EE
+__ptext274             text274      0613
+__ptext275             text275      05EA
+__ptext276             text276      06A7
+__ptext277             text277      05C4
+__ptext278             text278      066F
+__ptext279             text279      05A6
+__ptext280             text280      063F
 __ptext281             text281      0000
 __size_of_ADCInit      (abs)        0000
 __size_of_SendDat      (abs)        0000
@@ -309,23 +310,23 @@ __size_of_main         (abs)        0000
 __size_of_readchannel  (abs)        0000
 __size_of_searchTrack  (abs)        0000
 _clock_t               bssBANK0     002C
-_controlMotor          text280      0638
+_controlMotor          text280      063F
 _count                 bssBANK0     0020
 _exit                  init         0000
 _ignore                bssBANK0     002E
-_lastMotor             bssCOMMON    007C
-_lcd_init              text273      06E7
-_main                  maintext     074D
-_readchannel           text278      0668
-_searchTrack           text276      06A0
+_lastMotor             bssCOMMON    007B
+_lcd_init              text273      06EE
+_main                  maintext     0741
+_readchannel           text278      066F
+_searchTrack           text276      06A7
 _start                 bssBANK0     0024
 _stop                  bssBANK0     0028
 _ticks                 bssBANK0     0030
 btemp                  (abs)        007E
-clear_ram              clrtext      05A6
+clear_ram              clrtext      05AD
 controlMotor@Leftpt    cstackCOMMON 0070
 controlMotor@Rightpt   cstackCOMMON 0072
-end_of_initialization  cinit        05B9
+end_of_initialization  cinit        05C0
 intlevel0              functab      0000
 intlevel1              functab      0000
 intlevel2              functab      0000
@@ -333,13 +334,12 @@ intlevel3              functab      0000
 intlevel4              functab      0000
 intlevel5              functab      0000
 lcd_init@us            cstackCOMMON 0077
-lcd_init@us_4767       cstackCOMMON 0078
-lcd_init@us_4768       cstackCOMMON 0079
+lcd_init@us_4772       cstackCOMMON 0078
 main@leftpt            cstackBANK0  0032
 main@read              cstackBANK0  0036
 main@rightpt           cstackBANK0  0034
 readchannel@chan       cstackCOMMON 0070
 reset_vec              reset_vec    0000
 start                  init         0000
-start_initialization   cinit        05AE
+start_initialization   cinit        05B5
 wtemp0                 (abs)        007E

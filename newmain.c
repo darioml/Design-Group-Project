@@ -366,7 +366,11 @@ int main(void)
 
     lcd_init();
 
-    SendDat(0b010000001);
+    SendIns(0b01000000);
+    //_delay_ms(5);
+    SendIns(0b10000000);
+
+    SendDat('C');
     SendDat(0b010000001);
     SendDat(0b010000001);
     SendDat(0b010000001);

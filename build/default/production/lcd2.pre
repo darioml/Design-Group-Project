@@ -2403,11 +2403,7 @@ RA0 = 0;
 RA2 = 0;
 RA1 = 0;
 
-
-SendIns(0b00001000);
-{ unsigned char us; us = (100)/(12000000/1700000L)|1; while(--us != 0) continue; };
-
-
+# 150
 SendIns(0b00111000);
 { unsigned char us; us = (100)/(12000000/1700000L)|1; while(--us != 0) continue; };
 

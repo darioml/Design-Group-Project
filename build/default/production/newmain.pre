@@ -2651,15 +2651,20 @@ ANSEL = 0x00;
 
 lcd_init();
 
+SendIns(0b01000000);
+
+SendIns(0b10000000);
+
+SendDat('C');
 SendDat(0b010000001);
 SendDat(0b010000001);
 SendDat(0b010000001);
-SendDat(0b010000001);
+
 
 
 ADCInit ();
 
-# 397
+# 402
 ADCInit ();
 
 int leftpt, rightpt, read;

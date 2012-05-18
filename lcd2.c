@@ -143,8 +143,8 @@ lcd_init()
 	LCD_RW = 0;
 
         //Display ON/OFF
-        SendIns(0b00001000);
-	___delay_us(100);
+        //SendIns(0b00001000);
+	//___delay_us(100);
 
         //function set - 8 bit and 2 line
 	SendIns(0b00111000);
