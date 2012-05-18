@@ -362,7 +362,7 @@ int main(void)
     //OSCCON=0x70;         // Select 8 Mhz internal clock
     TRISA = 0x00;    //This is for the LCD EN, RW and RS bits
     TRISB = 0x00;    //This is for the LCD Data!
-    TRISC = 0b00110000;    //This is buzzer & Motor outputs, and inputs for a/D
+    TRISC = 0b00110100;    //This is speaker & Motor outputs, and inputs for a/D
 
     PORTA = 0x00; //Clear all pins.
     PORTB = 0x00;
