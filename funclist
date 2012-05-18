@@ -1,6 +1,5 @@
-_searchTrack: CODE, 1870 0 64
-_ADCInit: CODE, 1745 0 6
-_main: CODE, 1934 0 114
-_controlMotor: CODE, 1770 0 46
-_readchannel: CODE, 1816 0 54
-Total: 284
+_ADCInit: CODE, 1811 0 6
+_main: CODE, 1936 0 112
+_controlMotor: CODE, 1836 0 46
+_readchannel: CODE, 1882 0 54
+Total: 218

@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
-                                                                                               Fri May 18 10:38:36 2012
+                                                                                               Fri May 18 15:36:10 2012
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
@@ -57,1241 +57,1059 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
     51  8007  FFE4               	dw 0xFFFC & 0xFFE7 ;#
     52                           	FNCALL	_main,_ADCInit
     53                           	FNCALL	_main,_readchannel
-    54                           	FNCALL	_main,_searchTrack
-    55                           	FNCALL	_main,_controlMotor
-    56                           	FNCALL	_searchTrack,_controlMotor
-    57                           	FNROOT	_main
-    58                           	global	_count
-    59                           	global	_start
-    60                           	global	_stop
-    61                           	global	_clock_t
-    62                           	global	_ignore
-    63                           	global	_ticks
-    64                           	global	_lastMotor
-    65                           	global	_PORTA
-    66                           psect	text177,local,class=CODE,delta=2
-    67                           global __ptext177
-    68  0000                     __ptext177:
-    69  000C                     _PORTA	set	12
-    70                           	global	_PORTB
-    71  000D                     _PORTB	set	13
-    72                           	global	_PORTC
-    73  000E                     _PORTC	set	14
-    74                           	global	_RA0
-    75  0060                     _RA0	set	96
-    76                           	global	_RA1
-    77  0061                     _RA1	set	97
-    78                           	global	_RA2
-    79  0062                     _RA2	set	98
-    80                           	global	_RC4
-    81  0074                     _RC4	set	116
-    82                           	global	_RC5
-    83  0075                     _RC5	set	117
-    84                           	global	_RC6
-    85  0076                     _RC6	set	118
-    86                           	global	_RC7
-    87  0077                     _RC7	set	119
-    88                           	global	_ADCON0
-    89  009D                     _ADCON0	set	157
-    90                           	global	_ADCON1
-    91  009E                     _ADCON1	set	158
-    92                           	global	_ADRESH
-    93  009C                     _ADRESH	set	156
-    94                           	global	_TRISA
-    95  008C                     _TRISA	set	140
-    96                           	global	_TRISB
-    97  008D                     _TRISB	set	141
-    98                           	global	_TRISC
-    99  008E                     _TRISC	set	142
-   100                           	global	_ADON
-   101  04E8                     _ADON	set	1256
-   102                           	global	_GO_nDONE
-   103  04E9                     _GO_nDONE	set	1257
-   104                           	global	_ANSELC
-   105  018E                     _ANSELC	set	398
-   106                           	file	"/tmp/cgtXS3NNI"
-   107                           	line	#
-   108                           psect cinit,class=CODE,delta=2
-   109                           global start_initialization
-   110  06DD                     start_initialization:
-   111                           
-   112                           psect	bssCOMMON,class=COMMON,space=1
-   113                           global __pbssCOMMON
-   114  007C                     __pbssCOMMON:
-   115  007C                     _lastMotor:
-   116  007C                            ds      2
-   117                           
-   118                           psect	bssBANK0,class=BANK0,space=1
-   119                           global __pbssBANK0
-   120  0020                     __pbssBANK0:
-   121  0020                     _count:
-   122  0020                            ds      4
-   123                           
-   124  0024                     _start:
-   125  0024                            ds      4
-   126                           
-   127  0028                     _stop:
-   128  0028                            ds      4
-   129                           
-   130  002C                     _clock_t:
-   131  002C                            ds      2
-   132                           
-   133  002E                     _ignore:
-   134  002E                            ds      2
-   135                           
-   136  0030                     _ticks:
-   137  0030                            ds      2
-   138                           
-   139                           psect clrtext,class=CODE,delta=2
-   140                           global clear_ram
-   141                           ;	Called with FSR0 containing the base address, and
-   142                           ;	WREG with the size to clear
-   143  06D7                     clear_ram:
-   144  06D7  0064               	clrwdt			;clear the watchdog before getting into this loop
-   145  06D8                     clrloop:
-   146  06D8  0180               	clrf	indf0		;clear RAM location pointed to by FSR
-   147  06D9  3101               	addfsr	0,1
-   148  06DA  0B89               	decfsz wreg		;Have we reached the end of clearing yet?
-   149  06DB  2ED8               	goto clrloop	;have we reached the end yet?
-   150  06DC  3400               	retlw	0		;all done for this memory range, return
-   151                           ; Clear objects allocated to COMMON
-   152                           psect cinit,class=CODE,delta=2
-   153                           	global __pbssCOMMON
-   154  06DD  01FC               	clrf	((__pbssCOMMON)+0)&07Fh
-   155  06DE  01FD               	clrf	((__pbssCOMMON)+1)&07Fh
-   156                           ; Clear objects allocated to BANK0
-   157                           psect cinit,class=CODE,delta=2
-   158                           	global __pbssBANK0
-   159  06DF  3020               	movlw	low(__pbssBANK0)
-   160  06E0  0084               	movwf	fsr0l
-   161  06E1  3000               	movlw	high(__pbssBANK0)
-   162  06E2  0085               	movwf	fsr0h
-   163  06E3  3012               	movlw	012h
-   164  06E4  3186  26D7  3186   	fcall	clear_ram
-   165                           psect cinit,class=CODE,delta=2
-   166                           global end_of_initialization
+    54                           	FNCALL	_main,_controlMotor
+    55                           	FNROOT	_main
+    56                           	global	_count
+    57                           	global	_start
+    58                           	global	_stop
+    59                           	global	_clock_t
+    60                           	global	_ignore
+    61                           	global	_ticks
+    62                           	global	_lastMotor
+    63                           	global	_PORTA
+    64                           psect	text162,local,class=CODE,delta=2
+    65                           global __ptext162
+    66  0000                     __ptext162:
+    67  000C                     _PORTA	set	12
+    68                           	global	_PORTB
+    69  000D                     _PORTB	set	13
+    70                           	global	_PORTC
+    71  000E                     _PORTC	set	14
+    72                           	global	_RA0
+    73  0060                     _RA0	set	96
+    74                           	global	_RA1
+    75  0061                     _RA1	set	97
+    76                           	global	_RA2
+    77  0062                     _RA2	set	98
+    78                           	global	_RC4
+    79  0074                     _RC4	set	116
+    80                           	global	_RC5
+    81  0075                     _RC5	set	117
+    82                           	global	_RC6
+    83  0076                     _RC6	set	118
+    84                           	global	_RC7
+    85  0077                     _RC7	set	119
+    86                           	global	_ADCON0
+    87  009D                     _ADCON0	set	157
+    88                           	global	_ADCON1
+    89  009E                     _ADCON1	set	158
+    90                           	global	_ADRESH
+    91  009C                     _ADRESH	set	156
+    92                           	global	_TRISA
+    93  008C                     _TRISA	set	140
+    94                           	global	_TRISB
+    95  008D                     _TRISB	set	141
+    96                           	global	_TRISC
+    97  008E                     _TRISC	set	142
+    98                           	global	_ADON
+    99  04E8                     _ADON	set	1256
+   100                           	global	_GO_nDONE
+   101  04E9                     _GO_nDONE	set	1257
+   102                           	global	_ANSELC
+   103  018E                     _ANSELC	set	398
+   104                           	file	"/tmp/cgtK0qDZz"
+   105                           	line	#
+   106                           psect cinit,class=CODE,delta=2
+   107                           global start_initialization
+   108  071F                     start_initialization:
+   109                           
+   110                           psect	bssCOMMON,class=COMMON,space=1
+   111                           global __pbssCOMMON
+   112  007C                     __pbssCOMMON:
+   113  007C                     _lastMotor:
+   114  007C                            ds      2
+   115                           
+   116                           psect	bssBANK0,class=BANK0,space=1
+   117                           global __pbssBANK0
+   118  0020                     __pbssBANK0:
+   119  0020                     _count:
+   120  0020                            ds      4
+   121                           
+   122  0024                     _start:
+   123  0024                            ds      4
+   124                           
+   125  0028                     _stop:
+   126  0028                            ds      4
+   127                           
+   128  002C                     _clock_t:
+   129  002C                            ds      2
+   130                           
+   131  002E                     _ignore:
+   132  002E                            ds      2
+   133                           
+   134  0030                     _ticks:
+   135  0030                            ds      2
+   136                           
+   137                           psect clrtext,class=CODE,delta=2
+   138                           global clear_ram
+   139                           ;	Called with FSR0 containing the base address, and
+   140                           ;	WREG with the size to clear
+   141  0719                     clear_ram:
+   142  0719  0064               	clrwdt			;clear the watchdog before getting into this loop
+   143  071A                     clrloop:
+   144  071A  0180               	clrf	indf0		;clear RAM location pointed to by FSR
+   145  071B  3101               	addfsr	0,1
+   146  071C  0B89               	decfsz wreg		;Have we reached the end of clearing yet?
+   147  071D  2F1A               	goto clrloop	;have we reached the end yet?
+   148  071E  3400               	retlw	0		;all done for this memory range, return
+   149                           ; Clear objects allocated to COMMON
+   150                           psect cinit,class=CODE,delta=2
+   151                           	global __pbssCOMMON
+   152  071F  01FC               	clrf	((__pbssCOMMON)+0)&07Fh
+   153  0720  01FD               	clrf	((__pbssCOMMON)+1)&07Fh
+   154                           ; Clear objects allocated to BANK0
+   155                           psect cinit,class=CODE,delta=2
+   156                           	global __pbssBANK0
+   157  0721  3020               	movlw	low(__pbssBANK0)
+   158  0722  0084               	movwf	fsr0l
+   159  0723  3000               	movlw	high(__pbssBANK0)
+   160  0724  0085               	movwf	fsr0h
+   161  0725  3012               	movlw	012h
+   162  0726  3187  2719  3187   	fcall	clear_ram
+   163                           psect cinit,class=CODE,delta=2
+   164                           global end_of_initialization
+   165                           
+   166                           ;End of C runtime variable initialization code
    167                           
-   168                           ;End of C runtime variable initialization code
-   169                           
-   170  06E7                     end_of_initialization:
-   171  06E7  0020               movlb 0
-   172  06E8  3187  2F8E         ljmp _main	;jump to C main() function
-   173                           psect	cstackCOMMON,class=COMMON,space=1
-   174                           global __pcstackCOMMON
-   175  0070                     __pcstackCOMMON:
-   176                           	global	?_controlMotor
-   177  0070                     ?_controlMotor:	; 0 bytes @ 0x0
-   178                           	global	?_ADCInit
-   179  0070                     ?_ADCInit:	; 0 bytes @ 0x0
-   180                           	global	??_ADCInit
-   181  0070                     ??_ADCInit:	; 0 bytes @ 0x0
-   182                           	global	?_searchTrack
-   183  0070                     ?_searchTrack:	; 2 bytes @ 0x0
-   184                           	global	?_readchannel
-   185  0070                     ?_readchannel:	; 2 bytes @ 0x0
-   186                           	global	?_main
-   187  0070                     ?_main:	; 2 bytes @ 0x0
-   188                           	global	controlMotor@Leftpt
-   189  0070                     controlMotor@Leftpt:	; 2 bytes @ 0x0
-   190                           	global	readchannel@chan
-   191  0070                     readchannel@chan:	; 2 bytes @ 0x0
-   192  0070                     	ds	2
-   193                           	global	??_readchannel
-   194  0072                     ??_readchannel:	; 0 bytes @ 0x2
-   195                           	global	controlMotor@Rightpt
-   196  0072                     controlMotor@Rightpt:	; 2 bytes @ 0x2
-   197  0072                     	ds	2
-   198                           	global	??_controlMotor
-   199  0074                     ??_controlMotor:	; 0 bytes @ 0x4
-   200                           	global	??_searchTrack
-   201  0074                     ??_searchTrack:	; 0 bytes @ 0x4
-   202                           	global	??_main
-   203  0074                     ??_main:	; 0 bytes @ 0x4
-   204  0074                     	ds	2
-   205                           	global	main@leftpt
-   206  0076                     main@leftpt:	; 2 bytes @ 0x6
-   207  0076                     	ds	2
-   208                           	global	main@rightpt
-   209  0078                     main@rightpt:	; 2 bytes @ 0x8
-   210  0078                     	ds	2
-   211                           	global	main@read
-   212  007A                     main@read:	; 2 bytes @ 0xA
-   213  007A                     	ds	2
-   214 ;;Data sizes: Strings 0, constant 0, data 0, bss 20, persistent 0 stack 0
-   215 ;;Auto spaces:   Size  Autos    Used
-   216 ;; COMMON          14     12      14
-   217 ;; BANK0           80      0      18
-   218 ;; BANK1           80      0       0
-   219 ;; BANK2           80      0       0
-   220 ;; BANK3           80      0       0
-   221 ;; BANK4           80      0       0
-   222 ;; BANK5           80      0       0
-   223 ;; BANK6           16      0       0
+   168  0729                     end_of_initialization:
+   169  0729  0020               movlb 0
+   170  072A  3187  2F90         ljmp _main	;jump to C main() function
+   171                           psect	cstackCOMMON,class=COMMON,space=1
+   172                           global __pcstackCOMMON
+   173  0070                     __pcstackCOMMON:
+   174                           	global	?_controlMotor
+   175  0070                     ?_controlMotor:	; 0 bytes @ 0x0
+   176                           	global	?_ADCInit
+   177  0070                     ?_ADCInit:	; 0 bytes @ 0x0
+   178                           	global	??_ADCInit
+   179  0070                     ??_ADCInit:	; 0 bytes @ 0x0
+   180                           	global	?_readchannel
+   181  0070                     ?_readchannel:	; 2 bytes @ 0x0
+   182                           	global	?_main
+   183  0070                     ?_main:	; 2 bytes @ 0x0
+   184                           	global	controlMotor@Leftpt
+   185  0070                     controlMotor@Leftpt:	; 2 bytes @ 0x0
+   186                           	global	readchannel@chan
+   187  0070                     readchannel@chan:	; 2 bytes @ 0x0
+   188  0070                     	ds	2
+   189                           	global	??_readchannel
+   190  0072                     ??_readchannel:	; 0 bytes @ 0x2
+   191                           	global	controlMotor@Rightpt
+   192  0072                     controlMotor@Rightpt:	; 2 bytes @ 0x2
+   193  0072                     	ds	2
+   194                           	global	??_controlMotor
+   195  0074                     ??_controlMotor:	; 0 bytes @ 0x4
+   196                           	global	??_main
+   197  0074                     ??_main:	; 0 bytes @ 0x4
+   198  0074                     	ds	2
+   199                           	global	main@leftpt
+   200  0076                     main@leftpt:	; 2 bytes @ 0x6
+   201  0076                     	ds	2
+   202                           	global	main@rightpt
+   203  0078                     main@rightpt:	; 2 bytes @ 0x8
+   204  0078                     	ds	2
+   205                           	global	main@read
+   206  007A                     main@read:	; 2 bytes @ 0xA
+   207  007A                     	ds	2
+   208 ;;Data sizes: Strings 0, constant 0, data 0, bss 20, persistent 0 stack 0
+   209 ;;Auto spaces:   Size  Autos    Used
+   210 ;; COMMON          14     12      14
+   211 ;; BANK0           80      0      18
+   212 ;; BANK1           80      0       0
+   213 ;; BANK2           80      0       0
+   214 ;; BANK3           80      0       0
+   215 ;; BANK4           80      0       0
+   216 ;; BANK5           80      0       0
+   217 ;; BANK6           16      0       0
+   218                           
+   219 ;;
+   220 ;; Pointer list with targets:
+   221                           
+   222 ;; ?_readchannel	int  size(1) Largest target is 0
+   223 ;;
    224                           
-   225 ;;
-   226 ;; Pointer list with targets:
-   227                           
-   228 ;; ?_readchannel	int  size(1) Largest target is 0
-   229 ;;
-   230                           
-   231                           
-   232 ;;
-   233 ;; Critical Paths under _main in COMMON
-   234 ;;
-   235 ;;   _main->_readchannel
-   236 ;;   _main->_controlMotor
-   237 ;;   _searchTrack->_controlMotor
-   238 ;;
-   239 ;; Critical Paths under _main in BANK0
-   240 ;;
-   241 ;;   None.
-   242 ;;
-   243 ;; Critical Paths under _main in BANK1
-   244 ;;
-   245 ;;   None.
-   246 ;;
-   247 ;; Critical Paths under _main in BANK2
-   248 ;;
-   249 ;;   None.
-   250 ;;
-   251 ;; Critical Paths under _main in BANK3
-   252 ;;
-   253 ;;   None.
-   254 ;;
-   255 ;; Critical Paths under _main in BANK4
-   256 ;;
-   257 ;;   None.
-   258 ;;
-   259 ;; Critical Paths under _main in BANK5
+   225                           
+   226 ;;
+   227 ;; Critical Paths under _main in COMMON
+   228 ;;
+   229 ;;   _main->_readchannel
+   230 ;;   _main->_controlMotor
+   231 ;;
+   232 ;; Critical Paths under _main in BANK0
+   233 ;;
+   234 ;;   None.
+   235 ;;
+   236 ;; Critical Paths under _main in BANK1
+   237 ;;
+   238 ;;   None.
+   239 ;;
+   240 ;; Critical Paths under _main in BANK2
+   241 ;;
+   242 ;;   None.
+   243 ;;
+   244 ;; Critical Paths under _main in BANK3
+   245 ;;
+   246 ;;   None.
+   247 ;;
+   248 ;; Critical Paths under _main in BANK4
+   249 ;;
+   250 ;;   None.
+   251 ;;
+   252 ;; Critical Paths under _main in BANK5
+   253 ;;
+   254 ;;   None.
+   255 ;;
+   256 ;; Critical Paths under _main in BANK6
+   257 ;;
+   258 ;;   None.
+   259                           
    260 ;;
-   261 ;;   None.
+   261 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
    262 ;;
-   263 ;; Critical Paths under _main in BANK6
+   263                           
    264 ;;
-   265 ;;   None.
-   266                           
-   267 ;;
-   268 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
-   269 ;;
-   270                           
-   271 ;;
-   272 ;;Call Graph Tables:
-   273 ;;
-   274 ;; ---------------------------------------------------------------------------------
-   275 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
-   276 ;; ---------------------------------------------------------------------------------
-   277 ;; (0) _main                                                 8     8      0     268
-   278 ;;                                              4 COMMON     8     8      0
-   279 ;;                            _ADCInit
-   280 ;;                        _readchannel
-   281 ;;                        _searchTrack
-   282 ;;                       _controlMotor
+   265 ;;Call Graph Tables:
+   266 ;;
+   267 ;; ---------------------------------------------------------------------------------
+   268 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   269 ;; ---------------------------------------------------------------------------------
+   270 ;; (0) _main                                                 8     8      0     224
+   271 ;;                                              4 COMMON     8     8      0
+   272 ;;                            _ADCInit
+   273 ;;                        _readchannel
+   274 ;;                       _controlMotor
+   275 ;; ---------------------------------------------------------------------------------
+   276 ;; (1) _readchannel                                          4     2      2      44
+   277 ;;                                              0 COMMON     4     2      2
+   278 ;; ---------------------------------------------------------------------------------
+   279 ;; (1) _ADCInit                                              0     0      0       0
+   280 ;; ---------------------------------------------------------------------------------
+   281 ;; (1) _controlMotor                                         4     0      4      44
+   282 ;;                                              0 COMMON     4     0      4
    283 ;; ---------------------------------------------------------------------------------
-   284 ;; (1) _searchTrack                                          0     0      0      44
-   285 ;;                       _controlMotor
-   286 ;; ---------------------------------------------------------------------------------
-   287 ;; (1) _readchannel                                          4     2      2      44
-   288 ;;                                              0 COMMON     4     2      2
-   289 ;; ---------------------------------------------------------------------------------
-   290 ;; (1) _ADCInit                                              0     0      0       0
-   291 ;; ---------------------------------------------------------------------------------
-   292 ;; (1) _controlMotor                                         4     0      4      44
-   293 ;;                                              0 COMMON     4     0      4
-   294 ;; ---------------------------------------------------------------------------------
-   295 ;; Estimated maximum stack depth 1
-   296 ;; ---------------------------------------------------------------------------------
-   297                           
-   298 ;; Call Graph Graphs:
-   299                           
-   300 ;; _main (ROOT)
-   301 ;;   _ADCInit
-   302 ;;   _readchannel
-   303 ;;   _searchTrack
-   304 ;;     _controlMotor
-   305 ;;   _controlMotor
-   306 ;;
-   307                           
-   308 ;; Address spaces:
-   309                           
-   310 ;;Name               Size   Autos  Total    Cost      Usage
-   311 ;;BIGRAM             1F0      0       0       0        0.0%
-   312 ;;NULL                 0      0       0       0        0.0%
-   313 ;;CODE                 0      0       0       0        0.0%
-   314 ;;BITCOMMON            E      0       0       1        0.0%
-   315 ;;BITSFR0              0      0       0       1        0.0%
-   316 ;;SFR0                 0      0       0       1        0.0%
-   317 ;;COMMON               E      C       E       2      100.0%
-   318 ;;BITSFR1              0      0       0       2        0.0%
-   319 ;;SFR1                 0      0       0       2        0.0%
-   320 ;;BITSFR2              0      0       0       3        0.0%
-   321 ;;SFR2                 0      0       0       3        0.0%
-   322 ;;STACK                0      0       2       3        0.0%
-   323 ;;BITSFR3              0      0       0       4        0.0%
-   324 ;;SFR3                 0      0       0       4        0.0%
-   325 ;;ABS                  0      0      20       4        0.0%
-   326 ;;BITBANK0            50      0       0       5        0.0%
-   327 ;;BITSFR4              0      0       0       5        0.0%
-   328 ;;SFR4                 0      0       0       5        0.0%
-   329 ;;BANK0               50      0      12       6       22.5%
-   330 ;;BITSFR5              0      0       0       6        0.0%
-   331 ;;SFR5                 0      0       0       6        0.0%
-   332 ;;BITBANK1            50      0       0       7        0.0%
-   333 ;;BITSFR6              0      0       0       7        0.0%
-   334 ;;SFR6                 0      0       0       7        0.0%
-   335 ;;BANK1               50      0       0       8        0.0%
-   336 ;;BITSFR7              0      0       0       8        0.0%
-   337 ;;SFR7                 0      0       0       8        0.0%
-   338 ;;BITBANK2            50      0       0       9        0.0%
-   339 ;;BITSFR8              0      0       0       9        0.0%
-   340 ;;SFR8                 0      0       0       9        0.0%
-   341 ;;BANK2               50      0       0      10        0.0%
-   342 ;;BITSFR9              0      0       0      10        0.0%
-   343 ;;SFR9                 0      0       0      10        0.0%
-   344 ;;BITBANK3            50      0       0      11        0.0%
-   345 ;;BITSFR10             0      0       0      11        0.0%
-   346 ;;SFR10                0      0       0      11        0.0%
-   347 ;;BANK3               50      0       0      12        0.0%
-   348 ;;BITSFR11             0      0       0      12        0.0%
-   349 ;;SFR11                0      0       0      12        0.0%
-   350 ;;BITBANK4            50      0       0      13        0.0%
-   351 ;;BITSFR12             0      0       0      13        0.0%
-   352 ;;SFR12                0      0       0      13        0.0%
-   353 ;;BANK4               50      0       0      14        0.0%
-   354 ;;BITSFR13             0      0       0      14        0.0%
-   355 ;;SFR13                0      0       0      14        0.0%
-   356 ;;BITBANK5            50      0       0      15        0.0%
-   357 ;;BITSFR14             0      0       0      15        0.0%
-   358 ;;SFR14                0      0       0      15        0.0%
-   359 ;;BANK5               50      0       0      16        0.0%
-   360 ;;BITSFR15             0      0       0      16        0.0%
-   361 ;;SFR15                0      0       0      16        0.0%
-   362 ;;BITBANK6            10      0       0      17        0.0%
-   363 ;;BITSFR16             0      0       0      17        0.0%
-   364 ;;SFR16                0      0       0      17        0.0%
-   365 ;;BANK6               10      0       0      18        0.0%
-   366 ;;BITSFR17             0      0       0      18        0.0%
-   367 ;;SFR17                0      0       0      18        0.0%
-   368 ;;BITSFR18             0      0       0      19        0.0%
-   369 ;;SFR18                0      0       0      19        0.0%
-   370 ;;DATA                 0      0      22      19        0.0%
-   371 ;;BITSFR19             0      0       0      20        0.0%
-   372 ;;SFR19                0      0       0      20        0.0%
-   373 ;;BITSFR20             0      0       0      21        0.0%
-   374 ;;SFR20                0      0       0      21        0.0%
-   375 ;;BITSFR21             0      0       0      22        0.0%
-   376 ;;SFR21                0      0       0      22        0.0%
-   377 ;;BITSFR22             0      0       0      23        0.0%
-   378 ;;SFR22                0      0       0      23        0.0%
-   379 ;;BITSFR23             0      0       0      24        0.0%
-   380 ;;SFR23                0      0       0      24        0.0%
-   381 ;;BITSFR24             0      0       0      25        0.0%
-   382 ;;SFR24                0      0       0      25        0.0%
-   383 ;;BITSFR25             0      0       0      26        0.0%
-   384 ;;SFR25                0      0       0      26        0.0%
-   385 ;;BITSFR26             0      0       0      27        0.0%
-   386 ;;SFR26                0      0       0      27        0.0%
-   387 ;;BITSFR27             0      0       0      28        0.0%
-   388 ;;SFR27                0      0       0      28        0.0%
-   389 ;;BITSFR28             0      0       0      29        0.0%
-   390 ;;SFR28                0      0       0      29        0.0%
-   391 ;;BITSFR29             0      0       0      30        0.0%
-   392 ;;SFR29                0      0       0      30        0.0%
-   393 ;;BITSFR30             0      0       0      31        0.0%
-   394 ;;SFR30                0      0       0      31        0.0%
-   395 ;;BITSFR31             0      0       0      32        0.0%
-   396 ;;SFR31                0      0       0      32        0.0%
-   397                           
-   398                           	global	_main
-   399                           psect	maintext,global,class=CODE,delta=2
-   400                           global __pmaintext
-   401  078E                     __pmaintext:
-   402                           
-   403 ;; *************** function _main *****************
-   404 ;; Defined at:
-   405 ;;		line 361 in file "newmain.c"
-   406 ;; Parameters:    Size  Location     Type
-   407 ;;		None
-   408 ;; Auto vars:     Size  Location     Type
-   409 ;;  read            2   10[COMMON] int 
-   410 ;;  rightpt         2    8[COMMON] int 
-   411 ;;  leftpt          2    6[COMMON] int 
-   412 ;; Return value:  Size  Location     Type
-   413 ;;                  2  1056[COMMON] int 
-   414 ;; Registers used:
-   415 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
-   416 ;; Tracked objects:
-   417 ;;		On entry : 17F/0
-   418 ;;		On exit  : 0/0
-   419 ;;		Unchanged: 0/0
-   420 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   421 ;;      Params:         0       0       0       0       0       0       0       0
-   422 ;;      Locals:         6       0       0       0       0       0       0       0
-   423 ;;      Temps:          2       0       0       0       0       0       0       0
-   424 ;;      Totals:         8       0       0       0       0       0       0       0
-   425 ;;Total ram usage:        8 bytes
-   426 ;; Hardware stack levels required when called:    2
-   427 ;; This function calls:
-   428 ;;		_ADCInit
-   429 ;;		_readchannel
-   430 ;;		_searchTrack
-   431 ;;		_controlMotor
-   432 ;; This function is called by:
-   433 ;;		Startup code after reset
-   434 ;; This function uses a non-reentrant model
-   435 ;;
-   436                           psect	maintext
-   437                           	file	"newmain.c"
-   438                           	line	361
-   439                           	global	__size_of_main
-   440  0072                     	__size_of_main	equ	__end_of_main-_main
+   284 ;; Estimated maximum stack depth 1
+   285 ;; ---------------------------------------------------------------------------------
+   286                           
+   287 ;; Call Graph Graphs:
+   288                           
+   289 ;; _main (ROOT)
+   290 ;;   _ADCInit
+   291 ;;   _readchannel
+   292 ;;   _controlMotor
+   293 ;;
+   294                           
+   295 ;; Address spaces:
+   296                           
+   297 ;;Name               Size   Autos  Total    Cost      Usage
+   298 ;;BIGRAM             1F0      0       0       0        0.0%
+   299 ;;NULL                 0      0       0       0        0.0%
+   300 ;;CODE                 0      0       0       0        0.0%
+   301 ;;BITCOMMON            E      0       0       1        0.0%
+   302 ;;BITSFR0              0      0       0       1        0.0%
+   303 ;;SFR0                 0      0       0       1        0.0%
+   304 ;;COMMON               E      C       E       2      100.0%
+   305 ;;BITSFR1              0      0       0       2        0.0%
+   306 ;;SFR1                 0      0       0       2        0.0%
+   307 ;;BITSFR2              0      0       0       3        0.0%
+   308 ;;SFR2                 0      0       0       3        0.0%
+   309 ;;STACK                0      0       1       3        0.0%
+   310 ;;BITSFR3              0      0       0       4        0.0%
+   311 ;;SFR3                 0      0       0       4        0.0%
+   312 ;;ABS                  0      0      20       4        0.0%
+   313 ;;BITBANK0            50      0       0       5        0.0%
+   314 ;;BITSFR4              0      0       0       5        0.0%
+   315 ;;SFR4                 0      0       0       5        0.0%
+   316 ;;BANK0               50      0      12       6       22.5%
+   317 ;;BITSFR5              0      0       0       6        0.0%
+   318 ;;SFR5                 0      0       0       6        0.0%
+   319 ;;BITBANK1            50      0       0       7        0.0%
+   320 ;;BITSFR6              0      0       0       7        0.0%
+   321 ;;SFR6                 0      0       0       7        0.0%
+   322 ;;BANK1               50      0       0       8        0.0%
+   323 ;;BITSFR7              0      0       0       8        0.0%
+   324 ;;SFR7                 0      0       0       8        0.0%
+   325 ;;BITBANK2            50      0       0       9        0.0%
+   326 ;;BITSFR8              0      0       0       9        0.0%
+   327 ;;SFR8                 0      0       0       9        0.0%
+   328 ;;BANK2               50      0       0      10        0.0%
+   329 ;;BITSFR9              0      0       0      10        0.0%
+   330 ;;SFR9                 0      0       0      10        0.0%
+   331 ;;BITBANK3            50      0       0      11        0.0%
+   332 ;;BITSFR10             0      0       0      11        0.0%
+   333 ;;SFR10                0      0       0      11        0.0%
+   334 ;;BANK3               50      0       0      12        0.0%
+   335 ;;BITSFR11             0      0       0      12        0.0%
+   336 ;;SFR11                0      0       0      12        0.0%
+   337 ;;BITBANK4            50      0       0      13        0.0%
+   338 ;;BITSFR12             0      0       0      13        0.0%
+   339 ;;SFR12                0      0       0      13        0.0%
+   340 ;;BANK4               50      0       0      14        0.0%
+   341 ;;BITSFR13             0      0       0      14        0.0%
+   342 ;;SFR13                0      0       0      14        0.0%
+   343 ;;BITBANK5            50      0       0      15        0.0%
+   344 ;;BITSFR14             0      0       0      15        0.0%
+   345 ;;SFR14                0      0       0      15        0.0%
+   346 ;;BANK5               50      0       0      16        0.0%
+   347 ;;BITSFR15             0      0       0      16        0.0%
+   348 ;;SFR15                0      0       0      16        0.0%
+   349 ;;BITBANK6            10      0       0      17        0.0%
+   350 ;;BITSFR16             0      0       0      17        0.0%
+   351 ;;SFR16                0      0       0      17        0.0%
+   352 ;;BANK6               10      0       0      18        0.0%
+   353 ;;BITSFR17             0      0       0      18        0.0%
+   354 ;;SFR17                0      0       0      18        0.0%
+   355 ;;BITSFR18             0      0       0      19        0.0%
+   356 ;;SFR18                0      0       0      19        0.0%
+   357 ;;DATA                 0      0      21      19        0.0%
+   358 ;;BITSFR19             0      0       0      20        0.0%
+   359 ;;SFR19                0      0       0      20        0.0%
+   360 ;;BITSFR20             0      0       0      21        0.0%
+   361 ;;SFR20                0      0       0      21        0.0%
+   362 ;;BITSFR21             0      0       0      22        0.0%
+   363 ;;SFR21                0      0       0      22        0.0%
+   364 ;;BITSFR22             0      0       0      23        0.0%
+   365 ;;SFR22                0      0       0      23        0.0%
+   366 ;;BITSFR23             0      0       0      24        0.0%
+   367 ;;SFR23                0      0       0      24        0.0%
+   368 ;;BITSFR24             0      0       0      25        0.0%
+   369 ;;SFR24                0      0       0      25        0.0%
+   370 ;;BITSFR25             0      0       0      26        0.0%
+   371 ;;SFR25                0      0       0      26        0.0%
+   372 ;;BITSFR26             0      0       0      27        0.0%
+   373 ;;SFR26                0      0       0      27        0.0%
+   374 ;;BITSFR27             0      0       0      28        0.0%
+   375 ;;SFR27                0      0       0      28        0.0%
+   376 ;;BITSFR28             0      0       0      29        0.0%
+   377 ;;SFR28                0      0       0      29        0.0%
+   378 ;;BITSFR29             0      0       0      30        0.0%
+   379 ;;SFR29                0      0       0      30        0.0%
+   380 ;;BITSFR30             0      0       0      31        0.0%
+   381 ;;SFR30                0      0       0      31        0.0%
+   382 ;;BITSFR31             0      0       0      32        0.0%
+   383 ;;SFR31                0      0       0      32        0.0%
+   384                           
+   385                           	global	_main
+   386                           psect	maintext,global,class=CODE,delta=2
+   387                           global __pmaintext
+   388  0790                     __pmaintext:
+   389                           
+   390 ;; *************** function _main *****************
+   391 ;; Defined at:
+   392 ;;		line 361 in file "newmain.c"
+   393 ;; Parameters:    Size  Location     Type
+   394 ;;		None
+   395 ;; Auto vars:     Size  Location     Type
+   396 ;;  read            2   10[COMMON] int 
+   397 ;;  rightpt         2    8[COMMON] int 
+   398 ;;  leftpt          2    6[COMMON] int 
+   399 ;; Return value:  Size  Location     Type
+   400 ;;                  2  1056[COMMON] int 
+   401 ;; Registers used:
+   402 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   403 ;; Tracked objects:
+   404 ;;		On entry : 17F/0
+   405 ;;		On exit  : 0/0
+   406 ;;		Unchanged: 0/0
+   407 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+   408 ;;      Params:         0       0       0       0       0       0       0       0
+   409 ;;      Locals:         6       0       0       0       0       0       0       0
+   410 ;;      Temps:          2       0       0       0       0       0       0       0
+   411 ;;      Totals:         8       0       0       0       0       0       0       0
+   412 ;;Total ram usage:        8 bytes
+   413 ;; Hardware stack levels required when called:    1
+   414 ;; This function calls:
+   415 ;;		_ADCInit
+   416 ;;		_readchannel
+   417 ;;		_controlMotor
+   418 ;; This function is called by:
+   419 ;;		Startup code after reset
+   420 ;; This function uses a non-reentrant model
+   421 ;;
+   422                           psect	maintext
+   423                           	file	"newmain.c"
+   424                           	line	361
+   425                           	global	__size_of_main
+   426  0070                     	__size_of_main	equ	__end_of_main-_main
+   427                           	
+   428  0790                     _main:	
+   429                           	opt	stack 15
+   430                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   431                           	line	363
+   432                           	
+   433  0790                     l3556:	
+   434                           ;newmain.c: 363: TRISA = 0x00;
+   435  0790  0021               	movlb 1	; select bank1
+   436  0791  018C               	clrf	(140)^080h	;volatile
+   437                           	line	364
+   438                           ;newmain.c: 364: TRISB = 0x00;
+   439  0792  018D               	clrf	(141)^080h	;volatile
+   440                           	line	365
    441                           	
-   442  078E                     _main:	
-   443                           	opt	stack 14
-   444                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-   445                           	line	363
-   446                           	
-   447  078E                     l3556:	
-   448                           ;newmain.c: 363: TRISA = 0x00;
-   449  078E  0021               	movlb 1	; select bank1
-   450  078F  018C               	clrf	(140)^080h	;volatile
-   451                           	line	364
-   452                           ;newmain.c: 364: TRISB = 0x00;
-   453  0790  018D               	clrf	(141)^080h	;volatile
-   454                           	line	365
-   455                           	
-   456  0791                     l3558:	
-   457                           ;newmain.c: 365: TRISC = 0b00110000;
-   458  0791  3030               	movlw	(030h)
-   459  0792  008E               	movwf	(142)^080h	;volatile
-   460                           	line	367
-   461                           	
-   462  0793                     l3560:	
-   463                           ;newmain.c: 367: PORTA = 0x00;
-   464  0793  0020               	movlb 0	; select bank0
-   465  0794  018C               	clrf	(12)	;volatile
-   466                           	line	368
-   467                           	
-   468  0795                     l3562:	
-   469                           ;newmain.c: 368: PORTB = 0x00;
-   470  0795  018D               	clrf	(13)	;volatile
-   471                           	line	369
-   472                           	
-   473  0796                     l3564:	
-   474                           ;newmain.c: 369: PORTC = 0x00;
-   475  0796  018E               	clrf	(14)	;volatile
-   476                           	line	382
-   477                           	
-   478  0797                     l3566:	
-   479                           ;newmain.c: 382: ADCInit ();
-   480  0797  3186  26D1  3187   	fcall	_ADCInit
-   481  079A  2F9B               	goto	l3568
-   482                           	line	404
-   483                           ;newmain.c: 403: int leftpt, rightpt, read;
-   484                           ;newmain.c: 404: while (1)
-   485                           	
-   486  079B                     l1057:	
-   487                           	line	408
-   488                           	
-   489  079B                     l3568:	
-   490                           ;newmain.c: 405: {
-   491                           ;newmain.c: 408: read = readchannel(1);
-   492  079B  3001               	movlw	low(01h)
-   493  079C  00F0               	movwf	(?_readchannel)
-   494  079D  3000               	movlw	high(01h)
-   495  079E  00F1               	movwf	((?_readchannel))+1
-   496  079F  3187  2718  3187   	fcall	_readchannel
-   497  07A2  0871               	movf	(1+(?_readchannel)),w
-   498  07A3  01FB               	clrf	(main@read+1)
-   499  07A4  07FB               	addwf	(main@read+1)
-   500  07A5  0870               	movf	(0+(?_readchannel)),w
-   501  07A6  01FA               	clrf	(main@read)
-   502  07A7  07FA               	addwf	(main@read)
-   503                           
-   504                           	line	409
-   505                           	
-   506  07A8                     l3570:	
-   507                           ;newmain.c: 409: leftpt = (read > 90) ? 1 : 0;
-   508  07A8  087B               	movf	(main@read+1),w
-   509  07A9  3A80               	xorlw	80h
-   510  07AA  00FF               	movwf	btemp+1
-   511  07AB  3080               	movlw	(high(05Bh))^80h
-   512  07AC  027F               	subwf	btemp+1,w
-   513  07AD  1D03               	skipz
-   514  07AE  2FB1               	goto	u2485
-   515  07AF  305B               	movlw	low(05Bh)
-   516  07B0  027A               	subwf	(main@read),w
-   517  07B1                     u2485:
-   518                           
-   519  07B1  3000               	movlw	0
-   520  07B2  1803               	skipnc
-   521  07B3  3001               	movlw	1
-   522  07B4  00F4               	movwf	(??_main+0)+0
-   523  07B5  01F5               	clrf	(??_main+0)+0+1
-   524  07B6  0874               	movf	0+(??_main+0)+0,w
-   525  07B7  00F6               	movwf	(main@leftpt)
-   526  07B8  0875               	movf	1+(??_main+0)+0,w
-   527  07B9  00F7               	movwf	(main@leftpt+1)
-   528                           	line	413
-   529                           	
-   530  07BA                     l3572:	
-   531                           ;newmain.c: 413: read = readchannel(0);
-   532  07BA  3000               	movlw	low(0)
-   533  07BB  00F0               	movwf	(?_readchannel)
-   534  07BC  3000               	movlw	high(0)
-   535  07BD  00F1               	movwf	((?_readchannel))+1
-   536  07BE  3187  2718  3187   	fcall	_readchannel
-   537  07C1  0871               	movf	(1+(?_readchannel)),w
-   538  07C2  01FB               	clrf	(main@read+1)
-   539  07C3  07FB               	addwf	(main@read+1)
-   540  07C4  0870               	movf	(0+(?_readchannel)),w
-   541  07C5  01FA               	clrf	(main@read)
-   542  07C6  07FA               	addwf	(main@read)
-   543                           
-   544                           	line	414
-   545                           	
-   546  07C7                     l3574:	
-   547                           ;newmain.c: 414: rightpt = (read > 115) ? 1 : 0;
-   548  07C7  087B               	movf	(main@read+1),w
-   549  07C8  3A80               	xorlw	80h
-   550  07C9  00FF               	movwf	btemp+1
-   551  07CA  3080               	movlw	(high(074h))^80h
-   552  07CB  027F               	subwf	btemp+1,w
-   553  07CC  1D03               	skipz
-   554  07CD  2FD0               	goto	u2495
-   555  07CE  3074               	movlw	low(074h)
-   556  07CF  027A               	subwf	(main@read),w
-   557  07D0                     u2495:
-   558                           
-   559  07D0  3000               	movlw	0
-   560  07D1  1803               	skipnc
-   561  07D2  3001               	movlw	1
-   562  07D3  00F4               	movwf	(??_main+0)+0
-   563  07D4  01F5               	clrf	(??_main+0)+0+1
-   564  07D5  0874               	movf	0+(??_main+0)+0,w
-   565  07D6  00F8               	movwf	(main@rightpt)
-   566  07D7  0875               	movf	1+(??_main+0)+0,w
-   567  07D8  00F9               	movwf	(main@rightpt+1)
-   568                           	line	419
-   569                           	
-   570  07D9                     l3576:	
-   571                           ;newmain.c: 419: if((leftpt==0) && (rightpt==0))
-   572  07D9  0877               	movf	((main@leftpt+1)),w
-   573  07DA  0476               	iorwf	((main@leftpt)),w
-   574  07DB  1D03               	skipz
-   575  07DC  2FDE               	goto	u2501
-   576  07DD  2FDF               	goto	u2500
-   577  07DE                     u2501:
-   578  07DE  2FE9               	goto	l3582
-   579  07DF                     u2500:
-   580                           	
-   581  07DF                     l3578:	
-   582  07DF  0879               	movf	((main@rightpt+1)),w
-   583  07E0  0478               	iorwf	((main@rightpt)),w
-   584  07E1  1D03               	skipz
-   585  07E2  2FE4               	goto	u2511
-   586  07E3  2FE5               	goto	u2510
-   587  07E4                     u2511:
-   588  07E4  2FE9               	goto	l3582
-   589  07E5                     u2510:
-   590                           	line	421
-   591                           	
-   592  07E5                     l3580:	
-   593                           ;newmain.c: 420: {
-   594                           ;newmain.c: 421: searchTrack();
-   595  07E5  3187  274E  3187   	fcall	_searchTrack
-   596                           	line	422
-   597                           ;newmain.c: 422: }
-   598  07E8  2F9B               	goto	l3568
-   599                           	line	423
-   600                           	
-   601  07E9                     l1058:	
-   602                           	line	425
-   603                           	
-   604  07E9                     l3582:	
-   605                           ;newmain.c: 423: else
-   606                           ;newmain.c: 424: {
-   607                           ;newmain.c: 425: ignore = 0;
-   608  07E9  0020               	movlb 0	; select bank0
-   609  07EA  01AE               	clrf	(_ignore)
-   610  07EB  01AF               	clrf	(_ignore+1)
-   611                           	line	426
-   612                           	
-   613  07EC                     l3584:	
-   614                           ;newmain.c: 426: controlMotor(leftpt, rightpt);
-   615  07EC  0877               	movf	(main@leftpt+1),w
-   616  07ED  01F1               	clrf	(?_controlMotor+1)
-   617  07EE  07F1               	addwf	(?_controlMotor+1)
-   618  07EF  0876               	movf	(main@leftpt),w
-   619  07F0  01F0               	clrf	(?_controlMotor)
-   620  07F1  07F0               	addwf	(?_controlMotor)
-   621                           
-   622  07F2  0879               	movf	(main@rightpt+1),w
-   623  07F3  01F3               	clrf	1+(?_controlMotor)+02h
-   624  07F4  07F3               	addwf	1+(?_controlMotor)+02h
-   625  07F5  0878               	movf	(main@rightpt),w
-   626  07F6  01F2               	clrf	0+(?_controlMotor)+02h
-   627  07F7  07F2               	addwf	0+(?_controlMotor)+02h
-   628                           
-   629  07F8  3186  26EA  3187   	fcall	_controlMotor
-   630  07FB  2F9B               	goto	l3568
-   631                           	line	427
-   632                           	
-   633  07FC                     l1059:	
-   634  07FC  2F9B               	goto	l3568
-   635                           	line	428
-   636                           	
-   637  07FD                     l1060:	
-   638                           	line	404
-   639  07FD  2F9B               	goto	l3568
-   640                           	
-   641  07FE                     l1061:	
-   642                           	line	430
-   643                           	
-   644  07FE                     l1062:	
-   645                           	global	start
-   646  07FE  3180  2802         	ljmp	start
-   647                           	opt stack 0
-   648                           GLOBAL	__end_of_main
-   649  0800                     	__end_of_main:
-   650 ;; =============== function _main ends ============
-   651                           
-   652                           	signat	_main,90
-   653                           	global	_searchTrack
-   654                           psect	text178,local,class=CODE,delta=2
-   655                           global __ptext178
-   656  074E                     __ptext178:
-   657                           
-   658 ;; *************** function _searchTrack *****************
-   659 ;; Defined at:
-   660 ;;		line 126 in file "newmain.c"
-   661 ;; Parameters:    Size  Location     Type
-   662 ;;		None
-   663 ;; Auto vars:     Size  Location     Type
-   664 ;;		None
-   665 ;; Return value:  Size  Location     Type
-   666 ;;                  2  1015[COMMON] int 
-   667 ;; Registers used:
-   668 ;;		wreg, status,2, status,0, pclath, cstack
-   669 ;; Tracked objects:
-   670 ;;		On entry : 0/0
-   671 ;;		On exit  : 0/0
-   672 ;;		Unchanged: 0/0
-   673 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   674 ;;      Params:         0       0       0       0       0       0       0       0
-   675 ;;      Locals:         0       0       0       0       0       0       0       0
-   676 ;;      Temps:          0       0       0       0       0       0       0       0
-   677 ;;      Totals:         0       0       0       0       0       0       0       0
-   678 ;;Total ram usage:        0 bytes
-   679 ;; Hardware stack levels used:    1
-   680 ;; Hardware stack levels required when called:    1
-   681 ;; This function calls:
-   682 ;;		_controlMotor
-   683 ;; This function is called by:
-   684 ;;		_main
-   685 ;; This function uses a non-reentrant model
-   686 ;;
-   687                           psect	text178
-   688                           	file	"newmain.c"
-   689                           	line	126
-   690                           	global	__size_of_searchTrack
-   691  0040                     	__size_of_searchTrack	equ	__end_of_searchTrack-_searchTrack
+   442  0793                     l3558:	
+   443                           ;newmain.c: 365: TRISC = 0b00110000;
+   444  0793  3030               	movlw	(030h)
+   445  0794  008E               	movwf	(142)^080h	;volatile
+   446                           	line	367
+   447                           	
+   448  0795                     l3560:	
+   449                           ;newmain.c: 367: PORTA = 0x00;
+   450  0795  0020               	movlb 0	; select bank0
+   451  0796  018C               	clrf	(12)	;volatile
+   452                           	line	368
+   453                           	
+   454  0797                     l3562:	
+   455                           ;newmain.c: 368: PORTB = 0x00;
+   456  0797  018D               	clrf	(13)	;volatile
+   457                           	line	369
+   458                           	
+   459  0798                     l3564:	
+   460                           ;newmain.c: 369: PORTC = 0x00;
+   461  0798  018E               	clrf	(14)	;volatile
+   462                           	line	382
+   463                           	
+   464  0799                     l3566:	
+   465                           ;newmain.c: 382: ADCInit ();
+   466  0799  3187  2713  3187   	fcall	_ADCInit
+   467  079C  2F9D               	goto	l3568
+   468                           	line	404
+   469                           ;newmain.c: 403: int leftpt, rightpt, read;
+   470                           ;newmain.c: 404: while (1)
+   471                           	
+   472  079D                     l1057:	
+   473                           	line	408
+   474                           	
+   475  079D                     l3568:	
+   476                           ;newmain.c: 405: {
+   477                           ;newmain.c: 408: read = readchannel(1);
+   478  079D  3001               	movlw	low(01h)
+   479  079E  00F0               	movwf	(?_readchannel)
+   480  079F  3000               	movlw	high(01h)
+   481  07A0  00F1               	movwf	((?_readchannel))+1
+   482  07A1  3187  275A  3187   	fcall	_readchannel
+   483  07A4  0871               	movf	(1+(?_readchannel)),w
+   484  07A5  01FB               	clrf	(main@read+1)
+   485  07A6  07FB               	addwf	(main@read+1)
+   486  07A7  0870               	movf	(0+(?_readchannel)),w
+   487  07A8  01FA               	clrf	(main@read)
+   488  07A9  07FA               	addwf	(main@read)
+   489                           
+   490                           	line	409
+   491                           	
+   492  07AA                     l3570:	
+   493                           ;newmain.c: 409: leftpt = (read > 120) ? 1 : 0;
+   494  07AA  087B               	movf	(main@read+1),w
+   495  07AB  3A80               	xorlw	80h
+   496  07AC  00FF               	movwf	btemp+1
+   497  07AD  3080               	movlw	(high(079h))^80h
+   498  07AE  027F               	subwf	btemp+1,w
+   499  07AF  1D03               	skipz
+   500  07B0  2FB3               	goto	u2485
+   501  07B1  3079               	movlw	low(079h)
+   502  07B2  027A               	subwf	(main@read),w
+   503  07B3                     u2485:
+   504                           
+   505  07B3  3000               	movlw	0
+   506  07B4  1803               	skipnc
+   507  07B5  3001               	movlw	1
+   508  07B6  00F4               	movwf	(??_main+0)+0
+   509  07B7  01F5               	clrf	(??_main+0)+0+1
+   510  07B8  0874               	movf	0+(??_main+0)+0,w
+   511  07B9  00F6               	movwf	(main@leftpt)
+   512  07BA  0875               	movf	1+(??_main+0)+0,w
+   513  07BB  00F7               	movwf	(main@leftpt+1)
+   514                           	line	413
+   515                           	
+   516  07BC                     l3572:	
+   517                           ;newmain.c: 413: read = readchannel(0);
+   518  07BC  3000               	movlw	low(0)
+   519  07BD  00F0               	movwf	(?_readchannel)
+   520  07BE  3000               	movlw	high(0)
+   521  07BF  00F1               	movwf	((?_readchannel))+1
+   522  07C0  3187  275A  3187   	fcall	_readchannel
+   523  07C3  0871               	movf	(1+(?_readchannel)),w
+   524  07C4  01FB               	clrf	(main@read+1)
+   525  07C5  07FB               	addwf	(main@read+1)
+   526  07C6  0870               	movf	(0+(?_readchannel)),w
+   527  07C7  01FA               	clrf	(main@read)
+   528  07C8  07FA               	addwf	(main@read)
+   529                           
+   530                           	line	414
+   531                           	
+   532  07C9                     l3574:	
+   533                           ;newmain.c: 414: rightpt = (read > 120) ? 1 : 0;
+   534  07C9  087B               	movf	(main@read+1),w
+   535  07CA  3A80               	xorlw	80h
+   536  07CB  00FF               	movwf	btemp+1
+   537  07CC  3080               	movlw	(high(079h))^80h
+   538  07CD  027F               	subwf	btemp+1,w
+   539  07CE  1D03               	skipz
+   540  07CF  2FD2               	goto	u2495
+   541  07D0  3079               	movlw	low(079h)
+   542  07D1  027A               	subwf	(main@read),w
+   543  07D2                     u2495:
+   544                           
+   545  07D2  3000               	movlw	0
+   546  07D3  1803               	skipnc
+   547  07D4  3001               	movlw	1
+   548  07D5  00F4               	movwf	(??_main+0)+0
+   549  07D6  01F5               	clrf	(??_main+0)+0+1
+   550  07D7  0874               	movf	0+(??_main+0)+0,w
+   551  07D8  00F8               	movwf	(main@rightpt)
+   552  07D9  0875               	movf	1+(??_main+0)+0,w
+   553  07DA  00F9               	movwf	(main@rightpt+1)
+   554                           	line	419
+   555                           	
+   556  07DB                     l3576:	
+   557                           ;newmain.c: 419: if((leftpt==0) && (rightpt==0))
+   558  07DB  0877               	movf	((main@leftpt+1)),w
+   559  07DC  0476               	iorwf	((main@leftpt)),w
+   560  07DD  1D03               	skipz
+   561  07DE  2FE0               	goto	u2501
+   562  07DF  2FE1               	goto	u2500
+   563  07E0                     u2501:
+   564  07E0  2FE9               	goto	l3582
+   565  07E1                     u2500:
+   566                           	
+   567  07E1                     l3578:	
+   568  07E1  0879               	movf	((main@rightpt+1)),w
+   569  07E2  0478               	iorwf	((main@rightpt)),w
+   570  07E3  1D03               	skipz
+   571  07E4  2FE6               	goto	u2511
+   572  07E5  2FE7               	goto	u2510
+   573  07E6                     u2511:
+   574  07E6  2FE9               	goto	l3582
+   575  07E7                     u2510:
+   576  07E7  2F9D               	goto	l3568
+   577                           	line	422
+   578                           	
+   579  07E8                     l3580:	
+   580                           ;newmain.c: 420: {
+   581                           ;newmain.c: 422: }
+   582  07E8  2F9D               	goto	l3568
+   583                           	line	423
+   584                           	
+   585  07E9                     l1058:	
+   586                           	line	425
+   587                           	
+   588  07E9                     l3582:	
+   589                           ;newmain.c: 423: else
+   590                           ;newmain.c: 424: {
+   591                           ;newmain.c: 425: ignore = 0;
+   592  07E9  0020               	movlb 0	; select bank0
+   593  07EA  01AE               	clrf	(_ignore)
+   594  07EB  01AF               	clrf	(_ignore+1)
+   595                           	line	426
+   596                           	
+   597  07EC                     l3584:	
+   598                           ;newmain.c: 426: controlMotor(leftpt, rightpt);
+   599  07EC  0877               	movf	(main@leftpt+1),w
+   600  07ED  01F1               	clrf	(?_controlMotor+1)
+   601  07EE  07F1               	addwf	(?_controlMotor+1)
+   602  07EF  0876               	movf	(main@leftpt),w
+   603  07F0  01F0               	clrf	(?_controlMotor)
+   604  07F1  07F0               	addwf	(?_controlMotor)
+   605                           
+   606  07F2  0879               	movf	(main@rightpt+1),w
+   607  07F3  01F3               	clrf	1+(?_controlMotor)+02h
+   608  07F4  07F3               	addwf	1+(?_controlMotor)+02h
+   609  07F5  0878               	movf	(main@rightpt),w
+   610  07F6  01F2               	clrf	0+(?_controlMotor)+02h
+   611  07F7  07F2               	addwf	0+(?_controlMotor)+02h
+   612                           
+   613  07F8  3187  272C  3187   	fcall	_controlMotor
+   614  07FB  2F9D               	goto	l3568
+   615                           	line	427
+   616                           	
+   617  07FC                     l1059:	
+   618  07FC  2F9D               	goto	l3568
+   619                           	line	428
+   620                           	
+   621  07FD                     l1060:	
+   622                           	line	404
+   623  07FD  2F9D               	goto	l3568
+   624                           	
+   625  07FE                     l1061:	
+   626                           	line	430
+   627                           	
+   628  07FE                     l1062:	
+   629                           	global	start
+   630  07FE  3180  2802         	ljmp	start
+   631                           	opt stack 0
+   632                           GLOBAL	__end_of_main
+   633  0800                     	__end_of_main:
+   634 ;; =============== function _main ends ============
+   635                           
+   636                           	signat	_main,90
+   637                           	global	_readchannel
+   638                           psect	text163,local,class=CODE,delta=2
+   639                           global __ptext163
+   640  075A                     __ptext163:
+   641                           
+   642 ;; *************** function _readchannel *****************
+   643 ;; Defined at:
+   644 ;;		line 335 in file "newmain.c"
+   645 ;; Parameters:    Size  Location     Type
+   646 ;;  chan            2    0[COMMON] int 
+   647 ;; Auto vars:     Size  Location     Type
+   648 ;;		None
+   649 ;; Return value:  Size  Location     Type
+   650 ;;                  2    0[COMMON] int 
+   651 ;; Registers used:
+   652 ;;		wreg, status,2, status,0
+   653 ;; Tracked objects:
+   654 ;;		On entry : 0/0
+   655 ;;		On exit  : 0/0
+   656 ;;		Unchanged: 0/0
+   657 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+   658 ;;      Params:         2       0       0       0       0       0       0       0
+   659 ;;      Locals:         0       0       0       0       0       0       0       0
+   660 ;;      Temps:          2       0       0       0       0       0       0       0
+   661 ;;      Totals:         4       0       0       0       0       0       0       0
+   662 ;;Total ram usage:        4 bytes
+   663 ;; Hardware stack levels used:    1
+   664 ;; This function calls:
+   665 ;;		Nothing
+   666 ;; This function is called by:
+   667 ;;		_main
+   668 ;; This function uses a non-reentrant model
+   669 ;;
+   670                           psect	text163
+   671                           	file	"newmain.c"
+   672                           	line	335
+   673                           	global	__size_of_readchannel
+   674  0036                     	__size_of_readchannel	equ	__end_of_readchannel-_readchannel
+   675                           	
+   676  075A                     _readchannel:	
+   677                           	opt	stack 15
+   678                           ; Regs used in _readchannel: [wreg+status,2+status,0]
+   679                           	line	336
+   680                           	
+   681  075A                     l3534:	
+   682                           ;newmain.c: 336: if (chan == 0)
+   683  075A  0871               	movf	((readchannel@chan+1)),w
+   684  075B  0470               	iorwf	((readchannel@chan)),w
+   685  075C  1D03               	skipz
+   686  075D  2F5F               	goto	u2441
+   687  075E  2F60               	goto	u2440
+   688  075F                     u2441:
+   689  075F  2F74               	goto	l3546
+   690  0760                     u2440:
+   691                           	line	338
    692                           	
-   693  074E                     _searchTrack:	
-   694                           	opt	stack 14
-   695                           ; Regs used in _searchTrack: [wreg+status,2+status,0+pclath+cstack]
-   696                           	line	127
-   697                           	
-   698  074E                     l3544:	
-   699                           ;newmain.c: 127: ignore = 1;
-   700  074E  3001               	movlw	low(01h)
-   701  074F  0020               	movlb 0	; select bank0
-   702  0750  00AE               	movwf	(_ignore)
-   703  0751  3000               	movlw	high(01h)
-   704  0752  00AF               	movwf	((_ignore))+1
-   705                           	line	128
-   706                           ;newmain.c: 128: if (lastMotor == 2)
-   707  0753  3002               	movlw	02h
-   708  0754  067C               	xorwf	(_lastMotor),w
-   709  0755  047D               	iorwf	(_lastMotor+1),w
-   710  0756  1D03               	skipz
-   711  0757  2F59               	goto	u2451
-   712  0758  2F5A               	goto	u2450
-   713  0759                     u2451:
-   714  0759  2F66               	goto	l3548
-   715  075A                     u2450:
-   716                           	line	130
+   693  0760                     l3536:	
+   694                           ;newmain.c: 337: {
+   695                           ;newmain.c: 338: ADCON0 = 0b01000001;
+   696  0760  3041               	movlw	(041h)
+   697  0761  0021               	movlb 1	; select bank1
+   698  0762  009D               	movwf	(157)^080h	;volatile
+   699                           	line	340
+   700                           	
+   701  0763                     l3538:	
+   702                           ;newmain.c: 340: GO_nDONE=1;
+   703  0763  149D               	bsf	(1257/8)^080h,(1257)&7
+   704                           	line	341
+   705                           ;newmain.c: 341: while(GO_nDONE);
+   706  0764  2F65               	goto	l1046
+   707                           	
+   708  0765                     l1047:	
+   709                           	
+   710  0765                     l1046:	
+   711  0765  189D               	btfsc	(1257/8)^080h,(1257)&7
+   712  0766  2F68               	goto	u2451
+   713  0767  2F69               	goto	u2450
+   714  0768                     u2451:
+   715  0768  2F65               	goto	l1046
+   716  0769                     u2450:
    717                           	
-   718  075A                     l3546:	
-   719                           ;newmain.c: 129: {
-   720                           ;newmain.c: 130: controlMotor(1, 0);
-   721  075A  3001               	movlw	low(01h)
-   722  075B  00F0               	movwf	(?_controlMotor)
-   723  075C  3000               	movlw	high(01h)
-   724  075D  00F1               	movwf	((?_controlMotor))+1
-   725  075E  3000               	movlw	low(0)
-   726  075F  00F2               	movwf	0+(?_controlMotor)+02h
-   727  0760  3000               	movlw	high(0)
-   728  0761  00F3               	movwf	(0+(?_controlMotor)+02h)+1
-   729  0762  3186  26EA  3187   	fcall	_controlMotor
-   730                           	line	131
-   731                           ;newmain.c: 131: }
-   732  0765  2F8D               	goto	l1021
-   733                           	line	132
+   718  0769                     l1048:	
+   719                           	line	343
+   720                           ;newmain.c: 343: ADON=0;
+   721  0769  101D               	bcf	(1256/8)^080h,(1256)&7
+   722                           	line	345
+   723                           	
+   724  076A                     l3540:	
+   725                           ;newmain.c: 345: return ADRESH;
+   726  076A  081C               	movf	(156)^080h,w	;volatile
+   727  076B  00F2               	movwf	(??_readchannel+0)+0
+   728  076C  01F3               	clrf	(??_readchannel+0)+0+1
+   729  076D  0872               	movf	0+(??_readchannel+0)+0,w
+   730  076E  00F0               	movwf	(?_readchannel)
+   731  076F  0873               	movf	1+(??_readchannel+0)+0,w
+   732  0770  00F1               	movwf	(?_readchannel+1)
+   733  0771  2F8F               	goto	l1049
    734                           	
-   735  0766                     l1016:	
-   736                           	
-   737  0766                     l3548:	
-   738                           ;newmain.c: 132: else if (lastMotor == 1)
-   739  0766  3001               	movlw	01h
-   740  0767  067C               	xorwf	(_lastMotor),w
-   741  0768  047D               	iorwf	(_lastMotor+1),w
-   742  0769  1D03               	skipz
-   743  076A  2F6C               	goto	u2461
-   744  076B  2F6D               	goto	u2460
-   745  076C                     u2461:
-   746  076C  2F79               	goto	l3552
-   747  076D                     u2460:
-   748                           	line	134
-   749                           	
-   750  076D                     l3550:	
-   751                           ;newmain.c: 133: {
-   752                           ;newmain.c: 134: controlMotor(0, 1);
-   753  076D  3000               	movlw	low(0)
-   754  076E  00F0               	movwf	(?_controlMotor)
-   755  076F  3000               	movlw	high(0)
-   756  0770  00F1               	movwf	((?_controlMotor))+1
-   757  0771  3001               	movlw	low(01h)
-   758  0772  00F2               	movwf	0+(?_controlMotor)+02h
-   759  0773  3000               	movlw	high(01h)
-   760  0774  00F3               	movwf	(0+(?_controlMotor)+02h)+1
-   761  0775  3186  26EA  3187   	fcall	_controlMotor
-   762                           	line	135
-   763                           ;newmain.c: 135: }
-   764  0778  2F8D               	goto	l1021
-   765                           	line	136
+   735  0772                     l3542:	
+   736  0772  2F8F               	goto	l1049
+   737                           	line	346
+   738                           	
+   739  0773                     l3544:	
+   740                           ;newmain.c: 346: }
+   741  0773  2F8F               	goto	l1049
+   742                           	line	347
+   743                           	
+   744  0774                     l1045:	
+   745                           	
+   746  0774                     l3546:	
+   747                           ;newmain.c: 347: else if (chan == 1)
+   748  0774  3001               	movlw	01h
+   749  0775  0670               	xorwf	(readchannel@chan),w
+   750  0776  0471               	iorwf	(readchannel@chan+1),w
+   751  0777  1D03               	skipz
+   752  0778  2F7A               	goto	u2461
+   753  0779  2F7B               	goto	u2460
+   754  077A                     u2461:
+   755  077A  2F8F               	goto	l1049
+   756  077B                     u2460:
+   757                           	line	349
+   758                           	
+   759  077B                     l3548:	
+   760                           ;newmain.c: 348: {
+   761                           ;newmain.c: 349: ADCON0 = 0b01000101;
+   762  077B  3045               	movlw	(045h)
+   763  077C  0021               	movlb 1	; select bank1
+   764  077D  009D               	movwf	(157)^080h	;volatile
+   765                           	line	351
    766                           	
-   767  0779                     l1018:	
-   768                           	
-   769  0779                     l3552:	
-   770                           ;newmain.c: 136: else if (lastMotor == 0)
-   771  0779  087D               	movf	((_lastMotor+1)),w
-   772  077A  047C               	iorwf	((_lastMotor)),w
-   773  077B  1D03               	skipz
-   774  077C  2F7E               	goto	u2471
-   775  077D  2F7F               	goto	u2470
-   776  077E                     u2471:
-   777  077E  2F8D               	goto	l1021
-   778  077F                     u2470:
-   779                           	line	138
-   780                           	
-   781  077F                     l3554:	
-   782                           ;newmain.c: 137: {
-   783                           ;newmain.c: 138: controlMotor(1,1);
-   784  077F  3001               	movlw	low(01h)
-   785  0780  00F0               	movwf	(?_controlMotor)
-   786  0781  3000               	movlw	high(01h)
-   787  0782  00F1               	movwf	((?_controlMotor))+1
-   788  0783  3001               	movlw	low(01h)
-   789  0784  00F2               	movwf	0+(?_controlMotor)+02h
-   790  0785  3000               	movlw	high(01h)
-   791  0786  00F3               	movwf	(0+(?_controlMotor)+02h)+1
-   792  0787  3186  26EA  3187   	fcall	_controlMotor
-   793  078A  2F8D               	goto	l1021
-   794                           	line	139
-   795                           	
-   796  078B                     l1020:	
-   797  078B  2F8D               	goto	l1021
-   798                           	line	140
-   799                           	
-   800  078C                     l1019:	
-   801  078C  2F8D               	goto	l1021
-   802                           	
-   803  078D                     l1017:	
+   767  077E                     l3550:	
+   768                           ;newmain.c: 351: GO_nDONE=1;
+   769  077E  149D               	bsf	(1257/8)^080h,(1257)&7
+   770                           	line	352
+   771                           ;newmain.c: 352: while(GO_nDONE);
+   772  077F  2F80               	goto	l1052
+   773                           	
+   774  0780                     l1053:	
+   775                           	
+   776  0780                     l1052:	
+   777  0780  189D               	btfsc	(1257/8)^080h,(1257)&7
+   778  0781  2F83               	goto	u2471
+   779  0782  2F84               	goto	u2470
+   780  0783                     u2471:
+   781  0783  2F80               	goto	l1052
+   782  0784                     u2470:
+   783                           	
+   784  0784                     l1054:	
+   785                           	line	354
+   786                           ;newmain.c: 354: ADON=0;
+   787  0784  101D               	bcf	(1256/8)^080h,(1256)&7
+   788                           	line	356
+   789                           	
+   790  0785                     l3552:	
+   791                           ;newmain.c: 356: return ADRESH;
+   792  0785  081C               	movf	(156)^080h,w	;volatile
+   793  0786  00F2               	movwf	(??_readchannel+0)+0
+   794  0787  01F3               	clrf	(??_readchannel+0)+0+1
+   795  0788  0872               	movf	0+(??_readchannel+0)+0,w
+   796  0789  00F0               	movwf	(?_readchannel)
+   797  078A  0873               	movf	1+(??_readchannel+0)+0,w
+   798  078B  00F1               	movwf	(?_readchannel+1)
+   799  078C  2F8F               	goto	l1049
+   800                           	
+   801  078D                     l3554:	
+   802  078D  2F8F               	goto	l1049
+   803                           	line	357
    804                           	
-   805  078D                     l1021:	
-   806  078D  0008               	return
-   807                           	opt stack 0
-   808                           GLOBAL	__end_of_searchTrack
-   809  078E                     	__end_of_searchTrack:
-   810 ;; =============== function _searchTrack ends ============
-   811                           
-   812                           	signat	_searchTrack,90
-   813                           	global	_readchannel
-   814                           psect	text179,local,class=CODE,delta=2
-   815                           global __ptext179
-   816  0718                     __ptext179:
+   805  078E                     l1051:	
+   806  078E  2F8F               	goto	l1049
+   807                           	line	358
+   808                           	
+   809  078F                     l1050:	
+   810                           	
+   811  078F                     l1049:	
+   812  078F  0008               	return
+   813                           	opt stack 0
+   814                           GLOBAL	__end_of_readchannel
+   815  0790                     	__end_of_readchannel:
+   816 ;; =============== function _readchannel ends ============
    817                           
-   818 ;; *************** function _readchannel *****************
-   819 ;; Defined at:
-   820 ;;		line 335 in file "newmain.c"
-   821 ;; Parameters:    Size  Location     Type
-   822 ;;  chan            2    0[COMMON] int 
-   823 ;; Auto vars:     Size  Location     Type
-   824 ;;		None
-   825 ;; Return value:  Size  Location     Type
-   826 ;;                  2    0[COMMON] int 
-   827 ;; Registers used:
-   828 ;;		wreg, status,2, status,0
-   829 ;; Tracked objects:
-   830 ;;		On entry : 0/0
-   831 ;;		On exit  : 0/0
-   832 ;;		Unchanged: 0/0
-   833 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   834 ;;      Params:         2       0       0       0       0       0       0       0
-   835 ;;      Locals:         0       0       0       0       0       0       0       0
-   836 ;;      Temps:          2       0       0       0       0       0       0       0
-   837 ;;      Totals:         4       0       0       0       0       0       0       0
-   838 ;;Total ram usage:        4 bytes
-   839 ;; Hardware stack levels used:    1
-   840 ;; This function calls:
-   841 ;;		Nothing
-   842 ;; This function is called by:
-   843 ;;		_main
-   844 ;; This function uses a non-reentrant model
-   845 ;;
-   846                           psect	text179
-   847                           	file	"newmain.c"
-   848                           	line	335
-   849                           	global	__size_of_readchannel
-   850  0036                     	__size_of_readchannel	equ	__end_of_readchannel-_readchannel
-   851                           	
-   852  0718                     _readchannel:	
-   853                           	opt	stack 15
-   854                           ; Regs used in _readchannel: [wreg+status,2+status,0]
-   855                           	line	336
-   856                           	
-   857  0718                     l3522:	
-   858                           ;newmain.c: 336: if (chan == 0)
-   859  0718  0871               	movf	((readchannel@chan+1)),w
-   860  0719  0470               	iorwf	((readchannel@chan)),w
-   861  071A  1D03               	skipz
-   862  071B  2F1D               	goto	u2411
-   863  071C  2F1E               	goto	u2410
-   864  071D                     u2411:
-   865  071D  2F32               	goto	l3534
-   866  071E                     u2410:
-   867                           	line	338
-   868                           	
-   869  071E                     l3524:	
-   870                           ;newmain.c: 337: {
-   871                           ;newmain.c: 338: ADCON0 = 0b01000001;
-   872  071E  3041               	movlw	(041h)
-   873  071F  0021               	movlb 1	; select bank1
-   874  0720  009D               	movwf	(157)^080h	;volatile
-   875                           	line	340
-   876                           	
-   877  0721                     l3526:	
-   878                           ;newmain.c: 340: GO_nDONE=1;
-   879  0721  149D               	bsf	(1257/8)^080h,(1257)&7
-   880                           	line	341
-   881                           ;newmain.c: 341: while(GO_nDONE);
-   882  0722  2F23               	goto	l1046
-   883                           	
-   884  0723                     l1047:	
-   885                           	
-   886  0723                     l1046:	
-   887  0723  189D               	btfsc	(1257/8)^080h,(1257)&7
-   888  0724  2F26               	goto	u2421
-   889  0725  2F27               	goto	u2420
-   890  0726                     u2421:
-   891  0726  2F23               	goto	l1046
-   892  0727                     u2420:
-   893                           	
-   894  0727                     l1048:	
-   895                           	line	343
-   896                           ;newmain.c: 343: ADON=0;
-   897  0727  101D               	bcf	(1256/8)^080h,(1256)&7
-   898                           	line	345
-   899                           	
-   900  0728                     l3528:	
-   901                           ;newmain.c: 345: return ADRESH;
-   902  0728  081C               	movf	(156)^080h,w	;volatile
-   903  0729  00F2               	movwf	(??_readchannel+0)+0
-   904  072A  01F3               	clrf	(??_readchannel+0)+0+1
-   905  072B  0872               	movf	0+(??_readchannel+0)+0,w
-   906  072C  00F0               	movwf	(?_readchannel)
-   907  072D  0873               	movf	1+(??_readchannel+0)+0,w
-   908  072E  00F1               	movwf	(?_readchannel+1)
-   909  072F  2F4D               	goto	l1049
-   910                           	
-   911  0730                     l3530:	
-   912  0730  2F4D               	goto	l1049
-   913                           	line	346
-   914                           	
-   915  0731                     l3532:	
-   916                           ;newmain.c: 346: }
-   917  0731  2F4D               	goto	l1049
-   918                           	line	347
-   919                           	
-   920  0732                     l1045:	
-   921                           	
-   922  0732                     l3534:	
-   923                           ;newmain.c: 347: else if (chan == 1)
-   924  0732  3001               	movlw	01h
-   925  0733  0670               	xorwf	(readchannel@chan),w
-   926  0734  0471               	iorwf	(readchannel@chan+1),w
-   927  0735  1D03               	skipz
-   928  0736  2F38               	goto	u2431
-   929  0737  2F39               	goto	u2430
-   930  0738                     u2431:
-   931  0738  2F4D               	goto	l1049
-   932  0739                     u2430:
-   933                           	line	349
-   934                           	
-   935  0739                     l3536:	
-   936                           ;newmain.c: 348: {
-   937                           ;newmain.c: 349: ADCON0 = 0b01000101;
-   938  0739  3045               	movlw	(045h)
-   939  073A  0021               	movlb 1	; select bank1
-   940  073B  009D               	movwf	(157)^080h	;volatile
-   941                           	line	351
+   818                           	signat	_readchannel,4218
+   819                           	global	_ADCInit
+   820                           psect	text164,local,class=CODE,delta=2
+   821                           global __ptext164
+   822  0713                     __ptext164:
+   823                           
+   824 ;; *************** function _ADCInit *****************
+   825 ;; Defined at:
+   826 ;;		line 246 in file "newmain.c"
+   827 ;; Parameters:    Size  Location     Type
+   828 ;;		None
+   829 ;; Auto vars:     Size  Location     Type
+   830 ;;		None
+   831 ;; Return value:  Size  Location     Type
+   832 ;;		None               void
+   833 ;; Registers used:
+   834 ;;		wreg, status,2
+   835 ;; Tracked objects:
+   836 ;;		On entry : 0/0
+   837 ;;		On exit  : 0/0
+   838 ;;		Unchanged: 0/0
+   839 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+   840 ;;      Params:         0       0       0       0       0       0       0       0
+   841 ;;      Locals:         0       0       0       0       0       0       0       0
+   842 ;;      Temps:          0       0       0       0       0       0       0       0
+   843 ;;      Totals:         0       0       0       0       0       0       0       0
+   844 ;;Total ram usage:        0 bytes
+   845 ;; Hardware stack levels used:    1
+   846 ;; This function calls:
+   847 ;;		Nothing
+   848 ;; This function is called by:
+   849 ;;		_main
+   850 ;; This function uses a non-reentrant model
+   851 ;;
+   852                           psect	text164
+   853                           	file	"newmain.c"
+   854                           	line	246
+   855                           	global	__size_of_ADCInit
+   856  0006                     	__size_of_ADCInit	equ	__end_of_ADCInit-_ADCInit
+   857                           	
+   858  0713                     _ADCInit:	
+   859                           	opt	stack 15
+   860                           ; Regs used in _ADCInit: [wreg+status,2]
+   861                           	line	247
+   862                           	
+   863  0713                     l3530:	
+   864                           ;newmain.c: 247: ANSELC = 0b00110000;
+   865  0713  3030               	movlw	(030h)
+   866  0714  0023               	movlb 3	; select bank3
+   867  0715  008E               	movwf	(398)^0180h	;volatile
+   868                           	line	248
+   869                           	
+   870  0716                     l3532:	
+   871                           ;newmain.c: 248: ADCON1 = 0x00;
+   872  0716  0021               	movlb 1	; select bank1
+   873  0717  019E               	clrf	(158)^080h	;volatile
+   874                           	line	252
+   875                           	
+   876  0718                     l1036:	
+   877  0718  0008               	return
+   878                           	opt stack 0
+   879                           GLOBAL	__end_of_ADCInit
+   880  0719                     	__end_of_ADCInit:
+   881 ;; =============== function _ADCInit ends ============
+   882                           
+   883                           	signat	_ADCInit,88
+   884                           	global	_controlMotor
+   885                           psect	text165,local,class=CODE,delta=2
+   886                           global __ptext165
+   887  072C                     __ptext165:
+   888                           
+   889 ;; *************** function _controlMotor *****************
+   890 ;; Defined at:
+   891 ;;		line 84 in file "newmain.c"
+   892 ;; Parameters:    Size  Location     Type
+   893 ;;  Leftpt          2    0[COMMON] int 
+   894 ;;  Rightpt         2    2[COMMON] int 
+   895 ;; Auto vars:     Size  Location     Type
+   896 ;;		None
+   897 ;; Return value:  Size  Location     Type
+   898 ;;		None               void
+   899 ;; Registers used:
+   900 ;;		wreg, status,2, status,0
+   901 ;; Tracked objects:
+   902 ;;		On entry : 0/0
+   903 ;;		On exit  : 0/0
+   904 ;;		Unchanged: 0/0
+   905 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+   906 ;;      Params:         4       0       0       0       0       0       0       0
+   907 ;;      Locals:         0       0       0       0       0       0       0       0
+   908 ;;      Temps:          0       0       0       0       0       0       0       0
+   909 ;;      Totals:         4       0       0       0       0       0       0       0
+   910 ;;Total ram usage:        4 bytes
+   911 ;; Hardware stack levels used:    1
+   912 ;; This function calls:
+   913 ;;		Nothing
+   914 ;; This function is called by:
+   915 ;;		_main
+   916 ;;		_searchTrack
+   917 ;; This function uses a non-reentrant model
+   918 ;;
+   919                           psect	text165
+   920                           	file	"newmain.c"
+   921                           	line	84
+   922                           	global	__size_of_controlMotor
+   923  002E                     	__size_of_controlMotor	equ	__end_of_controlMotor-_controlMotor
+   924                           	
+   925  072C                     _controlMotor:	
+   926                           	opt	stack 15
+   927                           ; Regs used in _controlMotor: [wreg+status,2+status,0]
+   928                           	line	85
+   929                           	
+   930  072C                     l3504:	
+   931                           ;newmain.c: 85: if (Leftpt == 1)
+   932  072C  3001               	movlw	01h
+   933  072D  0670               	xorwf	(controlMotor@Leftpt),w
+   934  072E  0471               	iorwf	(controlMotor@Leftpt+1),w
+   935  072F  1D03               	skipz
+   936  0730  2F32               	goto	u2371
+   937  0731  2F33               	goto	u2370
+   938  0732                     u2371:
+   939  0732  2F36               	goto	l1007
+   940  0733                     u2370:
+   941                           	line	89
    942                           	
-   943  073C                     l3538:	
-   944                           ;newmain.c: 351: GO_nDONE=1;
-   945  073C  149D               	bsf	(1257/8)^080h,(1257)&7
-   946                           	line	352
-   947                           ;newmain.c: 352: while(GO_nDONE);
-   948  073D  2F3E               	goto	l1052
-   949                           	
-   950  073E                     l1053:	
-   951                           	
-   952  073E                     l1052:	
-   953  073E  189D               	btfsc	(1257/8)^080h,(1257)&7
-   954  073F  2F41               	goto	u2441
-   955  0740  2F42               	goto	u2440
-   956  0741                     u2441:
-   957  0741  2F3E               	goto	l1052
-   958  0742                     u2440:
-   959                           	
-   960  0742                     l1054:	
-   961                           	line	354
-   962                           ;newmain.c: 354: ADON=0;
-   963  0742  101D               	bcf	(1256/8)^080h,(1256)&7
-   964                           	line	356
-   965                           	
-   966  0743                     l3540:	
-   967                           ;newmain.c: 356: return ADRESH;
-   968  0743  081C               	movf	(156)^080h,w	;volatile
-   969  0744  00F2               	movwf	(??_readchannel+0)+0
-   970  0745  01F3               	clrf	(??_readchannel+0)+0+1
-   971  0746  0872               	movf	0+(??_readchannel+0)+0,w
-   972  0747  00F0               	movwf	(?_readchannel)
-   973  0748  0873               	movf	1+(??_readchannel+0)+0,w
-   974  0749  00F1               	movwf	(?_readchannel+1)
-   975  074A  2F4D               	goto	l1049
-   976                           	
-   977  074B                     l3542:	
-   978  074B  2F4D               	goto	l1049
-   979                           	line	357
-   980                           	
-   981  074C                     l1051:	
-   982  074C  2F4D               	goto	l1049
-   983                           	line	358
-   984                           	
-   985  074D                     l1050:	
+   943  0733                     l3506:	
+   944                           ;newmain.c: 86: {
+   945                           ;newmain.c: 89: RC6 = 1;
+   946  0733  0020               	movlb 0	; select bank0
+   947  0734  170E               	bsf	(118/8),(118)&7
+   948                           	line	90
+   949                           ;newmain.c: 90: }
+   950  0735  2F43               	goto	l1008
+   951                           	line	91
+   952                           	
+   953  0736                     l1007:	
+   954                           	line	95
+   955                           ;newmain.c: 91: else
+   956                           ;newmain.c: 92: {
+   957                           ;newmain.c: 95: RC6 = 0;
+   958  0736  0020               	movlb 0	; select bank0
+   959  0737  130E               	bcf	(118/8),(118)&7
+   960                           	line	96
+   961                           	
+   962  0738                     l3508:	
+   963                           ;newmain.c: 96: if (ignore == 0)
+   964  0738  082F               	movf	((_ignore+1)),w
+   965  0739  042E               	iorwf	((_ignore)),w
+   966  073A  1D03               	skipz
+   967  073B  2F3D               	goto	u2381
+   968  073C  2F3E               	goto	u2380
+   969  073D                     u2381:
+   970  073D  2F43               	goto	l1008
+   971  073E                     u2380:
+   972                           	line	98
+   973                           	
+   974  073E                     l3510:	
+   975                           ;newmain.c: 97: {
+   976                           ;newmain.c: 98: lastMotor = 1;
+   977  073E  3001               	movlw	low(01h)
+   978  073F  00FC               	movwf	(_lastMotor)
+   979  0740  3000               	movlw	high(01h)
+   980  0741  00FD               	movwf	((_lastMotor))+1
+   981  0742  2F43               	goto	l1008
+   982                           	line	99
+   983                           	
+   984  0743                     l1009:	
+   985                           	line	100
    986                           	
-   987  074D                     l1049:	
-   988  074D  0008               	return
-   989                           	opt stack 0
-   990                           GLOBAL	__end_of_readchannel
-   991  074E                     	__end_of_readchannel:
-   992 ;; =============== function _readchannel ends ============
-   993                           
-   994                           	signat	_readchannel,4218
-   995                           	global	_ADCInit
-   996                           psect	text180,local,class=CODE,delta=2
-   997                           global __ptext180
-   998  06D1                     __ptext180:
-   999                           
-  1000 ;; *************** function _ADCInit *****************
-  1001 ;; Defined at:
-  1002 ;;		line 246 in file "newmain.c"
-  1003 ;; Parameters:    Size  Location     Type
-  1004 ;;		None
-  1005 ;; Auto vars:     Size  Location     Type
-  1006 ;;		None
-  1007 ;; Return value:  Size  Location     Type
-  1008 ;;		None               void
-  1009 ;; Registers used:
-  1010 ;;		wreg, status,2
-  1011 ;; Tracked objects:
-  1012 ;;		On entry : 0/0
-  1013 ;;		On exit  : 0/0
-  1014 ;;		Unchanged: 0/0
-  1015 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-  1016 ;;      Params:         0       0       0       0       0       0       0       0
-  1017 ;;      Locals:         0       0       0       0       0       0       0       0
-  1018 ;;      Temps:          0       0       0       0       0       0       0       0
-  1019 ;;      Totals:         0       0       0       0       0       0       0       0
-  1020 ;;Total ram usage:        0 bytes
-  1021 ;; Hardware stack levels used:    1
-  1022 ;; This function calls:
-  1023 ;;		Nothing
-  1024 ;; This function is called by:
-  1025 ;;		_main
-  1026 ;; This function uses a non-reentrant model
-  1027 ;;
-  1028                           psect	text180
-  1029                           	file	"newmain.c"
-  1030                           	line	246
-  1031                           	global	__size_of_ADCInit
-  1032  0006                     	__size_of_ADCInit	equ	__end_of_ADCInit-_ADCInit
-  1033                           	
-  1034  06D1                     _ADCInit:	
-  1035                           	opt	stack 15
-  1036                           ; Regs used in _ADCInit: [wreg+status,2]
-  1037                           	line	247
-  1038                           	
-  1039  06D1                     l3518:	
-  1040                           ;newmain.c: 247: ANSELC = 0b00110000;
-  1041  06D1  3030               	movlw	(030h)
-  1042  06D2  0023               	movlb 3	; select bank3
-  1043  06D3  008E               	movwf	(398)^0180h	;volatile
-  1044                           	line	248
+   987  0743                     l1008:	
+   988                           	line	103
+   989                           ;newmain.c: 99: }
+   990                           ;newmain.c: 100: }
+   991                           ;newmain.c: 103: if (Rightpt == 1)
+   992  0743  3001               	movlw	01h
+   993  0744  0672               	xorwf	(controlMotor@Rightpt),w
+   994  0745  0473               	iorwf	(controlMotor@Rightpt+1),w
+   995  0746  1D03               	skipz
+   996  0747  2F49               	goto	u2391
+   997  0748  2F4A               	goto	u2390
+   998  0749                     u2391:
+   999  0749  2F4C               	goto	l1010
+  1000  074A                     u2390:
+  1001                           	line	107
+  1002                           	
+  1003  074A                     l3512:	
+  1004                           ;newmain.c: 104: {
+  1005                           ;newmain.c: 107: RC7 = 1;
+  1006  074A  178E               	bsf	(119/8),(119)&7
+  1007                           	line	108
+  1008                           ;newmain.c: 108: }
+  1009  074B  2F59               	goto	l1013
+  1010                           	line	109
+  1011                           	
+  1012  074C                     l1010:	
+  1013                           	line	112
+  1014                           ;newmain.c: 109: else
+  1015                           ;newmain.c: 110: {
+  1016                           ;newmain.c: 112: RC7 = 0;
+  1017  074C  138E               	bcf	(119/8),(119)&7
+  1018                           	line	113
+  1019                           	
+  1020  074D                     l3514:	
+  1021                           ;newmain.c: 113: if (ignore == 0)
+  1022  074D  082F               	movf	((_ignore+1)),w
+  1023  074E  042E               	iorwf	((_ignore)),w
+  1024  074F  1D03               	skipz
+  1025  0750  2F52               	goto	u2401
+  1026  0751  2F53               	goto	u2400
+  1027  0752                     u2401:
+  1028  0752  2F59               	goto	l1013
+  1029  0753                     u2400:
+  1030                           	line	115
+  1031                           	
+  1032  0753                     l3516:	
+  1033                           ;newmain.c: 114: {
+  1034                           ;newmain.c: 115: lastMotor = 2;
+  1035  0753  3002               	movlw	low(02h)
+  1036  0754  00FC               	movwf	(_lastMotor)
+  1037  0755  3000               	movlw	high(02h)
+  1038  0756  00FD               	movwf	((_lastMotor))+1
+  1039  0757  2F59               	goto	l1013
+  1040                           	line	116
+  1041                           	
+  1042  0758                     l1012:	
+  1043  0758  2F59               	goto	l1013
+  1044                           	line	117
   1045                           	
-  1046  06D4                     l3520:	
-  1047                           ;newmain.c: 248: ADCON1 = 0x00;
-  1048  06D4  0021               	movlb 1	; select bank1
-  1049  06D5  019E               	clrf	(158)^080h	;volatile
-  1050                           	line	252
-  1051                           	
-  1052  06D6                     l1036:	
-  1053  06D6  0008               	return
-  1054                           	opt stack 0
-  1055                           GLOBAL	__end_of_ADCInit
-  1056  06D7                     	__end_of_ADCInit:
-  1057 ;; =============== function _ADCInit ends ============
-  1058                           
-  1059                           	signat	_ADCInit,88
-  1060                           	global	_controlMotor
-  1061                           psect	text181,local,class=CODE,delta=2
-  1062                           global __ptext181
-  1063  06EA                     __ptext181:
-  1064                           
-  1065 ;; *************** function _controlMotor *****************
-  1066 ;; Defined at:
-  1067 ;;		line 84 in file "newmain.c"
-  1068 ;; Parameters:    Size  Location     Type
-  1069 ;;  Leftpt          2    0[COMMON] int 
-  1070 ;;  Rightpt         2    2[COMMON] int 
-  1071 ;; Auto vars:     Size  Location     Type
-  1072 ;;		None
-  1073 ;; Return value:  Size  Location     Type
-  1074 ;;		None               void
-  1075 ;; Registers used:
-  1076 ;;		wreg, status,2, status,0
-  1077 ;; Tracked objects:
-  1078 ;;		On entry : 0/0
-  1079 ;;		On exit  : 0/0
-  1080 ;;		Unchanged: 0/0
-  1081 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-  1082 ;;      Params:         4       0       0       0       0       0       0       0
-  1083 ;;      Locals:         0       0       0       0       0       0       0       0
-  1084 ;;      Temps:          0       0       0       0       0       0       0       0
-  1085 ;;      Totals:         4       0       0       0       0       0       0       0
-  1086 ;;Total ram usage:        4 bytes
-  1087 ;; Hardware stack levels used:    1
-  1088 ;; This function calls:
-  1089 ;;		Nothing
-  1090 ;; This function is called by:
-  1091 ;;		_searchTrack
-  1092 ;;		_main
-  1093 ;; This function uses a non-reentrant model
-  1094 ;;
-  1095                           psect	text181
-  1096                           	file	"newmain.c"
-  1097                           	line	84
-  1098                           	global	__size_of_controlMotor
-  1099  002E                     	__size_of_controlMotor	equ	__end_of_controlMotor-_controlMotor
-  1100                           	
-  1101  06EA                     _controlMotor:	
-  1102                           	opt	stack 15
-  1103                           ; Regs used in _controlMotor: [wreg+status,2+status,0]
-  1104                           	line	85
-  1105                           	
-  1106  06EA                     l3504:	
-  1107                           ;newmain.c: 85: if (Leftpt == 1)
-  1108  06EA  3001               	movlw	01h
-  1109  06EB  0670               	xorwf	(controlMotor@Leftpt),w
-  1110  06EC  0471               	iorwf	(controlMotor@Leftpt+1),w
-  1111  06ED  1D03               	skipz
-  1112  06EE  2EF0               	goto	u2371
-  1113  06EF  2EF1               	goto	u2370
-  1114  06F0                     u2371:
-  1115  06F0  2EF4               	goto	l1007
-  1116  06F1                     u2370:
-  1117                           	line	89
-  1118                           	
-  1119  06F1                     l3506:	
-  1120                           ;newmain.c: 86: {
-  1121                           ;newmain.c: 89: RC6 = 1;
-  1122  06F1  0020               	movlb 0	; select bank0
-  1123  06F2  170E               	bsf	(118/8),(118)&7
-  1124                           	line	90
-  1125                           ;newmain.c: 90: }
-  1126  06F3  2F01               	goto	l1008
-  1127                           	line	91
-  1128                           	
-  1129  06F4                     l1007:	
-  1130                           	line	95
-  1131                           ;newmain.c: 91: else
-  1132                           ;newmain.c: 92: {
-  1133                           ;newmain.c: 95: RC6 = 0;
-  1134  06F4  0020               	movlb 0	; select bank0
-  1135  06F5  130E               	bcf	(118/8),(118)&7
-  1136                           	line	96
-  1137                           	
-  1138  06F6                     l3508:	
-  1139                           ;newmain.c: 96: if (ignore == 0)
-  1140  06F6  082F               	movf	((_ignore+1)),w
-  1141  06F7  042E               	iorwf	((_ignore)),w
-  1142  06F8  1D03               	skipz
-  1143  06F9  2EFB               	goto	u2381
-  1144  06FA  2EFC               	goto	u2380
-  1145  06FB                     u2381:
-  1146  06FB  2F01               	goto	l1008
-  1147  06FC                     u2380:
-  1148                           	line	98
-  1149                           	
-  1150  06FC                     l3510:	
-  1151                           ;newmain.c: 97: {
-  1152                           ;newmain.c: 98: lastMotor = 1;
-  1153  06FC  3001               	movlw	low(01h)
-  1154  06FD  00FC               	movwf	(_lastMotor)
-  1155  06FE  3000               	movlw	high(01h)
-  1156  06FF  00FD               	movwf	((_lastMotor))+1
-  1157  0700  2F01               	goto	l1008
-  1158                           	line	99
-  1159                           	
-  1160  0701                     l1009:	
-  1161                           	line	100
-  1162                           	
-  1163  0701                     l1008:	
-  1164                           	line	103
-  1165                           ;newmain.c: 99: }
-  1166                           ;newmain.c: 100: }
-  1167                           ;newmain.c: 103: if (Rightpt == 1)
-  1168  0701  3001               	movlw	01h
-  1169  0702  0672               	xorwf	(controlMotor@Rightpt),w
-  1170  0703  0473               	iorwf	(controlMotor@Rightpt+1),w
-  1171  0704  1D03               	skipz
-  1172  0705  2F07               	goto	u2391
-  1173  0706  2F08               	goto	u2390
-  1174  0707                     u2391:
-  1175  0707  2F0A               	goto	l1010
-  1176  0708                     u2390:
-  1177                           	line	107
-  1178                           	
-  1179  0708                     l3512:	
-  1180                           ;newmain.c: 104: {
-  1181                           ;newmain.c: 107: RC7 = 1;
-  1182  0708  178E               	bsf	(119/8),(119)&7
-  1183                           	line	108
-  1184                           ;newmain.c: 108: }
-  1185  0709  2F17               	goto	l1013
-  1186                           	line	109
-  1187                           	
-  1188  070A                     l1010:	
-  1189                           	line	112
-  1190                           ;newmain.c: 109: else
-  1191                           ;newmain.c: 110: {
-  1192                           ;newmain.c: 112: RC7 = 0;
-  1193  070A  138E               	bcf	(119/8),(119)&7
-  1194                           	line	113
-  1195                           	
-  1196  070B                     l3514:	
-  1197                           ;newmain.c: 113: if (ignore == 0)
-  1198  070B  082F               	movf	((_ignore+1)),w
-  1199  070C  042E               	iorwf	((_ignore)),w
-  1200  070D  1D03               	skipz
-  1201  070E  2F10               	goto	u2401
-  1202  070F  2F11               	goto	u2400
-  1203  0710                     u2401:
-  1204  0710  2F17               	goto	l1013
-  1205  0711                     u2400:
-  1206                           	line	115
-  1207                           	
-  1208  0711                     l3516:	
-  1209                           ;newmain.c: 114: {
-  1210                           ;newmain.c: 115: lastMotor = 2;
-  1211  0711  3002               	movlw	low(02h)
-  1212  0712  00FC               	movwf	(_lastMotor)
-  1213  0713  3000               	movlw	high(02h)
-  1214  0714  00FD               	movwf	((_lastMotor))+1
-  1215  0715  2F17               	goto	l1013
-  1216                           	line	116
-  1217                           	
-  1218  0716                     l1012:	
-  1219  0716  2F17               	goto	l1013
-  1220                           	line	117
-  1221                           	
-  1222  0717                     l1011:	
-  1223                           	line	118
-  1224                           	
-  1225  0717                     l1013:	
-  1226  0717  0008               	return
-  1227                           	opt stack 0
-  1228                           GLOBAL	__end_of_controlMotor
-  1229  0718                     	__end_of_controlMotor:
-  1230 ;; =============== function _controlMotor ends ============
-  1231                           
-  1232                           	signat	_controlMotor,8312
-  1233                           psect	text182,local,class=CODE,delta=2
-  1234                           global __ptext182
-  1235  0000                     __ptext182:
-  1236                           	global	btemp
-  1237  007E                     	btemp set 07Eh
-  1238                           
-  1239                           	DABS	1,126,2	;btemp
-  1240                           	global	wtemp0
-  1241  007E                     	wtemp0 set btemp
+  1046  0759                     l1011:	
+  1047                           	line	118
+  1048                           	
+  1049  0759                     l1013:	
+  1050  0759  0008               	return
+  1051                           	opt stack 0
+  1052                           GLOBAL	__end_of_controlMotor
+  1053  075A                     	__end_of_controlMotor:
+  1054 ;; =============== function _controlMotor ends ============
+  1055                           
+  1056                           	signat	_controlMotor,8312
+  1057                           psect	text166,local,class=CODE,delta=2
+  1058                           global __ptext166
+  1059  0000                     __ptext166:
+  1060                           	global	btemp
+  1061  007E                     	btemp set 07Eh
+  1062                           
+  1063                           	DABS	1,126,2	;btemp
+  1064                           	global	wtemp0
+  1065  007E                     	wtemp0 set btemp
 
 
 HI-TECH Software PICC Macro Assembler V9.82 build 9453 
-Symbol Table                                                                                   Fri May 18 10:38:36 2012
+Symbol Table                                                                                   Fri May 18 15:36:10 2012
 
                   _RA0 0060                    _RA1 0061                    _RA2 0062                    _RC4 0074  
-                  _RC5 0075                    _RC6 0076                    _RC7 0077        __end_of_ADCInit 06D7  
-                  wreg 0009                   l1010 070A                   l1011 0717                   l1012 0716  
-                 l1020 078B                   l1013 0717                   l1021 078D                   l1007 06F4  
-                 l1008 0701                   l1016 0766                   l1009 0701                   l1017 078D  
-                 l1050 074D                   l1018 0779                   l1051 074C                   l1019 078C  
-                 l1036 06D6                   l1052 073E                   l1060 07FD                   l1053 073E  
-                 l1045 0732                   l1061 07FE                   l1054 0742                   l1046 0723  
-                 l1062 07FE                   l1047 0723                   l1048 0727                   l1049 074D  
-                 l1057 079B                   l1058 07E9                   l1059 07FC                   l3510 06FC  
-                 l3512 0708                   l3504 06EA                   l3520 06D4                   l3514 070B  
-                 l3506 06F1                   l3530 0730                   l3522 0718                   l3516 0711  
-                 l3508 06F6                   l3540 0743                   l3532 0731                   l3524 071E  
-                 l3518 06D1                   l3542 074B                   l3526 0721                   l3534 0732  
-                 l3550 076D                   l3536 0739                   l3528 0728                   l3552 0779  
-                 l3544 074E                   l3560 0793                   l3538 073C                   l3554 077F  
-                 l3546 075A                   l3570 07A8                   l3562 0795                   l3548 0766  
-                 l3580 07E5                   l3572 07BA                   l3564 0796                   l3556 078E  
-                 l3582 07E9                   l3574 07C7                   l3566 0797                   l3558 0791  
-                 l3584 07EC                   l3576 07D9                   l3568 079B                   l3578 07DF  
-                 _ADON 04E8                   u2400 0711                   u2401 0710                   u2410 071E  
-                 u2411 071D                   u2420 0727                   u2500 07DF                   u2421 0726  
-                 u2501 07DE                   u2430 0739                   u2510 07E5                   u2431 0738  
-                 u2511 07E4                   u2440 0742                   u2441 0741                   u2370 06F1  
-                 u2450 075A                   u2371 06F0                   u2451 0759                   u2380 06FC  
-                 u2460 076D                   u2381 06FB                   u2461 076C                   u2390 0708  
-                 u2470 077F                   u2391 0707                   u2471 077E                   u2485 07B1  
-                 u2495 07D0                   _main 078E            main@rightpt 0078                   fsr0h 0005  
-                 fsr0l 0004                   indf0 0000                   btemp 007E                   _stop 0028  
-                 start 0002          ?_controlMotor 0070                  ?_main 0070     controlMotor@Leftpt 0070  
-                _PORTA 000C                  _PORTB 000D                  _PORTC 000E                  _TRISA 008C  
-                _TRISB 008D                  _TRISC 008E           ?_readchannel 0070                  _count 0020  
-                _ticks 0030                  _start 0024                  wtemp0 007E           __end_of_main 0800  
-       ??_controlMotor 0074           ?_searchTrack 0070              ??_ADCInit 0070                 ??_main 0074  
-               _ADCON0 009D                 _ADCON1 009E                 _ADRESH 009C                 _ANSELC 018E  
-  controlMotor@Rightpt 0072                 _ignore 002E                 clrloop 06D8         __pcstackCOMMON 0070  
-           __pbssBANK0 0020   __size_of_readchannel 0036   __end_of_controlMotor 0718             __pmaintext 078E  
-              _ADCInit 06D1   __size_of_searchTrack 0040                _clock_t 002C   end_of_initialization 06E7  
-__size_of_controlMotor 002E             main@leftpt 0076           _controlMotor 06EA    start_initialization 06DD  
-             ?_ADCInit 0070            __pbssCOMMON 007C          ??_readchannel 0072              __ptext180 06D1  
-            __ptext181 06EA              __ptext182 0000              __ptext177 0000              __ptext178 074E  
-            __ptext179 0718          ??_searchTrack 0074              _lastMotor 007C    __end_of_readchannel 074E  
-             _GO_nDONE 04E9       __size_of_ADCInit 0006    __end_of_searchTrack 078E            _readchannel 0718  
-      readchannel@chan 0070          __size_of_main 0072               clear_ram 06D7            _searchTrack 074E  
+                  _RC5 0075                    _RC6 0076                    _RC7 0077        __end_of_ADCInit 0719  
+                  wreg 0009                   l1010 074C                   l1011 0759                   l1012 0758  
+                 l1013 0759                   l1007 0736                   l1008 0743                   l1009 0743  
+                 l1050 078F                   l1051 078E                   l1036 0718                   l1052 0780  
+                 l1060 07FD                   l1053 0780                   l1045 0774                   l1061 07FE  
+                 l1054 0784                   l1046 0765                   l1062 07FE                   l1047 0765  
+                 l1048 0769                   l1049 078F                   l1057 079D                   l1058 07E9  
+                 l1059 07FC                   l3510 073E                   l3512 074A                   l3504 072C  
+                 l3514 074D                   l3506 0733                   l3530 0713                   l3516 0753  
+                 l3508 0738                   l3532 0716                   l3540 076A                   l3550 077E  
+                 l3542 0772                   l3534 075A                   l3552 0785                   l3544 0773  
+                 l3536 0760                   l3560 0795                   l3554 078D                   l3538 0763  
+                 l3546 0774                   l3570 07AA                   l3562 0797                   l3548 077B  
+                 l3580 07E8                   l3572 07BC                   l3564 0798                   l3556 0790  
+                 l3582 07E9                   l3574 07C9                   l3566 0799                   l3558 0793  
+                 l3584 07EC                   l3576 07DB                   l3568 079D                   l3578 07E1  
+                 _ADON 04E8                   u2400 0753                   u2401 0752                   u2500 07E1  
+                 u2501 07E0                   u2510 07E7                   u2511 07E6                   u2440 0760  
+                 u2441 075F                   u2370 0733                   u2450 0769                   u2371 0732  
+                 u2451 0768                   u2380 073E                   u2460 077B                   u2381 073D  
+                 u2461 077A                   u2390 074A                   u2470 0784                   u2391 0749  
+                 u2471 0783                   u2485 07B3                   u2495 07D2                   _main 0790  
+          main@rightpt 0078                   fsr0h 0005                   fsr0l 0004                   indf0 0000  
+                 btemp 007E                   _stop 0028                   start 0002          ?_controlMotor 0070  
+                ?_main 0070     controlMotor@Leftpt 0070                  _PORTA 000C                  _PORTB 000D  
+                _PORTC 000E                  _TRISA 008C                  _TRISB 008D                  _TRISC 008E  
+         ?_readchannel 0070                  _count 0020                  _ticks 0030                  _start 0024  
+                wtemp0 007E           __end_of_main 0800         ??_controlMotor 0074              ??_ADCInit 0070  
+               ??_main 0074                 _ADCON0 009D                 _ADCON1 009E                 _ADRESH 009C  
+               _ANSELC 018E    controlMotor@Rightpt 0072                 _ignore 002E                 clrloop 071A  
+       __pcstackCOMMON 0070             __pbssBANK0 0020   __size_of_readchannel 0036   __end_of_controlMotor 075A  
+           __pmaintext 0790                _ADCInit 0713                _clock_t 002C   end_of_initialization 0729  
+__size_of_controlMotor 002E             main@leftpt 0076           _controlMotor 072C    start_initialization 071F  
+             ?_ADCInit 0070            __pbssCOMMON 007C          ??_readchannel 0072              __ptext162 0000  
+            __ptext163 075A              __ptext164 0713              __ptext165 072C              __ptext166 0000  
+            _lastMotor 007C    __end_of_readchannel 0790               _GO_nDONE 04E9       __size_of_ADCInit 0006  
+          _readchannel 075A        readchannel@chan 0070          __size_of_main 0070               clear_ram 0719  
              main@read 007A  
