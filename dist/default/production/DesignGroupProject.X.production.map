@@ -27,7 +27,7 @@ Linker command line:
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pfunctab=CODE \
   -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h \
   -pidloc=IDLOC -DIDLOC=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k /tmp/cgthWXRxy.obj \
+  -DENTRY=2 -k /tmp/cgtYLJfgO.obj \
   dist/default/production/DesignGroupProject.X.production.obj 
 
 Object code version is 3.10
@@ -37,7 +37,7 @@ Machine type is 16LF1516
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgthWXRxy.obj
+/tmp/cgtYLJfgO.obj
                 end_init                              2        2        3        0       0
                 reset_vec                             0        0        2        0       0
 dist/default/production/DesignGroupProject.X.production.obj

@@ -1991,12 +1991,12 @@ while (1)
 
 
 read = readchannel(1);
-leftpt = (read > 125) ? 1 : 0;
+leftpt = (read > 115) ? 1 : 0;
 
 
 
 read = readchannel(0);
-rightpt = (read > 125) ? 1 : 0;
+rightpt = (read > 115) ? 1 : 0;
 
 
 
