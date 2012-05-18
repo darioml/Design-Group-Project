@@ -8,4 +8,3 @@ build/default/production/newmain.p1:	\
 	/usr/hitech/picc/9.82/include/conio.h	\
 	/usr/hitech/picc/9.82/include/pic.h	\
 	/usr/hitech/picc/9.82/include/chip_select.h	\
-	lcd2.h	\
