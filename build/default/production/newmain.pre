@@ -1991,7 +1991,7 @@ while (1)
 
 
 read = readchannel(1);
-leftpt = (read > 115) ? 1 : 0;
+leftpt = (read > 90) ? 1 : 0;
 
 
 

@@ -2998,9 +2998,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 408: read = readchannel(1);
 "408
 [e = _read ( _readchannel (1 -> 1 `i ]
-[; ;newmain.c: 409: leftpt = (read > 115) ? 1 : 0;
+[; ;newmain.c: 409: leftpt = (read > 90) ? 1 : 0;
 "409
-[e = _leftpt ? > _read -> 115 `i : -> 1 `i -> 0 `i ]
+[e = _leftpt ? > _read -> 90 `i : -> 1 `i -> 0 `i ]
 [; ;newmain.c: 413: read = readchannel(0);
 "413
 [e = _read ( _readchannel (1 -> 0 `i ]
