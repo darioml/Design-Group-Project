@@ -1707,33 +1707,8 @@ extern struct tm * localtime(const time_t *);
 extern time_t mktime(struct tm *);
 extern size_t strftime(char *, size_t, const char *, const struct tm *);
 
-# 8 "lcd2.h"
-extern void lcd_write(unsigned char);
-
-
-
-extern void lcd_clear(void);
-
-
-
-extern void lcd_puts(const char * s);
-
-
-
-extern void lcd_goto(unsigned char pos);
-
-
-
-extern void lcd_init(void);
-
-extern void lcd_putch(char);
-
-# 32
-void SendDat(unsigned char c);
-void SendIns(unsigned char c);
-
-# 19 "newmain.c"
-asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFC & 0xFFE7");
+# 18 "newmain.c"
+asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFC & 0xFFE7 & 0xF7FF");
 
 
 
@@ -1743,7 +1718,7 @@ int clock_t, ticks; long count;
 int lastMotor;
 int ignore;
 
-# 32
+# 31
 void _delay_ms(unsigned int ms);
 void outputHighPin (bit pin);
 void outputLowPin (bit pin);
@@ -1758,21 +1733,19 @@ int readchannel(int chan);
 unsigned int ReadADC(unsigned char ADC_Channel);
 void lcdCountdown(char t);
 
-# 55
+# 53
 void _delay_ms(unsigned int ms)
 {
-unsigned char i;
 do
 {
-i = 4;
-do
+for (int i = 0; i < 5; i++)
 {
-{ unsigned char us; us = (250)/(12000000/50000L)|1; while(--us != 0) continue; };
-} while(--i);
+_nop();
+}
 } while(--ms);
 }
 
-# 83
+# 69
 void controlMotor(int Leftpt, int Rightpt)
 {
 if (Leftpt == 1)
@@ -1810,7 +1783,7 @@ lastMotor = 2;
 }
 }
 
-# 125
+# 111
 int searchTrack(void)
 {
 ignore = 1;
@@ -1828,92 +1801,71 @@ controlMotor(1,1);
 }
 }
 
-# 149
-int controlLCD()
-{
-
-}
-
-# 164
-int controlBuzzer()
-{
-
-RC4 = 1;
-_delay_ms(200);
-RC4 = 0;
-_delay_ms(700);
-
-RC4 = 1;
-_delay_ms(700);
-RC4 = 0;
-_delay_ms(700);
-
-RC4 = 1;
-_delay_ms(200);
-RC4 = 0;
-_delay_ms(700);
-
-RC5 = 1;
-_delay_ms(300);
-RC5 = 0;
-
-}
-
+# 139
 void doDelay()
 {
-RC4 = 0;
-RC5 = 0;
+RC2 = 0;
+_delay_ms(500);
+RC2 = 1;
+_delay_ms(500);
 
-lcdCountdown('8');
+RC2 = 0;
+_delay_ms(500);
+RC2 = 1;
+_delay_ms(500);
+
+RC2 = 0;
+_delay_ms(500);
+RC2 = 1;
+_delay_ms(500);
+RC2 = 0;
+
 _delay_ms(1000);
 
-lcdCountdown('7');
-_delay_ms(1000);
-
-lcdCountdown('6');
-_delay_ms(1000);
-
-lcdCountdown('5');
-_delay_ms(1000);
-
-lcdCountdown('4');
-_delay_ms(1000);
 
 
-
-lcdCountdown('3');
-RC4 = 1;
-_delay_ms(200);
-RC4 = 0;
-_delay_ms(700);
-
-RC4 = 1;
-_delay_ms(100);
-lcdCountdown('2');
-_delay_ms(100);
-RC4 = 0;
-_delay_ms(700);
-
-RC4 = 1;
-_delay_ms(200);
-lcdCountdown('1');
-RC4 = 0;
-_delay_ms(700);
-
-RC5 = 1;
-_delay_ms(300);
-RC5 = 0;
-
-
-
-}
-
-void lcdCountdown(char t)
+for (int i = 0; i < 80; i++)
 {
+RC3 = 1;
+_delay_ms(4);
+RC3 = 0;
+_delay_ms(4);
+}
+_delay_ms(360);
+
+
+for (int i = 0; i < 80; i++)
+{
+RC3 = 1;
+_delay_ms(4);
+RC3 = 0;
+_delay_ms(4);
+}
+_delay_ms(360);
+
+for (int i = 0; i < 80; i++)
+{
+RC3 = 1;
+_delay_ms(4);
+RC3 = 0;
+_delay_ms(4);
+}
+_delay_ms(360);
+
+_delay_ms(200);
+
+for (int i = 0; i < 400; i++)
+{
+RC3 = 1;
+_delay_ms(1);
+RC3 = 0;
+_delay_ms(1);
+}
+
+
 
 
 }
-
 
 
 void ADCInit()
@@ -1925,25 +1877,6 @@ ADCON1 = 0x00;
 
 }
 
-
-unsigned int ADCRead(unsigned char ch)
-{
-
-ADCON0 = 0x00;
-ADCON0 = (ch<<2);
-
-ADON=1;
-
-GO_nDONE=1;
-while(GO_nDONE);
-
-ADON=0;
-
-return ADRESH;
-
-}
-
-# 334
 int readchannel(int chan)
 {
 if (chan == 0)
@@ -1981,25 +1914,20 @@ PORTA = 0x00;
 PORTB = 0x00;
 PORTC = 0x00;
 
-# 382
+doDelay();
+
 ADCInit ();
 
-# 403
 int leftpt, rightpt, read;
 while (1)
 {
 
-
 read = readchannel(1);
-leftpt = (read > 90) ? 1 : 0;
-
+leftpt = (read > 80) ? 1 : 0;
 
 
 read = readchannel(0);
-rightpt = (read > 115) ? 1 : 0;
-
-
-
+rightpt = (read > 80) ? 1 : 0;
 
 if((leftpt==0) && (rightpt==0))
 {
