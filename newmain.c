@@ -22,7 +22,6 @@ __CONFIG(FOSC_INTOSC & WDTE_OFF & CLKOUTEN_ON);
 time_t start, stop;
 int clock_t, ticks; long count;
 int lastMotor;
-int ignore;
 
 /*
  function declerations
@@ -89,7 +88,6 @@ void controlMotor(int rightmotor, int leftmotor)
 // *************************************************
 int searchTrack(void)
 {
-    ignore = 1;
     if (lastMotor == 2)
     {
         controlMotor(1, 0);
@@ -281,7 +279,6 @@ int main(void)
         }
         else
         {
-            ignore = 0; //we want to store the last motor
             controlMotor(leftpt, rightpt); //Note: LeftPT controls RIGHT motor, and v.v.
         }
     }
