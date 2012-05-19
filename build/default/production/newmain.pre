@@ -1707,7 +1707,7 @@ extern struct tm * localtime(const time_t *);
 extern time_t mktime(struct tm *);
 extern size_t strftime(char *, size_t, const char *, const struct tm *);
 
-# 18 "newmain.c"
+# 17 "newmain.c"
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFC & 0xFFE7 & 0xF7FF");
 
 
@@ -1718,22 +1718,15 @@ int clock_t, ticks; long count;
 int lastMotor;
 int ignore;
 
-# 31
+# 30
 void _delay_ms(unsigned int ms);
-void outputHighPin (bit pin);
-void outputLowPin (bit pin);
-void controlMotor(int Leftpt, int Rightpt);
+void controlMotor(int rightmotor, int leftmotor);
 int searchTrack(void);
-int controlLCD();
-int controlBuzzer();
 void ADCInit();
-unsigned int ADCRead(unsigned char ch);
-void InitialiseADC (unsigned char ADC_Channel);
 int readchannel(int chan);
-unsigned int ReadADC(unsigned char ADC_Channel);
-void lcdCountdown(char t);
+void doDelay();
 
-# 53
+# 45
 void _delay_ms(unsigned int ms)
 {
 do
@@ -1745,10 +1738,10 @@ _nop();
 } while(--ms);
 }
 
-# 69
-void controlMotor(int Leftpt, int Rightpt)
+# 61
+void controlMotor(int rightmotor, int leftmotor)
 {
-if (Leftpt == 1)
+if (rightmotor == 1)
 {
 
 
@@ -1759,14 +1752,14 @@ else
 
 
 RC6 = 0;
-if (ignore == 0)
-{
+
+
 lastMotor = 1;
-}
+
 }
 
 
-if (Rightpt == 1)
+if (leftmotor == 1)
 {
 
 
@@ -1776,14 +1769,14 @@ else
 {
 
 RC7 = 0;
-if (ignore == 0)
-{
+
+
 lastMotor = 2;
-}
+
 }
 }
 
-# 111
+# 103
 int searchTrack(void)
 {
 ignore = 1;
@@ -1801,26 +1794,52 @@ controlMotor(1,1);
 }
 }
 
-# 139
+# 131
 void doDelay()
 {
-RC2 = 0;
-_delay_ms(500);
-RC2 = 1;
-_delay_ms(500);
 
-RC2 = 0;
-_delay_ms(500);
-RC2 = 1;
-_delay_ms(500);
+for (int i = 0; i < 12; i++)
+{
+RC3 = 1;
+_delay_ms(8);
+RC3 = 0;
+_delay_ms(8);
+}
+_delay_ms(808);
 
-RC2 = 0;
-_delay_ms(500);
-RC2 = 1;
-_delay_ms(500);
-RC2 = 0;
 
-_delay_ms(1000);
+
+for (int i = 0; i < 12; i++)
+{
+RC3 = 1;
+_delay_ms(8);
+RC3 = 0;
+_delay_ms(8);
+}
+_delay_ms(808);
+
+
+
+for (int i = 0; i < 12; i++)
+{
+RC3 = 1;
+_delay_ms(8);
+RC3 = 0;
+_delay_ms(8);
+}
+_delay_ms(808);
+
+
+
+for (int i = 0; i < 12; i++)
+{
+RC3 = 1;
+_delay_ms(8);
+RC3 = 0;
+_delay_ms(8);
+}
+_delay_ms(808);
+
 
 
 
@@ -1831,7 +1850,25 @@ _delay_ms(4);
 RC3 = 0;
 _delay_ms(4);
 }
-_delay_ms(360);
+
+
+
+_delay_ms(426);
+
+
+
+for (int i = 0; i < 80; i++)
+{
+RC3 = 1;
+_delay_ms(4);
+RC3 = 0;
+_delay_ms(4);
+}
+
+
+
+_delay_ms(427);
+
 
 
 for (int i = 0; i < 80; i++)
@@ -1841,18 +1878,12 @@ _delay_ms(4);
 RC3 = 0;
 _delay_ms(4);
 }
-_delay_ms(360);
 
-for (int i = 0; i < 80; i++)
-{
-RC3 = 1;
-_delay_ms(4);
-RC3 = 0;
-_delay_ms(4);
-}
-_delay_ms(360);
 
-_delay_ms(200);
+
+_delay_ms(427);
+
+
 
 for (int i = 0; i < 400; i++)
 {
@@ -1863,8 +1894,6 @@ _delay_ms(1);
 }
 
 
-
-
 }
 
 
@@ -1872,9 +1901,6 @@ void ADCInit()
 {
 ANSELC = 0b00110000;
 ADCON1 = 0x00;
-
-
-
 }
 
 int readchannel(int chan)

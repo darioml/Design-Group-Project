@@ -671,19 +671,19 @@
 [v ___wmul `(ui  1 e 2 0 ]
 "3 bmul.c
 [v ___bmul `(uc  1 e 1 0 ]
-"54 newmain.c
+"46 newmain.c
 [v __delay_ms `(v  1 e 0 0 ]
-"70
+"62
 [v _controlMotor `(v  1 e 0 0 ]
-"112
+"104
 [v _searchTrack `(i  1 e 2 0 ]
-"140
+"132
 [v _doDelay `(v  1 e 0 0 ]
-"206
+"234
 [v _ADCInit `(v  1 e 0 0 ]
-"215
+"240
 [v _readchannel `(i  1 e 2 0 ]
-"241
+"266
 [v _main `(i  1 e 2 0 ]
 "127 /usr/hitech/picc/9.82/include/pic16lf1516.h
 [v _INDF0 `VEuc  1 e 1 @0 ]
@@ -1663,68 +1663,76 @@
 [v _TOSH `VEuc  1 e 1 @4079 ]
 "1773
 [v _TOSHbits `VES83  1 e 1 @4079 ]
-"23 newmain.c
+"22 newmain.c
 [v _start `l  1 e 4 0 ]
 [v _stop `l  1 e 4 0 ]
-"24
+"23
 [v _clock_t `i  1 e 2 0 ]
 [v _ticks `i  1 e 2 0 ]
 [v _count `l  1 e 4 0 ]
-"25
+"24
 [v _lastMotor `i  1 e 2 0 ]
-"26
+"25
 [v _ignore `i  1 e 2 0 ]
-"241
+"266
 [v _main `(i  1 e 2 0 ]
 {
-"255
-[v main@read `i  1 a 2 4 ]
-[v main@rightpt `i  1 a 2 2 ]
-[v main@leftpt `i  1 a 2 0 ]
-"277
+"280
+[v main@read `i  1 a 2 10 ]
+[v main@rightpt `i  1 a 2 8 ]
+[v main@leftpt `i  1 a 2 6 ]
+"302
 } 0
-"140
+"132
 [v _doDelay `(v  1 e 0 0 ]
 {
-"191
-[v doDelay@i_1630 `i  1 a 2 10 ]
-"180
-[v doDelay@i_1629 `i  1 a 2 8 ]
-"171
-[v doDelay@i_1628 `i  1 a 2 6 ]
-"161
-[v doDelay@i `i  1 a 2 4 ]
-"202
+"221
+[v doDelay@i_1634 `i  1 a 2 14 ]
+"207
+[v doDelay@i_1633 `i  1 a 2 12 ]
+"193
+[v doDelay@i_1632 `i  1 a 2 10 ]
+"179
+[v doDelay@i_1631 `i  1 a 2 8 ]
+"167
+[v doDelay@i_1630 `i  1 a 2 6 ]
+"156
+[v doDelay@i_1629 `i  1 a 2 4 ]
+"145
+[v doDelay@i_1628 `i  1 a 2 2 ]
+"134
+[v doDelay@i `i  1 a 2 0 ]
+"230
 } 0
-"112
+"104
 [v _searchTrack `(i  1 e 2 0 ]
 {
-"126
+"118
 } 0
-"54
+"46
 [v __delay_ms `(v  1 e 0 0 ]
 {
-"57
+"49
 [v __delay_ms@i `i  1 a 2 2 ]
-"54
+"46
 [v __delay_ms@ms `ui  1 p 2 0 ]
-"62
+"54
 } 0
-"215
+"240
 [v _readchannel `(i  1 e 2 0 ]
 {
 [v readchannel@chan `i  1 p 2 0 ]
-"238
+"263
 } 0
-"206
+"234
 [v _ADCInit `(v  1 e 0 0 ]
 {
-"212
+"237
 } 0
-"70
+"62
 [v _controlMotor `(v  1 e 0 0 ]
 {
-[v controlMotor@Leftpt `i  1 p 2 0 ]
-[v controlMotor@Rightpt `i  1 p 2 2 ]
-"104
+[v controlMotor@rightmotor `i  1 p 2 0 ]
+[v controlMotor@leftmotor `i  1 p 2 2 ]
+"96
 } 0

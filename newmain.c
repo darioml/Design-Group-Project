@@ -2,9 +2,6 @@
 #include <pic.h>
 #include <htc.h>
 #include <time.h>
-// Using Internal Clock of 20 Mhz
-//#define FOSC 800000
-
 
 //Bug variables
 #define	BUGMOTOR_R RC6
@@ -12,6 +9,8 @@
 
 #define	BUGSENSOR_R RC4
 #define	BUGSENSOR_L RC5
+
+#define BUGSPEAKER RC3
 
 
 
@@ -29,18 +28,11 @@ int ignore;
  function declerations
  */
 void _delay_ms(unsigned int ms);
-void outputHighPin (bit pin);
-void outputLowPin (bit pin);
-void controlMotor(int Leftpt, int Rightpt);
+void controlMotor(int rightmotor, int leftmotor);
 int searchTrack(void);
-int controlLCD();
-int controlBuzzer();
 void ADCInit();
-unsigned int ADCRead(unsigned char ch);
-void InitialiseADC (unsigned char ADC_Channel);
 int readchannel(int chan);
-unsigned int ReadADC(unsigned char ADC_Channel);
-void lcdCountdown(char t);
+void doDelay();
 
 
 
@@ -66,40 +58,27 @@ void _delay_ms(unsigned int ms)
 // Added function to help keep the bug on track
 // *************************************************
 
-void controlMotor(int Leftpt, int Rightpt)
+void controlMotor(int rightmotor, int leftmotor)
 {
-    if (Leftpt == 1)
+    if (rightmotor == 1)
     {
-        //if left sensor is on track, turn on right motor
-        //outputHighPin (RC6); // RC6 is right motor
         BUGMOTOR_R = 1;
     }
     else
     {
-        //if left sensor is off track, switch off right motor
-        //outputLowPin (RC6);
         BUGMOTOR_R = 0;
-        if (ignore == 0)
-        {
-            lastMotor = 1;
-        }
+        lastMotor = 1;
     }
 
 
-    if (Rightpt == 1)
+    if (leftmotor == 1)
     {
-        //similarly, we do the same for the right motor
-        //outputHighPin (RC7); //RC7 is left motor
         BUGMOTOR_L = 1;
     }
     else
     {
-        //outputLowPin (RC7);
         BUGMOTOR_L = 0;
-        if (ignore == 0)
-        {
-            lastMotor = 2;
-        }
+        lastMotor = 2;
     }
 }
 
@@ -138,82 +117,115 @@ int searchTrack(void)
 
 void doDelay()
 {
-    RC2 = 0;
-    _delay_ms(500); //sleep for 1 second
-    RC2 = 1;
-    _delay_ms(500); //sleep for 1 second
+    // 0 seconds
+    for (int i = 0; i < 12; i++)
+    {
+        BUGSPEAKER = 1;
+        _delay_ms(8);
+        BUGSPEAKER = 0;
+        _delay_ms(8);
+    }
+    _delay_ms(808); //sleep for 1 second
 
-    RC2 = 0;
-    _delay_ms(500); //sleep for 1 second
-    RC2 = 1;
-    _delay_ms(500); //sleep for 1 second
+    // 1 second
 
-    RC2 = 0;
-    _delay_ms(500); //sleep for 1 second
-    RC2 = 1;
-    _delay_ms(500); //sleep for 1 second
-    RC2 = 0;
+    for (int i = 0; i < 12; i++)
+    {
+        BUGSPEAKER = 1;
+        _delay_ms(8);
+        BUGSPEAKER = 0;
+        _delay_ms(8);
+    }
+    _delay_ms(808); //sleep for 1 second
 
-    _delay_ms(1000);
+    // 2 seconds
 
-    //From here on, we need to do the buzzer s in a nice timespace, while keeping 1 seconds
-    //for each LCD countdown.
+    for (int i = 0; i < 12; i++)
+    {
+        BUGSPEAKER = 1;
+        _delay_ms(8);
+        BUGSPEAKER = 0;
+        _delay_ms(8);
+    }
+    _delay_ms(808); //sleep for 1 second
+
+    // 3 seconds
+
+    for (int i = 0; i < 12; i++)
+    {
+        BUGSPEAKER = 1;
+        _delay_ms(8);
+        BUGSPEAKER = 0;
+        _delay_ms(8);
+    }
+    _delay_ms(808); //sleep for 1 second
+
+    // 4 seconds
+
+    //From here on, we need to do the speaker sounds in a nice timespace
     for (int i = 0; i < 80; i++)
     {
-        RC3 = 1;
+        BUGSPEAKER = 1;
         _delay_ms(4);
-        RC3 = 0;
-        _delay_ms(4);
-    }
-    _delay_ms(360);
-
-
-    for (int i = 0; i < 80; i++)
-    {
-        RC3 = 1;
-        _delay_ms(4);
-        RC3 = 0;
+        BUGSPEAKER = 0;
         _delay_ms(4);
     }
-    _delay_ms(360);
 
-    for (int i = 0; i < 80; i++)
-    {
-        RC3 = 1;
-        _delay_ms(4);
-        RC3 = 0;
-        _delay_ms(4);
-    }
-    _delay_ms(360);
+    // 4s 640ms
     
-    _delay_ms(200);
+    _delay_ms(426);
+
+    // 5s 66ms
+
+    for (int i = 0; i < 80; i++)
+    {
+        BUGSPEAKER = 1;
+        _delay_ms(4);
+        BUGSPEAKER = 0;
+        _delay_ms(4);
+    }
+
+    // 5s 706ms
+    
+    _delay_ms(427);
+
+    // 6s 133ms
+
+    for (int i = 0; i < 80; i++)
+    {
+        BUGSPEAKER = 1;
+        _delay_ms(4);
+        BUGSPEAKER = 0;
+        _delay_ms(4);
+    }
+
+    // 6s 773ms
+
+    _delay_ms(427);
+
+    // 7s 200ms
     
     for (int i = 0; i < 400; i++)
     {
-        RC3 = 1;
+        BUGSPEAKER = 1;
         _delay_ms(1);
-        RC3 = 0;
+        BUGSPEAKER = 0;
         _delay_ms(1);
     }
-    
 
-    //lcd_goto(0);	// select first line
-    //lcd_puts("Start!");
+    // 8s
 }
 
 //Function to Initialise the ADC Module
 void ADCInit()
 {
-    ANSELC = 0b00110000;
-    ADCON1 = 0x00;
-    //ANSEL = 0b11111111; //Make all analogue inputs accept analogue
-                        //We only use inputs for the phototransistors, so nothing else is affected
-    //ADCON1	= 0b10000100; this is for the clock, but it's fine as it is per default!
+    ANSELC = 0b00110000; //Make RC4 and RC5 analogue inputs
+    ADCON1 = 0x00;       //Use the PIC clock for the A/D
 }
 
 int readchannel(int chan)
 {
-    if (chan == 0) //A/D AN5 RE0
+    if (chan == 0)
     {
         ADCON0 = 0b01000001; // Read RC4 AN16
 
@@ -222,9 +234,9 @@ int readchannel(int chan)
 
         ADON=0;  //switch off adc
 
-        return ADRESH;
+        return ADRESH; //give back the first 8 bits, ignore the last two in ADRESL
     }
-    else if (chan == 1) //A/D AN6 RE1
+    else if (chan == 1)
     {
         ADCON0 = 0b01000101; // Read RC5 AN17
 
@@ -233,7 +245,7 @@ int readchannel(int chan)
 
         ADON=0;  //switch off adc
 
-        return ADRESH;
+        return ADRESH; //give back the first 8 bits, ignore the last two in ADRESL
     }
 }
 
@@ -257,20 +269,20 @@ int main(void)
     {
         //test for left phototransistor
         read = readchannel(1);
-        leftpt = (read > 70) ? 1 : 0;
+        leftpt = (read > 70) ? 1 : 0; //if it's on the white track, turn the right motor on
 
         //test for right phototransistor
         read = readchannel(0);
-        rightpt = (read > 70) ? 1 : 0;
+        rightpt = (read > 70) ? 1 : 0; //if it's on the white track, turn the left motor on
 
-        if((leftpt==0) && (rightpt==0))
+        if((leftpt==0) && (rightpt==0)) //if they are both of the track, find it!
         {
             searchTrack();
         }
         else
         {
-            ignore = 0;
-            controlMotor(leftpt, rightpt);
+            ignore = 0; //we want to store the last motor
+            controlMotor(leftpt, rightpt); //Note: LeftPT controls RIGHT motor, and v.v.
         }
     }
 
