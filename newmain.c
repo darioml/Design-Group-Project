@@ -5,7 +5,7 @@
 
 //Bug variables
 #define	BUGMOTOR_R RC6
-#define	BUGMOTOR_L RC7
+#define	BUGMOTOR_L RC2
 
 #define	BUGSENSOR_R RC4
 #define	BUGSENSOR_L RC5
