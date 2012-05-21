@@ -1716,9 +1716,8 @@ asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFC & 0xFFE7 & 0xF7FF
 time_t start, stop;
 int clock_t, ticks; long count;
 int lastMotor;
-int ignore;
 
-# 30
+# 29
 void _delay_ms(unsigned int ms);
 void controlMotor(int rightmotor, int leftmotor);
 int searchTrack(void);
@@ -1726,7 +1725,7 @@ void ADCInit();
 int readchannel(int chan);
 void doDelay();
 
-# 45
+# 44
 void _delay_ms(unsigned int ms)
 {
 do
@@ -1738,48 +1737,34 @@ _nop();
 } while(--ms);
 }
 
-# 61
+# 60
 void controlMotor(int rightmotor, int leftmotor)
 {
 if (rightmotor == 1)
 {
-
-
 RC6 = 1;
 }
 else
 {
-
-
 RC6 = 0;
-
-
 lastMotor = 1;
-
 }
 
 
 if (leftmotor == 1)
 {
-
-
 RC7 = 1;
 }
 else
 {
-
 RC7 = 0;
-
-
 lastMotor = 2;
-
 }
 }
 
-# 103
+# 89
 int searchTrack(void)
 {
-ignore = 1;
 if (lastMotor == 2)
 {
 controlMotor(1, 0);
@@ -1794,51 +1779,12 @@ controlMotor(1,1);
 }
 }
 
-# 131
+# 116
 void doDelay()
 {
 
-for (int i = 0; i < 12; i++)
-{
-RC3 = 1;
-_delay_ms(8);
-RC3 = 0;
-_delay_ms(8);
-}
-_delay_ms(808);
 
-
-
-for (int i = 0; i < 12; i++)
-{
-RC3 = 1;
-_delay_ms(8);
-RC3 = 0;
-_delay_ms(8);
-}
-_delay_ms(808);
-
-
-
-for (int i = 0; i < 12; i++)
-{
-RC3 = 1;
-_delay_ms(8);
-RC3 = 0;
-_delay_ms(8);
-}
-_delay_ms(808);
-
-
-
-for (int i = 0; i < 12; i++)
-{
-RC3 = 1;
-_delay_ms(8);
-RC3 = 0;
-_delay_ms(8);
-}
-_delay_ms(808);
+_delay_ms(4000);
 
 
 
@@ -1949,11 +1895,11 @@ while (1)
 {
 
 read = readchannel(1);
-leftpt = (read > 70) ? 1 : 0;
+leftpt = (read > 85) ? 1 : 0;
 
 
 read = readchannel(0);
-rightpt = (read > 70) ? 1 : 0;
+rightpt = (read > 85) ? 1 : 0;
 
 if((leftpt==0) && (rightpt==0))
 {
@@ -1961,7 +1907,6 @@ searchTrack();
 }
 else
 {
-ignore = 0;
 controlMotor(leftpt, rightpt);
 }
 }
