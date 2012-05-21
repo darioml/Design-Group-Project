@@ -116,47 +116,8 @@ int searchTrack(void)
 void doDelay()
 {
     // 0 seconds
-    for (int i = 0; i < 12; i++)
-    {
-        BUGSPEAKER = 1;
-        _delay_ms(8);
-        BUGSPEAKER = 0;
-        _delay_ms(8);
-    }
-    _delay_ms(808); //sleep for 1 second
-
-    // 1 second
-
-    for (int i = 0; i < 12; i++)
-    {
-        BUGSPEAKER = 1;
-        _delay_ms(8);
-        BUGSPEAKER = 0;
-        _delay_ms(8);
-    }
-    _delay_ms(808); //sleep for 1 second
-
-    // 2 seconds
-
-    for (int i = 0; i < 12; i++)
-    {
-        BUGSPEAKER = 1;
-        _delay_ms(8);
-        BUGSPEAKER = 0;
-        _delay_ms(8);
-    }
-    _delay_ms(808); //sleep for 1 second
-
-    // 3 seconds
-
-    for (int i = 0; i < 12; i++)
-    {
-        BUGSPEAKER = 1;
-        _delay_ms(8);
-        BUGSPEAKER = 0;
-        _delay_ms(8);
-    }
-    _delay_ms(808); //sleep for 1 second
+    
+    _delay_ms(4000); //sleep for 4 second
 
     // 4 seconds
 
