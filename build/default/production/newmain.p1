@@ -2885,15 +2885,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 230: read = readchannel(1);
 "230
 [e = _read ( _readchannel (1 -> 1 `i ]
-[; ;newmain.c: 231: leftpt = (read > 125) ? 1 : 0;
+[; ;newmain.c: 231: leftpt = (read > 120) ? 1 : 0;
 "231
-[e = _leftpt ? > _read -> 125 `i : -> 1 `i -> 0 `i ]
+[e = _leftpt ? > _read -> 120 `i : -> 1 `i -> 0 `i ]
 [; ;newmain.c: 234: read = readchannel(0);
 "234
 [e = _read ( _readchannel (1 -> 0 `i ]
-[; ;newmain.c: 235: rightpt = (read > 125) ? 1 : 0;
+[; ;newmain.c: 235: rightpt = (read > 120) ? 1 : 0;
 "235
-[e = _rightpt ? > _read -> 125 `i : -> 1 `i -> 0 `i ]
+[e = _rightpt ? > _read -> 120 `i : -> 1 `i -> 0 `i ]
 [; ;newmain.c: 237: if((leftpt==0) && (rightpt==0))
 "237
 [e $ ! && == _leftpt -> 0 `i == _rightpt -> 0 `i 179  ]

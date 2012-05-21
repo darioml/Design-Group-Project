@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
-                                                                                               Mon May 21 11:34:45 2012
+                                                                                               Mon May 21 11:39:37 2012
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
@@ -102,7 +102,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
     96  04E9                     _GO_nDONE	set	1257
     97                           	global	_ANSELC
     98  018E                     _ANSELC	set	398
-    99                           	file	"/tmp/cgtqcbyG9"
+    99                           	file	"/tmp/cgt6Zw9EK"
    100                           	line	#
    101                           psect cinit,class=CODE,delta=2
    102                           global start_initialization
@@ -537,15 +537,15 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    531                           	line	231
    532                           	
    533  06B6                     l2485:	
-   534                           ;newmain.c: 231: leftpt = (read > 125) ? 1 : 0;
+   534                           ;newmain.c: 231: leftpt = (read > 120) ? 1 : 0;
    535  06B6  0837               	movf	(main@read+1),w
    536  06B7  3A80               	xorlw	80h
    537  06B8  00FF               	movwf	btemp+1
-   538  06B9  3080               	movlw	(high(07Eh))^80h
+   538  06B9  3080               	movlw	(high(079h))^80h
    539  06BA  027F               	subwf	btemp+1,w
    540  06BB  1D03               	skipz
    541  06BC  2EBF               	goto	u2515
-   542  06BD  307E               	movlw	low(07Eh)
+   542  06BD  3079               	movlw	low(079h)
    543  06BE  0236               	subwf	(main@read),w
    544  06BF                     u2515:
    545                           
@@ -577,15 +577,15 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    571                           	line	235
    572                           	
    573  06D7                     l2487:	
-   574                           ;newmain.c: 235: rightpt = (read > 125) ? 1 : 0;
+   574                           ;newmain.c: 235: rightpt = (read > 120) ? 1 : 0;
    575  06D7  0837               	movf	(main@read+1),w
    576  06D8  3A80               	xorlw	80h
    577  06D9  00FF               	movwf	btemp+1
-   578  06DA  3080               	movlw	(high(07Eh))^80h
+   578  06DA  3080               	movlw	(high(079h))^80h
    579  06DB  027F               	subwf	btemp+1,w
    580  06DC  1D03               	skipz
    581  06DD  2EE0               	goto	u2525
-   582  06DE  307E               	movlw	low(07Eh)
+   582  06DE  3079               	movlw	low(079h)
    583  06DF  0236               	subwf	(main@read),w
    584  06E0                     u2525:
    585                           
@@ -1820,7 +1820,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
 
 
 HI-TECH Software PICC Macro Assembler V9.82 build 9453 
-Symbol Table                                                                                   Mon May 21 11:34:45 2012
+Symbol Table                                                                                   Mon May 21 11:39:37 2012
 
                    l995 05F4                     l996 0605                     l997 0618                     l998 0623  
                    l999 0623                     _RC3 0073                     _RC6 0076                     _RC7 0077  

@@ -1895,11 +1895,11 @@ while (1)
 {
 
 read = readchannel(1);
-leftpt = (read > 125) ? 1 : 0;
+leftpt = (read > 120) ? 1 : 0;
 
 
 read = readchannel(0);
-rightpt = (read > 125) ? 1 : 0;
+rightpt = (read > 120) ? 1 : 0;
 
 if((leftpt==0) && (rightpt==0))
 {
