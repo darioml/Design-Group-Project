@@ -228,11 +228,11 @@ int main(void)
     {
         //test for left phototransistor
         read = readchannel(1);
-        leftpt = (read > 70) ? 1 : 0; //if it's on the white track, turn the right motor on
+        leftpt = (read > 100) ? 1 : 0; //if it's on the white track, turn the right motor on
 
         //test for right phototransistor
         read = readchannel(0);
-        rightpt = (read > 70) ? 1 : 0; //if it's on the white track, turn the left motor on
+        rightpt = (read > 100) ? 1 : 0; //if it's on the white track, turn the left motor on
 
         if((leftpt==0) && (rightpt==0)) //if they are both of the track, find it!
         {

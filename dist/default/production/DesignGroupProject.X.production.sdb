@@ -671,19 +671,19 @@
 [v ___wmul `(ui  1 e 2 0 ]
 "3 bmul.c
 [v ___bmul `(uc  1 e 1 0 ]
-"46 newmain.c
+"45 newmain.c
 [v __delay_ms `(v  1 e 0 0 ]
-"62
+"61
 [v _controlMotor `(v  1 e 0 0 ]
-"104
+"90
 [v _searchTrack `(i  1 e 2 0 ]
-"132
+"117
 [v _doDelay `(v  1 e 0 0 ]
-"234
+"180
 [v _ADCInit `(v  1 e 0 0 ]
-"240
+"186
 [v _readchannel `(i  1 e 2 0 ]
-"266
+"212
 [v _main `(i  1 e 2 0 ]
 "127 /usr/hitech/picc/9.82/include/pic16lf1516.h
 [v _INDF0 `VEuc  1 e 1 @0 ]
@@ -1672,67 +1672,57 @@
 [v _count `l  1 e 4 0 ]
 "24
 [v _lastMotor `i  1 e 2 0 ]
-"25
-[v _ignore `i  1 e 2 0 ]
-"266
+"212
 [v _main `(i  1 e 2 0 ]
 {
-"280
-[v main@read `i  1 a 2 10 ]
-[v main@rightpt `i  1 a 2 8 ]
-[v main@leftpt `i  1 a 2 6 ]
-"302
+"226
+[v main@read `i  1 a 2 4 ]
+[v main@rightpt `i  1 a 2 2 ]
+[v main@leftpt `i  1 a 2 0 ]
+"247
 } 0
-"132
+"117
 [v _doDelay `(v  1 e 0 0 ]
 {
-"221
-[v doDelay@i_1634 `i  1 a 2 14 ]
-"207
-[v doDelay@i_1633 `i  1 a 2 12 ]
-"193
-[v doDelay@i_1632 `i  1 a 2 10 ]
-"179
-[v doDelay@i_1631 `i  1 a 2 8 ]
 "167
-[v doDelay@i_1630 `i  1 a 2 6 ]
-"156
-[v doDelay@i_1629 `i  1 a 2 4 ]
-"145
-[v doDelay@i_1628 `i  1 a 2 2 ]
-"134
-[v doDelay@i `i  1 a 2 0 ]
-"230
+[v doDelay@i_1629 `i  1 a 2 10 ]
+"153
+[v doDelay@i_1628 `i  1 a 2 8 ]
+"139
+[v doDelay@i_1627 `i  1 a 2 6 ]
+"125
+[v doDelay@i `i  1 a 2 4 ]
+"176
 } 0
-"104
+"90
 [v _searchTrack `(i  1 e 2 0 ]
 {
-"118
+"103
 } 0
-"46
+"45
 [v __delay_ms `(v  1 e 0 0 ]
 {
-"49
+"48
 [v __delay_ms@i `i  1 a 2 2 ]
-"46
+"45
 [v __delay_ms@ms `ui  1 p 2 0 ]
-"54
+"53
 } 0
-"240
+"186
 [v _readchannel `(i  1 e 2 0 ]
 {
 [v readchannel@chan `i  1 p 2 0 ]
-"263
+"209
 } 0
-"234
+"180
 [v _ADCInit `(v  1 e 0 0 ]
 {
-"237
+"183
 } 0
-"62
+"61
 [v _controlMotor `(v  1 e 0 0 ]
 {
 [v controlMotor@rightmotor `i  1 p 2 0 ]
 [v controlMotor@leftmotor `i  1 p 2 2 ]
-"96
+"82
 } 0
